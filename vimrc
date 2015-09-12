@@ -37,8 +37,11 @@ syntax enable
  syntax on
 
 set background=dark
+"" solarized options 
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+let g:solarized_termcolors = 256
 colorscheme solarized
-"colorscheme hemisu
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
