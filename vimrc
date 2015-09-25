@@ -18,6 +18,7 @@ Plugin 'leshill/vim-json'
 Plugin '1995eaton/vim-better-css-completion'
 Plugin 'tpope/vim-commentary'
 Plugin 'kien/ctrlp.vim'
+Plugin 'jaxbot/browserlink.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
