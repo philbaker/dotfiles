@@ -413,3 +413,10 @@ noremap <silent> <C-9> <C-W>+
 noremap <silent> <C-0> <C-W>>
 
 set omnifunc=syntaxcomplete#Complete
+
+"Open browser
+nnoremap <F12>f :exe ':silent !open -a /Applications/Firefox.app %'<CR>
+nnoremap <F12>c :exe ':silent !open -a /Applications/Google\ Chrome.app %'<CR>
+nnoremap <F12>g :exe ':silent !open -a /Applications/Google\ Chrome.app %'<CR>
+nnoremap <F12>s :exe ':silent !open /Applications/Safari.app %'<CR>
+
