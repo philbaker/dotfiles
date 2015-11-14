@@ -13,6 +13,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'tmhedberg/matchit'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin '1995eaton/vim-better-javascript-completion'
@@ -65,8 +66,8 @@ set encoding=utf-8
 
 " Set relevant filetypes
 "au BufRead,BufNewFile *.scss set filetype=css
-au BufRead,BufNewFile *.md set filetype=markdown
-au BufRead,BufNewFile *.html set syntax=xml
+"au BufRead,BufNewFile *.md set filetype=markdown
+"au BufRead,BufNewFile *.html set syntax=xml
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -116,9 +117,9 @@ set sidescrolloff=5
 set sidescroll=1
 " Allow motions and back-spacing over line-endings etc
 set backspace=indent,eol,start
-set whichwrap=h,l,b,<,>,~,[,]
+" set whichwrap=h,l,b,<,>,~,[,]
 " Underscores denote words
-set iskeyword-=_
+"set iskeyword-=_
 
 """"""""""""""""""""""""""""""
 " => Status line
