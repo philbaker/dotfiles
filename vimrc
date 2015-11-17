@@ -25,7 +25,7 @@ Plugin 'jaxbot/browserlink.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'smeggingsmegger/ag.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'StanAngeloff/php.vim'
+Plugin 'captbaritone/better-indent-support-for-php-with-html'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -92,6 +92,8 @@ set breakindent
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" make onmicompletion less painful
+inoremap <C-y> <C-x><C-o>
 
 " " Treat long lines as break lines (useful when moving around in them)
 map j gj
@@ -275,12 +277,15 @@ nnoremap <leader>h :Ag<space>
 map <leader>n :cn<cr>
 map <leader>p :cp<cr>
 
-nnoremap <leader>p :CtrlP<CR>
-nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>p :CtrlP .<CR>
+nnoremap <leader>g :CtrlPBuffer<CR>
 nnoremap <leader>m :CtrlPMRUFiles<CR>
 nnoremap <leader>t :CtrlPTag<CR>et g:ctrlp_map = '<c-l>'
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
+
+nnoremap <leader>c :ccl<cr>
+nnoremap <leader>r :cope<cr>
 
 set clipboard=unnamed
 let g:session_autoload = 'no'
@@ -293,3 +298,4 @@ nnoremap <F12>f :exe ':silent !open -a /Applications/Firefox.app %'<CR>
 nnoremap <F12>c :exe ':silent !open -a /Applications/Google\ Chrome.app %'<CR>
 nnoremap <F12>g :exe ':silent !open -a /Applications/Google\ Chrome.app %'<CR>
 nnoremap <F12>s :exe ':silent !open /Applications/Safari.app %'<CR>
+
