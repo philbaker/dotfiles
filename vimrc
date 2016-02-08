@@ -130,7 +130,7 @@ set softtabstop=4
 set nowrap
 
 " " Use spaces instead of tabs
-set expandtab
+set noexpandtab
 "
 " " Be smart when using tabs
 set smarttab
@@ -211,9 +211,6 @@ function! NumberToggle()
 endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
 
-"set linebreak
-"set textwidth=80
-
 " Limit line-length to 80 columns by highlighting col 81 onward
 if exists("+colorcolumn")
     set colorcolumn=80
@@ -250,10 +247,10 @@ imap <right> <nop>
 
 map <Tab> <C-W>w
 map <Bar> <C-W>v<C-W><Right>
-map -     <C-W>s<C-W><Down>
+"map -     <C-W>s<C-W><Down>
 map <silent> <C-b> :NERDTreeToggle<CR>
 "Mapleader
-let mapleader = "-"
+let mapleader = ","
 
 "Markdown to html
 nmap <leader>md :%!/Users/phil/.vim/Markdown.pl --html4tags <cr>
@@ -263,7 +260,7 @@ set hlsearch
 
 " Resizing windows
 nnoremap <C-up> <C-W>+
-nnoremap <C-down> <C-W>-
+"nnoremap <C-down> <C-W>-
 nnoremap <C-left> <C-W><
 nnoremap <C-right> <C-W>>
 
@@ -412,31 +409,31 @@ nnoremap <leader>u :cn<CR>
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Maps to make handling windows a bit easier
-noremap <silent> ,h :wincmd h<CR>
-noremap <silent> ,j :wincmd j<CR>
-noremap <silent> ,k :wincmd k<CR>
-noremap <silent> ,l :wincmd l<CR>
-noremap <silent> ,sb :wincmd p<CR>
-noremap <silent> <C-F9> :vertical resize -10<CR>
-noremap <silent> <C-F10> :resize +10<CR>
-noremap <silent> <C-F11> :resize -10<CR>
-noremap <silent> <C-F12> :vertical resize +10<CR>
-noremap <silent> ,s8 :vertical resize 83<CR>
-noremap <silent> ,cj :wincmd j<CR>:close<CR>
-noremap <silent> ,ck :wincmd k<CR>:close<CR>
-noremap <silent> ,ch :wincmd h<CR>:close<CR>
-noremap <silent> ,cl :wincmd l<CR>:close<CR>
-noremap <silent> ,cc :close<CR>
-noremap <silent> ,cw :cclose<CR>
-noremap <silent> ,ml <C-W>L
-noremap <silent> ,mk <C-W>K
-noremap <silent> ,mh <C-W>H
-noremap <silent> ,mj <C-W>J
-noremap <silent> <C-7> <C-W>>
-noremap <silent> <C-8> <C-W>+
-noremap <silent> <C-9> <C-W>+
-noremap <silent> <C-0> <C-W>>
-
+"noremap <silent> ,h :wincmd h<CR>
+"noremap <silent> ,j :wincmd j<CR>
+"noremap <silent> ,k :wincmd k<CR>
+"noremap <silent> ,l :wincmd l<CR>
+"noremap <silent> ,sb :wincmd p<CR>
+"noremap <silent> <C-F9> :vertical resize -10<CR>
+"noremap <silent> <C-F10> :resize +10<CR>
+"noremap <silent> <C-F11> :resize -10<CR>
+"noremap <silent> <C-F12> :vertical resize +10<CR>
+"noremap <silent> ,s8 :vertical resize 83<CR>
+"noremap <silent> ,cj :wincmd j<CR>:close<CR>
+"noremap <silent> ,ck :wincmd k<CR>:close<CR>
+"noremap <silent> ,ch :wincmd h<CR>:close<CR>
+"noremap <silent> ,cl :wincmd l<CR>:close<CR>
+"noremap <silent> ,cc :close<CR>
+"noremap <silent> ,cw :cclose<CR>
+"noremap <silent> ,ml <C-W>L
+"noremap <silent> ,mk <C-W>K
+"noremap <silent> ,mh <C-W>H
+"noremap <silent> ,mj <C-W>J
+"noremap <silent> <C-7> <C-W>>
+"noremap <silent> <C-8> <C-W>+
+"noremap <silent> <C-9> <C-W>+
+"noremap <silent> <C-0> <C-W>>
+"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Omnicompletion 
@@ -463,8 +460,8 @@ let g:tmux_navigator_save_on_switch = 1
 autocmd VimResized * :wincmd =
 
 " zoom a vim pane, <C-w>= to re-balance
-nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
-nnoremap <leader>= :wincmd =<cr>
+"nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+"nnoremap <leader>= :wincmd =<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
