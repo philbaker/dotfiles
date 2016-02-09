@@ -21,6 +21,13 @@ set mat=2
 
 " Add a bit extra margin to the left
 set foldcolumn=1
+"
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => MacVim Settings
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set guifont=\Monaco:h14
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -55,6 +62,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner'
 Plugin 'mxw/vim-jsx'
+Plugin 'tpope/vim-vinegar'
 " PHP and WP plugins
 Plugin 'SirVer/ultisnips'
 Plugin 'open-browser.vim'
@@ -249,6 +257,7 @@ map <Tab> <C-W>w
 map <Bar> <C-W>v<C-W><Right>
 "map -     <C-W>s<C-W><Down>
 map <silent> <C-b> :NERDTreeToggle<CR>
+let NERDTreeHijackNetrw = 0
 "Mapleader
 let mapleader = ","
 
@@ -284,7 +293,13 @@ set wildignore+=*.o,*.obj,.git
 set wildignore+=node_modules/**
 
 " Load vimrc 
-nmap ,ev :tabedit $MYVIMRC<cr>
+nmap <Leader>ev :tabedit $MYVIMRC<cr>
+
+" Search tags
+nmap <Leader>f :tag<space> 
+
+" Regenerate ctags
+nmap <Leader>d :!ctags -R<CR><CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -378,9 +393,6 @@ endif
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-" bind \ (backward slash) to grep shortcut
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-
 nnoremap <leader>h :Ag<space>
 
 map <leader>n :cn<cr>
@@ -391,6 +403,7 @@ nnoremap <leader>g :CtrlPBuffer<CR>
 nnoremap <leader>m :CtrlPMRUFiles<CR>
 nnoremap <leader>t :CtrlPTag<CR>et g:ctrlp_map = '<c-l>'
 nnoremap <leader>. :CtrlPTag<cr>
+nnoremap <leader>y :CtrlPBufTag<cr>
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
 nnoremap <leader>c :ccl<cr>
@@ -469,3 +482,8 @@ autocmd VimResized * :wincmd =
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Notes and Tips
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
