@@ -1,6 +1,4 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => The basics
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" The basics
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -8,7 +6,7 @@ filetype off                  " required
 "Turn off annoying beep sounds
 set noerrorbells visualbell t_vb=
 if has('autocmd')
-    autocmd GUIEnter * set visualbell t_vb=
+	autocmd GUIEnter * set visualbell t_vb=
 endif
 
 " autoload files that have changed outside of vim
@@ -22,17 +20,12 @@ set mat=2
 " Add a bit extra margin to the left
 set foldcolumn=1
 "
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => MacVim Settings
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MacVim Settings
 
 set guifont=\Monaco:h14
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vundle
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vundle
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -81,16 +74,14 @@ filetype plugin indent on    " required
 filetype plugin on
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colours
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Colours
 
 " Enable syntax highighting
 syntax enable
 " 256 colors
- set t_Co=256
+set t_Co=256
 
- syntax on
+syntax on
 
 set background=dark
 "" solarized options 
@@ -100,9 +91,7 @@ let g:solarized_termcolors = 256
 colorscheme solarized
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Spacing 
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Spacing 
 
 set bs=2
 set ts=4
@@ -113,9 +102,7 @@ set ruler
 set encoding=utf-8
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Filetypes
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Filetypes
 
 " Set relevant filetypes
 au BufRead,BufNewFile *.scss set filetype=css
@@ -123,10 +110,7 @@ au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.html set syntax=xml
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+" Text, tab and indent related
 " Make the command-line completion better
 set wildmenu
 
@@ -149,9 +133,7 @@ set tabstop=4
 set breakindent
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Moving around, tabs, windows and buffers
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Moving around, tabs, windows and buffers
 
 " " Treat long lines as break lines (useful when moving around in them)
 map j gj
@@ -162,9 +144,9 @@ map <silent> <leader><cr> :noh<cr>
 
 " Return to last edit position when opening files 
 autocmd BufReadPost *
-            \ if line("'\"") > 0 && line("'\"") <= line("$") |
-            \   exe "normal! g`\"" |
-            \ endif
+			\ if line("'\"") > 0 && line("'\"") <= line("$") |
+			\   exe "normal! g`\"" |
+			\ endif
 " Remember info about open buffers on close
 set viminfo^=%
 
@@ -182,9 +164,7 @@ set whichwrap=h,l,b,<,>,~,[,]
 set iskeyword-=_
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Status line
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Status line
 
 " " Always show the status line
 set laststatus=2
@@ -201,26 +181,24 @@ set ruler
 set title
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Line numbers
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Line numbers
 
 "" Toggle relative line number
 function! NumberToggle()
-    if(&relativenumber)
-        set number
-    else
-        "" Uncomment the following to
-        " display a '0' instead of the line number
-        " set nonumber
-        set relativenumber
-    endif
+	if(&relativenumber)
+		set number
+	else
+		"" Uncomment the following to
+		" display a '0' instead of the line number
+		" set nonumber
+		set relativenumber
+	endif
 endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
 
 " Limit line-length to 80 columns by highlighting col 81 onward
 if exists("+colorcolumn")
-    set colorcolumn=80
+	set colorcolumn=80
 endif
 " Highlight current line
 set cursorline
@@ -236,9 +214,7 @@ set smartcase
 highlight ColorColumn ctermbg=10
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Key mappings
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Key mappings
 
 " jj to throw you into normal mode from insert mode
 inoremap jj <esc>
@@ -302,17 +278,13 @@ nmap <Leader>f :tag<space>
 nmap <Leader>d :!ctags -R<CR><CR>
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Auto commands
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Auto commands
 
 " Automatically source vimrc after saving it
 autocmd BufWritePost .vimrc source %
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups and undo
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Files, backups and undo
 
 " " Turn backup off
 set nobackup
@@ -320,21 +292,15 @@ set nowb
 set noswapfile
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Search
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Search
 "
-" The Silver Searcher
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+			\ --ignore .git
+			\ --ignore .svn
+			\ --ignore .hg
+			\ --ignore .DS_Store
+			\ --ignore "**/*.pyc"
+			\ -g ""'
 "
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
@@ -362,25 +328,20 @@ nnoremap <leader>t :CtrlPTag<CR>et g:ctrlp_map = '<c-l>'
 nnoremap <leader>a :cp<CR>
 nnoremap <leader>u :cn<CR>
 
+let g:ctrlp_working_path_mode = 0
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Greplace
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Greplace
 
 set grepprg=ag
 let g:grep_cmd_opts = '--line-numbers --noheading'
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Omnicompletion 
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Omnicompletion 
 
 set omnifunc=syntaxcomplete#Complete
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Tmux integration
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tmux integration
 
 let g:tmux_navigator_no_mappings = 1
 
@@ -400,13 +361,9 @@ autocmd VimResized * :wincmd =
 "nnoremap <leader>= :wincmd =<cr>
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => React
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" React
 
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Notes and Tips
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Notes and Tips
