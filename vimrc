@@ -67,10 +67,9 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'SirVer/ultisnips'
 Plugin 'open-browser.vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'ervandew/supertab'
 Plugin 'StanAngeloff/php.vim'
-
-
+Plugin 'skwp/greplace.vim'
+Plugin 'msanders/snipmate.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -253,7 +252,7 @@ imap <left>  <nop>
 map  <right> <nop>
 imap <right> <nop>
 
-map <Tab> <C-W>w
+map <leader>w <C-W>w
 map <Bar> <C-W>v<C-W><Right>
 "map -     <C-W>s<C-W><Down>
 map <silent> <C-b> :NERDTreeToggle<CR>
@@ -293,7 +292,8 @@ set wildignore+=*.o,*.obj,.git
 set wildignore+=node_modules/**
 
 " Load vimrc 
-nmap <Leader>ev :tabedit $MYVIMRC<cr>
+nmap <Leader>ev :e $MYVIMRC<cr>
+nmap <Leader>es :e ~/.vim/snippets<cr>
 
 " Search tags
 nmap <Leader>f :tag<space> 
@@ -318,60 +318,6 @@ autocmd BufWritePost .vimrc source %
 set nobackup
 set nowb
 set noswapfile
-
-" Folding
-"
-set foldlevelstart=0
-"
-" " Space to toggle folds.
-nnoremap <Space> za
-vnoremap <Space> za
-"
-" " "Refocus" folds
-nnoremap ,z zMzvzz
-"
-" " Make zO recursively open whatever top level fold we're in, no matter where
-" the
-" " cursor happens to be.
-nnoremap zO zCzO
-"
-function! MyFoldText() " {{{
-    let line = getline(v:foldstart)
-    "
-    let nucolwidth = &fdc + &number * &numberwidth
-    let windowwidth = winwidth(0) - nucolwidth - 3
-    let foldedlinecount = v:foldend - v:foldstart
-    "
-    "                     " expand tabs into spaces
-    let onetab = strpart('          ', 0, &tabstop)
-    let line = substitute(line, '\t', onetab, 'g')
-    "
-    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
-    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
-    return line . 'Ã¢â‚¬Â¦' . repeat(" ",fillcharcount) . foldedlinecount . 'Ã¢â‚¬Â¦' . ' '
-endfunction " }}}
-set foldtext=MyFoldText()
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Spell checking
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" " Pressing ,ss will toggle and untoggle spell checking
-map <leader>ss :setlocal spell!<cr>
-"
-" " Shortcuts using <leader>
-map <leader>sn ]s
-map <leader>sp [s
-map <leader>sa zg
-map <leader>s? z=
-
-set spelllang=en_gb
-syntax spell toplevel
-
-
-set clipboard=unnamed
-let g:session_autoload = 'no'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -418,35 +364,12 @@ nnoremap <leader>u :cn<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Window mappings
+" => Greplace
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Maps to make handling windows a bit easier
-"noremap <silent> ,h :wincmd h<CR>
-"noremap <silent> ,j :wincmd j<CR>
-"noremap <silent> ,k :wincmd k<CR>
-"noremap <silent> ,l :wincmd l<CR>
-"noremap <silent> ,sb :wincmd p<CR>
-"noremap <silent> <C-F9> :vertical resize -10<CR>
-"noremap <silent> <C-F10> :resize +10<CR>
-"noremap <silent> <C-F11> :resize -10<CR>
-"noremap <silent> <C-F12> :vertical resize +10<CR>
-"noremap <silent> ,s8 :vertical resize 83<CR>
-"noremap <silent> ,cj :wincmd j<CR>:close<CR>
-"noremap <silent> ,ck :wincmd k<CR>:close<CR>
-"noremap <silent> ,ch :wincmd h<CR>:close<CR>
-"noremap <silent> ,cl :wincmd l<CR>:close<CR>
-"noremap <silent> ,cc :close<CR>
-"noremap <silent> ,cw :cclose<CR>
-"noremap <silent> ,ml <C-W>L
-"noremap <silent> ,mk <C-W>K
-"noremap <silent> ,mh <C-W>H
-"noremap <silent> ,mj <C-W>J
-"noremap <silent> <C-7> <C-W>>
-"noremap <silent> <C-8> <C-W>+
-"noremap <silent> <C-9> <C-W>+
-"noremap <silent> <C-0> <C-W>>
-"
+set grepprg=ag
+let g:grep_cmd_opts = '--line-numbers --noheading'
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Omnicompletion 
