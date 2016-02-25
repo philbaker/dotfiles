@@ -41,27 +41,19 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
-Plugin '1995eaton/vim-better-javascript-completion'
 Plugin 'leshill/vim-json'
-Plugin '1995eaton/vim-better-css-completion'
 Plugin 'tpope/vim-commentary'
 Plugin 'kien/ctrlp.vim'
-Plugin 'jaxbot/browserlink.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'smeggingsmegger/ag.vim'
-Plugin 'majutsushi/tagbar'
 Plugin 'captbaritone/better-indent-support-for-php-with-html'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner'
-Plugin 'mxw/vim-jsx'
 Plugin 'tpope/vim-vinegar'
-" PHP and WP plugins
-Plugin 'SirVer/ultisnips'
 Plugin 'open-browser.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'StanAngeloff/php.vim'
-Plugin 'skwp/greplace.vim'
 Plugin 'msanders/snipmate.vim'
 
 call vundle#end()            " required
@@ -365,5 +357,11 @@ autocmd VimResized * :wincmd =
 
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
+" Clipboard settings
+"
+set clipboard=unnamed
+
 
 " Notes and Tips
+"
+"
