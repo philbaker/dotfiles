@@ -1,4 +1,24 @@
-snippet jrea 
+snippet document.ready 
 	$(document).ready(function(){
 		${1}
+	});
+
+snippet window.load
+	$(window).load(function(){
+		${1}
+	});
+
+snippet window.scroll
+	$(window).scroll(function(){
+		${1}
+	});
+
+snippet f
+	function ${1}(${2}){
+		${3}
+	}
+
+snippet ajaxcomplete 
+	$(${1}).ajaxComplete(function(${2}) {
+		${3}
 	});
