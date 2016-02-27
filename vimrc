@@ -188,6 +188,7 @@ function! NumberToggle()
 	endif
 endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
+call NumberToggle()
 
 " Limit line-length to 80 columns by highlighting col 81 onward
 if exists("+colorcolumn")
