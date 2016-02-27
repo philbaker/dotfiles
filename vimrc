@@ -309,6 +309,7 @@ nnoremap <leader>t :CtrlPTag<CR>et g:ctrlp_map = '<c-l>'
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>y :CtrlPBufTag<cr>
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
+nnoremap <leader>cc :CtrlPClearCache<cr>
 
 nnoremap <leader>c :ccl<cr>
 nnoremap <leader>r :cope<cr>
@@ -321,6 +322,7 @@ nnoremap <leader>a :cp<CR>
 nnoremap <leader>u :cn<CR>
 
 let g:ctrlp_working_path_mode = 0
+let g:ctrlp_use_caching = 1
 
 " Greplace
 
