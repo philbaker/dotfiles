@@ -297,11 +297,7 @@ nnoremap <leader>t :CtrlPTag<CR>et g:ctrlp_map = '<c-l>'
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>y :CtrlPBufTag<cr>
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
-<<<<<<< HEAD
 nnoremap <leader>cc :CtrlPClearCache<CR>
-=======
-nnoremap <leader>cc :CtrlPClearCache<cr>
->>>>>>> c1a9b621fbead835ee083bd2c2e34592e71f26c9
 
 nnoremap <leader>c :ccl<cr>
 nnoremap <leader>r :cope<cr>
