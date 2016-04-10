@@ -55,6 +55,7 @@ Plugin 'open-browser.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'msanders/snipmate.vim'
+Plugin 'jaxbot/browserlink.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -210,26 +211,20 @@ highlight ColorColumn ctermbg=10
 
 " jj to throw you into normal mode from insert mode
 inoremap jj <esc>
-" Disable arrow keys
-map  <up>    <nop>
-imap <up>    <nop>
-map  <down>  <nop>
-imap <down>  <nop>
-map  <left>  <nop>
-imap <left>  <nop>
-map  <right> <nop>
-imap <right> <nop>
 
-map <leader>w <C-W>w
-map <Bar> <C-W>v<C-W><Right>
-"map -     <C-W>s<C-W><Down>
+"Managing splits
+map <c-w> <C-W>w
+map <c-j> <C-W>j
+map <c-h> <C-W>h
+map <c-k> <C-W>k
+map <c-v> <C-W>v<C-W><Right>
+
+"Nerd Tree
 map <silent> <C-b> :NERDTreeToggle<CR>
 let NERDTreeHijackNetrw = 0
+
 "Mapleader
 let mapleader = ","
-
-"Markdown to html
-nmap <leader>md :%!/Users/phil/.vim/Markdown.pl --html4tags <cr>
 
 "turn on text highlight in search by default
 set hlsearch
@@ -239,18 +234,6 @@ nnoremap <C-up> <C-W>+
 "nnoremap <C-down> <C-W>-
 nnoremap <C-left> <C-W><
 nnoremap <C-right> <C-W>>
-
-" " Moving around splits
-nnoremap <C-J> <C-W>j
-nnoremap <C-K> <C-W>k
-nnoremap <C-L> <C-W>l
-nnoremap <C-H> <C-W>h
-
-" " Closing windows
-nnoremap <C-C>l <C-W>l:q<CR>
-nnoremap <C-C>h <C-W>h:q<CR>
-nnoremap <C-C>j <C-W>j:q<CR>
-nnoremap <C-C>k <C-W>k:q<CR>
 
 " Disable ex mode (Dvorak annoyance)
 nnoremap Q <Nop>
@@ -274,6 +257,9 @@ nmap <Leader>d :!ctags -R<CR><CR>
 
 " Automatically source vimrc after saving it
 autocmd BufWritePost .vimrc source %
+"
+" Reload browser
+nmap <Leader>rr :BLReloadPage<cr>
 
 
 " Files, backups and undo
@@ -309,6 +295,7 @@ nnoremap <leader>t :CtrlPTag<CR>et g:ctrlp_map = '<c-l>'
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>y :CtrlPBufTag<cr>
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
+nnoremap <leader>cc :CtrlPClearCache<CR>
 
 nnoremap <leader>c :ccl<cr>
 nnoremap <leader>r :cope<cr>
@@ -321,11 +308,6 @@ nnoremap <leader>a :cp<CR>
 nnoremap <leader>u :cn<CR>
 
 let g:ctrlp_working_path_mode = 0
-
-" Greplace
-
-set grepprg=ag
-let g:grep_cmd_opts = '--line-numbers --noheading'
 
 
 " Omnicompletion 
@@ -361,6 +343,8 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 "
 set clipboard=unnamed
 
+" Auto completion
+set complete=.,w,b,u
 
 " Notes and Tips
 "
