@@ -65,6 +65,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 "" Detect filetype
 filetype plugin on
+au BufRead,BufNewFile *.aspx set filetype=aspx
 
 
 " Colours
@@ -188,6 +189,7 @@ function! NumberToggle()
 	endif
 endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
+call NumberToggle()
 
 " Limit line-length to 80 columns by highlighting col 81 onward
 if exists("+colorcolumn")
@@ -295,7 +297,11 @@ nnoremap <leader>t :CtrlPTag<CR>et g:ctrlp_map = '<c-l>'
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>y :CtrlPBufTag<cr>
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
+<<<<<<< HEAD
 nnoremap <leader>cc :CtrlPClearCache<CR>
+=======
+nnoremap <leader>cc :CtrlPClearCache<cr>
+>>>>>>> c1a9b621fbead835ee083bd2c2e34592e71f26c9
 
 nnoremap <leader>c :ccl<cr>
 nnoremap <leader>r :cope<cr>
@@ -308,6 +314,7 @@ nnoremap <leader>a :cp<CR>
 nnoremap <leader>u :cn<CR>
 
 let g:ctrlp_working_path_mode = 0
+let g:ctrlp_use_caching = 1
 
 
 " Omnicompletion 
