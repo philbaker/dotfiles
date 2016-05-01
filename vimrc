@@ -1,12 +1,12 @@
 " The basics
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible " be iMproved, required
+filetype off " required
 
 "Turn off annoying beep sounds
 set noerrorbells visualbell t_vb=
 if has('autocmd')
-	autocmd GUIEnter * set visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
 endif
 
 " autoload files that have changed outside of vim
@@ -23,7 +23,6 @@ set foldcolumn=1
 " MacVim Settings
 
 set guifont=\Monaco:h14
-
 
 " Vundle
 
@@ -55,18 +54,16 @@ Plugin 'open-browser.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'msanders/snipmate.vim'
-Plugin 'jaxbot/browserlink.vim'
+Plugin 'stephpy/vim-php-cs-fixer'
 
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
+call vundle#end() " required
+filetype plugin indent on " required
+" To ignore plugin indent changes, instead use: "filetype plugin on
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 "" Detect filetype
 filetype plugin on
 au BufRead,BufNewFile *.aspx set filetype=aspx
-
 
 " Colours
 
@@ -78,14 +75,13 @@ set t_Co=256
 syntax on
 
 set background=dark
-"" solarized options 
+"" solarized options
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 let g:solarized_termcolors = 256
-colorscheme solarized
+colorscheme atom-dark
 
-
-" Spacing 
+" Spacing
 
 set bs=2
 set ts=4
@@ -95,14 +91,12 @@ set number
 set ruler
 set encoding=utf-8
 
-
 " Filetypes
 
 " Set relevant filetypes
-au BufRead,BufNewFile *.scss set filetype=css
-au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile .scss set filetype=css
+au BufRead,BufNewFile .md set filetype=markdown
 au BufRead,BufNewFile *.html set syntax=xml
-
 
 " Text, tab and indent related
 " Make the command-line completion better
@@ -126,7 +120,6 @@ set tabstop=4
 "
 set breakindent
 
-
 " Moving around, tabs, windows and buffers
 
 " " Treat long lines as break lines (useful when moving around in them)
@@ -136,11 +129,11 @@ map k gk
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
-" Return to last edit position when opening files 
+" Return to last edit position when opening files
 autocmd BufReadPost *
-			\ if line("'\"") > 0 && line("'\"") <= line("$") |
-			\   exe "normal! g`\"" |
-			\ endif
+\ if line("'\"") > 0 && line("'\"") <= line("$") |
+\ exe "normal! g`\"" |
+\ endif
 " Remember info about open buffers on close
 set viminfo^=%
 
@@ -156,7 +149,6 @@ set backspace=indent,eol,start
 set whichwrap=h,l,b,<,>,~,[,]
 " Underscores denote words
 set iskeyword-=_
-
 
 " Status line
 
@@ -174,26 +166,25 @@ set ruler
 " Show file title in terminal tab
 set title
 
-
 " Line numbers
 
 "" Toggle relative line number
 function! NumberToggle()
-	if(&relativenumber)
-		set number
-	else
-		"" Uncomment the following to
-		" display a '0' instead of the line number
-		" set nonumber
-		set relativenumber
-	endif
+if(&relativenumber)
+set number
+else
+"" Uncomment the following to
+" display a '0' instead of the line number
+" set nonumber
+set relativenumber
+endif
 endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
 call NumberToggle()
 
 " Limit line-length to 80 columns by highlighting col 81 onward
 if exists("+colorcolumn")
-	set colorcolumn=80
+set colorcolumn=80
 endif
 " Highlight current line
 set cursorline
@@ -208,25 +199,30 @@ set smartcase
 
 highlight ColorColumn ctermbg=10
 
-
 " Key mappings
 
 " jj to throw you into normal mode from insert mode
 inoremap jj <esc>
+" Disable arrow keys
+map <up> <nop>
+imap <up> <nop>
+map <down> <nop>
+imap <down> <nop>
+map <left> <nop>
+imap <left> <nop>
+map <right> <nop>
+imap <right> <nop>
 
-"Managing splits
-map <c-w> <C-W>w
-map <c-j> <C-W>j
-map <c-h> <C-W>h
-map <c-k> <C-W>k
-map <c-v> <C-W>v<C-W><Right>
-
-"Nerd Tree
+map <leader>w <C-W>w
+map <Bar> <C-W>v<C-W><Right>
+"map - <C-W>s<C-W><Down>
 map <silent> <C-b> :NERDTreeToggle<CR>
 let NERDTreeHijackNetrw = 0
-
 "Mapleader
 let mapleader = ","
+
+"Markdown to html
+nmap <leader>md :%!/Users/phil/.vim/Markdown.pl --html4tags <cr>
 
 "turn on text highlight in search by default
 set hlsearch
@@ -237,32 +233,40 @@ nnoremap <C-up> <C-W>+
 nnoremap <C-left> <C-W><
 nnoremap <C-right> <C-W>>
 
+" " Moving around splits
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+nnoremap <C-H> <C-W>h
+
+" " Closing windows
+nnoremap <C-C>l <C-W>l:q<CR>
+nnoremap <C-C>h <C-W>h:q<CR>
+nnoremap <C-C>j <C-W>j:q<CR>
+nnoremap <C-C>k <C-W>k:q<CR>
+
 " Disable ex mode (Dvorak annoyance)
 nnoremap Q <Nop>
 
 " Ignore gulp files in fuzzy find
-set wildignore+=*.o,*.obj,.git
+set wildignore+=.o,.obj,.git
 set wildignore+=node_modules/**
 
-" Load vimrc 
+" Load vimrc
 nmap <Leader>ev :e $MYVIMRC<cr>
 nmap <Leader>es :e ~/.vim/snippets<cr>
+nmap <Leader>ww :set wrap<cr>
 
 " Search tags
-nmap <Leader>f :tag<space> 
+nmap <Leader>f :tag<space>
 
 " Regenerate ctags
 nmap <Leader>d :!ctags -R<CR><CR>
-
 
 " Auto commands
 
 " Automatically source vimrc after saving it
 autocmd BufWritePost .vimrc source %
-"
-" Reload browser
-nmap <Leader>rr :BLReloadPage<cr>
-
 
 " Files, backups and undo
 
@@ -271,16 +275,15 @@ set nobackup
 set nowb
 set noswapfile
 
-
 " Search
 "
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-			\ --ignore .git
-			\ --ignore .svn
-			\ --ignore .hg
-			\ --ignore .DS_Store
-			\ --ignore "**/*.pyc"
-			\ -g ""'
+\ --ignore .git
+\ --ignore .svn
+\ --ignore .hg
+\ --ignore .DS_Store
+\ --ignore "*/.pyc"
+\ -g ""'
 "
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
@@ -297,7 +300,7 @@ nnoremap <leader>t :CtrlPTag<CR>et g:ctrlp_map = '<c-l>'
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>y :CtrlPBufTag<cr>
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
-nnoremap <leader>cc :CtrlPClearCache<CR>
+nnoremap <leader>cc :CtrlPClearCache<cr>
 
 nnoremap <leader>c :ccl<cr>
 nnoremap <leader>r :cope<cr>
@@ -312,11 +315,14 @@ nnoremap <leader>u :cn<CR>
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_use_caching = 1
 
+" Greplace
 
-" Omnicompletion 
+set grepprg=ag
+let g:grep_cmd_opts = '--line-numbers --noheading'
+
+" Omnicompletion
 
 set omnifunc=syntaxcomplete#Complete
-
 
 " Tmux integration
 
@@ -334,21 +340,25 @@ let g:tmux_navigator_save_on_switch = 1
 autocmd VimResized * :wincmd =
 
 " zoom a vim pane, <C-w>= to re-balance
-"nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+"nnoremap <leader>- :wincmd _<cr>:wincmd |<cr>
 "nnoremap <leader>= :wincmd =<cr>
-
 
 " React
 
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
+" PHP
+
+let g:php_cs_fixer_level = "psr2"
+nnoremap <silent><leader>bd :call PhpCsFixerFixDirectory()<CR>
+nnoremap <silent><leader>bf :call PhpCsFixerFixFile()<CR>
+
 " Clipboard settings
 "
 set clipboard=unnamed
 
-" Auto completion
-set complete=.,w,b,u
+" Emmet
+let g:user_emmet_leader_key=','
 
 " Notes and Tips
-"
 "
