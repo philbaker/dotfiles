@@ -55,6 +55,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'msanders/snipmate.vim'
 Plugin 'stephpy/vim-php-cs-fixer'
+Plugin 'godlygeek/csapprox'
 
 call vundle#end() " required
 filetype plugin indent on " required
@@ -76,10 +77,11 @@ syntax on
 
 set background=dark
 "" solarized options
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
-let g:solarized_termcolors = 256
+" let g:solarized_visibility = "high"
+" let g:solarized_contrast = "high"
+" let g:solarized_termcolors = 256
 colorscheme atom-dark
+" colorscheme solarized
 
 " Spacing
 
@@ -176,7 +178,8 @@ else
 "" Uncomment the following to
 " display a '0' instead of the line number
 " set nonumber
-set relativenumber
+"set relativenumber
+set number
 endif
 endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
@@ -291,9 +294,9 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 nnoremap <leader>h :Ag<space>
 
 map <leader>n :cn<cr>
-map <leader>p :cp<cr>
+map <leader>o :cp<cr>
 
-nnoremap <leader>p :CtrlP .<CR>
+nnoremap <leader>r :CtrlP .<CR>
 nnoremap <leader>g :CtrlPBuffer<CR>
 nnoremap <leader>m :CtrlPMRUFiles<CR>
 nnoremap <leader>t :CtrlPTag<CR>et g:ctrlp_map = '<c-l>'
@@ -303,8 +306,7 @@ nnoremap <silent> <Leader>b :TagbarToggle<CR>
 nnoremap <leader>cc :CtrlPClearCache<cr>
 
 nnoremap <leader>c :ccl<cr>
-nnoremap <leader>r :cope<cr>
-nnoremap <leader>p :CtrlP<CR>
+nnoremap <leader>p :cope<cr>
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>m :CtrlPMRUFiles<CR>
 nnoremap <leader>t :CtrlPTag<CR>et g:ctrlp_map = '<c-l>'
@@ -360,5 +362,7 @@ set clipboard=unnamed
 " Emmet
 let g:user_emmet_leader_key=','
 
-" Notes and Tips
-"
+" noremap h <NOP>
+" noremap j <NOP>
+" noremap k <NOP>
+" noremap l <NOP>
