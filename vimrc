@@ -56,6 +56,10 @@ Plugin 'StanAngeloff/php.vim'
 Plugin 'msanders/snipmate.vim'
 Plugin 'stephpy/vim-php-cs-fixer'
 Plugin 'godlygeek/csapprox'
+Plugin 'takac/vim-hardtime'
+Plugin 'justinmk/vim-sneak'
+Plugin 'gko/vim-coloresque'
+Plugin 'tpope/vim-unimpaired'
 
 call vundle#end() " required
 filetype plugin indent on " required
@@ -64,7 +68,7 @@ filetype plugin indent on " required
 " Put your non-Plugin stuff after this line
 "" Detect filetype
 filetype plugin on
-au BufRead,BufNewFile *.aspx set filetype=aspx
+au BufRead,BufNewFile *.aspx set filetype=html
 
 " Colours
 
@@ -178,7 +182,7 @@ else
 "" Uncomment the following to
 " display a '0' instead of the line number
 " set nonumber
-"set relativenumber
+set relativenumber
 set number
 endif
 endfunc
@@ -360,9 +364,27 @@ nnoremap <silent><leader>bf :call PhpCsFixerFixFile()<CR>
 set clipboard=unnamed
 
 " Emmet
-let g:user_emmet_leader_key=','
+let g:user_emmet_leader_key=","
 
 " noremap h <NOP>
 " noremap j <NOP>
 " noremap k <NOP>
 " noremap l <NOP>
+
+" Hardtime
+let g:hardtime_default_on = 1
+let g:hardtime_showmsg = 1
+let g:hardtime_ignore_quickfix = 1
+let g:list_of_normal_keys = ["h", "j", "k", "l", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:list_of_visual_keys = ["h", "j", "k", "l", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+
+nmap <leader>; <Plug>SneakPrevious
+
+" CSS Settings
+let g:syntastic_scss_checkers = ['scss_lint']
+let g:syntastic_always_populate_loc_list = 1
+
+map <leader>s vi{:sort<cr>
+
+
+
