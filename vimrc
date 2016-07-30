@@ -38,8 +38,6 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'tmhedberg/matchit'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'pangloss/vim-javascript'
 Plugin 'leshill/vim-json'
 Plugin 'tpope/vim-commentary'
 Plugin 'kien/ctrlp.vim'
@@ -53,13 +51,17 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'open-browser.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'StanAngeloff/php.vim'
-Plugin 'msanders/snipmate.vim'
 Plugin 'stephpy/vim-php-cs-fixer'
 Plugin 'godlygeek/csapprox'
 Plugin 'takac/vim-hardtime'
 Plugin 'justinmk/vim-sneak'
 Plugin 'gko/vim-coloresque'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'pangloss/vim-javascript'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'garbas/vim-snipmate'
 
 call vundle#end() " required
 filetype plugin indent on " required
@@ -102,7 +104,7 @@ set encoding=utf-8
 " Set relevant filetypes
 au BufRead,BufNewFile .scss set filetype=css
 au BufRead,BufNewFile .md set filetype=markdown
-au BufRead,BufNewFile *.html set syntax=xml
+au BufRead,BufNewFile *.html set syntax=html
 
 " Text, tab and indent related
 " Make the command-line completion better
@@ -382,9 +384,13 @@ nmap <leader>; <Plug>SneakPrevious
 
 " CSS Settings
 let g:syntastic_scss_checkers = ['scss_lint']
+let g:syntastic_javascript_checkers = ['eslint']
+
 let g:syntastic_always_populate_loc_list = 1
 
 map <leader>s vi{:sort<cr>
+map <leader>c f{V%<cr>
 
-
-
+" JavaScript syntax
+let g:javascript_plugin_jsdoc = 1
+let g:used_javascript_libs = 'jquery'
