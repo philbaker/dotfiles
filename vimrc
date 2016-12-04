@@ -32,36 +32,37 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'othree/html5.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'tmhedberg/matchit'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'leshill/vim-json'
 Plugin 'tpope/vim-commentary'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'smeggingsmegger/ag.vim'
-Plugin 'captbaritone/better-indent-support-for-php-with-html'
-Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner'
 Plugin 'tpope/vim-vinegar'
 Plugin 'open-browser.vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'StanAngeloff/php.vim'
+Plugin 'stanangeloff/php.vim'
 Plugin 'stephpy/vim-php-cs-fixer'
-Plugin 'godlygeek/csapprox'
-Plugin 'takac/vim-hardtime'
-Plugin 'justinmk/vim-sneak'
+" Plugin 'takac/vim-hardtime'
+" Plugin 'justinmk/vim-sneak'
 Plugin 'gko/vim-coloresque'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'pangloss/vim-javascript'
-Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'tomtom/tlib_vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'marcweber/vim-addon-mw-utils'
 Plugin 'garbas/vim-snipmate'
+Plugin 'tpope/vim-liquid'
+Plugin 'vim-scripts/PreserveNoEOL'
+Plugin 'JulesWang/css.vim'
+Plugin 'posva/vim-vue'
+Plugin 'kristijanhusak/vim-hybrid-material'
+Plugin 'janko-m/vim-test'
+
 
 call vundle#end() " required
 filetype plugin indent on " required
@@ -70,7 +71,7 @@ filetype plugin indent on " required
 " Put your non-Plugin stuff after this line
 "" Detect filetype
 filetype plugin on
-au BufRead,BufNewFile *.aspx set filetype=html
+" au BufRead,BufNewFile *.aspx set filetype=html
 
 " Colours
 
@@ -86,8 +87,9 @@ set background=dark
 " let g:solarized_visibility = "high"
 " let g:solarized_contrast = "high"
 " let g:solarized_termcolors = 256
-colorscheme atom-dark
+" colorscheme atom-dark
 " colorscheme solarized
+colorscheme hybrid_material
 
 " Spacing
 
@@ -102,9 +104,9 @@ set encoding=utf-8
 " Filetypes
 
 " Set relevant filetypes
-au BufRead,BufNewFile .scss set filetype=css
+" au BufRead,BufNewFile .scss set filetype=css
 au BufRead,BufNewFile .md set filetype=markdown
-au BufRead,BufNewFile *.html set syntax=html
+" au BufRead,BufNewFile *.html set syntax=html
 
 " Text, tab and indent related
 " Make the command-line completion better
@@ -228,10 +230,10 @@ map <Bar> <C-W>v<C-W><Right>
 map <silent> <C-b> :NERDTreeToggle<CR>
 let NERDTreeHijackNetrw = 0
 "Mapleader
-let mapleader = ","
+let mapleader = "\\"
 
 "Markdown to html
-nmap <leader>md :%!/Users/phil/.vim/Markdown.pl --html4tags <cr>
+" nmap <leader>md :%!/Users/phil/.vim/Markdown.pl --html4tags <cr>
 
 "turn on text highlight in search by default
 set hlsearch
@@ -264,6 +266,7 @@ set wildignore+=node_modules/**
 " Load vimrc
 nmap <Leader>ev :e $MYVIMRC<cr>
 nmap <Leader>es :e ~/.vim/snippets<cr>
+nmap <Leader>zs :e ~/.zshrc<cr>
 nmap <Leader>ww :set wrap<cr>
 
 " Search tags
@@ -297,28 +300,23 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-nnoremap <leader>h :Ag<space>
+nnoremap <leader>a :Ag<space>
 
-map <leader>n :cn<cr>
-map <leader>o :cp<cr>
+map <leader>. :cn<cr>
+map <leader>, :cp<cr>
 
-nnoremap <leader>r :CtrlP .<CR>
-nnoremap <leader>g :CtrlPBuffer<CR>
+nnoremap <leader>o :CtrlP .<CR>
+nnoremap <leader>u :CtrlPBuffer<CR>
 nnoremap <leader>m :CtrlPMRUFiles<CR>
 nnoremap <leader>t :CtrlPTag<CR>et g:ctrlp_map = '<c-l>'
-nnoremap <leader>. :CtrlPTag<cr>
+nnoremap <leader>' :CtrlPTag<cr>
 nnoremap <leader>y :CtrlPBufTag<cr>
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 nnoremap <leader>cc :CtrlPClearCache<cr>
 
 nnoremap <leader>c :ccl<cr>
 nnoremap <leader>p :cope<cr>
-nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <leader>m :CtrlPMRUFiles<CR>
 nnoremap <leader>t :CtrlPTag<CR>et g:ctrlp_map = '<c-l>'
-
-nnoremap <leader>a :cp<CR>
-nnoremap <leader>u :cn<CR>
 
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_use_caching = 1
@@ -342,7 +340,7 @@ nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <c-'> :TmuxNavigatePrevious<cr>
 
-let g:tmux_navigator_save_on_switch = 1
+" let g:tmux_navigator_save_on_switch = 1
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
@@ -350,10 +348,6 @@ autocmd VimResized * :wincmd =
 " zoom a vim pane, <C-w>= to re-balance
 "nnoremap <leader>- :wincmd _<cr>:wincmd |<cr>
 "nnoremap <leader>= :wincmd =<cr>
-
-" React
-
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " PHP
 
@@ -366,7 +360,7 @@ nnoremap <silent><leader>bf :call PhpCsFixerFixFile()<CR>
 set clipboard=unnamed
 
 " Emmet
-let g:user_emmet_leader_key=","
+let g:user_emmet_leader_key="<C-Y>"
 
 " noremap h <NOP>
 " noremap j <NOP>
@@ -374,13 +368,13 @@ let g:user_emmet_leader_key=","
 " noremap l <NOP>
 
 " Hardtime
-let g:hardtime_default_on = 1
-let g:hardtime_showmsg = 1
-let g:hardtime_ignore_quickfix = 1
-let g:list_of_normal_keys = ["h", "j", "k", "l", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
-let g:list_of_visual_keys = ["h", "j", "k", "l", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+" let g:hardtime_default_on = 1
+" let g:hardtime_showmsg = 1
+" let g:hardtime_ignore_quickfix = 1
+" let g:list_of_normal_keys = ["h", "j", "k", "l", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+" let g:list_of_visual_keys = ["h", "j", "k", "l", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 
-nmap <leader>; <Plug>SneakPrevious
+" nmap <leader>; <Plug>SneakPrevious
 
 " CSS Settings
 let g:syntastic_scss_checkers = ['scss_lint']
@@ -394,3 +388,19 @@ map <leader>c f{V%<cr>
 " JavaScript syntax
 let g:javascript_plugin_jsdoc = 1
 let g:used_javascript_libs = 'jquery'
+
+let g:PreserveNoEOL = 1
+
+set spelllang=en_gb
+nmap <silent> <leader>; :set spell!<CR>
+nnoremap <Leader>w :w<CR>
+
+"Prevent delay after pressing escape
+:set timeout timeoutlen=700
+
+"Test.vim
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>h :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
