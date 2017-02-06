@@ -7,7 +7,9 @@
   "extends": "airbnb",
   "rules": {
     "no-console": 1,
-    "no-unused-vars": 1
+    "no-unused-vars": 1,
+	"no-tabs": 0,
+    "indent": ["error", "tab"]
   },
   "plugins": ["html", "markdown"]
 }
