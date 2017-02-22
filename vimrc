@@ -63,6 +63,7 @@ Plugin 'Shougo/neosnippet.vim'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'sekel/vim-vue-syntastic'
+Plugin 'jwalton512/vim-blade'
 
 call vundle#end() " required
 filetype plugin indent on " required
