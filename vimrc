@@ -271,13 +271,7 @@ set nowb
 set noswapfile
 
 " Search
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-\ --ignore .git
-\ --ignore .svn
-\ --ignore .hg
-\ --ignore .DS_Store
-\ --ignore "*/.pyc"
-\ -g ""'
+ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 nnoremap <leader>a :Ag<space>
 
@@ -294,8 +288,8 @@ nnoremap <silent> <Leader>b :TagbarToggle<CR>
 nnoremap <leader>cc :CtrlPClearCache<cr>
 nnoremap <leader>t :CtrlPTag<CR>et g:ctrlp_map = '<c-l>'
 
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_use_caching = 1
+let g:ctrlp_working_path_mode = 1
+let g:ctrlp_use_caching = 0
 
 " Greplace
 set grepprg=ag
@@ -470,3 +464,6 @@ nmap <Leader>el :%s/'/\&lsquo;/gc<cr>
 nmap <Leader>er :%s/'/\&rsquo;/gc<cr>
 nmap <Leader>ee :%s/e/\&eacute;/gc<cr>
 nmap <Leader>ea :%s/e/\&amp;/gc<cr>
+
+" toggle linting
+nnoremap <leader>c :SyntasticToggleMode<cr>
