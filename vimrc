@@ -109,20 +109,23 @@ au BufRead,BufNewFile .md set filetype=markdown
 " Make the command-line completion better
 set wildmenu
 
-set softtabstop=4
-" Round indent to nearest multiple of 4
-"set shiftround
-" No line-wrapping
-set nowrap
+" 2 spaces
+set expandtab
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
+" Round indent to nearest multiple of 2
 
-" " Use spaces instead of tabs
-set noexpandtab
-" " Be smart when using tabs
-set smarttab
-" " 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
+" tabs
+"set noexpandtab
+"set shiftwidth=4
+"set tabstop=4
+"set softtabstop=4
+"set smarttab
+
 set breakindent
+
+set nowrap
 
 " Moving around, tabs, windows and buffers
 " Treat long lines as break lines (useful when moving around in them)
