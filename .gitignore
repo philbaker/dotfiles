@@ -1,0 +1,8 @@
+.DS_Store
+oh-my-zsh/
+vim/.netrwhist
+vim/bundle/
+vim/colors/
+vim/doc/
+vim/indent/
+vim/syntax/
