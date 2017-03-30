@@ -22,6 +22,29 @@ set foldcolumn=1
 " MacVim Settings
 set guifont=\Monaco:h14
 
+" Vundle
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'tmhedberg/matchit'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-commentary'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'tpope/vim-vinegar'
+Plugin 'open-browser.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'gko/vim-coloresque'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'pangloss/vim-javascript'
+Plugin 'JulesWang/css.vim'
+
+call vundle#end() " required
 filetype plugin indent on " required
 " To ignore plugin indent changes, instead use: "filetype plugin on
 " see :h vundle for more details or wiki for FAQ
@@ -39,7 +62,12 @@ set t_Co=256
 syntax on
 
 set background=dark
+colorscheme hybrid_material
 
+" Spacing
+set bs=2
+set ts=4
+set sw=4
 set number
 " shows row and column number at bottom right corner
 set ruler
@@ -70,6 +98,7 @@ set softtabstop=2
 "set smarttab
 
 set breakindent
+
 set nowrap
 
 " Moving around, tabs, windows and buffers
@@ -198,7 +227,15 @@ set wildignore+=node_modules/**
 " Load vimrc
 nmap <Leader>ev :e $MYVIMRC<cr>
 nmap <Leader>es :e ~/.vim/snippets<cr>
+nmap <Leader>zs :e ~/.zshrc<cr>
 nmap <Leader>ww :set wrap<cr>
+
+" Search tags
+nmap <Leader>f :tag<space>
+
+" Regenerate ctags
+nmap <Leader>d :!ctags -R<CR><CR>
+
 
 " Auto commands
 " Automatically source vimrc after saving it
@@ -211,11 +248,37 @@ set nowb
 set noswapfile
 
 " Search
+ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+nnoremap <leader>a :Ag<space>
+
 map <leader>n :cn<cr>
 map <leader>p :cp<cr>
 
+nnoremap <leader>o :CtrlP .<CR>
+nnoremap <leader>u :CtrlPBuffer<CR>
+nnoremap <leader>m :CtrlPMRUFiles<CR>
+nnoremap <leader>e :CtrlPTag<CR>et g:ctrlp_map = '<c-l>'
+nnoremap <leader>' :CtrlPTag<cr>
+nnoremap <leader>y :CtrlPBufTag<cr>
+nnoremap <silent> <Leader>b :TagbarToggle<CR>
+nnoremap <leader>cc :CtrlPClearCache<cr>
+nnoremap <leader>t :CtrlPTag<CR>et g:ctrlp_map = '<c-l>'
+
+let g:ctrlp_working_path_mode = 1
+let g:ctrlp_use_caching = 0
+
 " Omnicompletion
 set omnifunc=syntaxcomplete#Complete
+
+" Tmux integration
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <c-'> :TmuxNavigatePrevious<cr>
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
@@ -226,8 +289,22 @@ set clipboard=unnamed
 " Emmet
 let g:user_emmet_leader_key=","
 
+" CSS Settings
+let g:syntastic_scss_checkers = ['scss_lint']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_vue_checkers = ['eslint']
+" command Sd SyntasticToggleMode
+
+let g:syntastic_always_populate_loc_list = 1
+
 map <leader>s vi{:sort<cr>
 map <leader>c f{V%<cr>
+
+" JavaScript syntax
+let g:javascript_plugin_jsdoc = 1
+let g:used_javascript_libs = 'jquery'
+
+let g:PreserveNoEOL = 1
 
 set spelllang=en_gb
 nmap <silent> <leader>; :set spell!<CR>
@@ -238,3 +315,12 @@ nnoremap <Leader>w :w<CR>
 
 " show characters
 nnoremap <leader>. :set list!<cr>
+
+" Search and replace macros
+nmap <Leader>el :%s/'/\&lsquo;/gc<cr>
+nmap <Leader>er :%s/'/\&rsquo;/gc<cr>
+nmap <Leader>ee :%s/e/\&eacute;/gc<cr>
+nmap <Leader>ea :%s/e/\&amp;/gc<cr>
+
+" toggle linting
+nnoremap <leader>c :SyntasticToggleMode<cr>
