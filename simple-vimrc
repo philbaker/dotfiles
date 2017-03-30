@@ -43,6 +43,7 @@ Plugin 'gko/vim-coloresque'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'pangloss/vim-javascript'
 Plugin 'JulesWang/css.vim'
+Plugin 'smeggingsmegger/ag.vim'
 
 call vundle#end() " required
 filetype plugin indent on " required
@@ -268,17 +269,12 @@ nnoremap <leader>t :CtrlPTag<CR>et g:ctrlp_map = '<c-l>'
 let g:ctrlp_working_path_mode = 1
 let g:ctrlp_use_caching = 0
 
+" Greplace
+set grepprg=ag
+let g:grep_cmd_opts = '--line-numbers --noheading'
+
 " Omnicompletion
 set omnifunc=syntaxcomplete#Complete
-
-" Tmux integration
-let g:tmux_navigator_no_mappings = 1
-
-nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <c-'> :TmuxNavigatePrevious<cr>
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
