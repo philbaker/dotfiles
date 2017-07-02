@@ -43,27 +43,20 @@ Plugin 'christoomey/vim-tmux-runner'
 Plugin 'tpope/vim-vinegar'
 Plugin 'open-browser.vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'stanangeloff/php.vim'
-Plugin 'stephpy/vim-php-cs-fixer'
 Plugin 'gko/vim-coloresque'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tomtom/tlib_vim'
 Plugin 'marcweber/vim-addon-mw-utils'
-Plugin 'tpope/vim-liquid'
-Plugin 'vim-scripts/PreserveNoEOL'
 Plugin 'JulesWang/css.vim'
-Plugin 'posva/vim-vue'
 Plugin 'kristijanhusak/vim-hybrid-material'
-Plugin 'janko-m/vim-test'
-Plugin 'arnaud-lb/vim-php-namespace'
-Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/neosnippet.vim'
 Plugin 'Shougo/neosnippet-snippets'
-Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'sekel/vim-vue-syntastic'
-Plugin 'jwalton512/vim-blade'
+Plugin 'mxw/vim-jsx'
+Plugin 'mtscout6/syntastic-local-eslint.vim'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end() " required
 filetype plugin indent on " required
@@ -314,11 +307,6 @@ nnoremap <silent> <c-'> :TmuxNavigatePrevious<cr>
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
-" PHP
-let g:php_cs_fixer_level = "psr2"
-nnoremap <silent><leader>bd :call PhpCsFixerFixDirectory()<CR>
-nnoremap <silent><leader>bf :call PhpCsFixerFixFile()<CR>
-
 " Clipboard settings
 set clipboard=unnamed
 
@@ -355,19 +343,6 @@ nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>h :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
-
-" Automatically add use statements PHP
-function! IPhpInsertUse()
-    call PhpInsertUse()
-    call feedkeys('a',  'n')
-endfunction
-autocmd FileType php inoremap <Leader>r <Esc>:call IPhpInsertUse()<CR>
-autocmd FileType php noremap <Leader>r :call PhpInsertUse()<CR>
-
-autocmd FileType php inoremap <Leader>s <Esc>:call PhpSortUse()<CR>
-autocmd FileType php noremap <Leader>s :call PhpSortUse()<CR>
-
-let g:php_namespace_sort_after_insert = 1
 
 " Neocomplete settings
 " Use neocomplete.
@@ -471,3 +446,8 @@ nmap <Leader>ea :%s/e/\&amp;/gc<cr>
 
 " toggle linting
 nnoremap <leader>c :SyntasticToggleMode<cr>
+
+let g:jsx_ext_required = 0 
+
+" fix syntax highlighting on long files
+nnoremap <leader>= :syntax sync fromstart<cr>
