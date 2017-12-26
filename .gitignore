@@ -5,3 +5,7 @@ vim/bundle/
 vim/doc/
 vim/indent/
 vim/syntax/
+nvim/.netrwhist
+nvim/pack/minpac/opt/*
+nvim/pack/minpac/start/*
+nvim/undo/*
