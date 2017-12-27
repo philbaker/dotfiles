@@ -11,6 +11,7 @@ call minpac#add('mhinz/vim-grepper')
 call minpac#add('janko-m/vim-test')
 call minpac#add('tpope/vim-obsession')
 call minpac#add('tpope/vim-vinegar')
+call minpac#add('tpope/vim-commentary')
 call minpac#add('kristijanhusak/vim-hybrid-material')
 call minpac#add('Shougo/deoplete.nvim')
 
@@ -118,3 +119,6 @@ let g:deoplete#enable_at_startup=1
 
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" Disable highlight when <leader><cr> is pressed
+map <silent> <leader><cr> :noh<cr>
