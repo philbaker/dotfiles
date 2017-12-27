@@ -10,9 +10,16 @@ call minpac#add('w0rp/ale')
 call minpac#add('mhinz/vim-grepper')
 call minpac#add('janko-m/vim-test')
 call minpac#add('tpope/vim-obsession')
+call minpac#add('tpope/vim-vinegar')
+call minpac#add('kristijanhusak/vim-hybrid-material')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
+
+" Color scheme
+set background=dark
+colorscheme hybrid_material
+set termguicolors
 
 " Vim dispatch
 let g:dispatch_compilers={}
@@ -104,3 +111,6 @@ set tabstop=2
 set softtabstop=2
 " When indenting with '>', use 2 spaces width
 set shiftwidth=2
+
+" Use deoplete for snippets
+let g:deoplete#enable_at_startup = 1
