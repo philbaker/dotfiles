@@ -12,6 +12,7 @@ call minpac#add('janko-m/vim-test')
 call minpac#add('tpope/vim-obsession')
 call minpac#add('tpope/vim-vinegar')
 call minpac#add('kristijanhusak/vim-hybrid-material')
+call minpac#add('Shougo/deoplete.nvim')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
@@ -113,4 +114,7 @@ set softtabstop=2
 set shiftwidth=2
 
 " Use deoplete for snippets
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup=1
+
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
