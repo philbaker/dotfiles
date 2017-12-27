@@ -17,6 +17,16 @@ call minpac#add('Shougo/deoplete.nvim')
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
 
+" Indentation settings
+filetype plugin indent on
+" On pressing tab, insert 2 spaces
+set expandtab
+" Show existing tab with 2 spaces width
+set tabstop=2
+set softtabstop=2
+" When indenting with '>', use 2 spaces width
+set shiftwidth=2
+
 " Color scheme
 set background=dark
 colorscheme hybrid_material
@@ -102,16 +112,6 @@ endif
 augroup vimrc
 	autocmd BufWritePre /tmp/* setlocal noundofile
 augroup END
-
-" Indentation settings
-filetype plugin indent on
-" On pressing tab, insert 2 spaces
-set expandtab
-" Show existing tab with 2 spaces width
-set tabstop=2
-set softtabstop=2
-" When indenting with '>', use 2 spaces width
-set shiftwidth=2
 
 " Use deoplete for snippets
 let g:deoplete#enable_at_startup=1
