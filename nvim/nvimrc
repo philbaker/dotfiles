@@ -123,3 +123,19 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
+
+" Line numbers
+" Toggle relative line number
+function! NumberToggle()
+if(&relativenumber)
+set number
+else
+" Uncomment the following to
+" display a '0' instead of the line number
+" set nonumber
+set relativenumber
+set number
+endif
+endfunc
+"nnoremap <C-n> :call NumberToggle()<cr>
+call NumberToggle()
