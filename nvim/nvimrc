@@ -53,6 +53,7 @@ nmap <silent> ]W <Plug>(ale_last)
 " Grepper
 let g:grepper = {}
 let g:grepper.tools = ['grep', 'git', 'rg']
+map <leader>, :GrepperGrep -r -i --include \*.
 
 " Search for the current word
 nnoremap <Leader>* :Grepper -cword -noprompt<CR>
