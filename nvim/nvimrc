@@ -97,6 +97,12 @@ nnoremap <Leader>G :Grepper -tool rg<CR>
 " Switch buffer
 nmap <leader>u :b#<CR>
 
+" Go to next result in quick fix list
+map <leader>n :cn<CR>
+
+" Go to next result in quick fix list
+map <leader>p :cp<CR>
+
 " Terminal mode mappings
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
@@ -162,3 +168,9 @@ function! NumberToggle()
 endfunc
 "nnoremap <C-n> :call NumberToggle()<cr>
 call NumberToggle()
+
+" Files, backups and undo
+" Turn backup off
+set nobackup
+set nowb
+set noswapfile
