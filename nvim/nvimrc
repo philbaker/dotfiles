@@ -13,6 +13,7 @@ call minpac#add('tpope/vim-obsession')
 call minpac#add('tpope/vim-vinegar')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('kristijanhusak/vim-hybrid-material')
+call minpac#add('rafi/awesome-vim-colorschemes')
 call minpac#add('Shougo/deoplete.nvim')
 call minpac#add('airblade/vim-gitgutter')
 
@@ -174,3 +175,8 @@ call NumberToggle()
 set nobackup
 set nowb
 set noswapfile
+
+" Moving around, tabs, windows and buffers
+" Treat long lines as break lines (useful when moving around in them)
+map j gj
+map k gk
