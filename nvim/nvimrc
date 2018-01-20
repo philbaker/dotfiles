@@ -14,6 +14,7 @@ call minpac#add('tpope/vim-vinegar')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('kristijanhusak/vim-hybrid-material')
 call minpac#add('Shougo/deoplete.nvim')
+call minpac#add('mattn/emmet-vim')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
@@ -56,6 +57,9 @@ let g:grepper.tools = ['grep', 'git', 'rg']
 
 " Search for the current word
 nnoremap <Leader>* :Grepper -cword -noprompt<CR>
+
+" Terminal shortcut
+nnoremap <Leader>. :terminal<CR>
 
 " Search for the current selection
 nmap gs <plug>(GrepperOperator)
@@ -122,3 +126,6 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
+
+" Emmet
+let g:user_emmet_leader_key=","
