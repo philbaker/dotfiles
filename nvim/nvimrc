@@ -13,14 +13,17 @@ call minpac#add('tpope/vim-obsession')
 call minpac#add('tpope/vim-vinegar')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('kristijanhusak/vim-hybrid-material')
+call minpac#add('rafi/awesome-vim-colorschemes')
 call minpac#add('Shougo/deoplete.nvim')
 call minpac#add('mattn/emmet-vim')
+call minpac#add('airblade/vim-gitgutter')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
 
 " Indentation settings
 filetype plugin indent on
+" Spaces by default
 " On pressing tab, insert 2 spaces
 set expandtab
 " Show existing tab with 2 spaces width
@@ -28,6 +31,23 @@ set tabstop=2
 set softtabstop=2
 " When indenting with '>', use 2 spaces width
 set shiftwidth=2
+
+" Toggle tabs and spaces
+function TabToggle()
+  if &expandtab
+    set shiftwidth=4
+    set tabstop=4
+    set softtabstop=4
+    set smarttab
+    set noexpandtab
+  else
+    set tabstop=2
+    set softtabstop=2
+    set shiftwidth=2
+    set expandtab
+  endif
+endfunction
+nmap <leader>t mz:execute TabToggle()<CR>'z
 
 " Color scheme
 set background=dark
@@ -54,6 +74,8 @@ nmap <silent> ]W <Plug>(ale_last)
 " Grepper
 let g:grepper = {}
 let g:grepper.tools = ['grep', 'git', 'rg']
+map <leader>a :GrepperGrep -r -i --include \*.
+map <leader>o :GrepperGrep -r -i --exclude \*.log 
 
 " Search for the current word
 nnoremap <Leader>* :Grepper -cword -noprompt<CR>
@@ -76,6 +98,15 @@ call SetupCommandAlias("grep", "GrepperGrep")
 " Open Grepper-prompt for a particular Grep-alike tool
 nnoremap <Leader>g :Grepper -tool git<CR>
 nnoremap <Leader>G :Grepper -tool rg<CR>
+
+" Switch buffer
+nmap <leader>u :b#<CR>
+
+" Go to next result in quick fix list
+map <leader>n :cn<CR>
+
+" Go to next result in quick fix list
+map <leader>p :cp<CR>
 
 " Terminal mode mappings
 if has('nvim')
@@ -129,3 +160,30 @@ map <silent> <leader><cr> :noh<cr>
 
 " Emmet
 let g:user_emmet_leader_key=","
+
+" Line numbers
+" Toggle relative line number
+function! NumberToggle()
+  if(&relativenumber)
+    set number
+  else
+    " Uncomment the following to
+    " display a '0' instead of the line number
+    " set nonumber
+    set relativenumber
+    set number
+  endif
+endfunc
+"nnoremap <C-n> :call NumberToggle()<cr>
+call NumberToggle()
+
+" Files, backups and undo
+" Turn backup off
+set nobackup
+set nowb
+set noswapfile
+
+" Moving around, tabs, windows and buffers
+" Treat long lines as break lines (useful when moving around in them)
+map j gj
+map k gk
