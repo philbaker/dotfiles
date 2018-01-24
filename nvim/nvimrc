@@ -16,6 +16,7 @@ call minpac#add('Shougo/deoplete.nvim')
 call minpac#add('mattn/emmet-vim')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('mattn/gist-vim')
+call minpac#add('mattn/webapi-vim')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
@@ -186,3 +187,12 @@ set noswapfile
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
+
+" Gist.vim settings
+" Show private gists with :Gist -l
+let g:gist_show_privates = 1
+let g:gist_post_private = 1
+
+" Make the 'cw' and like commands put a $ at the end instead of just deleting
+" the text and replacing it
+set cpoptions=ces$
