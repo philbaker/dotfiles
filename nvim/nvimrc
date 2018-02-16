@@ -77,7 +77,7 @@ nmap <silent> ]W <Plug>(ale_last)
 let g:grepper = {}
 let g:grepper.tools = ['grep', 'git', 'rg']
 map <leader>a :GrepperGrep -r -i --include \*.
-map <leader>o :GrepperGrep -r -i --exclude \*.log 
+map <leader>o :GrepperGrep -r -i --exclude={*log*,tags} 
 
 " Search for the current word
 nnoremap <Leader>* :Grepper -cword -noprompt<CR>
