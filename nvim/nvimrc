@@ -19,6 +19,7 @@ call minpac#add('airblade/vim-gitgutter')
 call minpac#add('mattn/gist-vim')
 call minpac#add('mattn/webapi-vim')
 call minpac#add('ludovicchabant/vim-gutentags')
+call minpac#add('mxw/vim-jsx')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
