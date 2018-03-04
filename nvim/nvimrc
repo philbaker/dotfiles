@@ -20,6 +20,7 @@ call minpac#add('mattn/gist-vim')
 call minpac#add('mattn/webapi-vim')
 call minpac#add('ludovicchabant/vim-gutentags')
 call minpac#add('mxw/vim-jsx')
+call minpac#add('lilydjwg/colorizer')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
