@@ -10,10 +10,12 @@ call minpac#add('tpope/vim-vinegar')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-rails')
 call minpac#add('tpope/vim-fugitive')
+call minpac#add('tpope/vim-surround')
 call minpac#add('ludovicchabant/vim-gutentags')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('mattn/emmet-vim')
 call minpac#add('rizzatti/dash.vim')
+call minpac#add('maxbrunsfeld/vim-yankstack')
 
 " Syntax and colours
 call minpac#add('kristijanhusak/vim-hybrid-material')
@@ -203,3 +205,7 @@ set cpoptions=ces$
 
 " Vim fugitive settings
 map <leader>g :Gstatus<CR>
+
+" Yankstack settings 
+nmap <leader>p <Plug>yankstack_substitute_older_paste
+nmap <leader>P <Plug>yankstack_substitute_newer_paste
