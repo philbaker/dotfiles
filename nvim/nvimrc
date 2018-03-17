@@ -13,6 +13,7 @@ call minpac#add('tpope/vim-fugitive')
 call minpac#add('ludovicchabant/vim-gutentags')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('mattn/emmet-vim')
+call minpac#add('rizzatti/dash.vim')
 
 " Syntax and colours
 call minpac#add('kristijanhusak/vim-hybrid-material')
@@ -199,3 +200,6 @@ let g:gist_post_private = 1
 " Make the 'cw' and like commands put a $ at the end instead of just deleting
 " the text and replacing it
 set cpoptions=ces$
+
+" Vim fugitive settings
+map <leader>g :Gstatus<CR>
