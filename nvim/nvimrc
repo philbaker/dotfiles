@@ -17,6 +17,7 @@ call minpac#add('mattn/emmet-vim')
 call minpac#add('rizzatti/dash.vim')
 call minpac#add('maxbrunsfeld/vim-yankstack')
 call minpac#add('digitaltoad/vim-pug')
+call minpac#add('ngmy/vim-rubocop')
 
 " Syntax and colours
 call minpac#add('kristijanhusak/vim-hybrid-material')
