@@ -25,6 +25,7 @@ call minpac#add('rafi/awesome-vim-colorschemes')
 call minpac#add('mustache/vim-mustache-handlebars')
 call minpac#add('mxw/vim-jsx')
 call minpac#add('lilydjwg/colorizer')
+call minpac#add('posva/vim-vue')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
