@@ -3,29 +3,28 @@ packadd minpac
 call minpac#init()
 
 call minpac#add('junegunn/fzf')
-call minpac#add('w0rp/ale')
-call minpac#add('Shougo/deoplete.nvim')
-call minpac#add('mhinz/vim-grepper')
 call minpac#add('tpope/vim-vinegar')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-rails')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-surround')
-call minpac#add('ludovicchabant/vim-gutentags')
+call minpac#add('w0rp/ale')
+call minpac#add('mhinz/vim-grepper')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('mattn/emmet-vim')
-call minpac#add('rizzatti/dash.vim')
-call minpac#add('maxbrunsfeld/vim-yankstack')
-call minpac#add('digitaltoad/vim-pug')
-call minpac#add('ngmy/vim-rubocop')
+call minpac#add('ludovicchabant/vim-gutentags')
 
-" Syntax and colours
+" Colours
 call minpac#add('kristijanhusak/vim-hybrid-material')
 call minpac#add('rafi/awesome-vim-colorschemes')
-call minpac#add('mustache/vim-mustache-handlebars')
-call minpac#add('mxw/vim-jsx')
 call minpac#add('lilydjwg/colorizer')
+
+" Syntax
+call minpac#add('mustache/vim-mustache-handlebars')
 call minpac#add('posva/vim-vue')
+call minpac#add('pangloss/vim-javascript')
+call minpac#add('mxw/vim-jsx')
+call minpac#add('leshill/vim-json')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
@@ -62,10 +61,6 @@ nmap <leader>t mz:execute TabToggle()<CR>'z
 set background=dark
 colorscheme hybrid_material
 set termguicolors
-
-" Vim dispatch
-let g:dispatch_compilers={}
-let g:dispatch_compilers['npm run lint']='tslint'
 
 " Linting
 let g:ale_linters = {
@@ -158,14 +153,11 @@ augroup vimrc
   autocmd BufWritePre /tmp/* setlocal noundofile
 augroup END
 
-" Use deoplete for snippets
-let g:deoplete#enable_at_startup=1
-
-" deoplete tab-complete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
+
+" Highlight JSX syntax in .js files
+let g:jsx_ext_required = 0
 
 " Emmet
 let g:user_emmet_leader_key=","
@@ -197,11 +189,6 @@ set noswapfile
 map j gj
 map k gk
 
-" Gist.vim settings
-" Show private gists with :Gist -l
-let g:gist_show_privates = 1
-let g:gist_post_private = 1
-
 " Make the 'cw' and like commands put a $ at the end instead of just deleting
 " the text and replacing it
 set cpoptions=ces$
@@ -209,8 +196,7 @@ set cpoptions=ces$
 " Vim fugitive settings
 map <leader>g :Gstatus<CR>
 
-" Yankstack settings 
-nmap <leader>p <Plug>yankstack_substitute_older_paste
-nmap <leader>P <Plug>yankstack_substitute_newer_paste
+" Save shortcut
+nnoremap <leader>; :update<cr>
 
 set colorcolumn=80
