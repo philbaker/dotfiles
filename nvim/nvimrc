@@ -200,3 +200,6 @@ map <leader>g :Gstatus<CR>
 nnoremap <leader>; :update<cr>
 
 set colorcolumn=80
+
+" Rubocop settings
+nnoremap <leader>r :.,$!rubocop --auto-correct<cr>
