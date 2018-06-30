@@ -201,5 +201,5 @@ nnoremap <leader>; :update<cr>
 
 set colorcolumn=80
 
-" Rubocop settings
-nnoremap <leader>r :.,$!rubocop --auto-correct<cr>
+" Run Rails test
+nnoremap <leader>r :Rails<cr>
