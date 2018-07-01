@@ -170,6 +170,10 @@ nnoremap <leader>; :update<cr>
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
+" Window / split sizing
+nnoremap <silent> + :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> ] :exe "resize " . (winheight(0) * 2/3)<CR>
+
 "-----------------------------------------------------------------------------
 " Terminal
 "-----------------------------------------------------------------------------
