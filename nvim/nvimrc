@@ -1,4 +1,7 @@
+"-----------------------------------------------------------------------------
 " Plugins
+"-----------------------------------------------------------------------------
+
 packadd minpac
 call minpac#init()
 
@@ -13,6 +16,7 @@ call minpac#add('mhinz/vim-grepper')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('mattn/emmet-vim')
 call minpac#add('ludovicchabant/vim-gutentags')
+call minpac#add('sgur/vim-editorconfig')
 
 " Colours
 call minpac#add('kristijanhusak/vim-hybrid-material')
@@ -29,117 +33,18 @@ call minpac#add('leshill/vim-json')
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
 
+"-----------------------------------------------------------------------------
+" Core settings
+"-----------------------------------------------------------------------------
+
 " Indentation settings
 filetype plugin indent on
-" Spaces by default
-" On pressing tab, insert 2 spaces
-set expandtab
-" Show existing tab with 2 spaces width
-set tabstop=2
-set softtabstop=2
-" When indenting with '>', use 2 spaces width
-set shiftwidth=2
 
-" Toggle tabs and spaces
-function TabToggle()
-  if &expandtab
-    set shiftwidth=4
-    set tabstop=4
-    set softtabstop=4
-    set smarttab
-    set noexpandtab
-  else
-    set tabstop=2
-    set softtabstop=2
-    set shiftwidth=2
-    set expandtab
-  endif
-endfunction
-nmap <leader>t mz:execute TabToggle()<CR>'z
-
-" Color scheme
-set background=dark
-colorscheme hybrid_material
-set termguicolors
-
-" Linting
-let g:ale_linters = {
-      \	'javascript': ['eslint'],
-      \	'jsx': ['eslint'],
-      \	'scss': ['scsslint'],
-      \ }
-
-" Mappings in the style of unimpaired-next
-nmap <silent> [W <Plug>(ale_first)
-nmap <silent> [w <Plug>(ale_previous)
-nmap <silent> ]w <Plug>(ale_next)
-nmap <silent> ]W <Plug>(ale_last)
-
-" Grepper
-let g:grepper = {}
-let g:grepper.tools = ['grep', 'git', 'rg']
-map <leader>a :GrepperGrep -r -i --include \*.
-map <leader>o :GrepperGrep -r -i --exclude={*log*,tags} 
-
-" Search for the current word
-nnoremap <Leader>* :Grepper -cword -noprompt<CR>
-
-" Terminal shortcut
-nnoremap <Leader>. :terminal<CR>
-
-" Search for the current selection
-nmap gs <plug>(GrepperOperator)
-xmap gs <plug>(GrepperOperator)
-
-" Expand grep to GrepperGrep in command-line mode
-function! SetupCommandAlias(input, output)
-  exec 'cabbrev <expr> '.a:input
-        \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:input.'")'
-        \ .'? ("'.a:output.'") : ("'.a:input.'"))'
-endfunction
-call SetupCommandAlias("grep", "GrepperGrep")
-
-" Open Grepper-prompt for a particular Grep-alike tool
-nnoremap <Leader>g :Grepper -tool git<CR>
-nnoremap <Leader>G :Grepper -tool rg<CR>
-
-" Switch buffer
-nmap <leader>u :b#<CR>
-
-" Go to next result in quick fix list
-map <leader>n :cn<CR>
-
-" Go to next result in quick fix list
-map <leader>p :cp<CR>
-
-" Terminal mode mappings
-if has('nvim')
-  tnoremap <Esc> <C-\><C-n>
-  tnoremap <C-v><Esc> <Esc>
-endif
-
-" Highlight terminal cursor
-if has('nvim')
-  highlight! link TermCursor Cursor
-  highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
-endif
-
-" Improve window switching
-nnoremap <C-h> <c-w>h
-nnoremap <C-j> <c-w>j
-nnoremap <C-k> <c-w>k
-nnoremap <C-l> <c-w>l
-if has('nvim')
-  tnoremap <C-h> <c-\><c-n><c-w>h
-  tnoremap <C-j> <c-\><c-n><c-w>j
-  tnoremap <C-k> <c-\><c-n><c-w>k
-  tnoremap <C-l> <c-\><c-n><c-w>l
-endif
-
-" Avoied nested nvim instances
-if has('nvim') && executable('nvr')
-  let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
-endif
+" Files, backups and undo
+" Turn backup off
+set nobackup
+set nowb
+set noswapfile
 
 " Make undo persist between sessions
 set undofile
@@ -153,14 +58,26 @@ augroup vimrc
   autocmd BufWritePre /tmp/* setlocal noundofile
 augroup END
 
-" Disable highlight when <leader><cr> is pressed
-map <silent> <leader><cr> :noh<cr>
+set colorcolumn=80
 
-" Highlight JSX syntax in .js files
-let g:jsx_ext_required = 0
+" Make the 'cw' and like commands put a $ at the end instead of just deleting
+" the text and replacing it
+set cpoptions=ces$
 
-" Emmet
-let g:user_emmet_leader_key=","
+"-----------------------------------------------------------------------------
+" Theme
+"-----------------------------------------------------------------------------
+
+" Color scheme
+set background=dark
+colorscheme hybrid_material
+set termguicolors
+
+" Highlight terminal cursor
+if has('nvim')
+  highlight! link TermCursor Cursor
+  highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
+endif
 
 " Line numbers
 " Toggle relative line number
@@ -178,28 +95,117 @@ endfunc
 "nnoremap <C-n> :call NumberToggle()<cr>
 call NumberToggle()
 
-" Files, backups and undo
-" Turn backup off
-set nobackup
-set nowb
-set noswapfile
+"-----------------------------------------------------------------------------
+" Search
+"-----------------------------------------------------------------------------
+
+" Grepper
+let g:grepper = {}
+let g:grepper.tools = ['grep', 'git', 'rg']
+map <leader>a :GrepperGrep -r -i --include \*.
+map <leader>o :GrepperGrep -r -i --exclude={*log*,tags} 
+
+" Search for the current word
+nnoremap <Leader>* :Grepper -cword -noprompt<CR>
+
+" Search for the current selection
+nmap gs <plug>(GrepperOperator)
+xmap gs <plug>(GrepperOperator)
+
+" Expand grep to GrepperGrep in command-line mode
+function! SetupCommandAlias(input, output)
+  exec 'cabbrev <expr> '.a:input
+        \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:input.'")'
+        \ .'? ("'.a:output.'") : ("'.a:input.'"))'
+endfunction
+call SetupCommandAlias("grep", "GrepperGrep")
+
+" Open Grepper-prompt for a particular Grep-alike tool
+nnoremap <Leader>g :Grepper -tool git<CR>
+nnoremap <Leader>G :Grepper -tool rg<CR>
+
+"-----------------------------------------------------------------------------
+" Linter
+"-----------------------------------------------------------------------------
+
+let g:ale_linters = {
+      \	'javascript': ['eslint'],
+      \	'jsx': ['eslint'],
+      \	'scss': ['scsslint'],
+      \ }
+
+" Mappings in the style of unimpaired-next
+nmap <silent> [W <Plug>(ale_first)
+nmap <silent> [w <Plug>(ale_previous)
+nmap <silent> ]w <Plug>(ale_next)
+nmap <silent> ]W <Plug>(ale_last)
+
+" Highlight JSX syntax in .js files
+let g:jsx_ext_required = 0
+
+"-----------------------------------------------------------------------------
+" Movement
+"-----------------------------------------------------------------------------
 
 " Moving around, tabs, windows and buffers
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
 
-" Make the 'cw' and like commands put a $ at the end instead of just deleting
-" the text and replacing it
-set cpoptions=ces$
-
-" Vim fugitive settings
-map <leader>g :Gstatus<CR>
+" Improve window switching
+nnoremap <C-h> <c-w>h
+nnoremap <C-j> <c-w>j
+nnoremap <C-k> <c-w>k
+nnoremap <C-l> <c-w>l
+if has('nvim')
+  tnoremap <C-h> <c-\><c-n><c-w>h
+  tnoremap <C-j> <c-\><c-n><c-w>j
+  tnoremap <C-k> <c-\><c-n><c-w>k
+  tnoremap <C-l> <c-\><c-n><c-w>l
+endif
 
 " Save shortcut
 nnoremap <leader>; :update<cr>
 
-set colorcolumn=80
+" Disable highlight when <leader><cr> is pressed
+map <silent> <leader><cr> :noh<cr>
 
-" Run Rails test
+"-----------------------------------------------------------------------------
+" Terminal
+"-----------------------------------------------------------------------------
+
+" Terminal shortcut
+nnoremap <Leader>. :terminal<CR>
+
+" Terminal mode mappings
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <C-v><Esc> <Esc>
+endif
+
+" Avoied nested nvim instances
+if has('nvim') && executable('nvr')
+  let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+endif
+
+"-----------------------------------------------------------------------------
+" Useful shortcuts
+"-----------------------------------------------------------------------------
+
+" Switch buffer
+nmap <leader>u :b#<CR>
+
+" Go to next result in quick fix list
+map <leader>n :cn<CR>
+
+" Go to previous result in quick fix list
+map <leader>p :cp<CR>
+
+" Emmet
+let g:user_emmet_leader_key=","
+
+" Git status
+map <leader>g :Gstatus<CR>
+
+" Run rspec for current file
 nnoremap <leader>r :Rails<cr>
