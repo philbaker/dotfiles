@@ -8,6 +8,3 @@ alias gc='git commit -m '
 alias gp='git push'
 alias gs='git status'
 alias nah='git reset --hard;git clean -df;'
-
-# Vim
-alias n='nvim --remote-silent'
