@@ -188,6 +188,9 @@ if has('nvim') && executable('nvr')
   let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
 endif
 
+" Keep terminal buffers alive on switch
+set hidden
+
 "-----------------------------------------------------------------------------
 " Useful shortcuts
 "-----------------------------------------------------------------------------
@@ -209,3 +212,7 @@ map <leader>g :Gstatus<CR>
 
 " Run rspec for current file
 nnoremap <leader>r :Rails<cr>
+
+" Split resize
+nnoremap <leader>+ <C-w>+ 
+nnoremap <leader>] <C-w>- 
