@@ -17,6 +17,7 @@ call minpac#add('airblade/vim-gitgutter')
 call minpac#add('mattn/emmet-vim')
 call minpac#add('ludovicchabant/vim-gutentags')
 call minpac#add('sgur/vim-editorconfig')
+call minpac#add('Shougo/deoplete.nvim')
 
 " Colours
 call minpac#add('kristijanhusak/vim-hybrid-material')
@@ -63,6 +64,12 @@ set colorcolumn=80
 " Make the 'cw' and like commands put a $ at the end instead of just deleting
 " the text and replacing it
 set cpoptions=ces$
+
+" Autocompletion
+let g:deoplete#enable_at_startup = 1
+
+" Map tab to auto complete
+inoremap <expr><tab> pumvisible() ? "<c-n>" : "<tab>"
 
 "-----------------------------------------------------------------------------
 " Theme
@@ -126,11 +133,12 @@ nnoremap <Leader>G :Grepper -tool rg<CR>
 "-----------------------------------------------------------------------------
 " Linter
 "-----------------------------------------------------------------------------
-
+let g:ale_completion_enabled = 1
 let g:ale_linters = {
       \	'javascript': ['eslint'],
       \	'jsx': ['eslint'],
       \	'scss': ['scsslint'],
+      \ 'ruby': ['rubocop'],
       \ }
 
 " Mappings in the style of unimpaired-next
@@ -221,3 +229,7 @@ nnoremap <leader>r :Rails<cr>
 " Split resize
 nnoremap <leader>+ <C-w>+ 
 nnoremap <leader>] <C-w>- 
+
+" Change command line height
+map <leader>e :set cmdheight=1<CR>
+map <leader>o :set cmdheight=3<CR>
