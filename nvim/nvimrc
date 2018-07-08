@@ -6,6 +6,7 @@ packadd minpac
 call minpac#init()
 
 call minpac#add('junegunn/fzf')
+call minpac#add('junegunn/fzf.vim')
 call minpac#add('tpope/vim-vinegar')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-rails')
@@ -112,7 +113,7 @@ let g:grepper.tools = ['grep', 'git', 'rg', 'ag']
 map <leader>a :GrepperAg 
 
 " Search for the current word
-nnoremap <Leader>* :Grepper -cword -noprompt<CR>
+nnoremap <leader>* :Grepper -cword -noprompt<CR>
 
 " Search for the current selection
 nmap gs <plug>(GrepperOperator)
@@ -127,8 +128,13 @@ endfunction
 call SetupCommandAlias("grep", "GrepperGrep")
 
 " Open Grepper-prompt for a particular Grep-alike tool
-nnoremap <Leader>g :Grepper -tool git<CR>
-nnoremap <Leader>G :Grepper -tool rg<CR>
+nnoremap <leader>g :Grepper -tool git<CR>
+nnoremap <leader>G :Grepper -tool rg<CR>
+
+" FZF
+nnoremap <leader>, :Tags<CR>
+nnoremap <leader>. :Buffers<CR>
+
 
 "-----------------------------------------------------------------------------
 " Linter
@@ -188,7 +194,7 @@ nnoremap <silent> [ :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 "-----------------------------------------------------------------------------
 
 " Terminal shortcut
-nnoremap <Leader>. :terminal<CR>
+nnoremap <leader>t :terminal<CR>
 
 " Terminal mode mappings
 if has('nvim')

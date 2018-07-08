@@ -20,6 +20,7 @@
 
 --langdef=scss
 --langmap=scss:.scss
+--regex-scss=/^[ \t]*@mixin ([A-Za-z0-9_-]+)/\1/m,mixin,mixins/
 --regex-scss=/^[ \t]*\.([A-Za-z0-9_-]+)/.\1/c,class,classes/
 --regex-scss=/^[ \t]*#([A-Za-z0-9_-]+)/#\1/id,ids/
 --regex-scss=/^[ \t]*(([A-Za-z0-9_-]+[ \t\n,]+)+)\{/\1/t,tag,tags/
