@@ -19,6 +19,7 @@ call minpac#add('mattn/emmet-vim')
 call minpac#add('ludovicchabant/vim-gutentags')
 call minpac#add('sgur/vim-editorconfig')
 call minpac#add('Shougo/deoplete.nvim')
+call minpac#add('easymotion/vim-easymotion')
 
 " Colours
 call minpac#add('kristijanhusak/vim-hybrid-material')
@@ -138,7 +139,6 @@ nnoremap <leader>G :Grepper -tool rg<CR>
 nnoremap <leader>, :Tags<CR>
 nnoremap <leader>. :Buffers<CR>
 
-
 "-----------------------------------------------------------------------------
 " Linter
 "-----------------------------------------------------------------------------
@@ -191,6 +191,10 @@ nnoremap <S-Up> <C-w>+
 nnoremap <S-Down> <C-w>-
 nnoremap <S-Right> <C-w>>
 nnoremap <S-Left> <C-w><
+
+" Easymotion
+map <Leader> <Plug>(easymotion-prefix)
+map <C-n> <Plug>(easymotion-overwin-f)
 
 "-----------------------------------------------------------------------------
 " Terminal
