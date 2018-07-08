@@ -184,10 +184,10 @@ nnoremap <leader>; :update<cr>
 map <silent> <leader><cr> :noh<cr>
 
 " Window / split sizing
-nnoremap <silent> + :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> ] :exe "resize " . (winheight(0) * 2/3)<CR>
-nnoremap <silent> & :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
-nnoremap <silent> [ :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+nnoremap <S-Up> <C-w>+
+nnoremap <S-Down> <C-w>-
+nnoremap <S-Right> <C-w>>
+nnoremap <S-Left> <C-w><
 
 "-----------------------------------------------------------------------------
 " Terminal
@@ -239,3 +239,4 @@ nnoremap <leader>] <C-w>-
 " Change command line height
 map <leader>e :set cmdheight=1<CR>
 map <leader>o :set cmdheight=3<CR>
+
