@@ -106,6 +106,9 @@ call NumberToggle()
 "-----------------------------------------------------------------------------
 " Search
 "-----------------------------------------------------------------------------
+" Case insensitive search - \C overrides
+set ignorecase
+set smartcase
 
 " Grepper
 let g:grepper = {}
