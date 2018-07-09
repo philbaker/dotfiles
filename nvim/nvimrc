@@ -117,7 +117,7 @@ let g:grepper.tools = ['grep', 'git', 'rg', 'ag']
 map <leader>a :GrepperAg 
 
 " Search for the current word
-nnoremap <leader>* :Grepper -cword -noprompt<CR>
+nnoremap <leader>* :Grepper -cword -noprompt<cr>
 
 " Search for the current selection
 nmap gs <plug>(GrepperOperator)
@@ -132,12 +132,12 @@ endfunction
 call SetupCommandAlias("grep", "GrepperGrep")
 
 " Open Grepper-prompt for a particular Grep-alike tool
-nnoremap <leader>g :Grepper -tool git<CR>
-nnoremap <leader>G :Grepper -tool rg<CR>
+nnoremap <leader>g :Grepper -tool git<cr>
+nnoremap <leader>G :Grepper -tool rg<cr>
 
 " FZF
-nnoremap <leader>, :Tags<CR>
-nnoremap <leader>. :Buffers<CR>
+nnoremap <leader>, :Tags<cr>
+nnoremap <leader>. :Buffers<cr>
 
 "-----------------------------------------------------------------------------
 " Linter
@@ -193,15 +193,17 @@ nnoremap <S-Right> <C-w>>
 nnoremap <S-Left> <C-w><
 
 " Easymotion
-map <Leader> <Plug>(easymotion-prefix)
-map <C-n> <Plug>(easymotion-overwin-f)
+let g:EasyMotion_smartcase = 1
+map <leader> <Plug>(easymotion-prefix)
+map <leader>o <Plug>(easymotion-s)
+map <leader>e <Plug>(easymotion-overwin-f)
 
 "-----------------------------------------------------------------------------
 " Terminal
 "-----------------------------------------------------------------------------
 
 " Terminal shortcut
-nnoremap <leader>t :terminal<CR>
+nnoremap <leader>t :terminal<cr>
 
 " Terminal mode mappings
 if has('nvim')
@@ -222,19 +224,19 @@ set hidden
 "-----------------------------------------------------------------------------
 
 " Switch buffer
-nmap <leader>u :b#<CR>
+nmap <leader>u :b#<cr>
 
 " Go to next result in quick fix list
-map <leader>n :cn<CR>
+map <leader>n :cn<cr>
 
 " Go to previous result in quick fix list
-map <leader>p :cp<CR>
+map <leader>p :cp<cr>
 
 " Emmet
 let g:user_emmet_leader_key=","
 
 " Git status
-map <leader>g :Gstatus<CR>
+map <leader>g :Gstatus<cr>
 
 " Run rspec for current file
 nnoremap <leader>r :Rails<cr>
@@ -244,6 +246,13 @@ nnoremap <leader>+ <C-w>+
 nnoremap <leader>] <C-w>- 
 
 " Change command line height
-map <leader>e :set cmdheight=1<CR>
-map <leader>o :set cmdheight=3<CR>
+map <leader>q :set cmdheight=1<cr>
+map <leader>' :set cmdheight=3<cr>
+
+" Close window
+nnoremap <leader>c :q<cr>
+nnoremap <leader>l :ccl<cr>
+
+" Save
+nnoremap <leader>s :w<cr>
 
