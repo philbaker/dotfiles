@@ -20,6 +20,7 @@ call minpac#add('ludovicchabant/vim-gutentags')
 call minpac#add('sgur/vim-editorconfig')
 call minpac#add('Shougo/deoplete.nvim')
 call minpac#add('easymotion/vim-easymotion')
+call minpac#add('szw/vim-maximizer')
 
 " Colours
 call minpac#add('kristijanhusak/vim-hybrid-material')
@@ -139,6 +140,12 @@ nnoremap <leader>G :Grepper -tool rg<cr>
 nnoremap <leader>, :Tags<cr>
 nnoremap <leader>. :Buffers<cr>
 
+" Go to next result in quick fix list
+map <leader>n :cn<cr>
+
+" Go to previous result in quick fix list
+map <leader>p :cp<cr>
+
 "-----------------------------------------------------------------------------
 " Linter
 "-----------------------------------------------------------------------------
@@ -168,6 +175,16 @@ let g:jsx_ext_required = 0
 map j gj
 map k gk
 
+" Easymotion
+let g:EasyMotion_smartcase = 1
+map <leader> <Plug>(easymotion-prefix)
+map <leader>o <Plug>(easymotion-s)
+map <leader>e <Plug>(easymotion-overwin-f)
+
+"-----------------------------------------------------------------------------
+" Window management
+"-----------------------------------------------------------------------------
+
 " Improve window switching
 nnoremap <C-h> <c-w>h
 nnoremap <C-j> <c-w>j
@@ -180,23 +197,22 @@ if has('nvim')
   tnoremap <C-l> <c-\><c-n><c-w>l
 endif
 
-" Save shortcut
-nnoremap <leader>; :update<cr>
-
-" Disable highlight when <leader><cr> is pressed
-map <silent> <leader><cr> :noh<cr>
-
 " Window / split sizing
 nnoremap <S-Up> <C-w>+
 nnoremap <S-Down> <C-w>-
 nnoremap <S-Right> <C-w>>
 nnoremap <S-Left> <C-w><
 
-" Easymotion
-let g:EasyMotion_smartcase = 1
-map <leader> <Plug>(easymotion-prefix)
-map <leader>o <Plug>(easymotion-s)
-map <leader>e <Plug>(easymotion-overwin-f)
+" Maximize
+nnoremap <leader>m :MaximizerToggle<CR>
+
+" Change command line height
+map <leader>q :set cmdheight=1<cr>
+map <leader>' :set cmdheight=3<cr>
+
+" Close window
+nnoremap <leader>c :q<cr>
+nnoremap <leader>l :ccl<cr>
 
 "-----------------------------------------------------------------------------
 " Terminal
@@ -226,12 +242,6 @@ set hidden
 " Switch buffer
 nmap <leader>u :b#<cr>
 
-" Go to next result in quick fix list
-map <leader>n :cn<cr>
-
-" Go to previous result in quick fix list
-map <leader>p :cp<cr>
-
 " Emmet
 let g:user_emmet_leader_key=","
 
@@ -241,18 +251,12 @@ map <leader>g :Gstatus<cr>
 " Run rspec for current file
 nnoremap <leader>r :Rails<cr>
 
-" Split resize
-nnoremap <leader>+ <C-w>+ 
-nnoremap <leader>] <C-w>- 
-
-" Change command line height
-map <leader>q :set cmdheight=1<cr>
-map <leader>' :set cmdheight=3<cr>
-
-" Close window
-nnoremap <leader>c :q<cr>
-nnoremap <leader>l :ccl<cr>
-
 " Save
 nnoremap <leader>s :w<cr>
+
+" Disable highlight
+map <silent> <leader><cr> :noh<cr>
+
+" Redraw screen
+nnoremap <leader>y :mode<cr>
 
