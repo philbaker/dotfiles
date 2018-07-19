@@ -9,7 +9,6 @@ call minpac#add('junegunn/fzf')
 call minpac#add('junegunn/fzf.vim')
 call minpac#add('tpope/vim-vinegar')
 call minpac#add('tpope/vim-commentary')
-call minpac#add('tpope/vim-rails')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-surround')
 call minpac#add('w0rp/ale')
@@ -108,6 +107,7 @@ call NumberToggle()
 "-----------------------------------------------------------------------------
 " Search
 "-----------------------------------------------------------------------------
+
 " Case insensitive search - \C overrides
 set ignorecase
 set smartcase
@@ -139,6 +139,7 @@ nnoremap <leader>G :Grepper -tool rg<cr>
 " FZF
 nnoremap <leader>, :Tags<cr>
 nnoremap <leader>. :Buffers<cr>
+nnoremap <leader>; :Marks<cr>
 
 " Go to next result in quick fix list
 map <leader>n :cn<cr>
@@ -149,6 +150,7 @@ map <leader>p :cp<cr>
 "-----------------------------------------------------------------------------
 " Linter
 "-----------------------------------------------------------------------------
+
 let g:ale_completion_enabled = 1
 let g:ale_linters = {
       \	'javascript': ['eslint'],
@@ -178,8 +180,7 @@ map k gk
 " Easymotion
 let g:EasyMotion_smartcase = 1
 map <leader> <Plug>(easymotion-prefix)
-map <leader>o <Plug>(easymotion-s)
-map <leader>e <Plug>(easymotion-overwin-f)
+map <leader>e <Plug>(easymotion-overwin-w)
 
 "-----------------------------------------------------------------------------
 " Window management
