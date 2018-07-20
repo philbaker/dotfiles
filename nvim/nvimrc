@@ -205,7 +205,7 @@ nnoremap <S-Right> <C-w>>
 nnoremap <S-Left> <C-w><
 
 " Maximize
-nnoremap <leader>m :MaximizerToggle<CR>
+nnoremap <leader>o :MaximizerToggle<CR>
 
 " Change command line height
 map <leader>q :set cmdheight=1<cr>
