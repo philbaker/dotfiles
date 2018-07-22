@@ -182,6 +182,9 @@ let g:EasyMotion_smartcase = 1
 map <leader> <Plug>(easymotion-prefix)
 map <leader>e <Plug>(easymotion-overwin-w)
 
+" Stop netrw being alternative buffer
+let g:netrw_altfile = 1
+
 "-----------------------------------------------------------------------------
 " Window management
 "-----------------------------------------------------------------------------
