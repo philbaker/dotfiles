@@ -20,6 +20,8 @@ call minpac#add('sgur/vim-editorconfig')
 call minpac#add('Shougo/deoplete.nvim')
 call minpac#add('easymotion/vim-easymotion')
 call minpac#add('szw/vim-maximizer')
+call minpac#add('tpope/vim-obsession')
+call minpac#add('vim-airline/vim-airline')
 
 " Colours
 call minpac#add('kristijanhusak/vim-hybrid-material')
@@ -103,6 +105,8 @@ function! NumberToggle()
 endfunc
 "nnoremap <C-n> :call NumberToggle()<cr>
 call NumberToggle()
+
+let g:airline_theme='minimalist'
 
 "-----------------------------------------------------------------------------
 " Search
