@@ -17,4 +17,5 @@ killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
 alias hal="cat ${(%):-%N}"
-alias viml="cat .vim-commands"
+alias viml="cat ~/.vim-commands"
+alias vima="cat ~/.vim-commands-archive"

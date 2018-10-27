@@ -1,9 +1,13 @@
 -------------------------------------------------------------------------------
 Mapping         Summary
 --------------- ---------------------------------------------------------------
-t               until - works the same as `f` but places cursor before selected
+t               Until - works the same as `f` but places cursor before selected
                 letter.
-
+d/world         Delete up until the first search match for 'world'
+ciw             Preferable to `cw` because it works in most cases and doesn't rely
+                on cursor being at start of word every time.
+ysiw            vim-surround - wrap word in chasen character
+,e              Easy-motion
 -------------------------------------------------------------------------------
 
 ## Notes
