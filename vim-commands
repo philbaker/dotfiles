@@ -1,3 +1,11 @@
-| Mapping       | Summary                     | 
-| ------------- |:---------------------------:|
-| :q            | Quit out of Vim             |
+-------------------------------------------------------------------------------
+Mapping         Summary
+--------------- ---------------------------------------------------------------
+t               until - works the same as `f` but places cursor before selected
+                letter.
+
+-------------------------------------------------------------------------------
+
+## Notes
+- :help teaches you a lot about vim
+- [VimWiki](http://vim.wikia.com) has good high-level advice
