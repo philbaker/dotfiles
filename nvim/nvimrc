@@ -21,7 +21,11 @@ call minpac#add('Shougo/deoplete.nvim')
 call minpac#add('easymotion/vim-easymotion')
 call minpac#add('szw/vim-maximizer')
 call minpac#add('tpope/vim-obsession')
+call minpac#add('tpope/vim-unimpaired')
 call minpac#add('vim-airline/vim-airline')
+call minpac#add('machakann/vim-highlightedyank')
+call minpac#add('kassio/neoterm')
+call minpac#add('janko-m/vim-test')
 
 " Colours
 call minpac#add('kristijanhusak/vim-hybrid-material')
@@ -74,6 +78,11 @@ let g:deoplete#enable_at_startup = 1
 
 " Map tab to auto complete
 inoremap <expr><tab> pumvisible() ? "<c-n>" : "<tab>"
+
+let mapleader = "\<Space>"
+
+" Get interactive feedback when using substitute
+set inccommand=nosplit
 
 "-----------------------------------------------------------------------------
 " Theme
@@ -145,12 +154,6 @@ nnoremap <leader>, :Tags<cr>
 nnoremap <leader>. :Buffers<cr>
 nnoremap <leader>; :Marks<cr>
 
-" Go to next result in quick fix list
-map <leader>n :cn<cr>
-
-" Go to previous result in quick fix list
-map <leader>p :cp<cr>
-
 "-----------------------------------------------------------------------------
 " Linter
 "-----------------------------------------------------------------------------
@@ -189,6 +192,9 @@ map <leader>e <Plug>(easymotion-overwin-w)
 " Stop netrw being alternative buffer
 let g:netrw_altfile = 1
 
+" Easy access to start of line
+nmap 0 ^
+
 "-----------------------------------------------------------------------------
 " Window management
 "-----------------------------------------------------------------------------
@@ -222,12 +228,15 @@ map <leader>' :set cmdheight=3<cr>
 nnoremap <leader>c :q<cr>
 nnoremap <leader>l :ccl<cr>
 
+" Edit another file in same directory as the current file
+nmap <leader>v :new <c-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+
 "-----------------------------------------------------------------------------
 " Terminal
 "-----------------------------------------------------------------------------
 
 " Terminal shortcut
-nnoremap <leader>t :terminal<cr>
+nnoremap <leader>t :Tnew<cr>
 
 " Terminal mode mappings
 if has('nvim')
@@ -242,6 +251,12 @@ endif
 
 " Keep terminal buffers alive on switch
 set hidden
+
+" Clear screen
+tmap <C-l> clear<cr>
+
+" Use neoterm for tests
+let test#strategy='neoterm'
 
 "-----------------------------------------------------------------------------
 " Useful shortcuts
@@ -268,3 +283,12 @@ map <silent> <leader><cr> :noh<cr>
 " Redraw screen
 nnoremap <leader>y :mode<cr>
 
+" Open in Atom
+nmap <leader>k :!atom .<cr><cr>
+
+" Edit vimrc
+nmap <leader>b :e ~/.nvimrc<cr>
+nmap <leader>d :source ~/.nvimrc<cr>
+
+" Exit help files
+autocmd Filetype help nmap <buffer> q :q<cr>

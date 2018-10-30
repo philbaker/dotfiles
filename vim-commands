@@ -4,12 +4,26 @@ Mapping         Summary
 t               Until - works the same as `f` but places cursor before selected
                 letter.
 d/world         Delete up until the first search match for 'world'
-ciw             Preferable to `cw` because it works in most cases and doesn't rely
-                on cursor being at start of word every time.
+ciw             Preferable to `cw` because it works in most cases and doesn't 
+                rely on cursor being at start of word every time.
+dap, dip        Delete around and inside a paragraph. Really useful for removing
+                functions, methods etc.
 ysiw            vim-surround - wrap word in chasen character
 ,e              Easy-motion
+<C-w>HJKL       Move a window
+<C-w>=          Equalize windows
+zz, zt, zb      Put current line in centre, top and bottom of screen
+<C-w>T          Break current window out to a new tab
+gf              Opens file under cursor. Works well in terminal mode (e.g. ls).
+:TestFile       Runs current test file in terminal
+:TestNearest    Runs closest test to cursor
+:TestLast       Runs most recently run test
 -------------------------------------------------------------------------------
 
 ## Notes
 - :help teaches you a lot about vim
 - [VimWiki](http://vim.wikia.com) has good high-level advice
+- Move away from using visual mode. It usually adds an additional step. e.g.
+`% =` will indent eveything inside matching brace - no need to visually select.
+Avoiding visual mode also makes the last commond repeatable with `.`.
+- `ctrl-r` starts incremental search at bash prompt

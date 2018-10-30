@@ -9,3 +9,4 @@
 7. `git clone https://github.com/k-takata/minpac.git \
     ~/dotfiles/nvim/pack/minpac/opt/minpac`
 8. `:PackUpdate`
+9. `pip3 install --upgrade neovim-remote`
