@@ -1,3 +1,4 @@
+
 # Applications
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 alias n='nvim'
@@ -16,6 +17,15 @@ alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES;
 killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
-alias hal="cat ${(%):-%N}"
-alias viml="cat ~/.vim-commands"
-alias vima="cat ~/.vim-commands-archive"
+# Locations
+alias lrn='~/Documents/learning'
+
+alias szh='echo source ~/.zshrc && source ~/.zshrc'
+alias ezh='n ~/.zshrc'
+alias hal='cat ${(%):-%N}'
+alias viml='cat ~/.vim-commands'
+alias vima='cat ~/.vim-commands-archive'
+alias eviml='n ~/.vim-commands'
+alias evima='n ~/.vim-commands-archive'
+alias envi='n ~/.nvimrc'
+alias pnvi='cat ~/.nvimrc'

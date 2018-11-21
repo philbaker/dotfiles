@@ -26,6 +26,9 @@ call minpac#add('vim-airline/vim-airline')
 call minpac#add('machakann/vim-highlightedyank')
 call minpac#add('kassio/neoterm')
 call minpac#add('janko-m/vim-test')
+call minpac#add('tpope/vim-rails')
+call minpac#add('vim-ruby/vim-ruby')
+call minpac#add('scrooloose/nerdtree')
 
 " Colours
 call minpac#add('kristijanhusak/vim-hybrid-material')
@@ -236,7 +239,7 @@ nmap <leader>v :new <c-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 "-----------------------------------------------------------------------------
 
 " Terminal shortcut
-nnoremap <leader>t :Tnew<cr>
+nnoremap <leader>t :botright Tnew<cr>
 
 " Terminal mode mappings
 if has('nvim')
@@ -257,6 +260,17 @@ tmap <C-l> clear<cr>
 
 " Use neoterm for tests
 let test#strategy='neoterm'
+
+"-----------------------------------------------------------------------------
+" Ruby
+"-----------------------------------------------------------------------------
+
+augroup rubypath
+  autocmd!
+
+  autocmd FileType ruby setlocal suffixesadd+=.rb
+  autocmd FileType ruby setlocal path+=~/usr/local/bundle/gems
+augroup END
 
 "-----------------------------------------------------------------------------
 " Useful shortcuts
@@ -287,8 +301,17 @@ nnoremap <leader>y :mode<cr>
 nmap <leader>k :!atom .<cr><cr>
 
 " Edit vimrc
-nmap <leader>b :e ~/.nvimrc<cr>
-nmap <leader>d :source ~/.nvimrc<cr>
+nmap <leader>bn :e ~/.nvimrc<cr>
+nmap <leader>bz :e ~/.zshrc<cr>
+nmap <leader>ba :e ~/.aliases<cr>
+nmap <leader>bw :e ~/.work-aliases<cr>
+nmap <leader>dn :source ~/.nvimrc<cr>
+nmap <leader>dz :source ~/.zshrc<cr>
+
+" NERDTree
+nnoremap <leader>n :NERDTreeToggle<cr>
+
+
 
 " Exit help files
 autocmd Filetype help nmap <buffer> q :q<cr>
