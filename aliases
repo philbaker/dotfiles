@@ -29,3 +29,8 @@ alias eviml='n ~/.vim-commands'
 alias evima='n ~/.vim-commands-archive'
 alias envi='n ~/.nvimrc'
 alias pnvi='cat ~/.nvimrc'
+
+# Command line apps
+function foos() {
+  ~/Documents/learning/ruby/noko/get_football_stream "$1"
+}

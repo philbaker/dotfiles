@@ -27,6 +27,7 @@ call minpac#add('kassio/neoterm')
 call minpac#add('janko-m/vim-test')
 call minpac#add('tpope/vim-rails')
 call minpac#add('vim-ruby/vim-ruby')
+call minpac#add('justinmk/vim-dirvish')
 call minpac#add('scrooloose/nerdtree')
 
 " Colours
@@ -191,6 +192,8 @@ let g:EasyMotion_smartcase = 1
 map <leader> <Plug>(easymotion-prefix)
 map <leader>e <Plug>(easymotion-overwin-w)
 
+nnoremap <leader>n :NERDTreeToggle<cr>
+
 " Easy access to start of line
 nmap 0 ^
 
@@ -215,6 +218,7 @@ nnoremap <S-Up> <C-w>+
 nnoremap <S-Down> <C-w>-
 nnoremap <S-Right> <C-w>>
 nnoremap <S-Left> <C-w><
+nnoremap <leader>z :only<cr>
 
 " Maximize
 nnoremap <leader>o :MaximizerToggle<CR>
@@ -236,6 +240,7 @@ nmap <leader>v :new <c-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 
 " Terminal shortcut
 nnoremap <leader>t :botright Tnew<cr>
+let g:neoterm_size = 10
 
 " Terminal mode mappings
 if has('nvim')
@@ -303,10 +308,6 @@ nmap <leader>ba :e ~/.aliases<cr>
 nmap <leader>bw :e ~/.work-aliases<cr>
 nmap <leader>dn :source ~/.nvimrc<cr>
 nmap <leader>dz :source ~/.zshrc<cr>
-
-" NERDTree
-nnoremap <leader>n :NERDTreeToggle<cr>
-
 
 
 " Exit help files
