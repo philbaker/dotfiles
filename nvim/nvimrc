@@ -41,6 +41,7 @@ call minpac#add('posva/vim-vue')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('mxw/vim-jsx')
 call minpac#add('leshill/vim-json')
+call minpac#add('prettier/vim-prettier')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
@@ -51,6 +52,10 @@ command! PackClean call minpac#clean()
 
 " Indentation settings
 filetype plugin indent on
+
+" Preserve windows formatting if needed
+" set binary
+" set noeol
 
 " Files, backups and undo
 " Turn backup off
