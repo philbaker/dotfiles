@@ -1,7 +1,10 @@
 root = true
 
 [*]
-end_of_line = lf
 charset = utf-8
+end_of_line = lf
 indent_style = space
+indent_size = 4
+
+[*.{rb,yml,haml,erb}]
 indent_size = 2
