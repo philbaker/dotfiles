@@ -99,6 +99,7 @@ set inccommand=nosplit
 " Color scheme
 set background=dark
 colorscheme hybrid_material
+" colorscheme carbonized-light
 set termguicolors
 
 " Highlight terminal cursor
@@ -168,6 +169,7 @@ nnoremap <leader>; :Marks<cr>
 
 let g:ale_completion_enabled = 1
 let g:ale_linters = {
+      \	'js': ['eslint'],
       \	'javascript': ['eslint'],
       \	'jsx': ['eslint'],
       \	'scss': ['scsslint'],
@@ -182,6 +184,7 @@ nmap <silent> ]W <Plug>(ale_last)
 
 " Highlight JSX syntax in .js files
 let g:jsx_ext_required = 0
+let b:ale_fixers = ['eslint']
 
 "-----------------------------------------------------------------------------
 " Movement
