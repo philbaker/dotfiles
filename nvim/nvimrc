@@ -14,20 +14,13 @@ call minpac#add('w0rp/ale')
 call minpac#add('mhinz/vim-grepper')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('mattn/emmet-vim')
-call minpac#add('ludovicchabant/vim-gutentags')
 call minpac#add('sgur/vim-editorconfig')
 call minpac#add('Shougo/deoplete.nvim')
-call minpac#add('easymotion/vim-easymotion')
 call minpac#add('szw/vim-maximizer')
-call minpac#add('tpope/vim-obsession')
-call minpac#add('tpope/vim-unimpaired')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('machakann/vim-highlightedyank')
 call minpac#add('kassio/neoterm')
-call minpac#add('janko-m/vim-test')
-call minpac#add('tpope/vim-rails')
 call minpac#add('vim-ruby/vim-ruby')
-call minpac#add('justinmk/vim-dirvish')
 call minpac#add('scrooloose/nerdtree')
 
 " Colours
@@ -41,7 +34,6 @@ call minpac#add('posva/vim-vue')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('mxw/vim-jsx')
 call minpac#add('leshill/vim-json')
-call minpac#add('prettier/vim-prettier')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
@@ -98,8 +90,8 @@ set inccommand=nosplit
 
 " Color scheme
 set background=dark
-colorscheme hybrid_material
-" colorscheme carbonized-light
+" colorscheme hybrid_material
+colorscheme carbonized-light
 set termguicolors
 
 " Highlight terminal cursor
@@ -186,6 +178,12 @@ nmap <silent> ]W <Plug>(ale_last)
 let g:jsx_ext_required = 0
 let b:ale_fixers = ['eslint']
 
+" Prevent long files breaking syntax highlighting
+set redrawtime=10000
+
+" Command to fix syntax highlighting if necessary
+nnoremap <leader>y :mode<cr>
+
 "-----------------------------------------------------------------------------
 " Movement
 "-----------------------------------------------------------------------------
@@ -267,9 +265,6 @@ set hidden
 " Clear screen
 tmap <C-l> clear<cr>
 
-" Use neoterm for tests
-let test#strategy='neoterm'
-
 "-----------------------------------------------------------------------------
 " Ruby
 "-----------------------------------------------------------------------------
@@ -294,20 +289,15 @@ let g:user_emmet_leader_key=","
 " Git status
 map <leader>g :Gstatus<cr>
 
-" Run rspec for current file
-nnoremap <leader>r :Rails<cr>
-
 " Save
 nnoremap <leader>s :w<cr>
 
 " Disable highlight
 map <silent> <leader><cr> :noh<cr>
 
-" Redraw screen
-nnoremap <leader>y :mode<cr>
-
-" Open in Atom
-nmap <leader>k :!atom .<cr><cr>
+" Next and previous in error list
+nmap <leader>k :cn<cr><cr>
+nmap <leader>p :cp<cr><cr>
 
 " Edit vimrc
 nmap <leader>bn :e ~/.nvimrc<cr>
@@ -317,6 +307,8 @@ nmap <leader>bw :e ~/.work-aliases<cr>
 nmap <leader>dn :source ~/.nvimrc<cr>
 nmap <leader>dz :source ~/.zshrc<cr>
 
+" Fix syntax color breaking
+nmap <leader>r :syntax sync fromstart<cr>
 
 " Exit help files
 autocmd Filetype help nmap <buffer> q :q<cr>
