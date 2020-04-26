@@ -22,6 +22,7 @@ call minpac#add('machakann/vim-highlightedyank')
 call minpac#add('kassio/neoterm')
 call minpac#add('vim-ruby/vim-ruby')
 call minpac#add('scrooloose/nerdtree')
+call minpac#add('justinmk/vim-sneak')
 
 " Colours
 call minpac#add('kristijanhusak/vim-hybrid-material')
@@ -201,7 +202,15 @@ map <leader>e <Plug>(easymotion-overwin-w)
 nnoremap <leader>n :NERDTreeToggle<cr>
 
 " Easy access to start of line
-nmap 0 ^
+nmap & ^
+nmap # $
+
+" Sneak
+let g:sneak#label = 1
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
 
 "-----------------------------------------------------------------------------
 " Window management
