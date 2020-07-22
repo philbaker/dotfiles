@@ -28,6 +28,7 @@ call minpac#add('justinmk/vim-sneak')
 call minpac#add('kristijanhusak/vim-hybrid-material')
 call minpac#add('rafi/awesome-vim-colorschemes')
 call minpac#add('lilydjwg/colorizer')
+call minpac#add('luochen1990/rainbow')
 
 " Syntax
 call minpac#add('mustache/vim-mustache-handlebars')
@@ -35,6 +36,7 @@ call minpac#add('posva/vim-vue')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('mxw/vim-jsx')
 call minpac#add('leshill/vim-json')
+call minpac#add('guns/vim-sexp')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
@@ -81,6 +83,7 @@ let g:deoplete#enable_at_startup = 1
 inoremap <expr><tab> pumvisible() ? "<c-n>" : "<tab>"
 
 let mapleader = "\<Space>"
+let maplocalleader="\\"
 
 " Get interactive feedback when using substitute
 set inccommand=nosplit
@@ -91,8 +94,16 @@ set inccommand=nosplit
 
 " Color scheme
 set background=dark
-" colorscheme hybrid_material
-colorscheme carbonized-light
+colorscheme hybrid_material
+let g:rainbow_conf = {
+\	'guifgs': ['LightGreen', 'Orange', 'SkyBlue', 'LightMagenta']
+\}
+
+" colorscheme carbonized-light
+" let g:rainbow_conf = {
+" \	'guifgs': ['Lime', 'Coral', 'DodgerBlue', 'Magenta']
+" \}
+
 set termguicolors
 
 " Highlight terminal cursor
@@ -118,8 +129,8 @@ endfunc
 call NumberToggle()
 
 let g:airline_theme='minimalist'
+let g:rainbow_active = 1
 
-"-----------------------------------------------------------------------------
 " Search
 "-----------------------------------------------------------------------------
 
