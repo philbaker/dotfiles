@@ -130,6 +130,7 @@ call NumberToggle()
 
 let g:airline_theme='minimalist'
 let g:rainbow_active = 1
+nnoremap <leader>r :RainbowToggle<cr>
 
 " Search
 "-----------------------------------------------------------------------------
@@ -328,7 +329,7 @@ nmap <leader>dn :source ~/.nvimrc<cr>
 nmap <leader>dz :source ~/.zshrc<cr>
 
 " Fix syntax color breaking
-nmap <leader>r :syntax sync fromstart<cr>
+nmap <leader>h :syntax sync fromstart<cr>
 
 " Exit help files
 autocmd Filetype help nmap <buffer> q :q<cr>
