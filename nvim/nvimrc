@@ -23,6 +23,8 @@ call minpac#add('kassio/neoterm')
 call minpac#add('vim-ruby/vim-ruby')
 call minpac#add('scrooloose/nerdtree')
 call minpac#add('justinmk/vim-sneak')
+call minpac#add('tpope/vim-fireplace')
+call minpac#add('guns/vim-clojure-static')
 
 " Colours
 call minpac#add('kristijanhusak/vim-hybrid-material')
