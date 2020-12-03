@@ -337,4 +337,4 @@ autocmd Filetype help nmap <buffer> q :q<cr>
 
 " Put repl output
 nnoremap <leader>ou :silent Eval<cr>
-nnoremap <leader>ou :Last <bar> execute "normal! yG" <bar> q <bar> silent pu <bar> %s\/;=\/;; => \/g<cr>
+nnoremap <leader>oh :Last <bar> execute "normal! yG" <bar> q <bar> silent pu <bar> %s\/;=\/;; => \/g<cr>
