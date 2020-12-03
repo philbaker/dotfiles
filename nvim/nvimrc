@@ -251,9 +251,6 @@ nnoremap <S-Right> <C-w>>
 nnoremap <S-Left> <C-w><
 nnoremap <leader>z :only<cr>
 
-" Maximize
-nnoremap <leader>o :MaximizerToggle<CR>
-
 " Change command line height
 map <leader>q :set cmdheight=1<cr>
 map <leader>' :set cmdheight=3<cr>
@@ -337,3 +334,7 @@ nmap <leader>h :syntax sync fromstart<cr>
 
 " Exit help files
 autocmd Filetype help nmap <buffer> q :q<cr>
+
+" Put repl output
+nnoremap <leader>oc :silent Eval<cr>
+nnoremap <leader>op :Last <bar> execute "normal! yG" <bar> q <bar> pu<cr>
