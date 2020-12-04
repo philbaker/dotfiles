@@ -16,17 +16,15 @@ call minpac#add('airblade/vim-gitgutter')
 call minpac#add('mattn/emmet-vim')
 call minpac#add('sgur/vim-editorconfig')
 call minpac#add('Shougo/deoplete.nvim')
-call minpac#add('szw/vim-maximizer')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('machakann/vim-highlightedyank')
-call minpac#add('kassio/neoterm')
-call minpac#add('vim-ruby/vim-ruby')
 call minpac#add('scrooloose/nerdtree')
 call minpac#add('justinmk/vim-sneak')
 call minpac#add('tpope/vim-fireplace')
 call minpac#add('guns/vim-clojure-static')
 call minpac#add('pechorin/any-jump.vim')
 call minpac#add('easymotion/vim-easymotion')
+call minpac#add('jpalardy/vim-slime')
 
 " Colours
 call minpac#add('kristijanhusak/vim-hybrid-material')
@@ -36,7 +34,6 @@ call minpac#add('luochen1990/rainbow')
 
 " Syntax
 call minpac#add('mustache/vim-mustache-handlebars')
-call minpac#add('posva/vim-vue')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('mxw/vim-jsx')
 call minpac#add('leshill/vim-json')
@@ -136,6 +133,7 @@ let g:airline_theme='minimalist'
 let g:rainbow_active = 1
 nnoremap <leader>r :RainbowToggle<cr>
 
+"-----------------------------------------------------------------------------
 " Search
 "-----------------------------------------------------------------------------
 
@@ -339,3 +337,6 @@ autocmd Filetype help nmap <buffer> q :q<cr>
 nnoremap <leader>ou :silent Eval<cr>
 nnoremap <leader>oh :Last <bar> execute "normal! yG" <bar> q <bar> silent pu <bar> %s\/;=\/;; => \/g<cr>
 nnoremap <leader>oc :normal I;; => <cr>
+
+" Use tmux for slime output
+let g:slime_target = "tmux"
