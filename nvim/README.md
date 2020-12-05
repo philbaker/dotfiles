@@ -1,4 +1,4 @@
-## Setting up Neovim
+## Setting up Neovim (macOS)
 
 1. `brew install neovim`
 2. `brew install python3`
