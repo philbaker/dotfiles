@@ -25,6 +25,7 @@ call minpac#add('guns/vim-clojure-static')
 call minpac#add('pechorin/any-jump.vim')
 call minpac#add('easymotion/vim-easymotion')
 call minpac#add('jpalardy/vim-slime')
+call minpac#add('iamcco/markdown-preview.nvim', {'do': 'packloadall! | call mkdp#util#install()'})
 
 " Colours
 call minpac#add('kristijanhusak/vim-hybrid-material')
