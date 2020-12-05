@@ -24,6 +24,7 @@ call minpac#add('tpope/vim-fireplace')
 call minpac#add('guns/vim-clojure-static')
 call minpac#add('pechorin/any-jump.vim')
 call minpac#add('easymotion/vim-easymotion')
+call minpac#add('prettier/vim-prettier')
 call minpac#add('jpalardy/vim-slime')
 call minpac#add('iamcco/markdown-preview.nvim', {'do': 'packloadall! | call mkdp#util#install()'})
 
@@ -36,7 +37,7 @@ call minpac#add('luochen1990/rainbow')
 " Syntax
 call minpac#add('mustache/vim-mustache-handlebars')
 call minpac#add('pangloss/vim-javascript')
-call minpac#add('mxw/vim-jsx')
+call minpac#add('MaxMEllon/vim-jsx-pretty')
 call minpac#add('leshill/vim-json')
 call minpac#add('guns/vim-sexp')
 
@@ -199,6 +200,12 @@ set redrawtime=10000
 
 " Command to fix syntax highlighting if necessary
 nnoremap <leader>y :mode<cr>
+
+" Prettier
+nmap <leader>m <Plug>(Prettier)
+
+" vim-jsx-pretty colorful config
+let g:vim_jsx_pretty_colorful_config = 1 " default 0
 
 "-----------------------------------------------------------------------------
 " Movement
