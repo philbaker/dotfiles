@@ -1,0 +1,21 @@
+snippet t "A simple HTML tag example" b
+<${1:div}>
+  Hello world
+</${1/(\w+).*/$1/}>
+endsnippet
+
+snippet usnip "Ultisnips snippet definition" b
+`!p snip.rv = "snippet"` ${1:Tab_trigger} "${2:Description}" ${3:b}
+${0:${VISUAL}}
+`!p snip.rv = "endsnippet"`
+endsnippet
+
+snippet global "Global snippet" b
+`!p snip.rv = "global"` !p
+${0:${VISUAL}}
+`!p snip.rv = "endglobal"`
+endsnippet
+
+snippet vis "${VISUAL}" i
+\$\{VISUAL${1:${2:default}${3:/transform/}}\}
+endsnippet

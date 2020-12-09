@@ -27,6 +27,7 @@ call minpac#add('easymotion/vim-easymotion')
 call minpac#add('prettier/vim-prettier')
 call minpac#add('jpalardy/vim-slime')
 call minpac#add('iamcco/markdown-preview.nvim', {'do': 'packloadall! | call mkdp#util#install()'})
+call minpac#add('SirVer/ultisnips')
 
 " Colours
 call minpac#add('kristijanhusak/vim-hybrid-material')
@@ -351,3 +352,11 @@ nnoremap <leader>oc :normal I;; => <cr>
 
 " Use tmux for slime output
 let g:slime_target = "tmux"
+
+" UltiSnips
+" Trigger configuration
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" Split window
+let g:UltiSnipsEditSplit="vertical"
