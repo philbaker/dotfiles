@@ -91,6 +91,9 @@ let maplocalleader="\\"
 " Get interactive feedback when using substitute
 set inccommand=nosplit
 
+" Disable folding
+set nofoldenable
+
 "-----------------------------------------------------------------------------
 " Theme
 "-----------------------------------------------------------------------------
