@@ -332,12 +332,16 @@ nmap <leader>k :cn<cr><cr>
 nmap <leader>p :cp<cr><cr>
 
 " Edit vimrc
-nmap <leader>bn :e ~/.nvimrc<cr>
+nmap <leader>bv :e ~/.nvimrc<cr>
 nmap <leader>bz :e ~/.zshrc<cr>
+nmap <leader>bb :e ~/.bashrc<cr>
 nmap <leader>ba :e ~/.aliases<cr>
-nmap <leader>bw :e ~/.work-aliases<cr>
-nmap <leader>dn :source ~/.nvimrc<cr>
+nmap <leader>bn :e ~/dev/notes<cr>
+nmap <leader>bo :e ~/dev/notes/vim/useful-commands.md<cr>
+nmap <leader>bg :e ~/dev/notes/git/commands.md<cr>
+nmap <leader>dv :source ~/.nvimrc<cr>
 nmap <leader>dz :source ~/.zshrc<cr>
+nmap <leader>db :source ~/.bashrc<cr>
 
 " Fix syntax color breaking
 nmap <leader>h :syntax sync fromstart<cr>
