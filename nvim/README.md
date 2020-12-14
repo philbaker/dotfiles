@@ -10,3 +10,13 @@
     ~/dotfiles/nvim/pack/minpac/opt/minpac`
 8. `:PackUpdate`
 9. `pip3 install --upgrade neovim-remote`
+
+### coc extensions
+- coc-tailwindcss
+- coc-snippets
+- coc-tsserver
+- coc-phpls
+- coc-json
+- coc-html
+- coc-css
+- coc-yank

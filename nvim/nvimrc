@@ -53,10 +53,6 @@ command! PackClean call minpac#clean()
 " Indentation settings
 filetype plugin indent on
 
-" Preserve windows formatting if needed
-" set binary
-" set noeol
-
 " Files, backups and undo
 " Turn backup off
 set nobackup
@@ -200,9 +196,10 @@ let b:ale_fixers = ['eslint']
 set redrawtime=10000
 
 " Command to fix syntax highlighting if necessary
-nnoremap <leader>y :mode<cr>
+nnoremap <leader>q :mode<cr>
 
 " Prettier
+"
 nmap <leader>m <Plug>(Prettier)
 
 " vim-jsx-pretty colorful config
@@ -257,10 +254,6 @@ nnoremap <S-Down> <C-w>-
 nnoremap <S-Right> <C-w>>
 nnoremap <S-Left> <C-w><
 nnoremap <leader>z :only<cr>
-
-" Change command line height
-map <leader>q :set cmdheight=2<cr>
-map <leader>' :set cmdheight=3<cr>
 
 " Close window
 nnoremap <leader>c :q<cr>
@@ -512,3 +505,5 @@ nnoremap <leader>oc :normal I;; => <cr>
 let g:slime_target = "tmux"
 
 let test#strategy = "vimux"
+
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
