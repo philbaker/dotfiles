@@ -41,6 +41,7 @@ call minpac#add('MaxMEllon/vim-jsx-pretty')
 call minpac#add('leshill/vim-json')
 call minpac#add('guns/vim-sexp')
 call minpac#add('jwalton512/vim-blade')
+call minpac#add('liquidz/vim-iced')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
@@ -216,7 +217,6 @@ map k gk
 " Easymotion
 let g:EasyMotion_smartcase = 1
 map <leader> <Plug>(easymotion-prefix)
-map <leader>e <Plug>(easymotion-overwin-w)
 
 nnoremap <leader>n :NERDTreeToggle<cr>
 
@@ -464,3 +464,6 @@ let g:slime_target = "tmux"
 let test#strategy = "vimux"
 
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+
+" Vim iced key mappings
+let g:iced_enable_default_key_mappings = v:true
