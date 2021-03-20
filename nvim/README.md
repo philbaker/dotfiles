@@ -12,7 +12,7 @@
 9. `pip3 install --upgrade neovim-remote`
 
 ### coc extensions
-- coc-tailwindcss
+- coc-tailwindcss-intellisense
 - coc-snippets
 - coc-tsserver
 - coc-phpls
