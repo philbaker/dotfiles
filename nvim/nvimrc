@@ -21,20 +21,14 @@ call minpac#add('scrooloose/nerdtree')
 call minpac#add('justinmk/vim-sneak')
 call minpac#add('guns/vim-clojure-static')
 call minpac#add('pechorin/any-jump.vim')
-call minpac#add('easymotion/vim-easymotion')
 call minpac#add('prettier/vim-prettier')
-call minpac#add('jpalardy/vim-slime')
-call minpac#add('benmills/vimux')
 call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
 
 " Colours
 call minpac#add('kristijanhusak/vim-hybrid-material')
 call minpac#add('rafi/awesome-vim-colorschemes')
-call minpac#add('lilydjwg/colorizer')
-call minpac#add('luochen1990/rainbow')
 
 " Syntax
-call minpac#add('mustache/vim-mustache-handlebars')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('MaxMEllon/vim-jsx-pretty')
 call minpac#add('leshill/vim-json')
@@ -198,11 +192,7 @@ let b:ale_fixers = ['eslint']
 " Prevent long files breaking syntax highlighting
 set redrawtime=10000
 
-" Command to fix syntax highlighting if necessary
-nnoremap <leader>q :mode<cr>
-
 " Prettier
-"
 nmap <leader>m <Plug>(Prettier)
 
 " vim-jsx-pretty colorful config
@@ -216,10 +206,6 @@ let g:vim_jsx_pretty_colorful_config = 1 " default 0
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
-
-" Easymotion
-let g:EasyMotion_smartcase = 1
-map <leader> <Plug>(easymotion-prefix)
 
 nnoremap <leader>n :NERDTreeToggle<cr>
 
@@ -461,11 +447,6 @@ autocmd Filetype help nmap <buffer> q :q<cr>
 
 " Format repl output
 nnoremap <leader>oc :normal I;; => <cr>
-
-" Use tmux for slime output
-let g:slime_target = "tmux"
-
-let test#strategy = "vimux"
 
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
