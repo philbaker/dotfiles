@@ -9,7 +9,7 @@ call minpac#add('junegunn/fzf')
 call minpac#add('junegunn/fzf.vim')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-fugitive')
-" call minpac#add('tpope/vim-repeat')
+call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-surround')
 call minpac#add('w0rp/ale')
 call minpac#add('mhinz/vim-grepper')
@@ -19,7 +19,6 @@ call minpac#add('sgur/vim-editorconfig')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('scrooloose/nerdtree')
 call minpac#add('justinmk/vim-sneak')
-call minpac#add('tpope/vim-fireplace')
 call minpac#add('guns/vim-clojure-static')
 call minpac#add('pechorin/any-jump.vim')
 call minpac#add('easymotion/vim-easymotion')
@@ -40,7 +39,7 @@ call minpac#add('pangloss/vim-javascript')
 call minpac#add('MaxMEllon/vim-jsx-pretty')
 call minpac#add('leshill/vim-json')
 call minpac#add('guns/vim-sexp')
-"call minpac#add('tpope/vim-sexp-mappings-for-regular-people')
+call minpac#add('tpope/vim-sexp-mappings-for-regular-people')
 call minpac#add('jwalton512/vim-blade')
 call minpac#add('liquidz/vim-iced')
 
@@ -87,6 +86,9 @@ set inccommand=nosplit
 
 " Disable folding
 set nofoldenable
+
+" Enable mouse for scrolling context menu
+set mouse=a
 
 "-----------------------------------------------------------------------------
 " Theme
@@ -457,9 +459,7 @@ nnoremap <c-l> <c-r>
 " Exit help files
 autocmd Filetype help nmap <buffer> q :q<cr>
 
-" Put repl output
-nnoremap <leader>ou :silent Eval<cr>
-nnoremap <leader>oh :Last <bar> execute "normal! yG" <bar> q <bar> silent pu <bar> %s\/;=\/;; => \/g<cr>
+" Format repl output
 nnoremap <leader>oc :normal I;; => <cr>
 
 " Use tmux for slime output
