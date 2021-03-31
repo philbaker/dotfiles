@@ -36,6 +36,7 @@ call minpac#add('guns/vim-sexp')
 call minpac#add('tpope/vim-sexp-mappings-for-regular-people')
 call minpac#add('jwalton512/vim-blade')
 call minpac#add('liquidz/vim-iced')
+call minpac#add('luochen1990/rainbow')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
