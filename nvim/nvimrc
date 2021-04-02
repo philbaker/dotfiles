@@ -22,6 +22,8 @@ call minpac#add('justinmk/vim-sneak')
 call minpac#add('pechorin/any-jump.vim')
 call minpac#add('prettier/vim-prettier')
 call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
+call minpac#add('liquidz/vim-iced')
+call minpac#add('preservim/vimux')
 
 " Colours
 call minpac#add('kristijanhusak/vim-hybrid-material')
@@ -34,7 +36,6 @@ call minpac#add('leshill/vim-json')
 call minpac#add('guns/vim-sexp')
 call minpac#add('tpope/vim-sexp-mappings-for-regular-people')
 call minpac#add('jwalton512/vim-blade')
-call minpac#add('liquidz/vim-iced')
 call minpac#add('luochen1990/rainbow')
 
 command! PackUpdate call minpac#update()
@@ -452,3 +453,14 @@ nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
 " Vim iced key mappings
 let g:iced_enable_default_key_mappings = v:true
+
+" Vimux
+ function! VimuxSlime()
+  call VimuxRunCommand(@v)
+ endfunction
+
+ " If text is selected, save it in the v buffer and send that buffer it to tmux
+ vmap <leader>vs "vy :call VimuxSlime()<CR>
+
+ " Select current paragraph and send it to tmux
+ nmap <leader>vs vip<leader>vs<CR>
