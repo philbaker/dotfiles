@@ -199,6 +199,10 @@ nmap <leader>m <Plug>(Prettier)
 " vim-jsx-pretty colorful config
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
 
+" html formatting
+autocmd FileType html
+\ setlocal equalprg=tidy\ -quiet\ -i\ --show-body-only\ true\ -f\ .errorfile
+
 "-----------------------------------------------------------------------------
 " Movement
 "-----------------------------------------------------------------------------

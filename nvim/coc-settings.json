@@ -13,7 +13,8 @@
     }
   },
   "tailwindCSS.includeLanguages":{
-    "clojure":"html"
+    "clojure":"html",
+    "blade":"html"
   },
   "tailwindCSS.experimental.classRegex":[
     [

@@ -1,7 +1,6 @@
 *.DS_Store
 .AppleDouble
 .LSOverride
-
 # Icon must end with two \r
 Icon[
 ]
@@ -27,3 +26,7 @@ Temporary Items
 
 # Other files
 .idea
+.php_cs
+.vscode/
+Session.vim
+tags
