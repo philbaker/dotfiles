@@ -199,11 +199,6 @@ nmap <leader>m <Plug>(Prettier)
 " vim-jsx-pretty colorful config
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
 
-" html formatting
-autocmd FileType html
-\ setlocal equalprg=tidy\ -quiet\ -i\ --show-body-only\ true\ -f\ .errorfile
-
-
 "-----------------------------------------------------------------------------
 " Movement
 "-----------------------------------------------------------------------------
@@ -458,6 +453,11 @@ nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
 " Vim iced key mappings
 let g:iced_enable_default_key_mappings = v:true
+
+" Simple eval and print from REPL
+ nmap <leader>ou ^"a<leader>ei
+ nmap <leader>oh A ;<esc>a <esc>"ap
+ nmap <leader>ol f;Dx
 
 " Vimux
  function! VimuxSlime()
