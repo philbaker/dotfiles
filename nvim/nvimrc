@@ -450,9 +450,6 @@ nnoremap <c-l> <c-r>
 " Exit help files
 autocmd Filetype help nmap <buffer> q :q<cr>
 
-" Format repl output
-nnoremap <leader>oc :normal I;; => <cr>
-
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
 " Vim iced key mappings
@@ -462,6 +459,10 @@ let g:iced_enable_default_key_mappings = v:true
  nmap <leader>ou ^"a<leader>ei
  nmap <leader>oh A ;<esc>a <esc>"ap
  nmap <leader>ol f;Dx
+ nmap <leader>os :IcedStdoutBufferOpen<cr>
+ 
+" Format repl output
+nnoremap <leader>oc :normal I;; => <cr>
 
 " Vimux
  function! VimuxSlime()
