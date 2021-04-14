@@ -459,8 +459,8 @@ nmap <leader>oh A ;<esc>a <esc>"ap
 nmap <leader>ol f;Dx^
 nmap <leader>os :IcedStdoutBufferOpen<cr>
 " Print fomatted repl output
-nmap <leader>ofj ^cse(acljs.pprint/pprint <esc><leader>ou<esc>uu
-nmap <leader>ofc ^cse(aclojure.pprint/pprint <esc><leader>ou<esc>uu
+nmap <leader>ofj ^cse(acljs.pprint/pprint <esc><leader>ou<esc>u
+nmap <leader>ofc ^cse(aclojure.pprint/pprint <esc><leader>ou<esc>u
 nmap <leader>op <leader>os<esc>f)<s-v>%y<leader>c<esc>p
 
 " Vimux
