@@ -453,23 +453,22 @@ nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
 " Vim iced key mappings
 let g:iced_enable_default_key_mappings = v:true
-
-" Simple eval and print from REPL
- nmap <leader>ou ^"a<leader>ei
- nmap <leader>oh A ;<esc>a <esc>"ap
- nmap <leader>ol f;Dx
- nmap <leader>os :IcedStdoutBufferOpen<cr>
- 
-" Format repl output
-nnoremap <leader>oc :normal I;; => <cr>
+nmap <leader>oc :IcedConnect<cr>
+nmap <leader>ou ^"a<leader>ei
+nmap <leader>oh A ;<esc>a <esc>"ap
+nmap <leader>ol f;Dx^
+nmap <leader>os :IcedStdoutBufferOpen<cr>
+" Print fomatted repl output
+nmap <leader>of ^i(clojure.pprint/pprint<esc>lxA<esc>p<leader>ou<esc>dt(A<esc>x
+nmap <leader>op <leader>os<esc>f)<s-v>%y<leader>c<esc>p
 
 " Vimux
- function! VimuxSlime()
-  call VimuxRunCommand(@v)
- endfunction
+function! VimuxSlime()
+call VimuxRunCommand(@v)
+endfunction
 
- " If text is selected, save it in the v buffer and send that buffer it to tmux
- vmap <leader>vs "vy :call VimuxSlime()<CR>
+" If text is selected, save it in the v buffer and send that buffer it to tmux
+vmap <leader>vs "vy :call VimuxSlime()<CR>
 
- " Select current paragraph and send it to tmux
- nmap <leader>vs vip<leader>vs<CR>
+" Select current paragraph and send it to tmux
+nmap <leader>vs vip<leader>vs<CR>
