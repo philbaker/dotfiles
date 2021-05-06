@@ -23,6 +23,7 @@ call minpac#add('prettier/vim-prettier')
 call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
 call minpac#add('liquidz/vim-iced')
 call minpac#add('preservim/vimux')
+call minpac#add('aeke/vim-php-cs-fixer')
 
 " Colours
 call minpac#add('kristijanhusak/vim-hybrid-material')
@@ -435,6 +436,7 @@ nmap <leader>bg :e ~/dev/notes/git/commands.md<cr>
 nmap <leader>dv :source ~/.nvimrc<cr>
 nmap <leader>dz :source ~/.zshrc<cr>
 nmap <leader>db :source ~/.bashrc<cr>
+nmap <leader>ll :e storage/logs/laravel.log<cr>
 
 " Fix syntax color breaking
 nmap <leader>h :syntax sync fromstart<cr>
@@ -458,6 +460,11 @@ nmap <leader>os :IcedStdoutBufferOpen<cr>
 nmap <leader>ofj ^cse(acljs.pprint/pprint <esc><leader>ou<esc>u
 nmap <leader>ofc ^cse(aclojure.pprint/pprint <esc><leader>ou<esc>u
 nmap <leader>op <leader>os<esc>f)<s-v>%y<leader>c<esc>p
+
+" PHP cs
+let g:php_cs_fixer_config_file = '.php_cs'
+nmap <leader>or:call PhpCsFixerFixDirectory()<CR>
+nmap <leader>ot :call PhpCsFixerFixFile()<CR>
 
 " Vimux
 function! VimuxSlime()
