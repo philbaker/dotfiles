@@ -24,11 +24,8 @@ call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
 call minpac#add('liquidz/vim-iced')
 call minpac#add('preservim/vimux')
 call minpac#add('aeke/vim-php-cs-fixer')
-
 " Colours
 call minpac#add('kristijanhusak/vim-hybrid-material')
-call minpac#add('rafi/awesome-vim-colorschemes')
-
 " Syntax
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('MaxMEllon/vim-jsx-pretty')
@@ -53,7 +50,6 @@ syntax on
 filetype plugin indent on
 
 " Files, backups and undo
-" Turn backup off
 set nobackup
 set nowritebackup
 set nowb
@@ -168,14 +164,7 @@ let g:ale_linters = {
       \	'javascript': ['eslint'],
       \	'jsx': ['eslint'],
       \	'scss': ['scsslint'],
-      \ 'ruby': ['rubocop'],
       \ }
-
-" Mappings in the style of unimpaired-next
-nmap <silent> [W <Plug>(ale_first)
-nmap <silent> [w <Plug>(ale_previous)
-nmap <silent> ]w <Plug>(ale_next)
-nmap <silent> ]W <Plug>(ale_last)
 
 " Highlight JSX syntax in .js files
 let g:jsx_ext_required = 0
@@ -189,10 +178,6 @@ nmap <leader>m <Plug>(Prettier)
 
 " vim-jsx-pretty colorful config
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
-
-" html formatting
-autocmd FileType html
-\ setlocal equalprg=tidy\ -quiet\ -i\ --show-body-only\ true\ -f\ .errorfile
 
 "-----------------------------------------------------------------------------
 " Movement
@@ -243,9 +228,6 @@ nnoremap <leader>z :only<cr>
 nnoremap <leader>c :q<cr>
 nnoremap <leader>l :ccl<cr>
 
-" Edit another file in same directory as the current file
-nmap <leader>v :new <c-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
-
 "-----------------------------------------------------------------------------
 " Autocomplete
 "-----------------------------------------------------------------------------
@@ -270,11 +252,6 @@ if has("patch-8.1.1564")
 else
   set signcolumn=yes
 endif
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
 
 " Use <c-space> to trigger completion
 if has('nvim')
@@ -310,88 +287,10 @@ endfunction
 " Highlight the symbol and its references when holding the cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Symbol renaming
-nmap <c-space>rn <Plug>(coc-rename)
-
-" Formatting selected code
-xmap <c-space>f  <Plug>(coc-format-selected)
-nmap <c-space>f  <Plug>(coc-format-selected)
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s)
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-" Applying codeAction to the selected region
-" Example: `<leader>aap` for current paragraph
-xmap <c-space>a  <Plug>(coc-codeaction-selected)
-nmap <c-space>a  <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying codeAction to the current buffer
-nmap <c-space>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line
-nmap <c-space>qf  <Plug>(coc-fix-current)
-
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
-
-" Remap <C-f> and <C-b> for scroll float windows/popups
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
-
-" Use CTRL-S for selections ranges
-" Requires 'textDocument/selectionRange' support of language server
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
-
-" Add `:Format` command to format current buffer
-command! -nargs=0 Format :call CocAction('format')
-
-" Add `:Fold` command to fold current buffer
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-" Add `:OR` command for organize imports of the current buffer
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
 " Add (Neo)Vim's native statusline support
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-" Mappings for CoCList
-" Show all diagnostics
-nnoremap <silent><nowait> <c-space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent><nowait> <c-space>e  :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent><nowait> <c-space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document
-nnoremap <silent><nowait> <c-space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent><nowait> <c-space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item
-nnoremap <silent><nowait> <c-space>j  :<C-u>CocNext<CR>
-" Do default action for previous item
-nnoremap <silent><nowait> <c-space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list
-nnoremap <silent><nowait> <c-space>p  :<C-u>CocListResume<CR>
 
 "-----------------------------------------------------------------------------
 " Useful shortcuts
@@ -418,15 +317,7 @@ nmap <leader>p :cp<cr><cr>
 
 " Edit vimrc
 nmap <leader>bv :e ~/.nvimrc<cr>
-nmap <leader>bz :e ~/.zshrc<cr>
-nmap <leader>bb :e ~/.bashrc<cr>
-nmap <leader>ba :e ~/.aliases<cr>
-nmap <leader>bn :e ~/dev/notes<cr>
-nmap <leader>bo :e ~/dev/notes/vim/useful-commands.md<cr>
-nmap <leader>bg :e ~/dev/notes/git/commands.md<cr>
 nmap <leader>dv :source ~/.nvimrc<cr>
-nmap <leader>dz :source ~/.zshrc<cr>
-nmap <leader>db :source ~/.bashrc<cr>
 nmap <leader>ll :e storage/logs/laravel.log<cr>
 
 " Fix syntax color breaking
@@ -467,3 +358,4 @@ vmap <leader>vs "vy :call VimuxSlime()<CR>
 
 " Select current paragraph and send it to tmux
 nmap <leader>vs vip<leader>vs<CR>
+
