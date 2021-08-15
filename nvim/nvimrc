@@ -15,9 +15,10 @@ call minpac#add('mhinz/vim-grepper')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('mattn/emmet-vim')
 call minpac#add('sgur/vim-editorconfig')
+
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('scrooloose/nerdtree')
-call minpac#add('justinmk/vim-sneak')
+
 call minpac#add('pechorin/any-jump.vim')
 call minpac#add('prettier/vim-prettier')
 call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
@@ -26,6 +27,8 @@ call minpac#add('preservim/vimux')
 call minpac#add('aeke/vim-php-cs-fixer')
 " Colours
 call minpac#add('kristijanhusak/vim-hybrid-material')
+call minpac#add('rafi/awesome-vim-colorschemes')
+call minpac#add('vim-airline/vim-airline-themes')
 " Syntax
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('MaxMEllon/vim-jsx-pretty')
@@ -91,7 +94,7 @@ set mouse=a
 
 " Color scheme
 set background=dark
-colorscheme hybrid_material
+colorscheme onehalfdark
 let g:rainbow_conf = {
 \	'guifgs': ['LightGreen', 'Orange', 'SkyBlue', 'LightMagenta']
 \}
@@ -112,7 +115,7 @@ endif
 " Line numbers
 set number
 
-let g:airline_theme='minimalist'
+let g:airline_theme='onehalfdark'
 let g:rainbow_active = 1
 nnoremap <leader>r :RainbowToggle<cr>
 
