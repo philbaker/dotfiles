@@ -200,6 +200,7 @@ map j gj
 map k gk
 
 nnoremap <leader>n :NERDTreeToggle<cr>
+let g:NERDTreeWinPos = "right"
 
 " Easy access to start of line
 nmap & ^
