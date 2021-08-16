@@ -27,6 +27,8 @@ Temporary Items
 # Other files
 .idea
 .php_cs
+.php-cs-fixer.cache
+.php-cs-fixer.php
 .vscode/
 Session.vim
 tags
