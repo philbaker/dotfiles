@@ -23,7 +23,7 @@ call minpac#add('prettier/vim-prettier')
 call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
 call minpac#add('liquidz/vim-iced')
 call minpac#add('preservim/vimux')
-call minpac#add('aeke/vim-php-cs-fixer')
+call minpac#add('stephpy/vim-php-cs-fixer')
 " Colours
 call minpac#add('kristijanhusak/vim-hybrid-material')
 call minpac#add('rafi/awesome-vim-colorschemes')
