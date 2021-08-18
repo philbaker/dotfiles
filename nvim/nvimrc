@@ -326,9 +326,6 @@ nmap <leader>ll :e storage/logs/laravel.log<cr>
 " Fix syntax color breaking
 nmap <leader>h :syntax sync fromstart<cr>
 
-" Remap redo
-nnoremap <c-l> <c-r>
-
 " Exit help files
 autocmd Filetype help nmap <buffer> q :q<cr>
 
