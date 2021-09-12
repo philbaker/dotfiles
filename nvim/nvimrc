@@ -21,7 +21,8 @@ call minpac#add('justinmk/vim-sneak')
 call minpac#add('pechorin/any-jump.vim')
 call minpac#add('prettier/vim-prettier')
 call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
-call minpac#add('liquidz/vim-iced')
+call minpac#add('Olical/conjure', {'tag': 'v4.23.0'})
+call minpac#add('Olical/aniseed', {'tag': 'v3.21.0'})
 call minpac#add('preservim/vimux')
 call minpac#add('stephpy/vim-php-cs-fixer')
 call minpac#add('metakirby5/codi.vim')
@@ -334,17 +335,12 @@ autocmd Filetype help nmap <buffer> q :q<cr>
 
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
-" Vim iced key mappings
-let g:iced_enable_default_key_mappings = v:true
-nmap <leader>oc :IcedConnect<cr>
-nmap <leader>ou ^"a<leader>ei
-nmap <leader>oh A ;<esc>a <esc>"ap
+" Conjure key mappings
+nmap <leader>ou ^"a<localleader>ee
+nmap <leader>oh A ;<esc>a <esc>"cp
 nmap <leader>ol f;Dx^
-nmap <leader>os :IcedStdoutBufferOpen<cr>
-" Print fomatted repl output
 nmap <leader>ofj ^cse(acljs.pprint/pprint <esc><leader>ou<esc>u
 nmap <leader>ofc ^cse(aclojure.pprint/pprint <esc><leader>ou<esc>u
-nmap <leader>op <leader>os<esc>f)<s-v>%y<leader>c<esc>p
 
 " PHP cs
 let g:php_cs_fixer_config_file = '.php_cs'
