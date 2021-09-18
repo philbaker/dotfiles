@@ -335,7 +335,8 @@ autocmd Filetype help nmap <buffer> q :q<cr>
 
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
-" Conjure key mappings
+" Conjure settings
+set splitright
 nmap <leader>ou ^"a<localleader>ee
 nmap <leader>oh A ;<esc>a <esc>"cp
 nmap <leader>ol f;Dx^
