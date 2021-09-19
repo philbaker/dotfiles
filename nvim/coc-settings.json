@@ -21,5 +21,16 @@
       "\\[:\\w+([^\\s]*)",
       "\\.([^\\.]*)"
     ]
+  ],
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-11",
+      "path": "/usr/lib/jvm/java-11-openjdk-amd64",
+      "default": true
+    },
+    {
+      "name": "JavaSE-14",
+      "path": "/usr/lib/jvm/java-14-openjdk-amd64"
+    }
   ]
 }

@@ -9,7 +9,6 @@ call minpac#add('junegunn/fzf')
 call minpac#add('junegunn/fzf.vim')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-fugitive')
-call minpac#add('tpope/vim-surround')
 call minpac#add('w0rp/ale')
 call minpac#add('mhinz/vim-grepper')
 call minpac#add('airblade/vim-gitgutter')
@@ -34,11 +33,12 @@ call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('MaxMEllon/vim-jsx-pretty')
 call minpac#add('leshill/vim-json')
-call minpac#add('guns/vim-sexp')
 call minpac#add('tpope/vim-sexp-mappings-for-regular-people')
+call minpac#add('guns/vim-sexp')
+call minpac#add('tpope/vim-repeat')
+call minpac#add('tpope/vim-surround')
 call minpac#add('jwalton512/vim-blade')
 call minpac#add('luochen1990/rainbow')
-call minpac#add('elixir-editors/vim-elixir')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
@@ -326,6 +326,7 @@ nmap <leader>p :cp<cr><cr>
 nmap <leader>bv :e ~/.nvimrc<cr>
 nmap <leader>dv :source ~/.nvimrc<cr>
 nmap <leader>ll :e storage/logs/laravel.log<cr>
+nmap <leader>bs :e ~/dotfiles/nvim/vsp.md<cr>
 
 " Fix syntax color breaking
 nmap <leader>h :syntax sync fromstart<cr>
