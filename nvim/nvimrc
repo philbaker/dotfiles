@@ -197,6 +197,7 @@ map k gk
 
 nnoremap <leader>n :NERDTreeToggle<cr>
 let g:NERDTreeWinPos = "right"
+let g:NERDTreeShowHidden = 1
 
 " Easy access to start of line
 nmap & ^
