@@ -361,3 +361,6 @@ vmap <leader>vs "vy :call VimuxSlime()<CR>
 
 " Select current paragraph and send it to tmux
 nmap <leader>vs vip<leader>vs<CR>
+
+" Fix redo with repeat.vim
+map <nop> <Plug>(RepeatRedo)
