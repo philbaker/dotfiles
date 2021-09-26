@@ -330,6 +330,7 @@ nmap <leader>dv :source ~/.nvimrc<cr>
 nmap <leader>ll :e storage/logs/laravel.log<cr>
 nmap <leader>bs :e ~/dotfiles/nvim/vsp.md<cr>
 nmap <leader>bt :e ~/dotfiles/nvim/tip.md<cr>
+nmap <leader>bn :e ~/.tmux.conf<cr>
 
 " Fix syntax color breaking
 nmap <leader>h :syntax sync fromstart<cr>
