@@ -79,7 +79,7 @@ set colorcolumn=80
 set cpoptions=ces$
 
 let mapleader = "\<Space>"
-let maplocalleader="\\"
+let maplocalleader="\-"
 
 " Get interactive feedback when using substitute
 set inccommand=nosplit
@@ -329,6 +329,7 @@ nmap <leader>bv :e ~/.nvimrc<cr>
 nmap <leader>dv :source ~/.nvimrc<cr>
 nmap <leader>ll :e storage/logs/laravel.log<cr>
 nmap <leader>bs :e ~/dotfiles/nvim/vsp.md<cr>
+nmap <leader>bt :e ~/dotfiles/nvim/tip.md<cr>
 
 " Fix syntax color breaking
 nmap <leader>h :syntax sync fromstart<cr>
