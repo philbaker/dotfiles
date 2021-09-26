@@ -2,7 +2,7 @@
 - `:wall` write all files in the argslist (rather than step through individually)
 
 ## Window management
-- `<C-w>w - Cycle between open winows
+- `<C-w>w - Cycle between open windows
 - `:on[ly]` - `<C-w>o` - Keep only the active window, closing all others
 - `<C-w>=` - Equalize width and height of all windows
 - `<C-w>_` Maximise height of the active window
