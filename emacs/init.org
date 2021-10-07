@@ -24,6 +24,21 @@
   :config
   (evil-mode 1))
 
+(use-package evil-leader
+  :ensure t
+  :after evil
+  :config
+  (global-evil-leader-mode)
+  (evil-leader/set-leader "<SPC>")
+  (evil-leader/set-key "c" 'cider-jack-in))
+
+(use-package simple-httpd :ensure t)
+(use-package js2-mode :ensure t)
+(use-package skewer-mode :ensure t)
+(add-hook 'js2-mode-hook 'skewer-mode)
+(add-hook 'css-mode-hook 'skewer-css-mode)
+(add-hook 'html-mode-hook 'skewer-html-mode)
+
 (use-package undo-tree
   :ensure t
   :after evil
