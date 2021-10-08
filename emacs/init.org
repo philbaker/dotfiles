@@ -3,6 +3,14 @@
 ** Startup, general settings
 #+BEGIN_SRC emacs-lisp
 
+(let ((local-settings "~/.emacs.local"))
+  (if (file-exists-p local-settings)
+  (load-file local-settings)))
+
+# .emacs.local
+# (setq user-emacs-directory "/path/to/.emacs.d") 
+# (setenv "HOME" "/home/me/")
+
 (require 'package)
 (require 'use-package)
 
@@ -87,6 +95,11 @@
    :config
    (load-theme 'dracula t)
    :ensure t)
+
+(when (eq system-type 'darwin)
+  (set-face-attribute 'default nil :family "Consolas")
+  (set-face-attribute 'default nil :height 165)
+  (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding")))
 #+END_SRC
 
 * Packages
