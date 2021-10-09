@@ -12,12 +12,13 @@
 ;; (setenv "HOME" "/home/me/")
 
 (require 'package)
-(require 'use-package)
 
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://stable.melpa.org/packages/"))
 
 (package-initialize)
+
+(require 'use-package)
 
 (set-face-attribute 'default nil :height 120)
 
@@ -31,13 +32,17 @@
   :config
   (evil-mode 1))
 
+
 (use-package evil-leader
   :ensure t
   :after evil
   :config
   (global-evil-leader-mode)
   (evil-leader/set-leader "<SPC>")
-  (evil-leader/set-key "c" 'cider-jack-in))
+  (evil-leader/set-key "c" 'cider-jack-in)
+  (evil-leader/set-key "n" 'treemacs)
+  (evil-leader/set-key "p" 'helm-find-files)
+  (evil-leader/set-key "a" 'helm-do-grep-ag))
 
 (use-package simple-httpd :ensure t)
 (use-package js2-mode :ensure t)
