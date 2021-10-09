@@ -33,7 +33,10 @@
   :config
   (global-evil-leader-mode)
   (evil-leader/set-leader "<SPC>")
-  (evil-leader/set-key "c" 'cider-jack-in))
+  (evil-leader/set-key "c" 'cider-jack-in)
+  (evil-leader/set-key "n" 'treemacs)
+  (evil-leader/set-key "p" 'helm-find-files)
+  (evil-leader/set-key "a" 'helm-do-grep-ag))
 
 (use-package simple-httpd :ensure t)
 (use-package js2-mode :ensure t)
