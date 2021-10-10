@@ -9,7 +9,8 @@
 (require 'package)
 
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://stable.melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
 (package-initialize)
 
@@ -21,6 +22,9 @@
 
 (use-package no-littering
   :ensure t)
+
+(setq auto-save-file-name-transforms
+  `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
 (use-package multi-term
   :ensure t)
@@ -66,6 +70,11 @@
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
+
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
 
 (defun sh/term ()
   "calls ansi term that behaves like shell mode"
@@ -173,6 +182,13 @@
   :config
   (evil-set-undo-system 'undo-tree)
   (global-undo-tree-mode 1))
+
+; Persistent undo
+(use-package undo-fu
+  :ensure t)
+(use-package undo-fu-session
+  :ensure t)
+(global-undo-fu-session-mode)
 
 (use-package clojure-mode
   :ensure t)
