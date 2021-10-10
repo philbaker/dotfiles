@@ -19,6 +19,13 @@
 
 (setq byte-compile-warnings '(cl-functions))
 
+(use-package no-littering
+  :ensure t)
+
+(use-package multi-term
+  :ensure t)
+(setq multi-term-program "/bin/bash")
+
 (use-package org
   :ensure t)
 
@@ -38,7 +45,7 @@
   (evil-leader/set-key "n" 'treemacs)
   (evil-leader/set-key "p" 'helm-find-files)
   (evil-leader/set-key "a" 'helm-do-grep-ag)
-  (evil-leader/set-key "r" 'sh-send-line-or-region)
+  (evil-leader/set-key "r" 'sh/term-send-line-or-region)
   (evil-leader/set-key "sd" 'skewer-eval-defun)
   (evil-leader/set-key "se" 'skewer-eval-defun-and-focus)
   (evil-leader/set-key "sr" 'skewer-eval-region)
@@ -56,16 +63,37 @@
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
 
-(defun sh-send-line-or-region (&optional step)
-  (interactive ())
-  (let ((proc (get-process "shell"))
+(defun sh/term ()
+  "calls ansi term that behaves like shell mode"
+  (interactive)
+  (split-window-sensibly)
+  (cond ((eq system-type 'gnu/linux)
+		 (ansi-term "/bin/bash"))
+		((eq system-type 'darwin)
+		 (ansi-term "/usr/local/bin/bash")))
+  (sh/term-toggle-mode)
+  (other-window 1))
+
+(require 'term)
+
+(defun sh/term-toggle-mode ()
+  "Toggles term between line mode and char mode"
+  (interactive)
+  (if (term-in-line-mode)
+      (term-char-mode)
+    (term-line-mode)))
+
+;; send line or region to ansi-term
+(defun sh/term-send-line-or-region (&optional step)
+  "send the line or the region to a term buffer"
+  (interactive)
+  (let ((proc (get-process "*ansi-term*"))
         pbuf min max command)
     (unless proc
       (let ((currbuff (current-buffer)))
-        (shell)
+        (sh/term)
         (switch-to-buffer currbuff)
-        (setq proc (get-process "shell"))
-        ))
+        (setq proc (get-process "*ansi-term*"))))
     (setq pbuff (process-buffer proc))
     (if (use-region-p)
         (setq min (region-beginning)
@@ -76,22 +104,44 @@
     (with-current-buffer pbuff
       (goto-char (process-mark proc))
       (insert command)
-      (move-marker (process-mark proc) (point))
-      ) ;;pop-to-buffer does not work with save-current-buffer -- bug?
+      (move-marker (process-mark proc) (point))) ;;pop-to-buffer does not work with save-current-buffer -- bug?
     (process-send-string  proc command)
     (display-buffer (process-buffer proc) t)
-    (when step 
+    (when step
       (goto-char max)
-      (next-line))
-    ))
+      (next-line))))
 
-(defun sh-send-line-or-region-and-step ()
-  (interactive)
-  (sh-send-line-or-region t))
+;; send command to shell
+(defun sh/term-command (arg &optional step)
+  (interactive
+   (list
+	(read-string "Enter the command to send: ")))
+  (let ((proc (get-process "*ansi-term*"))
+        pbuf min max command)
+    (unless proc
+      (let ((currbuff (current-buffer)))
+        (sh/term)
+        (switch-to-buffer currbuff)
+        (setq proc (get-process "*ansi-term*"))))
+    (setq pbuff (process-buffer proc))
+	(setq command (concat arg "\n"))
+    (with-current-buffer pbuff
+      (goto-char (process-mark proc))
+      (insert command)
+      (move-marker (process-mark proc) (point))) ;;pop-to-buffer does not work with save-current-buffer -- bug?
+    (process-send-string  proc command)
+    (display-buffer (process-buffer proc) t)
+    (when step
+      (goto-char max)
+      (next-line))))
 
-(defun sh-switch-to-process-buffer ()
+(defun sh/term-send-line-or-region-and-step ()
   (interactive)
-  (pop-to-buffer (process-buffer (get-process "shell")) t))
+  (sh/term-send-line-or-region t))
+
+(defun sh/term-switch-to-process-buffer ()
+  (interactive)
+  (pop-to-buffer (process-buffer (get-process "*ansi-term*")) t))
 
 (defun skewer-eval-defun-and-focus ()
   "Execute function at point in browser and switch to REPL in insert state."
