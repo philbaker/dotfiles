@@ -24,7 +24,11 @@
 
 (use-package multi-term
   :ensure t)
-(setq multi-term-program "/bin/bash")
+(setq multi-term-program 
+  (cond ((eq system-type 'gnu/linux)
+		 "/bin/bash")
+		((eq system-type 'darwin)
+		 "/bin/zsh")))
 
 (use-package org
   :ensure t)
@@ -70,7 +74,7 @@
   (cond ((eq system-type 'gnu/linux)
 		 (ansi-term "/bin/bash"))
 		((eq system-type 'darwin)
-		 (ansi-term "/usr/local/bin/bash")))
+		 (ansi-term "/bin/zsh")))
   (sh/term-toggle-mode)
   (other-window 1))
 
@@ -206,6 +210,8 @@
    :ensure t)
 
 (when (eq system-type 'darwin)
+  (setq visible-bell nil)
+  (setq ring-bell-function 'ignore)
   (set-face-attribute 'default nil :family "Fira Code")
   (set-face-attribute 'default nil :height 165)
   (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding")))
