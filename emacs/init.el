@@ -190,6 +190,11 @@
   :ensure t)
 (global-undo-fu-session-mode)
 
+(use-package workgroups
+  :ensure t
+  :config
+  (workgroups-mode 1))
+
 (use-package clojure-mode
   :ensure t)
 
