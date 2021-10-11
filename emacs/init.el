@@ -61,6 +61,9 @@
   (evil-leader/set-key "sl" 'skewer-eval-last-expression)
   (evil-leader/set-key "sp" 'skewer-eval-print-last-expression))
 
+(use-package evil-matchit :ensure t)
+(global-evil-matchit-mode 1)
+
 (use-package simple-httpd :ensure t)
 (use-package js2-mode :ensure t)
 (use-package skewer-mode :ensure t)
@@ -389,8 +392,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(markdown-mode emmet-mode auto-complete treemacs-projectile treemacs-evil treemacs elpy flycheck magit company helm which-key try dracula-theme cider clojure-mode psysh php-mode skewer-mode js2-mode simple-httpd evil-leader evil use-package)))
+  '(package-selected-packages
+     '(markdown-mode emmet-mode auto-complete treemacs-projectile treemacs-evil treemacs elpy flycheck magit company helm which-key try dracula-theme cider clojure-mode psysh php-mode skewer-mode js2-mode simple-httpd evil-leader evil use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
