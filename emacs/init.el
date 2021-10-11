@@ -20,8 +20,7 @@
 (setq byte-compile-warnings '(cl-functions))
 (winner-mode 1)
 
-(use-package no-littering
-  :ensure t)
+(use-package no-littering :ensure t)
 
 (setq auto-save-file-name-transforms
   `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
@@ -34,8 +33,7 @@
 		((eq system-type 'darwin)
 		 "/bin/zsh")))
 
-(use-package org
-  :ensure t)
+(use-package org :ensure t)
 
 (use-package evil
   :ensure t
@@ -81,6 +79,7 @@
   :ensure t
   :init
   (setq lsp-keymap-prefix "C-c l")
+  (setq lsp-headerline-breadcrumb-enable nil)
   :hook ((clojure-mode . lsp)
          (js2-mode . lsp)
          (css-mode . lsp)
@@ -220,10 +219,8 @@
   (global-undo-tree-mode 1))
 
 ; Persistent undo
-(use-package undo-fu
-  :ensure t)
-(use-package undo-fu-session
-  :ensure t)
+(use-package undo-fu :ensure t)
+(use-package undo-fu-session :ensure t)
 (global-undo-fu-session-mode)
 
 (use-package workgroups
@@ -231,11 +228,8 @@
   :config
   (workgroups-mode 1))
 
-(use-package clojure-mode
-  :ensure t)
-
-(use-package cider
-  :ensure t)
+(use-package clojure-mode :ensure t)
+(use-package cider :ensure t)
 
 ;; Remove initial buffer, set index file
 (setq inhibit-startup-message t)
@@ -248,9 +242,6 @@
 ;; Line numbering
 (global-display-line-numbers-mode)
 
-;; Display battery for when in full screen mode
-(display-battery-mode t)
-
 ;; Keybindings
 (global-set-key (kbd "<f5>") 'revert-buffer)
 (global-set-key (kbd "<f3>") 'org-export-dispatch)
@@ -258,8 +249,8 @@
 (global-set-key (kbd "<f8>") 'magit) 
 
 ;; Misc stuff
-(fset 'yes-or-no-p 'y-or-n-p)
-(server-start)
+; (fset 'yes-or-no-p 'y-or-n-p)
+; (server-start)
 
 (use-package dracula-theme
    :config
@@ -272,9 +263,6 @@
   (set-face-attribute 'default nil :family "Fira Code")
   (set-face-attribute 'default nil :height 165)
   (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding")))
-
-(use-package try
-  :ensure t)
 
 (use-package which-key
   :config 
@@ -323,16 +311,6 @@
   :ensure t
   :init
   (global-flycheck-mode t))
-
-(use-package elpy
-  :ensure t
-  :config
-  (elpy-enable))
-
-(use-package yasnippet
-  :ensure t
-  :init
-  (yas-global-mode 1))
 
 (use-package treemacs
   :ensure t
@@ -405,22 +383,8 @@
 (use-package auto-complete
   :ensure t
   :config 
-  (ac-config-default)
-)
+  (ac-config-default))
 
-(use-package emmet-mode
-  :ensure t
-  :config 
-    (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
-    (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
-)
-
-(use-package markdown-mode
-  :ensure t
-  :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
