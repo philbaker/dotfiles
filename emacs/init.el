@@ -52,7 +52,7 @@
   (evil-leader/set-key "ou" 'cider-pprint-eval-last-sexp-to-comment)
   (evil-leader/set-key "n" 'treemacs)
   (evil-leader/set-key "p" 'helm-find-files)
-  (evil-leader/set-key "a" 'helm-do-grep-ag)
+  (evil-leader/set-key "a" 'helm-ag-project-root)
   (evil-leader/set-key "r" 'sh/term-send-line-or-region)
   (evil-leader/set-key "sd" 'skewer-eval-defun)
   (evil-leader/set-key "se" 'skewer-eval-defun-and-focus)
@@ -65,8 +65,10 @@
 (use-package js2-mode :ensure t)
 (use-package skewer-mode :ensure t)
 (use-package php-mode :ensure t)
+(use-package web-mode :ensure t)
 (use-package psysh :ensure t)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.blade.php\\'" . web-mode))
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
@@ -267,6 +269,9 @@
     (global-set-key (kbd "C-h a") 'helm-apropos)  ;; Helmized apropos interface
     (global-set-key (kbd "M-x") 'helm-M-x)  ;; Improved M-x menu
     (global-set-key (kbd "M-y") 'helm-show-kill-ring)  ;; Show kill ring, pick something to paste
+  :ensure t)
+
+(use-package helm-ag
   :ensure t)
 
 (use-package company
