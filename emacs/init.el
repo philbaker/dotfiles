@@ -53,7 +53,7 @@
   (evil-leader/set-key "ou" 'delete-other-windows)
   (evil-leader/set-key "oh" 'winner-undo)
   (evil-leader/set-key "n" 'treemacs)
-  (evil-leader/set-key "p" 'helm-find-files)
+  (evil-leader/set-key "p" 'projectile-find-file)
   (evil-leader/set-key "a" 'helm-ag-project-root)
   (evil-leader/set-key "r" 'sh/term-send-line-or-region)
   (evil-leader/set-key "sd" 'skewer-eval-defun)
@@ -258,6 +258,9 @@
     (which-key-setup-minibuffer)
     (set-face-attribute 'which-key-local-map-description-face nil 
        :weight 'bold)
+  :ensure t)
+
+(use-package projectile
   :ensure t)
 
 (use-package helm
