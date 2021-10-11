@@ -304,8 +304,12 @@
   :config
   (global-company-mode))
 
-(use-package magit
-  :ensure t)
+(use-package magit :ensure t)
+(use-package evil-collection
+  :ensure t
+  :after evil
+  init
+  (evil-collection-init))
 
 (use-package flycheck
   :ensure t
