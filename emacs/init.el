@@ -9,7 +9,6 @@
 (require 'package)
 
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
 (package-initialize)
@@ -77,6 +76,33 @@
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
+
+(use-package lsp-mode
+  :ensure t
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :hook ((clojure-mode . lsp)
+         (js2-mode . lsp)
+         (css-mode . lsp)
+         (html-mode . lsp)
+         (php-mode . lsp)
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
+
+(use-package lsp-ui :ensure t :commands lsp-ui-mode)
+(setq lsp-ui-doc-enable nil
+      lsp-ui-sideline-enable nil)
+(use-package helm-lsp :ensure t :commands helm-lsp-workspace-symbol)
+
+(use-package lsp-tailwindcss
+  :ensure t
+  :custom
+  (lsp-tailwindcss-add-on-mode t))
+
+(use-package which-key
+    :ensure t
+    :config
+    (which-key-mode))
 
 (use-package prettier
   :ensure t)
@@ -401,7 +427,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
   '(package-selected-packages
-     '(markdown-mode emmet-mode auto-complete treemacs-projectile treemacs-evil treemacs elpy flycheck magit company helm which-key try dracula-theme cider clojure-mode psysh php-mode skewer-mode js2-mode simple-httpd evil-leader evil use-package)))
+     '(lsp-mode markdown-mode emmet-mode auto-complete treemacs-projectile treemacs-evil treemacs elpy flycheck magit company helm which-key try dracula-theme cider clojure-mode psysh php-mode skewer-mode js2-mode simple-httpd evil-leader evil use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
