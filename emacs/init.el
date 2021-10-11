@@ -19,6 +19,7 @@
 (set-face-attribute 'default nil :height 120)
 
 (setq byte-compile-warnings '(cl-functions))
+(winner-mode 1)
 
 (use-package no-littering
   :ensure t)
@@ -48,8 +49,9 @@
   :config
   (global-evil-leader-mode)
   (evil-leader/set-leader "<SPC>")
-  (evil-leader/set-key "c" 'cider-jack-in)
-  (evil-leader/set-key "ou" 'cider-pprint-eval-last-sexp-to-comment)
+  (evil-leader/set-key "cu" 'cider-pprint-eval-last-sexp-to-comment)
+  (evil-leader/set-key "ou" 'delete-other-windows)
+  (evil-leader/set-key "oh" 'winner-undo)
   (evil-leader/set-key "n" 'treemacs)
   (evil-leader/set-key "p" 'helm-find-files)
   (evil-leader/set-key "a" 'helm-ag-project-root)
@@ -75,6 +77,9 @@
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
+
+(use-package prettier
+  :ensure t)
 
 (use-package editorconfig
   :ensure t
