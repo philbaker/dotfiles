@@ -12,7 +12,11 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
 (package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
 
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
 (require 'use-package)
 
 (set-face-attribute 'default nil :height 120)
@@ -35,6 +39,7 @@
 
 (use-package org :ensure t)
 
+(setq evil-want-keybinding nil)
 (use-package evil
   :ensure t
   :config
@@ -83,6 +88,7 @@
   :hook ((clojure-mode . lsp)
          (js2-mode . lsp)
          (css-mode . lsp)
+         (web-mode . lsp)
          (html-mode . lsp)
          (php-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
@@ -91,6 +97,7 @@
 (use-package lsp-ui :ensure t :commands lsp-ui-mode)
 (setq lsp-ui-doc-enable nil
       lsp-ui-sideline-enable nil)
+      
 (use-package helm-lsp :ensure t :commands helm-lsp-workspace-symbol)
 
 (use-package lsp-tailwindcss
@@ -243,14 +250,7 @@
 (global-display-line-numbers-mode)
 
 ;; Keybindings
-(global-set-key (kbd "<f5>") 'revert-buffer)
-(global-set-key (kbd "<f3>") 'org-export-dispatch)
-(global-set-key (kbd "<f6>") 'eshell) 
-(global-set-key (kbd "<f8>") 'magit) 
-
-;; Misc stuff
-; (fset 'yes-or-no-p 'y-or-n-p)
-; (server-start)
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 (use-package dracula-theme
    :config
@@ -306,9 +306,9 @@
 
 (use-package magit :ensure t)
 (use-package evil-collection
-  :ensure t
   :after evil
-  init
+  :ensure t
+  :config
   (evil-collection-init))
 
 (use-package flycheck
