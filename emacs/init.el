@@ -75,12 +75,12 @@
 (global-evil-matchit-mode 1)
 
 (use-package simple-httpd :ensure t)
-(use-package js2-mode :ensure t)
+(use-package rjsx-mode :ensure t)
 (use-package skewer-mode :ensure t)
 (use-package php-mode :ensure t)
 (use-package web-mode :ensure t)
 (use-package psysh :ensure t)
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
 (add-to-list 'auto-mode-alist '("\\.blade.php\\'" . web-mode))
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)
@@ -402,9 +402,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(helm-completion-style 'helm)
  '(helm-minibuffer-history-key "M-p")
   '(package-selected-packages
-     '(lsp-mode markdown-mode emmet-mode auto-complete treemacs-projectile treemacs-evil treemacs elpy flycheck magit company helm which-key try dracula-theme cider clojure-mode psysh php-mode skewer-mode js2-mode simple-httpd evil-leader evil use-package)))
+     '(rjsx-mode rjxs-mode rxjs-mode lsp-mode markdown-mode emmet-mode auto-complete treemacs-projectile treemacs-evil treemacs elpy flycheck magit company helm which-key try dracula-theme cider clojure-mode psysh php-mode skewer-mode js2-mode simple-httpd evil-leader evil use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
