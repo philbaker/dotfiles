@@ -21,6 +21,12 @@
 
 (set-face-attribute 'default nil :height 120)
 
+(setq term-suppress-hard-newline t)
+
+; Don't show git info in mode-line because it's often incorrect
+(setq-default mode-line-format
+  (delete '(vc-mode vc-mode) mode-line-format))
+
 (setq byte-compile-warnings '(cl-functions))
 (winner-mode 1)
 
@@ -97,6 +103,8 @@
 (use-package lsp-ui :ensure t :commands lsp-ui-mode)
 (setq lsp-ui-doc-enable nil
       lsp-ui-sideline-enable nil)
+
+(use-package phpunit :ensure t)
       
 (use-package helm-lsp :ensure t :commands helm-lsp-workspace-symbol)
 
@@ -394,6 +402,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(helm-minibuffer-history-key "M-p")
   '(package-selected-packages
      '(lsp-mode markdown-mode emmet-mode auto-complete treemacs-projectile treemacs-evil treemacs elpy flycheck magit company helm which-key try dracula-theme cider clojure-mode psysh php-mode skewer-mode js2-mode simple-httpd evil-leader evil use-package)))
 (custom-set-faces
