@@ -7,10 +7,13 @@
     (load-file local-settings)))
 
 ; .emacs.local
-; (setq user-emacs-directory "/path/to/.emacs.d") 
+; (setq user-emacs-directory "/path/to/.emacs.d")
 ; (setenv "HOME" "/home/me/")
+; (setq custom-file (concat user-emacs-directory "/custom.el"))
 
 (require 'package)
+
+(setq use-package-always-ensure t)
 
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 
@@ -34,7 +37,6 @@
   (setq visible-bell nil)
   (setq ring-bell-function 'ignore))
 
-
 ;;
 ;; Visual tweaks
 ;;
@@ -55,19 +57,15 @@
 
 (use-package dracula-theme
   :config
-  (load-theme 'dracula t)
-  :ensure t)
+  (load-theme 'dracula t))
 
 (use-package rainbow-delimiters
-  :ensure t
   :hook (prog-mode . rainbow-delimiters-mode))
 
 ; Modeline customisation
-(use-package all-the-icons
-  :ensure t)
+(use-package all-the-icons)
 
 (use-package doom-modeline
-  :ensure t
   :init (doom-modeline-mode 1))
 
 ; Line numbering
@@ -78,7 +76,6 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 
-
 ;;
 ;; Windows
 ;;
@@ -87,15 +84,13 @@
 (winner-mode 1)
 
 ; Don't add temp files to project directory
-(use-package no-littering
-  :ensure t)
+(use-package no-littering)
 
 (setq auto-save-file-name-transforms
   `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
 ; Multiple terminals
-(use-package multi-term
-  :ensure t)
+(use-package multi-term)
 
 (setq multi-term-program 
   (cond ((eq system-type 'gnu/linux)
@@ -103,9 +98,7 @@
     ((eq system-type 'darwin)
       "/bin/zsh")))
 
-(use-package org
-  :ensure t)
-
+(use-package org)
 
 ;;
 ;; Evil mode
@@ -114,13 +107,11 @@
 (setq evil-want-keybinding nil)
 
 (use-package evil
-  :ensure t
   :config
   (evil-mode 1))
 
 ; Vim keybindings
 (use-package evil-leader
-  :ensure t
   :after evil
   :config
   (global-evil-leader-mode)
@@ -139,42 +130,32 @@
   (evil-leader/set-key "sl" 'skewer-eval-last-expression)
   (evil-leader/set-key "sp" 'skewer-eval-print-last-expression))
 
-(use-package evil-matchit
-  :ensure t)
+(use-package evil-matchit)
 
 (global-evil-matchit-mode 1)
 
 ; Make escape more vim-like
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-
 ;;
 ;; Language config
 ;;
 
-(use-package rjsx-mode
-  :ensure t)
+(use-package rjsx-mode)
 
-(use-package php-mode
-  :ensure t)
+(use-package php-mode)
 
-(use-package web-mode
-  :ensure t)
+(use-package web-mode)
 
-(use-package clojure-mode
-  :ensure t)
+(use-package clojure-mode)
 
-(use-package cider
-  :ensure t)
+(use-package cider)
 
-(use-package phpunit
-  :ensure t)
+(use-package phpunit)
 
-(use-package prettier
-  :ensure t)
+(use-package prettier)
 
 (use-package editorconfig
-  :ensure t
   :config
   (editorconfig-mode 1))
 
@@ -182,13 +163,11 @@
 
 (add-to-list 'auto-mode-alist '("\\.blade.php\\'" . web-mode))
 
-
 ;;
 ;; LSP config
 ;;
 
 (use-package lsp-mode
-  :ensure t
   :init
   (setq lsp-keymap-prefix "C-c l")
   (setq lsp-headerline-breadcrumb-enable nil)
@@ -202,34 +181,27 @@
   :commands lsp)
 
 (use-package lsp-ui
-  :ensure t
   :commands lsp-ui-mode)
 
 (setq lsp-ui-doc-enable nil
   lsp-ui-sideline-enable nil)
 
 (use-package helm-lsp
-  :ensure t
   :commands helm-lsp-workspace-symbol)
 
 (use-package lsp-tailwindcss
-  :ensure t
   :custom
   (lsp-tailwindcss-add-on-mode t))
-
 
 ;;
 ;; REPL config
 ;;
 
-(use-package psysh
-  :ensure t)
+(use-package psysh)
 
-(use-package simple-httpd
-  :ensure t)
+(use-package simple-httpd)
 
-(use-package skewer-mode
-  :ensure t)
+(use-package skewer-mode)
 
 (add-hook 'js2-mode-hook 'skewer-mode)
 
@@ -337,7 +309,6 @@
   (evil-insert-state))
 
 (use-package undo-tree
-  :ensure t
   :after evil
   :diminish
   :config
@@ -345,21 +316,17 @@
   (global-undo-tree-mode 1))
 
 ; Persistent undo
-(use-package undo-fu
-  :ensure t)
+(use-package undo-fu)
 
-(use-package undo-fu-session
-  :ensure t)
+(use-package undo-fu-session)
 
 (global-undo-fu-session-mode)
-
 
 ;;
 ;; Menus and completion
 ;;
 
 (use-package which-key
-  :ensure t
   :init (which-key-mode)
   :config
   (setq which-key-idle-delay 0.3))
@@ -371,8 +338,7 @@
   (which-key-mode)
   (which-key-setup-minibuffer)
   (set-face-attribute 'which-key-local-map-description-face nil 
-    :weight 'bold)
-  :ensure t)
+    :weight 'bold))
 
 (use-package helm
   :init
@@ -390,53 +356,37 @@
   (global-set-key (kbd "C-s") 'helm-occur)  ; Replaces the default isearch keybinding
   (global-set-key (kbd "C-h a") 'helm-apropos) ; Helmized apropos interface
   (global-set-key (kbd "M-x") 'helm-M-x) ; Improved M-x menu
-  (global-set-key (kbd "M-y") 'helm-show-kill-ring) ; Show kill ring, pick something to paste
-  :ensure t)
+  (global-set-key (kbd "M-y") 'helm-show-kill-ring)) ; Show kill ring, pick something to paste
 
-(use-package helm-ag
-  :ensure t)
+(use-package helm-ag)
 
-(use-package projectile
-  :ensure t)
+(use-package projectile)
 
 (use-package flycheck
-  :ensure t
   :init
   (global-flycheck-mode t))
 
 (use-package company
-  :ensure t
   :config
   (global-company-mode))
-
-
-; (use-package auto-complete
-;   :ensure t
-;   :config 
-;   (ac-config-default))
-
 
 ;;
 ;; Version control
 ;;
 
-(use-package magit
-  :ensure t)
+(use-package magit)
 
 ; Vim keybindings for magit
 (use-package evil-collection
   :after evil
-  :ensure t
   :config
   (evil-collection-init))
-
 
 ;;
 ;; Navigation
 ;;
 
 (use-package treemacs
-  :ensure t
   :defer t
   :init
   (with-eval-after-load 'winum
@@ -492,25 +442,8 @@
         ("C-x t M-t" . treemacs-find-tag)))
 
 (use-package treemacs-evil
-  :after treemacs evil
-  :ensure t)
+  :after treemacs evil)
 
 (use-package treemacs-projectile
-  :after treemacs projectile
-  :ensure t)
+  :after treemacs projectile)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(helm-completion-style 'helm)
- '(helm-minibuffer-history-key "M-p")
-  '(package-selected-packages
-     '(doom-modeline rjsx-mode rjxs-mode rxjs-mode lsp-mode markdown-mode emmet-mode auto-complete treemacs-projectile treemacs-evil treemacs elpy flycheck magit company helm which-key try dracula-theme cider clojure-mode psysh php-mode skewer-mode js2-mode simple-httpd evil-leader evil use-package)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
