@@ -1,54 +1,124 @@
+;;
+;; Initial setup
+;;
+
 (let ((local-settings "~/.emacs.local"))
   (if (file-exists-p local-settings)
-  (load-file local-settings)))
+    (load-file local-settings)))
 
-;; .emacs.local
-;; (setq user-emacs-directory "/path/to/.emacs.d") 
-;; (setenv "HOME" "/home/me/")
+; .emacs.local
+; (setq user-emacs-directory "/path/to/.emacs.d") 
+; (setenv "HOME" "/home/me/")
 
 (require 'package)
 
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
 (package-initialize)
+
 (unless package-archive-contents
   (package-refresh-contents))
 
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
+
 (require 'use-package)
 
+; Remove initial buffer, set index file
+(setq inhibit-startup-message t)
+
+; Disable sound
+(when (eq system-type 'darwin)
+  (setq visible-bell nil)
+  (setq ring-bell-function 'ignore))
+
+
+;;
+;; Visual tweaks
+;;
+
+; Font sizing
 (set-face-attribute 'default nil :height 120)
 
+(when (eq system-type 'darwin)
+  (set-face-attribute 'default nil :family "Fira Code")
+  (set-face-attribute 'default nil :height 165)
+  (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding")))
+
+; Stop showing % in terminal session
 (setq term-suppress-hard-newline t)
 
+; Ensure git branch in mode line is up to date
 (setq auto-revert-check-vc-info t)
 
-(setq byte-compile-warnings '(cl-functions))
+(use-package dracula-theme
+  :config
+  (load-theme 'dracula t)
+  :ensure t)
+
+(use-package rainbow-delimiters
+  :ensure t
+  :hook (prog-mode . rainbow-delimiters-mode))
+
+; Modeline customisation
+(use-package all-the-icons
+  :ensure t)
+
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1))
+
+; Line numbering
+(global-display-line-numbers-mode)
+
+; Hide Scroll bar, menu bar and tool bar
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+
+
+;;
+;; Windows
+;;
+
+; Remember window layout to enable :only
 (winner-mode 1)
 
-(use-package no-littering :ensure t)
+; Don't add temp files to project directory
+(use-package no-littering
+  :ensure t)
 
 (setq auto-save-file-name-transforms
   `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
+; Multiple terminals
 (use-package multi-term
   :ensure t)
+
 (setq multi-term-program 
   (cond ((eq system-type 'gnu/linux)
-		 "/bin/bash")
-		((eq system-type 'darwin)
-		 "/bin/zsh")))
+          "/bin/bash")
+    ((eq system-type 'darwin)
+      "/bin/zsh")))
 
-(use-package org :ensure t)
+(use-package org
+  :ensure t)
+
+
+;;
+;; Evil mode
+;;
 
 (setq evil-want-keybinding nil)
+
 (use-package evil
   :ensure t
   :config
   (evil-mode 1))
 
+; Vim keybindings
 (use-package evil-leader
   :ensure t
   :after evil
@@ -69,20 +139,53 @@
   (evil-leader/set-key "sl" 'skewer-eval-last-expression)
   (evil-leader/set-key "sp" 'skewer-eval-print-last-expression))
 
-(use-package evil-matchit :ensure t)
+(use-package evil-matchit
+  :ensure t)
+
 (global-evil-matchit-mode 1)
 
-(use-package simple-httpd :ensure t)
-(use-package rjsx-mode :ensure t)
-(use-package skewer-mode :ensure t)
-(use-package php-mode :ensure t)
-(use-package web-mode :ensure t)
-(use-package psysh :ensure t)
+; Make escape more vim-like
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
+
+;;
+;; Language config
+;;
+
+(use-package rjsx-mode
+  :ensure t)
+
+(use-package php-mode
+  :ensure t)
+
+(use-package web-mode
+  :ensure t)
+
+(use-package clojure-mode
+  :ensure t)
+
+(use-package cider
+  :ensure t)
+
+(use-package phpunit
+  :ensure t)
+
+(use-package prettier
+  :ensure t)
+
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
+
 (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
+
 (add-to-list 'auto-mode-alist '("\\.blade.php\\'" . web-mode))
-(add-hook 'js2-mode-hook 'skewer-mode)
-(add-hook 'css-mode-hook 'skewer-css-mode)
-(add-hook 'html-mode-hook 'skewer-html-mode)
+
+
+;;
+;; LSP config
+;;
 
 (use-package lsp-mode
   :ensure t
@@ -90,53 +193,58 @@
   (setq lsp-keymap-prefix "C-c l")
   (setq lsp-headerline-breadcrumb-enable nil)
   :hook ((clojure-mode . lsp)
-         (js2-mode . lsp)
-         (css-mode . lsp)
-         (web-mode . lsp)
-         (html-mode . lsp)
-         (php-mode . lsp)
-         (lsp-mode . lsp-enable-which-key-integration))
+          (js2-mode . lsp)
+          (css-mode . lsp)
+          (web-mode . lsp)
+          (html-mode . lsp)
+          (php-mode . lsp)
+          (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
 
-(use-package lsp-ui :ensure t :commands lsp-ui-mode)
-(setq lsp-ui-doc-enable nil
-      lsp-ui-sideline-enable nil)
+(use-package lsp-ui
+  :ensure t
+  :commands lsp-ui-mode)
 
-(use-package phpunit :ensure t)
-      
-(use-package helm-lsp :ensure t :commands helm-lsp-workspace-symbol)
+(setq lsp-ui-doc-enable nil
+  lsp-ui-sideline-enable nil)
+
+(use-package helm-lsp
+  :ensure t
+  :commands helm-lsp-workspace-symbol)
 
 (use-package lsp-tailwindcss
   :ensure t
   :custom
   (lsp-tailwindcss-add-on-mode t))
 
-(use-package which-key
-    :ensure t
-    :config
-    (which-key-mode))
 
-(use-package prettier :ensure t)
+;;
+;; REPL config
+;;
 
-(use-package editorconfig
-  :ensure t
-  :config
-  (editorconfig-mode 1))
+(use-package psysh
+  :ensure t)
 
-(use-package all-the-icons :ensure t)
+(use-package simple-httpd
+  :ensure t)
 
-(use-package doom-modeline
-  :ensure t
-  :init (doom-modeline-mode 1))
+(use-package skewer-mode
+  :ensure t)
+
+(add-hook 'js2-mode-hook 'skewer-mode)
+
+(add-hook 'css-mode-hook 'skewer-css-mode)
+
+(add-hook 'html-mode-hook 'skewer-html-mode)
 
 (defun sh/term ()
-  "calls ansi term that behaves like shell mode"
+  "Calls ansi term that behaves like shell mode"
   (interactive)
   (split-window-sensibly)
   (cond ((eq system-type 'gnu/linux)
-		 (ansi-term "/bin/bash"))
-		((eq system-type 'darwin)
-		 (ansi-term "/bin/zsh")))
+          (ansi-term "/bin/bash"))
+    ((eq system-type 'darwin)
+      (ansi-term "/bin/zsh")))
   (sh/term-toggle-mode)
   (other-window 1))
 
@@ -146,15 +254,15 @@
   "Toggles term between line mode and char mode"
   (interactive)
   (if (term-in-line-mode)
-      (term-char-mode)
+    (term-char-mode)
     (term-line-mode)))
 
-;; send line or region to ansi-term
+; Send line or region to ansi-term
 (defun sh/term-send-line-or-region (&optional step)
-  "send the line or the region to a term buffer"
+  "Send the line or the region to a term buffer"
   (interactive)
   (let ((proc (get-process "*ansi-term*"))
-        pbuf min max command)
+         pbuf min max command)
     (unless proc
       (let ((currbuff (current-buffer)))
         (sh/term)
@@ -162,39 +270,39 @@
         (setq proc (get-process "*ansi-term*"))))
     (setq pbuff (process-buffer proc))
     (if (use-region-p)
-        (setq min (region-beginning)
-              max (region-end))
+      (setq min (region-beginning)
+        max (region-end))
       (setq min (point-at-bol)
-            max (point-at-eol)))
+        max (point-at-eol)))
     (setq command (concat (buffer-substring min max) "\n"))
     (with-current-buffer pbuff
       (goto-char (process-mark proc))
       (insert command)
-      (move-marker (process-mark proc) (point))) ;;pop-to-buffer does not work with save-current-buffer -- bug?
+      (move-marker (process-mark proc) (point)))
     (process-send-string  proc command)
     (display-buffer (process-buffer proc) t)
     (when step
       (goto-char max)
       (next-line))))
 
-;; send command to shell
+; Send command to shell
 (defun sh/term-command (arg &optional step)
   (interactive
-   (list
-	(read-string "Enter the command to send: ")))
+    (list
+      (read-string "Enter the command to send: ")))
   (let ((proc (get-process "*ansi-term*"))
-        pbuf min max command)
+         pbuf min max command)
     (unless proc
       (let ((currbuff (current-buffer)))
         (sh/term)
         (switch-to-buffer currbuff)
         (setq proc (get-process "*ansi-term*"))))
     (setq pbuff (process-buffer proc))
-	(setq command (concat arg "\n"))
+    (setq command (concat arg "\n"))
     (with-current-buffer pbuff
       (goto-char (process-mark proc))
       (insert command)
-      (move-marker (process-mark proc) (point))) ;;pop-to-buffer does not work with save-current-buffer -- bug?
+      (move-marker (process-mark proc) (point)))
     (process-send-string  proc command)
     (display-buffer (process-buffer proc) t)
     (when step
@@ -210,14 +318,14 @@
   (pop-to-buffer (process-buffer (get-process "*ansi-term*")) t))
 
 (defun skewer-eval-defun-and-focus ()
-  "Execute function at point in browser and switch to REPL in insert state."
+  "Execute function at point in browser and switch to REPL in insert state"
   (interactive)
   (skewer-eval-defun)
   (skewer-repl)
   (evil-insert-state))
 
 (defun skewer-eval-region (beg end)
-  "Execute the region as JavaScript code in the attached browser."
+  "Execute the region as JavaScript code in the attached browser"
   (interactive "r")
   (skewer-eval (buffer-substring beg end) #'skewer-post-minibuffer))
 
@@ -237,90 +345,95 @@
   (global-undo-tree-mode 1))
 
 ; Persistent undo
-(use-package undo-fu :ensure t)
-(use-package undo-fu-session :ensure t)
+(use-package undo-fu
+  :ensure t)
+
+(use-package undo-fu-session
+  :ensure t)
+
 (global-undo-fu-session-mode)
 
-(use-package clojure-mode :ensure t)
-(use-package cider :ensure t)
 
-;; Remove initial buffer, set index file
-(setq inhibit-startup-message t)
+;;
+;; Menus and completion
+;;
 
-;; Hide Scroll bar,menu bar, tool bar
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-
-;; Line numbering
-(global-display-line-numbers-mode)
-
-;; Keybindings
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-
-(use-package dracula-theme
-   :config
-   (load-theme 'dracula t)
-   :ensure t)
-
-(when (eq system-type 'darwin)
-  (setq visible-bell nil)
-  (setq ring-bell-function 'ignore)
-  (set-face-attribute 'default nil :family "Fira Code")
-  (set-face-attribute 'default nil :height 165)
-  (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding")))
+(use-package which-key
+  :ensure t
+  :init (which-key-mode)
+  :config
+  (setq which-key-idle-delay 0.3))
 
 (use-package which-key
   :config 
-    (setq which-key-idle-delay 0.3)
-    (setq which-key-popup-type 'frame)
-    (which-key-mode)
-    (which-key-setup-minibuffer)
-    (set-face-attribute 'which-key-local-map-description-face nil 
-       :weight 'bold)
+  (setq which-key-idle-delay 0.3)
+  (setq which-key-popup-type 'frame)
+  (which-key-mode)
+  (which-key-setup-minibuffer)
+  (set-face-attribute 'which-key-local-map-description-face nil 
+    :weight 'bold)
+  :ensure t)
+
+(use-package helm
+  :init
+  (require 'helm-config)
+  (setq helm-split-window-in-side-p t
+    helm-move-to-line-cycle-in-source t)
+  :config 
+  (helm-mode 1) ; Most of Emacs prompts become helm-enabled
+  (helm-autoresize-mode 1) ; Helm resizes according to the number of candidates
+  (global-set-key (kbd "C-x b") 'helm-buffers-list) ; List buffers (Emacs way)
+  (define-key evil-ex-map "b" 'helm-buffers-list) ; List buffers (Vim way)
+  (global-set-key (kbd "C-x r b") 'helm-bookmarks) ; Bookmarks menu
+  (global-set-key (kbd "C-x C-f") 'helm-find-files) ; Finding files with Helm
+  (global-set-key (kbd "M-c") 'helm-calcul-expression) ; Use Helm for calculations
+  (global-set-key (kbd "C-s") 'helm-occur)  ; Replaces the default isearch keybinding
+  (global-set-key (kbd "C-h a") 'helm-apropos) ; Helmized apropos interface
+  (global-set-key (kbd "M-x") 'helm-M-x) ; Improved M-x menu
+  (global-set-key (kbd "M-y") 'helm-show-kill-ring) ; Show kill ring, pick something to paste
+  :ensure t)
+
+(use-package helm-ag
   :ensure t)
 
 (use-package projectile
   :ensure t)
 
-(use-package helm
+(use-package flycheck
+  :ensure t
   :init
-    (require 'helm-config)
-    (setq helm-split-window-in-side-p t
-          helm-move-to-line-cycle-in-source t)
-  :config 
-    (helm-mode 1) ;; Most of Emacs prompts become helm-enabled
-    (helm-autoresize-mode 1) ;; Helm resizes according to the number of candidates
-    (global-set-key (kbd "C-x b") 'helm-buffers-list) ;; List buffers ( Emacs way )
-    (define-key evil-ex-map "b" 'helm-buffers-list) ;; List buffers ( Vim way )
-    (global-set-key (kbd "C-x r b") 'helm-bookmarks) ;; Bookmarks menu
-    (global-set-key (kbd "C-x C-f") 'helm-find-files) ;; Finding files with Helm
-    (global-set-key (kbd "M-c") 'helm-calcul-expression) ;; Use Helm for calculations
-    (global-set-key (kbd "C-s") 'helm-occur)  ;; Replaces the default isearch keybinding
-    (global-set-key (kbd "C-h a") 'helm-apropos)  ;; Helmized apropos interface
-    (global-set-key (kbd "M-x") 'helm-M-x)  ;; Improved M-x menu
-    (global-set-key (kbd "M-y") 'helm-show-kill-ring)  ;; Show kill ring, pick something to paste
-  :ensure t)
-
-(use-package helm-ag
-  :ensure t)
+  (global-flycheck-mode t))
 
 (use-package company
   :ensure t
   :config
   (global-company-mode))
 
-(use-package magit :ensure t)
+
+; (use-package auto-complete
+;   :ensure t
+;   :config 
+;   (ac-config-default))
+
+
+;;
+;; Version control
+;;
+
+(use-package magit
+  :ensure t)
+
+; Vim keybindings for magit
 (use-package evil-collection
   :after evil
   :ensure t
   :config
   (evil-collection-init))
 
-(use-package flycheck
-  :ensure t
-  :init
-  (global-flycheck-mode t))
+
+;;
+;; Navigation
+;;
 
 (use-package treemacs
   :ensure t
@@ -360,10 +473,6 @@
           treemacs-position                   'right
           treemacs-width                      25)
 
-    ;; The default width and height of the icons is 22 pixels. If you are
-    ;; using a Hi-DPI display, uncomment this to double the icon size.
-    ;;(treemacs-resize-icons 44)
-
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
     (treemacs-fringe-indicator-mode t)
@@ -389,11 +498,6 @@
 (use-package treemacs-projectile
   :after treemacs projectile
   :ensure t)
-
-(use-package auto-complete
-  :ensure t
-  :config 
-  (ac-config-default))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
