@@ -23,9 +23,7 @@
 
 (setq term-suppress-hard-newline t)
 
-; Don't show git info in mode-line because it's often incorrect
-(setq-default mode-line-format
-  (delete '(vc-mode vc-mode) mode-line-format))
+(setq auto-revert-check-vc-info t)
 
 (setq byte-compile-warnings '(cl-functions))
 (winner-mode 1)
@@ -118,13 +116,18 @@
     :config
     (which-key-mode))
 
-(use-package prettier
-  :ensure t)
+(use-package prettier :ensure t)
 
 (use-package editorconfig
   :ensure t
   :config
   (editorconfig-mode 1))
+
+(use-package all-the-icons :ensure t)
+
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1))
 
 (defun sh/term ()
   "calls ansi term that behaves like shell mode"
@@ -237,11 +240,6 @@
 (use-package undo-fu :ensure t)
 (use-package undo-fu-session :ensure t)
 (global-undo-fu-session-mode)
-
-(use-package workgroups
-  :ensure t
-  :config
-  (workgroups-mode 1))
 
 (use-package clojure-mode :ensure t)
 (use-package cider :ensure t)
@@ -405,7 +403,7 @@
  '(helm-completion-style 'helm)
  '(helm-minibuffer-history-key "M-p")
   '(package-selected-packages
-     '(rjsx-mode rjxs-mode rxjs-mode lsp-mode markdown-mode emmet-mode auto-complete treemacs-projectile treemacs-evil treemacs elpy flycheck magit company helm which-key try dracula-theme cider clojure-mode psysh php-mode skewer-mode js2-mode simple-httpd evil-leader evil use-package)))
+     '(doom-modeline rjsx-mode rjxs-mode rxjs-mode lsp-mode markdown-mode emmet-mode auto-complete treemacs-projectile treemacs-evil treemacs elpy flycheck magit company helm which-key try dracula-theme cider clojure-mode psysh php-mode skewer-mode js2-mode simple-httpd evil-leader evil use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
