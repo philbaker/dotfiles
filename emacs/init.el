@@ -33,9 +33,8 @@
 (setq inhibit-startup-message t)
 
 ; Disable sound
-(when (eq system-type 'darwin)
-  (setq visible-bell nil)
-  (setq ring-bell-function 'ignore))
+(setq visible-bell nil)
+(setq ring-bell-function 'ignore)
 
 ;;
 ;; Visual tweaks
@@ -89,6 +88,12 @@
 (setq auto-save-file-name-transforms
   `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
+(use-package org)
+
+;;
+;; Terminal
+;;
+
 ; Multiple terminals
 (use-package multi-term)
 
@@ -98,7 +103,12 @@
     ((eq system-type 'darwin)
       "/bin/zsh")))
 
-(use-package org)
+(defun open-mterm-in-project-root ()
+  "Opens a multi-term in the current vc project's root dir"
+  (interactive)
+  (progn
+    (find-file (magit-toplevel))
+    (call-interactively 'multi-term)))
 
 ;;
 ;; Evil mode
