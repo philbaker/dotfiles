@@ -169,6 +169,10 @@
   :config
   (editorconfig-mode 1))
 
+(use-package smartparens)
+
+(require 'smartparens-config)
+
 (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
 
 (add-to-list 'auto-mode-alist '("\\.blade.php\\'" . web-mode))
@@ -431,7 +435,7 @@
           treemacs-tag-follow-cleanup         t
           treemacs-tag-follow-delay           1.5
           treemacs-position                   'right
-          treemacs-width                      25)
+          treemacs-width                      35)
 
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
