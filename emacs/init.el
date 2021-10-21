@@ -130,7 +130,7 @@
   (evil-leader/set-key "ou" 'delete-other-windows)
   (evil-leader/set-key "oh" 'winner-undo)
   (evil-leader/set-key "n" 'treemacs)
-  (evil-leader/set-key "p" 'projectile-find-file)
+  (evil-leader/set-key "t" 'projectile-find-file)
   (evil-leader/set-key "a" 'helm-ag-project-root)
   (evil-leader/set-key "r" 'sh/term-send-line-or-region)
   (evil-leader/set-key "sd" 'skewer-eval-defun)
@@ -138,7 +138,8 @@
   (evil-leader/set-key "sr" 'skewer-eval-region)
   (evil-leader/set-key "sn" 'skewer-eval-region-and-focus)
   (evil-leader/set-key "sl" 'skewer-eval-last-expression)
-  (evil-leader/set-key "sp" 'skewer-eval-print-last-expression))
+  (evil-leader/set-key "sp" 'skewer-eval-print-last-expression)
+  (evil-leader/set-key "u" 'evil-switch-to-windows-last-buffer))
 
 (use-package evil-matchit)
 

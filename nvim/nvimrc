@@ -22,8 +22,8 @@ call minpac#add('pechorin/any-jump.vim')
 call minpac#add('prettier/vim-prettier')
 call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
 call minpac#add('Olical/conjure', {'tag': 'v4.23.0'})
-call minpac#add('Olical/aniseed', {'tag': 'v3.21.0'})
 call minpac#add('preservim/vimux')
+call minpac#add('jpalardy/vim-slime')
 call minpac#add('stephpy/vim-php-cs-fixer')
 call minpac#add('metakirby5/codi.vim')
 " Colours
@@ -121,7 +121,7 @@ set number
 
 let g:airline_theme='onehalfdark'
 let g:rainbow_active = 1
-nnoremap <leader>r :RainbowToggle<cr>
+nnoremap <leader>br :RainbowToggle<cr>
 
 "-----------------------------------------------------------------------------
 " Search
@@ -159,7 +159,7 @@ nnoremap <leader>G :Grepper -tool rg<cr>
 nnoremap <leader>, :Tags<cr>
 nnoremap <leader>. :Buffers<cr>
 nnoremap <leader>; :Marks<cr>
-nnoremap <c-p> :GFiles<cr>
+nnoremap <silent> <leader>t :GFiles<cr>
 
 "-----------------------------------------------------------------------------
 " Linter
@@ -320,10 +320,6 @@ nnoremap <leader>s :w<cr>
 " Disable highlight
 map <silent> <leader><cr> :noh<cr>
 
-" Next and previous in error list
-nmap <leader>k :cn<cr><cr>
-nmap <leader>p :cp<cr><cr>
-
 " Edit vimrc
 nmap <leader>bv :e ~/.nvimrc<cr>
 nmap <leader>dv :source ~/.nvimrc<cr>
@@ -363,6 +359,15 @@ vmap <leader>vs "vy :call VimuxSlime()<CR>
 
 " Select current paragraph and send it to tmux
 nmap <leader>vs vip<leader>vs<CR>
+
+" Vim slime
+let g:slime_target = "neovim"
+
+xmap <leader>r <Plug>SlimeRegionSend
+nmap <leader>r <Plug>SlimeParagraphSend
+nmap <c-c>v     <Plug>SlimeConfig
+tnoremap <Esc> <C-\><C-n>
+
 
 " Fix redo with repeat.vim
 map <nop> <Plug>(RepeatRedo)
