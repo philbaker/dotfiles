@@ -159,7 +159,7 @@ nnoremap <leader>G :Grepper -tool rg<cr>
 nnoremap <leader>, :Tags<cr>
 nnoremap <leader>. :Buffers<cr>
 nnoremap <leader>; :Marks<cr>
-nnoremap <silent> <leader>t :GFiles<cr>
+nnoremap <leader>t :GFiles<cr>
 
 "-----------------------------------------------------------------------------
 " Linter
@@ -367,7 +367,6 @@ xmap <leader>r <Plug>SlimeRegionSend
 nmap <leader>r <Plug>SlimeParagraphSend
 nmap <c-c>v     <Plug>SlimeConfig
 tnoremap <Esc> <C-\><C-n>
-
 
 " Fix redo with repeat.vim
 map <nop> <Plug>(RepeatRedo)
