@@ -178,6 +178,9 @@
 
 (add-to-list 'auto-mode-alist '("\\.blade.php\\'" . web-mode))
 
+(global-display-fill-column-indicator-mode)
+(set-face-foreground 'fill-column-indicator "#373844")
+
 ;;
 ;; LSP config
 ;;
