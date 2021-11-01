@@ -139,7 +139,8 @@
   (evil-leader/set-key "sn" 'skewer-eval-region-and-focus)
   (evil-leader/set-key "sl" 'skewer-eval-last-expression)
   (evil-leader/set-key "sp" 'skewer-eval-print-last-expression)
-  (evil-leader/set-key "u" 'evil-switch-to-windows-last-buffer))
+  (evil-leader/set-key "u" 'evil-switch-to-windows-last-buffer)
+  (evil-leader/set-key "." 'helm-buffers-list))
 
 (use-package evil-matchit)
 
@@ -180,6 +181,7 @@
 
 (global-display-fill-column-indicator-mode)
 (set-face-foreground 'fill-column-indicator "#373844")
+
 
 ;;
 ;; LSP config
