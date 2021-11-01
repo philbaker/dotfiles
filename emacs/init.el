@@ -133,6 +133,7 @@
   (evil-leader/set-key "t" 'projectile-find-file)
   (evil-leader/set-key "a" 'helm-ag-project-root)
   (evil-leader/set-key "r" 'sh/term-send-line-or-region)
+  (evil-leader/set-key "or" 'end-of-buffer-other-window)
   (evil-leader/set-key "sd" 'skewer-eval-defun)
   (evil-leader/set-key "se" 'skewer-eval-defun-and-focus)
   (evil-leader/set-key "sr" 'skewer-eval-region)
