@@ -149,6 +149,11 @@
 ; Make escape more vim-like
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
+; Vim-commentary
+(use-package evil-commentary)
+
+(evil-commentary-mode)
+
 ;;
 ;; Language config
 ;;
@@ -181,7 +186,6 @@
 
 (global-display-fill-column-indicator-mode)
 (set-face-foreground 'fill-column-indicator "#373844")
-
 
 ;;
 ;; LSP config
