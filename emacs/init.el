@@ -180,9 +180,14 @@
   :config
   (editorconfig-mode 1))
 
-(use-package smartparens)
+(use-package evil-lispy)
+(require 'evil-lispy)
+(add-hook 'emacs-lisp-mode-hook #'evil-lispy-mode)
+(add-hook 'clojure-mode-hook #'evil-lispy-mode)
 
+(use-package smartparens)
 (require 'smartparens-config)
+(add-hook 'js-mode-hook #'smartparens-strict-mode)
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
 
