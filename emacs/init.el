@@ -586,4 +586,10 @@
        ("we" "Checking Email" entry (file+olp+datetree "~/notes/journal.org")
          "* Checking Email :email:\n\n%?" :clock-in :clock-resume :empty-lines 1))))
 
+(require 'org-crypt)
+(org-crypt-use-before-save-magic)
+(setq org-tags-exclude-from-inheritance '("crypt"))
+(setq org-crypt-key nil)
+(setq auto-save-default nil)
+
 (use-package org-pomodoro)
