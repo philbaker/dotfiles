@@ -17,6 +17,8 @@
 
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 
+(add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/"))
+
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
 (package-initialize)
@@ -88,8 +90,6 @@
 (setq auto-save-file-name-transforms
   `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
-(use-package org)
-
 ;;
 ;; Terminal
 ;;
@@ -141,7 +141,10 @@
   (evil-leader/set-key "sl" 'skewer-eval-last-expression)
   (evil-leader/set-key "sp" 'skewer-eval-print-last-expression)
   (evil-leader/set-key "u" 'evil-switch-to-windows-last-buffer)
-  (evil-leader/set-key "." 'helm-buffers-list))
+  (evil-leader/set-key "." 'helm-buffers-list)
+  (evil-leader/set-key "ei" (lambda () (interactive) (find-file "~/dotfiles/emacs/init.el")))
+  (evil-leader/set-key "et" (lambda () (interactive) (find-file "~/notes/tasks.org")))
+  (evil-leader/set-key "ej" (lambda () (interactive) (find-file "~/notes/journal.org"))))
 
 (use-package evil-matchit)
 
@@ -492,3 +495,95 @@
 (global-set-key (kbd "C-c C-d") #'helpful-at-point)
 (global-set-key (kbd "C-h F") #'helpful-function)
 (global-set-key (kbd "C-h C") #'helpful-command)
+
+;;
+;; Org mode
+;;
+(use-package org
+  :config
+  (setq org-agenda-start-with-log-mode t)
+
+  (setq org-log-done 'time)
+
+  (setq org-log-into-drawer t)
+
+  (setq org-agenda-files '("~/notes/tasks.org"))
+
+  (setq org-todo-keywords
+    '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
+       (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANCELLED(k@)")))
+
+  (setq org-refile-targets
+    '(("archive.org" :maxlevel . 1)
+       ("tasks.org" :maxlevel . 1)))
+
+  ;; Configure custom agenda views
+  (setq org-agenda-custom-commands
+    '(("d" "Dashboard"
+        ((agenda "" ((org-deadline-warning-days 7)))
+          (todo "NEXT"
+            ((org-agenda-overriding-header "Next Tasks")))
+          (tags-todo "agenda/ACTIVE" ((org-agenda-overriding-header "Active Projects")))))
+
+       ("n" "Next Tasks"
+         ((todo "NEXT"
+            ((org-agenda-overriding-header "Next Tasks")))))
+
+       ("W" "Work Tasks" tags-todo "+work-email")
+
+       ;; Low-effort next actions
+       ("e" tags-todo "+TODO=\"NEXT\"+Effort<15&+Effort>0"
+         ((org-agenda-overriding-header "Low Effort Tasks")
+           (org-agenda-max-todos 20)
+           (org-agenda-files org-agenda-files)))
+
+       ("w" "Workflow Status"
+         ((todo "WAIT"
+            ((org-agenda-overriding-header "Waiting on External")
+              (org-agenda-files org-agenda-files)))
+           (todo "REVIEW"
+             ((org-agenda-overriding-header "In Review")
+               (org-agenda-files org-agenda-files)))
+           (todo "PLAN"
+             ((org-agenda-overriding-header "In Planning")
+               (org-agenda-todo-list-sublevels nil)
+               (org-agenda-files org-agenda-files)))
+           (todo "BACKLOG"
+             ((org-agenda-overriding-header "Project Backlog")
+               (org-agenda-todo-list-sublevels nil)
+               (org-agenda-files org-agenda-files)))
+           (todo "READY"
+             ((org-agenda-overriding-header "Ready for Work")
+               (org-agenda-files org-agenda-files)))
+           (todo "ACTIVE"
+             ((org-agenda-overriding-header "Active Projects")
+               (org-agenda-files org-agenda-files)))
+           (todo "COMPLETED"
+             ((org-agenda-overriding-header "Completed Projects")
+               (org-agenda-files org-agenda-files)))
+           (todo "CANC"
+             ((org-agenda-overriding-header "Cancelled Projects")
+               (org-agenda-files org-agenda-files)))))))
+
+  (setq org-capture-templates
+    `(("t" "Tasks / Projects")
+       ("tt" "Task" entry (file+olp "~/notes/tasks.org" "Inbox")
+         "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
+
+       ("j" "Journal Entries")
+       ("jj" "Journal" entry
+         (file+olp+datetree "~/notes/journal.org")
+         "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
+         :clock-in :clock-resume
+         :empty-lines 1)
+       ("jm" "Meeting" entry
+         (file+olp+datetree "~/notes/journal.org")
+         "* %<%I:%M %p> - %a :meetings:\n\n%?\n\n"
+         :clock-in :clock-resume
+         :empty-lines 1)
+
+       ("w" "Workflows")
+       ("we" "Checking Email" entry (file+olp+datetree "~/notes/journal.org")
+         "* Checking Email :email:\n\n%?" :clock-in :clock-resume :empty-lines 1))))
+
+(use-package org-pomodoro)
