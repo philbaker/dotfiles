@@ -511,7 +511,10 @@
 
   (setq org-todo-keywords
     '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
-       (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANCELLED(k@)")))
+       (sequence "BACKLOG(b)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "|" "COMPLETED(c)" "CANCELLED(k@)")))
+
+  (setq org-todo-keyword-faces
+    '(("TODO" . "white") ("NEXT" . "yellow") ("BACKLOG" . "gray") ("WAIT" . "orange") ("CANCELLED" . "red") ("DONE" . "green")))
 
   (setq org-refile-targets
     '(("archive.org" :maxlevel . 1)
@@ -544,16 +547,9 @@
            (todo "REVIEW"
              ((org-agenda-overriding-header "In Review")
                (org-agenda-files org-agenda-files)))
-           (todo "PLAN"
-             ((org-agenda-overriding-header "In Planning")
-               (org-agenda-todo-list-sublevels nil)
-               (org-agenda-files org-agenda-files)))
            (todo "BACKLOG"
              ((org-agenda-overriding-header "Project Backlog")
                (org-agenda-todo-list-sublevels nil)
-               (org-agenda-files org-agenda-files)))
-           (todo "READY"
-             ((org-agenda-overriding-header "Ready for Work")
                (org-agenda-files org-agenda-files)))
            (todo "ACTIVE"
              ((org-agenda-overriding-header "Active Projects")
@@ -561,7 +557,7 @@
            (todo "COMPLETED"
              ((org-agenda-overriding-header "Completed Projects")
                (org-agenda-files org-agenda-files)))
-           (todo "CANC"
+           (todo "CANCELLED"
              ((org-agenda-overriding-header "Cancelled Projects")
                (org-agenda-files org-agenda-files)))))))
 
