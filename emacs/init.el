@@ -586,6 +586,11 @@
        ("we" "Checking Email" entry (file+olp+datetree "~/notes/journal.org")
          "* Checking Email :email:\n\n%?" :clock-in :clock-resume :empty-lines 1))))
 
+(use-package org-bullets
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+
 (require 'org-crypt)
 (org-crypt-use-before-save-magic)
 (setq org-tags-exclude-from-inheritance '("crypt"))
