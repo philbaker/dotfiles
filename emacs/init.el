@@ -110,6 +110,12 @@
     (find-file (magit-toplevel))
     (call-interactively 'multi-term)))
 
+(use-package vterm
+  :commands vterm
+  :config
+  (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *")
+  (setq vterm-max-scrollback 10000))
+
 ;;
 ;; Evil mode
 ;;
@@ -499,6 +505,7 @@
 ;;
 ;; Org mode
 ;;
+
 (use-package org
   :config
   (setq org-agenda-start-with-log-mode t)
