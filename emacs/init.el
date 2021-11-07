@@ -622,3 +622,27 @@
 (use-package org-pomodoro)
 (setq org-pomodoro-manual-break t
   org-pomodoro-keep-killed-pomodoro-time t)
+
+(org-babel-do-load-languages
+  'org-babel-load-languages
+  '((emacs-lisp . t)
+     (js . t)
+     (clojure . t)
+     (css . t)
+     (sql . t)
+     (python . t)))
+
+(setq org-confirm-babel-evaluate nil)
+
+(require 'ob-clojure)
+
+(require 'cider)
+
+(setq org-babel-clojure-backend 'cider)
+
+(require 'org-tempo)
+
+(add-to-list 'org-structure-template-alist '("clj" . "src clojure"))
+(add-to-list 'org-structure-template-alist '("py" . "src python"))
+(add-to-list 'org-structure-template-alist '("js" . "src js"))
+(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
