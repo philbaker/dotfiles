@@ -518,10 +518,22 @@
 
   (setq org-todo-keywords
     '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
-       (sequence "BACKLOG(b)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "|" "COMPLETED(c)" "CANCELLED(k@)")))
+       (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANCELLED(k@)")))
+
 
   (setq org-todo-keyword-faces
-    '(("TODO" . "white") ("NEXT" . "yellow") ("BACKLOG" . "gray") ("WAIT" . "orange") ("CANCELLED" . "red") ("DONE" . "green")))
+    '(("TODO" . "white")
+       ("NEXT" . "yellow")
+       ("DONE" . "green")
+       ("BACKLOG" . "white")
+       ("PLAN" . "yellow")
+       ("READY" . "blue")
+       ("ACTIVE" . "yellow")
+       ("REVIEW" . "purple")
+       ("WAIT" . "orange")
+       ("HOLD" . "orange")
+       ("COMPLETE" . "green")
+       ("CANCELLED" . "red")))
 
   (setq org-refile-targets
     '(("archive.org" :maxlevel . 1)
@@ -546,7 +558,6 @@
          ((org-agenda-overriding-header "Low Effort Tasks")
            (org-agenda-max-todos 20)
            (org-agenda-files org-agenda-files)))
-
        ("w" "Workflow Status"
          ((todo "WAIT"
             ((org-agenda-overriding-header "Waiting on External")
@@ -554,9 +565,16 @@
            (todo "REVIEW"
              ((org-agenda-overriding-header "In Review")
                (org-agenda-files org-agenda-files)))
+           (todo "PLAN"
+             ((org-agenda-overriding-header "In Planning")
+               (org-agenda-todo-list-sublevels nil)
+               (org-agenda-files org-agenda-files)))
            (todo "BACKLOG"
              ((org-agenda-overriding-header "Project Backlog")
                (org-agenda-todo-list-sublevels nil)
+               (org-agenda-files org-agenda-files)))
+           (todo "READY"
+             ((org-agenda-overriding-header "Ready for Work")
                (org-agenda-files org-agenda-files)))
            (todo "ACTIVE"
              ((org-agenda-overriding-header "Active Projects")
@@ -567,6 +585,7 @@
            (todo "CANCELLED"
              ((org-agenda-overriding-header "Cancelled Projects")
                (org-agenda-files org-agenda-files)))))))
+
 
   (setq org-capture-templates
     `(("t" "Tasks / Projects")
@@ -601,3 +620,5 @@
 (setq auto-save-default nil)
 
 (use-package org-pomodoro)
+(setq org-pomodoro-manual-break t
+  org-pomodoro-keep-killed-pomodoro-time t)
