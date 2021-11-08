@@ -47,17 +47,18 @@
   :custom (fira-code-mode-disabled-ligatures '("[]" "#{" "#(" "#_" "#_(" "x")) ;; List of ligatures to turn off
   :hook prog-mode) ;; Enables fira-code-mode automatically for programming major modes
 
-(set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height 120)
+(set-face-attribute 'fixed-pitch nil :font "Fira Code" :height 120)
 
 (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 115 :weight 'regular)
 
 (set-face-attribute 'default nil :height 115)
 
 (when (eq system-type 'darwin)
-  (set-face-attribute 'fixed-pitch nil :family "Fira Code Retina" :height 165)
+  (set-face-attribute 'fixed-pitch nil :family "Fira Code" :height 165)
   (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 165 :weight 'regular)
   (set-face-attribute 'default nil :height 165))
 
+(setq-default line-spacing 0.4)
 
 ; Stop showing % in terminal session
 (setq term-suppress-hard-newline t)
@@ -663,10 +664,10 @@
                              (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
   ;; Set faces for heading levels
-  (dolist (face '((org-level-1 . 1.2)
-                  (org-level-2 . 1.1)
-                  (org-level-3 . 1.05)
-                  (org-level-4 . 1.0)
+  (dolist (face '((org-level-1 . 1.5)
+                  (org-level-2 . 1.3)
+                  (org-level-3 . 1.2)
+                  (org-level-4 . 1.1)
                   (org-level-5 . 1.1)
                   (org-level-6 . 1.1)
                   (org-level-7 . 1.1)
