@@ -42,13 +42,22 @@
 ;; Visual tweaks
 ;;
 
-; Font sizing
-(set-face-attribute 'default nil :height 120)
+; Fonts
+(use-package fira-code-mode
+  :custom (fira-code-mode-disabled-ligatures '("[]" "#{" "#(" "#_" "#_(" "x")) ;; List of ligatures to turn off
+  :hook prog-mode) ;; Enables fira-code-mode automatically for programming major modes
+
+(set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height 120)
+
+(set-face-attribute 'variable-pitch nil :font "Cantarell" :height 115 :weight 'regular)
+
+(set-face-attribute 'default nil :height 115)
 
 (when (eq system-type 'darwin)
-  (set-face-attribute 'default nil :family "Fira Code")
-  (set-face-attribute 'default nil :height 165)
-  (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding")))
+  (set-face-attribute 'fixed-pitch nil :family "Fira Code Retina" :height 165)
+  (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 165 :weight 'regular)
+  (set-face-attribute 'default nil :height 165))
+
 
 ; Stop showing % in terminal session
 (setq term-suppress-hard-newline t)
@@ -646,3 +655,44 @@
 (add-to-list 'org-structure-template-alist '("py" . "src python"))
 (add-to-list 'org-structure-template-alist '("js" . "src js"))
 (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+
+(defun org-font-setup ()
+  ;; Replace list hyphen with dot
+  (font-lock-add-keywords 'org-mode
+                          '(("^ *\\([-]\\) "
+                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+
+  ;; Set faces for heading levels
+  (dolist (face '((org-level-1 . 1.2)
+                  (org-level-2 . 1.1)
+                  (org-level-3 . 1.05)
+                  (org-level-4 . 1.0)
+                  (org-level-5 . 1.1)
+                  (org-level-6 . 1.1)
+                  (org-level-7 . 1.1)
+                  (org-level-8 . 1.1)))
+    (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
+
+  ;; Ensure that anything that should be fixed-pitch in Org files appears that way
+  (set-face-attribute 'org-block nil    :foreground nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-table nil    :inherit 'fixed-pitch)
+  (set-face-attribute 'org-formula nil  :inherit 'fixed-pitch)
+  (set-face-attribute 'org-code nil     :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-table nil    :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-checkbox nil  :inherit 'fixed-pitch)
+  (set-face-attribute 'line-number nil :inherit 'fixed-pitch)
+  (set-face-attribute 'line-number-current-line nil :inherit 'fixed-pitch))
+
+(org-font-setup)
+
+;; Set org code block background colour
+(require 'color)
+(set-face-attribute 'org-block nil :background
+  (color-darken-name (face-attribute 'default :background) 2))
+(set-face-attribute 'org-block-end-line nil :background
+  (color-darken-name (face-attribute 'default :background) 2))
+(set-face-attribute 'org-block-begin-line nil :background
+  (color-darken-name (face-attribute 'default :background) 2))
