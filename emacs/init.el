@@ -125,6 +125,8 @@
   (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *")
   (setq vterm-max-scrollback 10000))
 
+(use-package multi-vterm)
+
 ;;
 ;; Evil mode
 ;;
@@ -696,3 +698,19 @@
   (color-darken-name (face-attribute 'default :background) 2))
 (set-face-attribute 'org-block-begin-line nil :background
   (color-darken-name (face-attribute 'default :background) 2))
+
+(use-package org-roam
+  :ensure t
+  :custom
+  (org-roam-directory "~/rotes/")
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)
+         ("C-c n g" . org-roam-graph)
+         ("C-c n i" . org-roam-node-insert)
+         ("C-c n c" . org-roam-capture)
+         ;; Dailies
+         ("C-c n j" . org-roam-dailies-capture-today))
+  :config
+  (org-roam-db-autosync-mode)
+  ;; If using org-roam-protocol
+  (require 'org-roam-protocol))
