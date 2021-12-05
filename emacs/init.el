@@ -145,6 +145,7 @@
   (global-evil-leader-mode)
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key "cu" 'cider-pprint-eval-last-sexp-to-comment)
+  (evil-leader/set-key "cd" 'cider-eval-defun-to-comment)
   (evil-leader/set-key "ou" 'delete-other-windows)
   (evil-leader/set-key "oh" 'winner-undo)
   (evil-leader/set-key "n" 'treemacs)
@@ -201,14 +202,11 @@
   :config
   (editorconfig-mode 1))
 
-(use-package evil-lispy)
-(require 'evil-lispy)
-(add-hook 'emacs-lisp-mode-hook #'evil-lispy-mode)
-(add-hook 'clojure-mode-hook #'evil-lispy-mode)
-
 (use-package smartparens)
 (require 'smartparens-config)
 (add-hook 'js-mode-hook #'smartparens-strict-mode)
+(add-hook 'clojure-mode-hook #'smartparens-strict-mode)
+(add-hook 'emacs-lisp-mode-hook #'smartparens-strict-mode)
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
 
@@ -467,7 +465,7 @@
           treemacs-recenter-after-file-follow nil
           treemacs-recenter-after-tag-follow  nil
           treemacs-show-cursor                nil
-          treemacs-show-hidden-files          nil
+          treemacs-show-hidden-files          t
           treemacs-silent-filewatch           nil
           treemacs-silent-refresh             nil
           treemacs-sorting                    'alphabetic-desc
@@ -526,7 +524,7 @@
 
   (setq org-log-into-drawer t)
 
-  (setq org-agenda-files '("~/notes/tasks.org"))
+  (setq org-agenda-files '("~/notes/tasks.org" "~/notes/ob.org"))
 
   (setq org-todo-keywords
     '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
@@ -597,7 +595,6 @@
            (todo "CANCELLED"
              ((org-agenda-overriding-header "Cancelled Projects")
                (org-agenda-files org-agenda-files)))))))
-
 
   (setq org-capture-templates
     `(("t" "Tasks / Projects")
@@ -713,5 +710,6 @@
          ("C-c n j" . org-roam-dailies-capture-today))
   :config
   (org-roam-db-autosync-mode)
-  ;; If using org-roam-protocol
-  (require 'org-roam-protocol))
+
+  ;; Disable v2 warnings
+  (setq org-roam-v2-ack t))
