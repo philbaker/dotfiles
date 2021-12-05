@@ -630,7 +630,8 @@
 
 (use-package org-pomodoro)
 (setq org-pomodoro-manual-break t
-  org-pomodoro-keep-killed-pomodoro-time t)
+  org-pomodoro-keep-killed-pomodoro-time t
+  org-pomodoro-play-sounds nil)
 
 (org-babel-do-load-languages
   'org-babel-load-languages
