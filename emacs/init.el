@@ -633,6 +633,9 @@
   org-pomodoro-keep-killed-pomodoro-time t
   org-pomodoro-play-sounds nil)
 
+(setq org-agenda-clockreport-parameter-plist 
+ '(:fileskip0 t :link t :maxlevel 2 :formula "$4=($2+$3)*(60/25);t"))
+
 (org-babel-do-load-languages
   'org-babel-load-languages
   '((emacs-lisp . t)
