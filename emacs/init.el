@@ -146,6 +146,9 @@
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key "cu" 'cider-pprint-eval-last-sexp-to-comment)
   (evil-leader/set-key "cd" 'cider-eval-defun-to-comment)
+  (evil-leader/set-key "er" 'alchemist-eval-region)
+  (evil-leader/set-key "el" 'alchemist-eval-print-current-line)
+  (evil-leader/set-key "el" 'alchemist-eval-print-current-line)
   (evil-leader/set-key "ou" 'delete-other-windows)
   (evil-leader/set-key "oh" 'winner-undo)
   (evil-leader/set-key "n" 'treemacs)
@@ -186,15 +189,15 @@
 
 (use-package rjsx-mode)
 
-(use-package php-mode)
-
 (use-package web-mode)
 
 (use-package clojure-mode)
 
 (use-package cider)
 
-(use-package phpunit)
+(use-package elixir-mode)
+
+(use-package alchemist)
 
 (use-package prettier)
 
