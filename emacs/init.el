@@ -529,7 +529,7 @@
 
   (setq org-log-into-drawer t)
 
-  (setq org-agenda-files '("~/notes/tasks.org" "~/notes/ob.org"))
+  (setq org-agenda-files '("~/notes/tasks.org" "~/notes/ob.org" "~/notes/bd.org"))
 
   (setq org-todo-keywords
     '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
@@ -608,7 +608,6 @@
        ("m" "Meeting" entry
          (file+olp "~/notes/tasks.org" "Meetings")
          "* %<%e/%m/%g> %<%H:%M> :meetings:\n%?"
-         :clock-in :clock-resume
          :empty-lines 1))))
 
 (use-package org-bullets
