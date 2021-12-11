@@ -169,10 +169,6 @@
   (evil-leader/set-key "et" (lambda () (interactive) (find-file "~/notes/tasks.org")))
   (evil-leader/set-key "ej" (lambda () (interactive) (find-file "~/notes/journal.org"))))
 
-(use-package evil-matchit)
-
-(global-evil-matchit-mode 1)
-
 ; Make escape more vim-like
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
@@ -211,6 +207,11 @@
 (add-hook 'js-mode-hook #'smartparens-strict-mode)
 (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
 (add-hook 'emacs-lisp-mode-hook #'smartparens-strict-mode)
+
+(use-package evil-cleverparens)
+(add-hook 'js-mode-hook #'evil-cleverparens-mode)
+(add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
+(add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
 
@@ -431,12 +432,6 @@
 ;;
 
 (use-package magit)
-
-; Vim keybindings for magit
-(use-package evil-collection
-  :after evil
-  :config
-  (evil-collection-init))
 
 ;;
 ;; Navigation
