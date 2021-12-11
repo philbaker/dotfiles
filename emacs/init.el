@@ -133,6 +133,7 @@
 ;;
 
 (setq evil-want-keybinding nil)
+(setq evil-want-C-i-jump nil)
 
 (use-package evil
   :config
@@ -166,8 +167,7 @@
   (evil-leader/set-key "u" 'evil-switch-to-windows-last-buffer)
   (evil-leader/set-key "." 'helm-buffers-list)
   (evil-leader/set-key "ei" (lambda () (interactive) (find-file "~/dotfiles/emacs/init.el")))
-  (evil-leader/set-key "et" (lambda () (interactive) (find-file "~/notes/tasks.org")))
-  (evil-leader/set-key "ej" (lambda () (interactive) (find-file "~/notes/journal.org"))))
+  (evil-leader/set-key "et" (lambda () (interactive) (find-file "~/notes/tasks.org"))))
 
 (use-package evil-matchit)
 
@@ -602,25 +602,14 @@
                (org-agenda-files org-agenda-files)))))))
 
   (setq org-capture-templates
-    `(("t" "Tasks / Projects")
-       ("tt" "Task" entry (file+olp "~/notes/tasks.org" "Inbox")
-         "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
+    `(("t" "Task" entry (file+olp "~/notes/tasks.org" "Inbox")
+        "* TODO %?\n  %U\n %i")
 
-       ("j" "Journal Entries")
-       ("jj" "Journal" entry
-         (file+olp+datetree "~/notes/journal.org")
-         "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
+       ("m" "Meeting" entry
+         (file+olp "~/notes/tasks.org" "Meetings")
+         "* %<%e/%m/%g> %<%H:%M> :meetings:\n%?"
          :clock-in :clock-resume
-         :empty-lines 1)
-       ("jm" "Meeting" entry
-         (file+olp+datetree "~/notes/journal.org")
-         "* %<%I:%M %p> - %a :meetings:\n\n%?\n\n"
-         :clock-in :clock-resume
-         :empty-lines 1)
-
-       ("w" "Workflows")
-       ("we" "Checking Email" entry (file+olp+datetree "~/notes/journal.org")
-         "* Checking Email :email:\n\n%?" :clock-in :clock-resume :empty-lines 1))))
+         :empty-lines 1))))
 
 (use-package org-bullets
   :hook (org-mode . org-bullets-mode)
