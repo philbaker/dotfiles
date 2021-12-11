@@ -697,6 +697,8 @@
 
 (use-package org-roam
   :ensure t
+  :init
+  (setq org-roam-v2-ack t)
   :custom
   (org-roam-directory "~/rotes/")
   :bind (("C-c n l" . org-roam-buffer-toggle)
@@ -707,7 +709,4 @@
          ;; Dailies
          ("C-c n j" . org-roam-dailies-capture-today))
   :config
-  (org-roam-db-autosync-mode)
-
-  ;; Disable v2 warnings
-  (setq org-roam-v2-ack t))
+  (org-roam-db-autosync-mode))
