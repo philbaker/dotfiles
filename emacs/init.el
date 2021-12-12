@@ -352,6 +352,12 @@
   (interactive)
   (pop-to-buffer (process-buffer (get-process "*ansi-term*")) t))
 
+(defun sh/clear-buffer ()
+  "Clear the current shell buffer."
+  (interactive)
+  (with-current-buffer (process-buffer (get-process "*ansi-term*"))
+    (comint-clear-buffer)))
+
 (defun skewer-eval-defun-and-focus ()
   "Execute function at point in browser and switch to REPL in insert state"
   (interactive)
