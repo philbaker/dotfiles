@@ -42,6 +42,8 @@
 ;; Visual tweaks
 ;;
 
+(blink-cursor-mode 0)
+
 ; Fonts
 (use-package fira-code-mode
   :custom (fira-code-mode-disabled-ligatures '("[]" "#{" "#(" "#_" "#_(" "x")) ;; List of ligatures to turn off
