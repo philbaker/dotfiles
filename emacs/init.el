@@ -53,7 +53,8 @@
 
 (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 115 :weight 'regular)
 
-(set-face-attribute 'default nil :height 115)
+(when (eq system-type 'darwin)
+  (set-face-attribute 'default nil :height 115 :family "Fira Code"))
 
 (when (eq system-type 'darwin)
   (set-face-attribute 'fixed-pitch nil :family "Fira Code" :height 165)
@@ -153,6 +154,7 @@
   (evil-leader/set-key "er" 'alchemist-eval-print-region)
   (evil-leader/set-key "ep" 'alchemist-eval-current-line)
   (evil-leader/set-key "el" 'alchemist-eval-print-current-line)
+  (evil-leader/set-key "et" 'alchemist-mix-test)
   (evil-leader/set-key "ou" 'delete-other-windows)
   (evil-leader/set-key "oh" 'winner-undo)
   (evil-leader/set-key "n" 'treemacs)
@@ -168,8 +170,8 @@
   (evil-leader/set-key "sp" 'skewer-eval-print-last-expression)
   (evil-leader/set-key "u" 'evil-switch-to-windows-last-buffer)
   (evil-leader/set-key "." 'helm-buffers-list)
-  (evil-leader/set-key "ei" (lambda () (interactive) (find-file "~/dotfiles/emacs/init.el")))
-  (evil-leader/set-key "et" (lambda () (interactive) (find-file "~/notes/tasks.org"))))
+  (evil-leader/set-key "ii" (lambda () (interactive) (find-file "~/dotfiles/emacs/init.el")))
+  (evil-leader/set-key "it" (lambda () (interactive) (find-file "~/notes/tasks.org"))))
 
 (use-package evil-matchit)
 
