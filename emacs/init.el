@@ -53,7 +53,7 @@
 
 (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 115 :weight 'regular)
 
-(when (eq system-type 'darwin)
+(when (eq system-type 'gnu/linux)
   (set-face-attribute 'default nil :height 115 :family "Fira Code"))
 
 (when (eq system-type 'darwin)
