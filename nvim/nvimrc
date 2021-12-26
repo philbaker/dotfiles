@@ -13,7 +13,6 @@ call minpac#add('tpope/vim-unimpaired')
 call minpac#add('w0rp/ale')
 call minpac#add('mhinz/vim-grepper')
 call minpac#add('airblade/vim-gitgutter')
-call minpac#add('mattn/emmet-vim')
 call minpac#add('sgur/vim-editorconfig')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('scrooloose/nerdtree')
@@ -309,9 +308,6 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Switch buffer
 nmap <leader>u :b#<cr>
 
-" Emmet
-let g:user_emmet_leader_key=","
-
 " Git status
 map <leader>g :Gstatus<cr>
 
@@ -371,3 +367,6 @@ tnoremap <Esc> <C-\><C-n>
 
 " Fix redo with repeat.vim
 map <nop> <Plug>(RepeatRedo)
+
+" Expand active file directory
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
