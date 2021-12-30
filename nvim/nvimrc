@@ -20,7 +20,6 @@ call minpac#add('justinmk/vim-sneak')
 call minpac#add('pechorin/any-jump.vim')
 call minpac#add('prettier/vim-prettier')
 call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
-call minpac#add('Olical/conjure', {'tag': 'v4.23.0'})
 call minpac#add('preservim/vimux')
 call minpac#add('jpalardy/vim-slime')
 call minpac#add('stephpy/vim-php-cs-fixer')
@@ -332,14 +331,6 @@ nmap <leader>h :syntax sync fromstart<cr>
 autocmd Filetype help nmap <buffer> q :q<cr>
 
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
-
-" Conjure settings
-set splitright
-nmap <leader>ou ^"a<localleader>ee
-nmap <leader>oh A ;<esc>a <esc>"cp
-nmap <leader>ol f;Dx^
-nmap <leader>ofj ^cse(acljs.pprint/pprint <esc><leader>ou<esc>u
-nmap <leader>ofc ^cse(aclojure.pprint/pprint <esc><leader>ou<esc>u
 
 " PHP cs
 let g:php_cs_fixer_config_file = '.php_cs'
