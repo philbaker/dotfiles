@@ -150,6 +150,7 @@
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key "cu" 'cider-pprint-eval-last-sexp-to-comment)
   (evil-leader/set-key "cd" 'cider-eval-defun-to-comment)
+  (evil-leader/set-key "ce" 'cider-eval-last-sexp)
   (evil-leader/set-key "ed" 'alchemist-eval-region)
   (evil-leader/set-key "er" 'alchemist-eval-print-region)
   (evil-leader/set-key "ep" 'alchemist-eval-current-line)
@@ -236,17 +237,22 @@
 ;;
 
 (use-package lsp-mode
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  (setq lsp-headerline-breadcrumb-enable nil)
+  :commands lsp
+  :diminish lsp-mode
   :hook ((clojure-mode . lsp)
           (js2-mode . lsp)
           (css-mode . lsp)
           (web-mode . lsp)
           (html-mode . lsp)
           (php-mode . lsp)
+	  (elixir-mode . lsp)
           (lsp-mode . lsp-enable-which-key-integration))
-  :commands lsp)
+  :init
+  (add-to-list 'exec-path "~/elixir-ls/release") 
+  (setq lsp-keymap-prefix "C-c l")
+  (setq lsp-headerline-breadcrumb-enable nil))
+
+(setq read-process-output-max (* 1024 1024))
 
 (use-package lsp-ui
   :commands lsp-ui-mode)
@@ -647,7 +653,8 @@
      (clojure . t)
      (css . t)
      (sql . t)
-     (python . t)))
+     (python . t)
+     (elixir . t)))
 
 (setq org-confirm-babel-evaluate nil)
 
@@ -658,6 +665,8 @@
 (setq org-babel-clojure-backend 'cider)
 
 (require 'org-tempo)
+
+(require 'ob-elixir)
 
 (add-to-list 'org-structure-template-alist '("clj" . "src clojure"))
 (add-to-list 'org-structure-template-alist '("py" . "src python"))
