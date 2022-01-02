@@ -252,8 +252,6 @@
   (setq lsp-keymap-prefix "C-c l")
   (setq lsp-headerline-breadcrumb-enable nil))
 
-(setq read-process-output-max (* 1024 1024))
-
 (use-package lsp-ui
   :commands lsp-ui-mode)
 
