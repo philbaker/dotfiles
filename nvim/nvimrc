@@ -16,7 +16,6 @@ call minpac#add('airblade/vim-gitgutter')
 call minpac#add('sgur/vim-editorconfig')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('scrooloose/nerdtree')
-call minpac#add('justinmk/vim-sneak')
 call minpac#add('pechorin/any-jump.vim')
 call minpac#add('prettier/vim-prettier')
 call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
@@ -201,13 +200,6 @@ let g:NERDTreeShowHidden = 1
 " Easy access to start of line
 nmap & ^
 nmap # $
-
-" Sneak
-let g:sneak#label = 1
-map f <Plug>Sneak_f
-map F <Plug>Sneak_F
-map t <Plug>Sneak_t
-map T <Plug>Sneak_T
 
 "-----------------------------------------------------------------------------
 " Window management
