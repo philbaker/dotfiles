@@ -54,7 +54,7 @@
 (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 115 :weight 'regular)
 
 (when (eq system-type 'gnu/linux)
-  (set-face-attribute 'default nil :height 115 :family "Fira Code"))
+  (set-face-attribute 'default nil :height 150 :family "Fira Code"))
 
 (when (eq system-type 'darwin)
   (set-face-attribute 'fixed-pitch nil :family "Fira Code" :height 165)
@@ -217,17 +217,15 @@
 (add-hook 'js-mode-hook #'smartparens-strict-mode)
 (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
 (add-hook 'emacs-lisp-mode-hook #'smartparens-strict-mode)
-(add-hook 'php-mode-hook #'smartparens-strict-mode)
 
 (use-package evil-cleverparens)
 (add-hook 'js-mode-hook #'evil-cleverparens-mode)
 (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
 (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
-(add-hook 'php-mode-hook #'evil-cleverparens-mode)
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
 
-(add-to-list 'auto-mode-alist '("\\.blade.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html.heex\\'" . web-mode))
 
 (global-display-fill-column-indicator-mode)
 (set-face-foreground 'fill-column-indicator "#373844")
@@ -242,9 +240,7 @@
   :hook ((clojure-mode . lsp)
           (js2-mode . lsp)
           (css-mode . lsp)
-          (web-mode . lsp)
           (html-mode . lsp)
-          (php-mode . lsp)
 	  (elixir-mode . lsp)
           (lsp-mode . lsp-enable-which-key-integration))
   :init
@@ -268,8 +264,6 @@
 ;;
 ;; REPL config
 ;;
-
-(use-package psysh)
 
 (use-package simple-httpd)
 
