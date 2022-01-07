@@ -151,6 +151,7 @@
   (evil-leader/set-key "cu" 'cider-pprint-eval-last-sexp-to-comment)
   (evil-leader/set-key "cd" 'cider-eval-defun-to-comment)
   (evil-leader/set-key "ce" 'cider-eval-last-sexp)
+  (evil-leader/set-key "ec" 'alchemist-compile-this-buffer)
   (evil-leader/set-key "ed" 'alchemist-eval-region)
   (evil-leader/set-key "er" 'alchemist-eval-print-region)
   (evil-leader/set-key "ep" 'alchemist-eval-current-line)
