@@ -104,34 +104,6 @@
   `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
 ;;
-;; Terminal
-;;
-
-; Multiple terminals
-(use-package multi-term)
-
-(setq multi-term-program 
-  (cond ((eq system-type 'gnu/linux)
-          "/bin/bash")
-    ((eq system-type 'darwin)
-      "/bin/zsh")))
-
-(defun open-mterm-in-project-root ()
-  "Opens a multi-term in the current vc project's root dir"
-  (interactive)
-  (progn
-    (find-file (magit-toplevel))
-    (call-interactively 'multi-term)))
-
-(use-package vterm
-  :commands vterm
-  :config
-  (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *")
-  (setq vterm-max-scrollback 10000))
-
-(use-package multi-vterm)
-
-;;
 ;; Evil mode
 ;;
 
@@ -149,14 +121,8 @@
   (global-evil-leader-mode)
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key "cu" 'cider-pprint-eval-last-sexp-to-comment)
-  (evil-leader/set-key "cd" 'cider-eval-defun-to-comment)
+  (evil-leader/set-key "cd" 'cider-pprint-eval-last-sexp-to-comment)
   (evil-leader/set-key "ce" 'cider-eval-last-sexp)
-  (evil-leader/set-key "ec" 'alchemist-compile-this-buffer)
-  (evil-leader/set-key "ed" 'alchemist-eval-region)
-  (evil-leader/set-key "er" 'alchemist-eval-print-region)
-  (evil-leader/set-key "ep" 'alchemist-eval-current-line)
-  (evil-leader/set-key "el" 'alchemist-eval-print-current-line)
-  (evil-leader/set-key "et" 'alchemist-mix-test)
   (evil-leader/set-key "ou" 'delete-other-windows)
   (evil-leader/set-key "oh" 'winner-undo)
   (evil-leader/set-key "n" 'treemacs)
@@ -203,10 +169,6 @@
 
 (use-package cider)
 
-(use-package elixir-mode)
-
-(use-package alchemist)
-
 (use-package prettier)
 
 (use-package editorconfig
@@ -226,8 +188,6 @@
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
 
-(add-to-list 'auto-mode-alist '("\\.html.heex\\'" . web-mode))
-
 (global-display-fill-column-indicator-mode)
 (set-face-foreground 'fill-column-indicator "#373844")
 
@@ -242,10 +202,8 @@
           (js2-mode . lsp)
           (css-mode . lsp)
           (html-mode . lsp)
-	  (elixir-mode . lsp)
           (lsp-mode . lsp-enable-which-key-integration))
   :init
-  (add-to-list 'exec-path "~/elixir-ls/release") 
   (setq lsp-keymap-prefix "C-c l")
   (setq lsp-headerline-breadcrumb-enable nil))
 
@@ -434,6 +392,8 @@
 (use-package helm-ag)
 
 (use-package projectile)
+
+(setq projectile-git-submodule-command "")
 
 (use-package flycheck
   :init
@@ -645,9 +605,7 @@
      (js . t)
      (clojure . t)
      (css . t)
-     (sql . t)
-     (python . t)
-     (elixir . t)))
+     (sql . t)))
 
 (setq org-confirm-babel-evaluate nil)
 
@@ -659,10 +617,7 @@
 
 (require 'org-tempo)
 
-(require 'ob-elixir)
-
 (add-to-list 'org-structure-template-alist '("clj" . "src clojure"))
-(add-to-list 'org-structure-template-alist '("py" . "src python"))
 (add-to-list 'org-structure-template-alist '("js" . "src js"))
 (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
 
