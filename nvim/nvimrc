@@ -39,6 +39,7 @@ call minpac#add('luochen1990/rainbow')
 call minpac#add('elixir-editors/vim-elixir')
 call minpac#add('slashmili/alchemist.vim')
 call minpac#add('vim-test/vim-test')
+call minpac#add('mattn/emmet-vim')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
@@ -329,6 +330,9 @@ nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 let g:php_cs_fixer_config_file = '.php_cs'
 nmap <leader>or:call PhpCsFixerFixDirectory()<CR>
 nmap <leader>ot :call PhpCsFixerFixFile()<CR>
+
+" Emmet
+let g:user_emmet_leader_key=','
 
 " Vimux
 function! VimuxSlime()
