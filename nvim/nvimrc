@@ -40,6 +40,7 @@ call minpac#add('elixir-editors/vim-elixir')
 call minpac#add('slashmili/alchemist.vim')
 call minpac#add('vim-test/vim-test')
 call minpac#add('mattn/emmet-vim')
+call minpac#add('tpope/vim-endwise')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
@@ -91,6 +92,9 @@ set nofoldenable
 set mouse=a
 
 set history=200
+
+" Stop repeating comment character on new line
+set formatoptions-=cro
 
 "-----------------------------------------------------------------------------
 " Theme
@@ -352,6 +356,9 @@ xmap <leader>r <Plug>SlimeRegionSend
 nmap <leader>r <Plug>SlimeParagraphSend
 nmap <c-c>v     <Plug>SlimeConfig
 tnoremap <Esc> <C-\><C-n>
+
+" Macro to copy REPL output
+let @a = 'jGkyykpgcc s'
 
 " Fix redo with repeat.vim
 map <nop> <Plug>(RepeatRedo)
