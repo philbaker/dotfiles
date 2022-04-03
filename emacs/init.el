@@ -120,7 +120,7 @@
   :config
   (global-evil-leader-mode)
   (evil-leader/set-leader "<SPC>")
-  (evil-leader/set-key "cu" 'cider-pprint-eval-last-sexp-to-comment)
+  (evil-leader/set-key "cu" 'cider-pprint-eval-defun-to-comment)
   (evil-leader/set-key "cd" 'cider-pprint-eval-last-sexp-to-comment)
   (evil-leader/set-key "ce" 'cider-eval-last-sexp)
   (evil-leader/set-key "ou" 'delete-other-windows)
