@@ -94,7 +94,7 @@ set mouse=a
 set history=200
 
 " Stop repeating comment character on new line
-set formatoptions-=cro
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 "-----------------------------------------------------------------------------
 " Theme
@@ -358,7 +358,8 @@ nmap <c-c>v     <Plug>SlimeConfig
 tnoremap <Esc> <C-\><C-n>
 
 " Macro to copy REPL output
-let @a = 'jGkyykpgcc s'
+let @a = 'jGkyykpgcc'
+let @o = 'lGkyyhpgcc'
 
 " Fix redo with repeat.vim
 map <nop> <Plug>(RepeatRedo)
