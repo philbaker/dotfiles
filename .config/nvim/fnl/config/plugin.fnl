@@ -70,6 +70,11 @@
   ;; LSP
   :neovim/nvim-lspconfig {:mod :lspconfig}
 
+  ;; Syntax
+  :sgur/vim-editorconfig {}
+  :tpope/vim-endwise {}
+  :elixir-editors/vim-elixir {}
+
   ;; Autocomplete
   :hrsh7th/nvim-cmp {:requires [:hrsh7th/cmp-buffer
                                 :hrsh7th/cmp-nvim-lsp
