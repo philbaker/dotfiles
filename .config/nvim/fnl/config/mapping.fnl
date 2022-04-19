@@ -14,4 +14,5 @@
 (nvim.set_keymap :n :s ":w<CR>" {:noremap true})
 ; Escape for terminal mode
 (nvim.set_keymap :t :<Esc> "<C-\\><C-n>" {:noremap true})
-
+; Redo
+(nvim.set_keymap :n :<s-U> "<C-R>" {:noremap true})

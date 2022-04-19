@@ -31,7 +31,7 @@
        :number true
        ; Persistent undo
        :undofile true
-       :undodir ".config/nvim/undo"
+       :undodir "/tmp/undodir"
        ; Share clipboard
        :clipboard "unnamedplus"}]
   (each [option value (pairs options)]
