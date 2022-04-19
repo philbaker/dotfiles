@@ -42,6 +42,9 @@ call minpac#add('vim-test/vim-test')
 call minpac#add('mattn/emmet-vim')
 call minpac#add('tpope/vim-endwise')
 
+call minpac#add('Olical/conjure')
+call minpac#add('Olical/aniseed')
+
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
 
@@ -329,6 +332,14 @@ nmap <leader>h :syntax sync fromstart<cr>
 autocmd Filetype help nmap <buffer> q :q<cr>
 
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+
+" Conjure settings
+set splitright
+nmap <leader>ou ^"a<localleader>ee
+nmap <leader>oh A ;<esc>a <esc>"cp
+nmap <leader>ol f;Dx^
+nmap <leader>ofj ^cse(acljs.pprint/pprint <esc><leader>ou<esc>u
+nmap <leader>ofc ^cse(aclojure.pprint/pprint <esc><leader>ou<esc>u
 
 " PHP cs
 let g:php_cs_fixer_config_file = '.php_cs'
