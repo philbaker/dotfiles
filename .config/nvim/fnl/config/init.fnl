@@ -4,7 +4,6 @@
              util config.util
              str aniseed.string}})
 
-
 ; Leader mapping
 (nvim.set_keymap :n :<space> :<nop> {:noremap true})
 (set nvim.g.mapleader " ")
@@ -53,4 +52,3 @@
 
 ; Import plugin.fnl
 (require :config.plugin)
-
