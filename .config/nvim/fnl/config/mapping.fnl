@@ -16,3 +16,5 @@
 (nvim.set_keymap :t :<Esc> "<C-\\><C-n>" {:noremap true})
 ; Redo
 (nvim.set_keymap :n :<s-U> "<C-R>" {:noremap true})
+; Switch buffer
+(nvim.set_keymap :n :<leader>u ":b#<CR>" {:noremap true})

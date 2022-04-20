@@ -60,3 +60,5 @@
   (lsp.clojure_lsp.setup {:on_attach on_attach
                           :handlers handlers
                           :capabilities capabilities}))
+
+  (lsp.tsserver.setup {})

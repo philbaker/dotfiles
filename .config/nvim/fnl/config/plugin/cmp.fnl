@@ -25,4 +25,5 @@
                       :<C-e> (cmp.mapping.close)
                       :<CR> (cmp.mapping.confirm {:behavior cmp.ConfirmBehavior.Insert
                                                   :select false})}
+            :snippet {:expand (fn [args] ((. vim.fn "vsnip#anonymous") args.body))}
             :sources cmp-srcs})

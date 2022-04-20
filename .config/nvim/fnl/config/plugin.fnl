@@ -75,8 +75,12 @@
   :tpope/vim-endwise {}
   :elixir-editors/vim-elixir {}
 
+
   ;; Autocomplete
+  :hrsh7th/vim-vsnip {}
+  :hrsh7th/cmp-vsnip {}
   :hrsh7th/nvim-cmp {:requires [:hrsh7th/cmp-buffer
                                 :hrsh7th/cmp-nvim-lsp
                                 :PaterJason/cmp-conjure]
                      :mod :cmp})
+
