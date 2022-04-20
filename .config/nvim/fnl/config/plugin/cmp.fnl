@@ -24,5 +24,5 @@
                       :<C-Space> (cmp.mapping.complete)
                       :<C-e> (cmp.mapping.close)
                       :<CR> (cmp.mapping.confirm {:behavior cmp.ConfirmBehavior.Insert
-                                                  :select true})}
+                                                  :select false})}
             :sources cmp-srcs})
