@@ -7,5 +7,5 @@
 (nvim.set_keymap :n :<c-c>v "<Plug>SlimeConfig" {:noremap false})
 
 ; Copy REPL output and paste in current buffer
-(nvim.set_keymap :n :<c-c>a "<C-W>jGkyy<C-W>kpgcc" {:noremap false})
-(nvim.set_keymap :n :<c-c>o "<C-W>lGkyy<C-W>hpgcc" {:noremap false})
+(nvim.set_keymap :n :<leader>a "<C-W>jGkyy<C-W>kpgcc" {:noremap false})
+(nvim.set_keymap :n :<leader>o "<C-W>lGkyy<C-W>hpgcc" {:noremap false})

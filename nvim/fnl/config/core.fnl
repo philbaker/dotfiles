@@ -36,3 +36,6 @@
        :clipboard "unnamedplus"}]
   (each [option value (pairs options)]
     (core.assoc nvim.o option value)))
+
+; Stop repeating comment character on new line
+(nvim.ex.autocmd :FileType :* "setlocal formatoptions-=c formatoptions-=r formatoptions-=o")

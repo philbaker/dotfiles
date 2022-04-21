@@ -61,4 +61,9 @@
                           :handlers handlers
                           :capabilities capabilities}))
 
+  ;; JS
   (lsp.tsserver.setup {})
+
+  ;; Elixir
+  (lsp.elixirls.setup {:cmd [(.. (os.getenv "HOME") "/elixirls/language_server.sh")]})
+
