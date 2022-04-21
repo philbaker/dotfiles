@@ -33,7 +33,8 @@
   :Olical/aniseed {}
 
   ;; Theme
-  :projekt0n/github-nvim-theme {:mod :theme}
+  :ful1e5/onedark.nvim {:mod :theme}
+  ; :projekt0n/github-nvim-theme {:mod :theme}
   :kyazdani42/nvim-web-devicons {}
 
   ;; Status line
