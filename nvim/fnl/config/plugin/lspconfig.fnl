@@ -59,11 +59,15 @@
   ;; Clojure
   (lsp.clojure_lsp.setup {:on_attach on_attach
                           :handlers handlers
-                          :capabilities capabilities}))
-
+                          :capabilities capabilities})
+  
   ;; JS
   (lsp.tsserver.setup {})
 
   ;; Elixir
-  (lsp.elixirls.setup {:cmd [(.. (os.getenv "HOME") "/elixirls/language_server.sh")]})
+  (lsp.elixirls.setup {:cmd [(.. (os.getenv "HOME") "/elixirls/language_server.sh")]
+                       :on_attach on_attach
+                       :handlers handlers
+                       :capabilities capabilities}))
+
 

@@ -73,8 +73,6 @@
   ;; Syntax
   :sgur/vim-editorconfig {}
   :tpope/vim-endwise {}
-  :elixir-editors/vim-elixir {}
-
 
   ;; Autocomplete
   :hrsh7th/vim-vsnip {}
