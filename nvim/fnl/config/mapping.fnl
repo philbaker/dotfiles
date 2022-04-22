@@ -14,7 +14,9 @@
 (nvim.set_keymap :n :s ":w<CR>" {:noremap true})
 ; Escape for terminal mode
 (nvim.set_keymap :t :<Esc> "<C-\\><C-n>" {:noremap true})
-; Redo
-(nvim.set_keymap :n :<s-U> "<C-R>" {:noremap true})
+; Remap repeat.vim redo
+(nvim.set_keymap :n :<leader>w "<Plug>(RepeatRedo)" {:noremap true})
+; Restore default redo
+(nvim.set_keymap :n :<C-R> "<C-R>" {:noremap true})
 ; Switch buffer
 (nvim.set_keymap :n :<leader>u ":b#<CR>" {:noremap true})
