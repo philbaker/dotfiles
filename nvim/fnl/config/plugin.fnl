@@ -27,7 +27,7 @@
 ; :mod specifies namespace under plugin directory
 
 (use
-  ;;Plugin Manager
+  ; Plugin Manager
   :wbthomason/packer.nvim {}
   ; Nvim config and plugins in Fennel
   :Olical/aniseed {}
@@ -73,6 +73,7 @@
   ; Syntax
   :sgur/vim-editorconfig {}
   :tpope/vim-endwise {}
+  :prettier/vim-prettier {}
 
   ; Autocomplete
   :hrsh7th/vim-vsnip {}
