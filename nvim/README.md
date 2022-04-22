@@ -19,3 +19,4 @@ On first load Neovim will download Packer and Aniseed. It will show a few errors
 - [Prettier](https://prettier.io/docs/en/install.html) `npm install -g prettier` 
 - [Elixir language server](https://github.com/elixir-lsp/elixir-ls)
 - [Clojure language server](https://clojure-lsp.io/installation/) `brew install clojure-lsp/brew/clojure-lsp-native`
+- [Intelephense](https://www.npmjs.com/package/intelephense) `npm install -g intelephense`
