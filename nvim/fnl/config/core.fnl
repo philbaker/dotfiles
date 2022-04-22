@@ -29,6 +29,8 @@
        :smartcase true
        ; Line numbers
        :number true
+       ; Keep lsp column open to prevent text jumping
+       :signcolumn "yes"
        ; Persistent undo
        :undofile true
        :undodir "/tmp/undodir"

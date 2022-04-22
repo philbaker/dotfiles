@@ -7,11 +7,9 @@
                                       "css"
                                       "javascript"
                                       "typescript"
-                                      "graphql"
                                       "elixir"
                                       "clojure"
                                       "lua"
                                       "php"
                                       "regex"
-                                      "yaml"
-                                      "ruby"]})
+                                      "yaml"]})

@@ -23,62 +23,61 @@
             (use (a.assoc opts 1 name)))))))
   nil)
 
-;;; Plugins managed by packer
-;;; :mod specifies namespace under plugin directory
+; Plugins managed by packer
+; :mod specifies namespace under plugin directory
 
 (use
-  ;; Plugin Manager
+  ;;Plugin Manager
   :wbthomason/packer.nvim {}
-  ;; Nvim config and plugins in Fennel
+  ; Nvim config and plugins in Fennel
   :Olical/aniseed {}
 
-  ;; Theme
+  ; Theme
   :ful1e5/onedark.nvim {:mod :theme}
   :kyazdani42/nvim-web-devicons {}
 
-  ;; Status line
+  ; Status line
   :nvim-lualine/lualine.nvim {:mod :lualine}
 
-  ;; File searching
+  ; File searching
   :nvim-telescope/telescope.nvim {:requires [:nvim-lua/popup.nvim
                                              :nvim-lua/plenary.nvim]
                                   :mod :telescope}
 
-  ;; REPL tools
+  ; REPL tools
   :Olical/conjure {:branch :master :mod :conjure}
 
-  ;; S-expressions
+  ; S-expressions
   :guns/vim-sexp {:mod :sexp}
   :tpope/vim-sexp-mappings-for-regular-people {}
   :tpope/vim-repeat {}
   :tpope/vim-surround {}
 
-  ;; Comments
+  ; Comments
   :tpope/vim-commentary {}
 
-  ;; Parsing system
+  ; Parsing system
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
                                     :mod :treesitter}
 
-  ;; Navigation
+  ; Navigation
   :preservim/nerdtree {:mod :nerdtree}
 
-  ;; REPL
+  ; REPL
   :preservim/vimux {:mod :vimux}
   :jpalardy/vim-slime {:mod :vimslime}
 
-  ;; LSP
+  ; LSP
   :neovim/nvim-lspconfig {:mod :lspconfig}
 
-  ;; Syntax
+  ; Syntax
   :sgur/vim-editorconfig {}
   :tpope/vim-endwise {}
 
-  ;; Autocomplete
+  ; Autocomplete
   :hrsh7th/vim-vsnip {}
   :hrsh7th/cmp-vsnip {}
   :hrsh7th/nvim-cmp {:requires [:hrsh7th/cmp-buffer
                                 :hrsh7th/cmp-nvim-lsp
                                 :PaterJason/cmp-conjure]
                      :mod :cmp})
-
