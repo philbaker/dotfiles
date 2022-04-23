@@ -16,9 +16,7 @@
 (setq use-package-always-ensure t)
 
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-
 (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/"))
-
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
 (package-initialize)
@@ -50,7 +48,6 @@
   :hook prog-mode) ;; Enables fira-code-mode automatically for programming major modes
 
 (set-face-attribute 'fixed-pitch nil :font "Fira Code" :height 120)
-
 (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 115 :weight 'regular)
 
 (when (eq system-type 'gnu/linux)
@@ -161,15 +158,8 @@
 ;; Language config
 ;;
 
-(use-package rjsx-mode)
-
-(use-package web-mode)
-
 (use-package clojure-mode)
-
 (use-package cider)
-
-(use-package prettier)
 
 (use-package editorconfig
   :config
@@ -177,16 +167,12 @@
 
 (use-package smartparens)
 (require 'smartparens-config)
-(add-hook 'js-mode-hook #'smartparens-strict-mode)
 (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
 (add-hook 'emacs-lisp-mode-hook #'smartparens-strict-mode)
 
 (use-package evil-cleverparens)
-(add-hook 'js-mode-hook #'evil-cleverparens-mode)
 (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
 (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
-
-(add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
 
 (global-display-fill-column-indicator-mode)
 (set-face-foreground 'fill-column-indicator "#373844")
@@ -199,9 +185,6 @@
   :commands lsp
   :diminish lsp-mode
   :hook ((clojure-mode . lsp)
-          (js2-mode . lsp)
-          (css-mode . lsp)
-          (html-mode . lsp)
           (lsp-mode . lsp-enable-which-key-integration))
   :init
   (setq lsp-keymap-prefix "C-c l")
@@ -209,30 +192,16 @@
 
 (use-package lsp-ui
   :commands lsp-ui-mode)
-
 (setq lsp-ui-doc-enable nil
   lsp-ui-sideline-enable nil)
-
 (use-package helm-lsp
   :commands helm-lsp-workspace-symbol)
-
-(use-package lsp-tailwindcss
-  :custom
-  (lsp-tailwindcss-add-on-mode t))
 
 ;;
 ;; REPL config
 ;;
 
 (use-package simple-httpd)
-
-(use-package skewer-mode)
-
-(add-hook 'js2-mode-hook 'skewer-mode)
-
-(add-hook 'css-mode-hook 'skewer-css-mode)
-
-(add-hook 'html-mode-hook 'skewer-html-mode)
 
 (defun sh/term ()
   "Calls ansi term that behaves like shell mode"
@@ -348,9 +317,7 @@
 
 ; Persistent undo
 (use-package undo-fu)
-
 (use-package undo-fu-session)
-
 (global-undo-fu-session-mode)
 
 ;;
@@ -470,7 +437,6 @@
 
 (use-package treemacs-evil
   :after treemacs evil)
-
 (use-package treemacs-projectile
   :after treemacs projectile)
 
@@ -479,7 +445,6 @@
 ;;
 
 (use-package helpful)
-
 (global-set-key (kbd "C-h f") #'helpful-callable)
 (global-set-key (kbd "C-h v") #'helpful-variable)
 (global-set-key (kbd "C-h k") #'helpful-key)
@@ -494,18 +459,12 @@
 (use-package org
   :config
   (setq org-agenda-start-with-log-mode t)
-
   (setq org-log-done 'time)
-
   (setq org-log-into-drawer t)
-
   (setq org-agenda-files '("~/notes/tasks.org" "~/notes/ob.org" "~/notes/bd.org"))
-
   (setq org-todo-keywords
     '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
        (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANCELLED(k@)")))
-
-
   (setq org-todo-keyword-faces
     '(("TODO" . "white")
        ("NEXT" . "yellow")
@@ -519,7 +478,6 @@
        ("HOLD" . "pink")
        ("COMPLETE" . "green")
        ("CANCELLED" . "red")))
-
   (setq org-refile-targets
     '(("archive.org" :maxlevel . 1)
        ("tasks.org" :maxlevel . 1)))
@@ -531,13 +489,10 @@
           (todo "NEXT"
             ((org-agenda-overriding-header "Next Tasks")))
           (tags-todo "agenda/ACTIVE" ((org-agenda-overriding-header "Active Projects")))))
-
        ("n" "Next Tasks"
          ((todo "NEXT"
             ((org-agenda-overriding-header "Next Tasks")))))
-
        ("W" "Work Tasks" tags-todo "+work-email")
-
        ;; Low-effort next actions
        ("e" tags-todo "+TODO=\"NEXT\"+Effort<15&+Effort>0"
          ((org-agenda-overriding-header "Low Effort Tasks")
@@ -574,7 +529,6 @@
   (setq org-capture-templates
     `(("t" "Task" entry (file+olp "~/notes/tasks.org" "Inbox")
         "* TODO %?\n  %U\n %i")
-
        ("m" "Meeting" entry
          (file+olp "~/notes/tasks.org" "Meetings")
          "* %<%e/%m/%g> %<%H:%M> :meetings:\n%?"
@@ -608,13 +562,9 @@
      (sql . t)))
 
 (setq org-confirm-babel-evaluate nil)
-
 (require 'ob-clojure)
-
 (require 'cider)
-
 (setq org-babel-clojure-backend 'cider)
-
 (require 'org-tempo)
 
 (add-to-list 'org-structure-template-alist '("clj" . "src clojure"))
@@ -677,4 +627,3 @@
          ("C-c n j" . org-roam-dailies-capture-today))
   :config
   (org-roam-db-autosync-mode))
-
