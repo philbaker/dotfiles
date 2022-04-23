@@ -72,7 +72,6 @@
 
   ; Syntax
   :sgur/vim-editorconfig {}
-  :tpope/vim-endwise {}
   :prettier/vim-prettier {}
 
   ; Autocomplete
