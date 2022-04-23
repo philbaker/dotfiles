@@ -2,7 +2,8 @@
   {autoload {core aniseed.core
              nvim aniseed.nvim
              util config.util
-             str aniseed.string}})
+             str aniseed.string}
+   require-macros [config.macro]})
 
 ; Don't wrap lines
 (nvim.ex.set :nowrap)
@@ -41,3 +42,9 @@
 
 ; Stop repeating comment character on new line
 (nvim.ex.autocmd :FileType :* "setlocal formatoptions-=c formatoptions-=r formatoptions-=o")
+
+; Use correct comment syntax for Elixir
+(augroup comment-type
+  (nvim.ex.autocmd
+    :FileType "elixir"
+    "setlocal commentstring=#\\ %s"))
