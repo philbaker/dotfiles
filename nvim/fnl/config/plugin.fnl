@@ -56,6 +56,9 @@
   ; Comments
   :tpope/vim-commentary {}
 
+  ; Git
+  :tpope/vim-fugitive {}
+
   ; Parsing system
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
                                     :mod :treesitter}
@@ -73,6 +76,7 @@
   ; Syntax
   :sgur/vim-editorconfig {}
   :prettier/vim-prettier {}
+  :jwalton512/vim-blade {}
 
   ; Autocomplete
   :hrsh7th/vim-vsnip {}
