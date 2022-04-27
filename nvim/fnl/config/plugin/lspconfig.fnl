@@ -75,4 +75,9 @@
                            :flags [:debounce_text_changes 500]
                            :init_options [:licenceKey (.. (os.getenv "HOME") "/intelephense/licence.txt")]
                            :handlers handlers
-                           :capabilities capabilities}))
+                           :capabilities capabilities})
+
+  ;; Tailwind CSS
+  (lsp.tailwindcss.setup {:on_attach on_attach
+                          :handlers handlers
+                          :capabilities capabilities}))
