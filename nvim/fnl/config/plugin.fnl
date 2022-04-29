@@ -73,6 +73,9 @@
   ; LSP
   :neovim/nvim-lspconfig {:mod :lspconfig}
 
+  ; Testing
+  :vim-test/vim-test {:mod :vimtest}
+
   ; Syntax
   :sgur/vim-editorconfig {}
   :prettier/vim-prettier {}
