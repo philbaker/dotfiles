@@ -64,6 +64,10 @@
                        :handlers handlers
                        :capabilities capabilities})
 
+  (lsp.eslint.setup {:on_attach on_attach
+                     :handlers handlers
+                     :capabilities capabilities})
+
   ;; Elixir
   (lsp.elixirls.setup {:cmd [(.. (os.getenv "HOME") "/elixirls/language_server.sh")]
                        :on_attach on_attach
