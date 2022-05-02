@@ -24,3 +24,5 @@
 (nvim.set_keymap :n :<leader>d ":e ~/dotfiles/nvim/fnl/config/core.fnl<CR>" {:noremap true})
 ; Set default split height
 (nvim.set_keymap :n :<localleader>r ":resize 14<CR>" {:noremap true})
+; Global file path
+(nvim.set_keymap :n :<leader>g "echo expand('%:p')<CR>" {:noremap true})
