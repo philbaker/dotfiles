@@ -41,7 +41,8 @@
 
   ; File searching
   :nvim-telescope/telescope.nvim {:requires [:nvim-lua/popup.nvim
-                                             :nvim-lua/plenary.nvim]
+                                             :nvim-lua/plenary.nvim
+                                             :nvim-telescope/telescope-live-grep-raw.nvim]
                                   :mod :telescope}
 
   ; REPL tools
