@@ -40,10 +40,8 @@
   :nvim-lualine/lualine.nvim {:mod :lualine}
 
   ; File searching
-  :nvim-telescope/telescope.nvim {:requires [:nvim-lua/popup.nvim
-                                             :nvim-lua/plenary.nvim
-                                             :nvim-telescope/telescope-live-grep-raw.nvim]
-                                  :mod :telescope}
+  :junegunn/fzf {}
+  :junegunn/fzf.vim {:mod :fzf}
 
   ; REPL tools
   :Olical/conjure {:branch :master :mod :conjure}
