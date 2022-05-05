@@ -42,6 +42,7 @@
   ; File searching
   :junegunn/fzf {}
   :junegunn/fzf.vim {:mod :fzf}
+  :jesseleite/vim-agriculture {}
 
   ; REPL tools
   :Olical/conjure {:branch :master :mod :conjure}
