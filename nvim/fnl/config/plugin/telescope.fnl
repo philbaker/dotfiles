@@ -10,7 +10,7 @@
                   :pickers {:find_files {:find_command ["rg" "--files" "--iglob" "!.git" "--hidden"]}}})
 
 (nvim.set_keymap :n :<leader>t ":lua require('telescope.builtin').find_files()<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>a ":lua require('telescope').extensions.live_grep_raw.live_grep_raw()<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>b ":lua require('telescope.builtin').live_grep()<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>a ":lua require('telescope.builtin').live_grep()<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>b ":lua require('telescope').extensions.live_grep_raw.live_grep_raw()<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>. ":lua require('telescope.builtin').buffers()<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>h ":lua require('telescope.builtin').help_tags()<CR>" {:noremap true})
