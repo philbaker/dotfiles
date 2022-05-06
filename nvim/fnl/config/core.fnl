@@ -48,9 +48,3 @@
   (nvim.ex.autocmd
     :FileType "elixir"
     "setlocal commentstring=#\\ %s"))
-
-; Fix heex syntax highlighting
-(augroup heex-syntax
-  (nvim.ex.autocmd
-    :FileType "heex"
-    "set syntax=html"))

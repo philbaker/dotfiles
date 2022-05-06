@@ -8,6 +8,7 @@
                                       "javascript"
                                       "typescript"
                                       "elixir"
+                                      "heex"
                                       "clojure"
                                       "lua"
                                       "php"
