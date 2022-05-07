@@ -6,3 +6,4 @@
 (nvim.set_keymap :n :<localleader>s ":TestSuite<CR>" {:noremap false})
 (nvim.set_keymap :n :<localleader>l ":TestLast<CR>" {:noremap false})
 (nvim.set_keymap :n :<localleader>g ":TestVisit<CR>" {:noremap false})
+(nvim.ex.let "test#php#phpunit#executable = 'vendor/bin/phpunit'")
