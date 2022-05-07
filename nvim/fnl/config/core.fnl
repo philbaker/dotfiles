@@ -53,4 +53,4 @@
 (augroup comment-type
   (nvim.ex.autocmd
     :FileType "heex"
-    "setlocal commentstring=<!--%s-->"))
+    "setlocal commentstring=<%#%s%>"))
