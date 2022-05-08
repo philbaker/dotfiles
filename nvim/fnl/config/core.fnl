@@ -47,10 +47,7 @@
 (augroup comment-type
   (nvim.ex.autocmd
     :FileType "elixir"
-    "setlocal commentstring=#\\ %s"))
-
-; Use correct comment syntax for Heex templates
-(augroup comment-type
+    "setlocal commentstring=#\\ %s")
   (nvim.ex.autocmd
     :FileType "heex"
     "setlocal commentstring=<%#%s%>"))
