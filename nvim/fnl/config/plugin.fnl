@@ -80,6 +80,7 @@
   :sgur/vim-editorconfig {}
   :prettier/vim-prettier {}
   :jwalton512/vim-blade {}
+  :stephpy/vim-php-cs-fixer {}
 
   ; Autocomplete
   :hrsh7th/vim-vsnip {}
