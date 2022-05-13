@@ -54,34 +54,23 @@
                     (nvim.buf_set_keymap bufnr :n :<leader>lr ":lua require('telescope.builtin').lsp_references()<cr>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>li ":lua require('telescope.builtin').lsp_implementations()<cr>" {:noremap true})))]
 
-  ;; Clojure
-  (lsp.clojure_lsp.setup {:on_attach on_attach
-                          :handlers handlers
-                          :capabilities capabilities})
+  (def- defaults {:on_attach on_attach
+                   :handlers handlers
+                   :capabilities capabilities})
 
-  ;; JS
-  (lsp.tsserver.setup {:on_attach on_attach
-                       :handlers handlers
-                       :capabilities capabilities})
+  (lsp.clojure_lsp.setup defaults)
+  (lsp.tsserver.setup defaults)
+  (lsp.eslint.setup defaults)
+  (lsp.tailwindcss.setup defaults)
 
-  (lsp.eslint.setup {:on_attach on_attach
-                     :handlers handlers
-                     :capabilities capabilities})
-
-  ;; Elixir
   (lsp.elixirls.setup {:cmd [(.. (os.getenv "HOME") "/elixirls/language_server.sh")]
                        :on_attach on_attach
                        :handlers handlers
                        :capabilities capabilities})
   
-  ;; PHP
   (lsp.intelephense.setup {:on_attach on_attach
                            :flags [:debounce_text_changes 500]
                            :init_options [:licenceKey (.. (os.getenv "HOME") "/intelephense/licence.txt")]
                            :handlers handlers
-                           :capabilities capabilities})
+                           :capabilities capabilities}))
 
-  ;; Tailwind CSS
-  (lsp.tailwindcss.setup {:on_attach on_attach
-                          :handlers handlers
-                          :capabilities capabilities}))

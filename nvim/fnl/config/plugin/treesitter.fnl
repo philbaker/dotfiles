@@ -13,4 +13,5 @@
                                       "lua"
                                       "php"
                                       "regex"
-                                      "yaml"]})
+                                      "yaml"
+                                      "svelte"]})
