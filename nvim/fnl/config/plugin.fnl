@@ -84,6 +84,7 @@
   :stephpy/vim-php-cs-fixer {}
   :andymass/vim-matchup {}
   :elixir-editors/vim-elixir {}
+  :axvr/org.vim {}
 
   ; Autocomplete
   :hrsh7th/vim-vsnip {:mod :vimvsnip}
