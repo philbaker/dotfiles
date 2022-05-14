@@ -10,7 +10,13 @@
 (def- cmp-srcs
   [{:name :nvim_lsp}
    {:name :conjure}
-   {:name :buffer}])
+   {:name :buffer}
+   {:name :friendly_snippets}
+   {:name :vsnip} 
+   {:name :calc}
+   {:name :nvim_lua}
+   {:name :path}
+   {:name :conjure}])
 
 ;; Setup cmp with desired settings
 (cmp.setup {:formatting
