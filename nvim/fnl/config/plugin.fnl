@@ -81,6 +81,7 @@
   :prettier/vim-prettier {}
   :jwalton512/vim-blade {}
   :stephpy/vim-php-cs-fixer {}
+  :andymass/vim-matchup {}
 
   ; Autocomplete
   :hrsh7th/vim-vsnip {}

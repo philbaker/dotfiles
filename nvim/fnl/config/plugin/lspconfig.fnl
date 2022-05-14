@@ -62,6 +62,7 @@
   (lsp.tsserver.setup defaults)
   (lsp.eslint.setup defaults)
   (lsp.tailwindcss.setup defaults)
+  (lsp.svelte.setup defaults)
 
   (lsp.elixirls.setup {:cmd [(.. (os.getenv "HOME") "/elixirls/language_server.sh")]
                        :on_attach on_attach
