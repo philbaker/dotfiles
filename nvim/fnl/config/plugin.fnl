@@ -58,6 +58,7 @@
 
   ; Git
   :tpope/vim-fugitive {}
+  :airblade/vim-gitgutter {}
 
   ; Parsing system
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
@@ -82,6 +83,7 @@
   :jwalton512/vim-blade {}
   :stephpy/vim-php-cs-fixer {}
   :andymass/vim-matchup {}
+  :mattn/emmet-vim {:mod :emmet}
 
   ; Autocomplete
   :hrsh7th/vim-vsnip {}
