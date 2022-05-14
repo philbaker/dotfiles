@@ -86,7 +86,7 @@
   :mattn/emmet-vim {:mod :emmet}
 
   ; Autocomplete
-  :hrsh7th/vim-vsnip {}
+  :hrsh7th/vim-vsnip {:mod :vimvsnip}
   :hrsh7th/cmp-nvim-lsp {}
   :hrsh7th/cmp-buffer {}
   :PaterJason/cmp-conjure {}
