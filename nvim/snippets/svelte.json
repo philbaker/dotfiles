@@ -474,5 +474,13 @@
       "<svelte:options ${1|immutable,accessors,namespace,tag|}={${2:value}}/>"
     ],
     "description": "svelte:options"
+  },
+  "@keyframes": {
+    "prefix": "key",
+    "body": "@keyframes ${1:name} {\n  $0\n}"
+  },
+  "@media": {
+    "prefix": "med",
+    "body": "@media screen and (${1:max-width: 300px}) {\n  $0\n}"
   }
 }

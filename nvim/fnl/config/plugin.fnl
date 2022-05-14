@@ -83,26 +83,18 @@
   :jwalton512/vim-blade {}
   :stephpy/vim-php-cs-fixer {}
   :andymass/vim-matchup {}
-  :mattn/emmet-vim {:mod :emmet}
+  :elixir-editors/vim-elixir {}
 
   ; Autocomplete
   :hrsh7th/vim-vsnip {:mod :vimvsnip}
   :hrsh7th/cmp-nvim-lsp {}
-  :hrsh7th/cmp-buffer {}
   :PaterJason/cmp-conjure {}
   :hrsh7th/cmp-vsnip {}
-  :hrsh7th/cmp-nvim-lua {}
-  :hrsh7th/cmp-calc {}
   :hrsh7th/cmp-path {}
-  :rafamadriz/friendly-snippets {}
   :hrsh7th/nvim-cmp {:requires [:hrsh7th/vim-vsnip
                                 :hrsh7th/cmp-nvim-lsp
-                                :hrsh7th/cmp-buffer
                                 :PaterJason/cmp-conjure
                                 :hrsh7th/cmp-vsnip
-                                :hrsh7th/cmp-nvim-lua
-                                :hrsh7th/cmp-calc
-                                :hrsh7th/cmp-path
-                                :rafamadriz/friendly-snippets]
+                                :hrsh7th/cmp-path]
                      :mod :cmp})
 

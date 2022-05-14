@@ -3,20 +3,16 @@
              cmp cmp}})
 
 (def- cmp-src-menu-items
-  {:buffer "buff"
+  {:vsnip "vsnip"
+   :nvim_lsp "lsp"
    :conjure "conj"
-   :nvim_lsp "lsp"})
+   :path "path"})
 
 (def- cmp-srcs
-  [{:name :nvim_lsp}
+  [{:name :vsnip}
+   {:name :nvim_lsp}
    {:name :conjure}
-   {:name :buffer}
-   {:name :friendly_snippets}
-   {:name :vsnip} 
-   {:name :calc}
-   {:name :nvim_lua}
-   {:name :path}
-   {:name :conjure}])
+   {:name :path}])
 
 ;; Setup cmp with desired settings
 (cmp.setup {:formatting
