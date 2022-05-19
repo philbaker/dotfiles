@@ -29,6 +29,7 @@
 (use
   ; Plugin Manager
   :wbthomason/packer.nvim {}
+
   ; Nvim config and plugins in Fennel
   :Olical/aniseed {}
 
@@ -52,8 +53,6 @@
   ; S-expressions
   :guns/vim-sexp {:mod :sexp}
   :tpope/vim-sexp-mappings-for-regular-people {}
-  :tpope/vim-repeat {}
-  :tpope/vim-surround {}
 
   ; Comments
   :tpope/vim-commentary {}
@@ -68,6 +67,7 @@
 
   ; Navigation
   :preservim/nerdtree {:mod :nerdtree}
+  :dhruvasagar/vim-zoom {}
 
   ; LSP
   :neovim/nvim-lspconfig {:mod :lspconfig}
@@ -76,6 +76,8 @@
   :vim-test/vim-test {:mod :vimtest}
 
   ; Syntax
+  :tpope/vim-repeat {}
+  :tpope/vim-surround {}
   :sgur/vim-editorconfig {}
   :prettier/vim-prettier {}
   :jwalton512/vim-blade {}

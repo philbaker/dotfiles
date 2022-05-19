@@ -3,7 +3,6 @@
 
 ; Leader mapping
 (nvim.set_keymap :n :<space> :<nop> {:noremap true})
-(set nvim.g.mapleader " ")
 (set nvim.g.maplocalleader ",")
 
 ; General mapping
@@ -21,7 +20,9 @@
 ; Switch buffer
 (nvim.set_keymap :n :<leader>u ":b#<CR>" {:noremap true})
 ; Open nvim config
-(nvim.set_keymap :n :<leader>d ":e ~/dotfiles/nvim/fnl/config/core.fnl<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>dd ":e ~/dotfiles/nvim/fnl/config/core.fnl<CR>" {:noremap true})
+; Open notes
+(nvim.set_keymap :n :<leader>dr ":e ~/rotes<CR>" {:noremap true})
 ; Set default split height
 (nvim.set_keymap :n :<localleader>a ":resize 14<CR>" {:noremap true})
 (nvim.set_keymap :n :<localleader>c ":resize 35<CR>" {:noremap true})
