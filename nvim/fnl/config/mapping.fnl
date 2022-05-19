@@ -3,6 +3,7 @@
 
 ; Leader mapping
 (nvim.set_keymap :n :<space> :<nop> {:noremap true})
+(set nvim.g.mapleader " ")
 (set nvim.g.maplocalleader ",")
 
 ; General mapping
