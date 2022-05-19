@@ -9,3 +9,6 @@
 ; Copy REPL output and paste in current buffer
 (nvim.set_keymap :n :<leader>o "<C-W>jGkyy<C-W>kpgcc" {:noremap false})
 (nvim.set_keymap :n :<leader>e "<C-W>lGkyy<C-W>hpgcc" {:noremap false})
+
+; Send current line only
+(nvim.set_keymap :n :<leader>i "V<leader>r" {:noremap false})
