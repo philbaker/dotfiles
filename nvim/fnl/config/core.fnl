@@ -54,3 +54,6 @@
 
 ; Follow terminal output
 (nvim.ex.let "neoterm_autoinsert=1")
+
+; Open quickfix list at top
+(nvim.ex.autocmd :FileType :qf "wincmd K")
