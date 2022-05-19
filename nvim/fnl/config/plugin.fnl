@@ -46,6 +46,8 @@
 
   ; REPL tools
   :Olical/conjure {:branch :master :mod :conjure}
+  :preservim/vimux {:mod :vimux}
+  :jpalardy/vim-slime {:mod :vimslime}
 
   ; S-expressions
   :guns/vim-sexp {:mod :sexp}
@@ -67,10 +69,6 @@
   ; Navigation
   :preservim/nerdtree {:mod :nerdtree}
 
-  ; REPL
-  :preservim/vimux {:mod :vimux}
-  :jpalardy/vim-slime {:mod :vimslime}
-
   ; LSP
   :neovim/nvim-lspconfig {:mod :lspconfig}
 
@@ -85,6 +83,9 @@
   :andymass/vim-matchup {}
   :elixir-editors/vim-elixir {}
   :axvr/org.vim {}
+
+  ; Session management
+  :tpope/vim-obsession {}
 
   ; Autocomplete
   :hrsh7th/vim-vsnip {:mod :vimvsnip}
