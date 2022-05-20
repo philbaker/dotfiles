@@ -39,5 +39,11 @@
 (nvim.set_keymap :n :<localleader>as "<C-W>s<C-W>v" {:noremap true})
 (nvim.set_keymap :n :<localleader>at ":term<CR>" {:noremap true})
 
+; Movement
+(nvim.set_keymap :n :<C-G> "<C-W>k" {:noremap true})
+(nvim.set_keymap :n :<C-H> "<C-W>j" {:noremap true})
+(nvim.set_keymap :n :<C-T> "<C-W>h" {:noremap true})
+(nvim.set_keymap :n :<C-N> "<C-W>l" {:noremap true})
+
 ; Global file path
 (nvim.set_keymap :n :<leader>g ":echo expand('%:p')<CR>" {:noremap true})
