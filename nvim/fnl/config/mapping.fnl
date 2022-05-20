@@ -38,12 +38,15 @@
 (nvim.set_keymap :n :<localleader>ac ":resize 40<CR>" {:noremap true})
 (nvim.set_keymap :n :<localleader>as "<C-W>s<C-W>v" {:noremap true})
 (nvim.set_keymap :n :<localleader>at ":term<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>c ":q" {:noremap true})
 
 ; Movement
-(nvim.set_keymap :n :<C-G> "<C-W>k" {:noremap true})
-(nvim.set_keymap :n :<C-H> "<C-W>j" {:noremap true})
-(nvim.set_keymap :n :<C-T> "<C-W>h" {:noremap true})
-(nvim.set_keymap :n :<C-N> "<C-W>l" {:noremap true})
+(nvim.set_keymap :n :<C-J> "J" {:noremap true})
+(nvim.set_keymap :n :H "<C-W>h" {:noremap true})
+(nvim.set_keymap :n :J "<C-W>j" {:noremap true})
+(nvim.set_keymap :n :K "<C-W>k" {:noremap true})
+(nvim.set_keymap :n :L "<C-W>l" {:noremap true})
+(nvim.set_keymap :n :M "<Plug>(zoom-toggle)" {:noremap true})
 
 ; Global file path
 (nvim.set_keymap :n :<leader>g ":echo expand('%:p')<CR>" {:noremap true})

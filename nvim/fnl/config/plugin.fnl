@@ -101,4 +101,3 @@
                                 :hrsh7th/cmp-vsnip
                                 :hrsh7th/cmp-path]
                      :mod :cmp})
-
