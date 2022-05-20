@@ -23,7 +23,8 @@
 ; Open nvim config
 (nvim.set_keymap :n :<leader>dd ":e ~/dotfiles/nvim/fnl/config/core.fnl<CR>" {:noremap true})
 ; Open notes
-(nvim.set_keymap :n :<leader>dr ":e ~/rotes<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>da ":e ~/rotes<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>do ":e ~/notes<CR>" {:noremap true})
 ; Set default split height
 (nvim.set_keymap :n :<localleader>a ":resize 14<CR>" {:noremap true})
 (nvim.set_keymap :n :<localleader>c ":resize 35<CR>" {:noremap true})
