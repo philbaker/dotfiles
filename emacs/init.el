@@ -145,7 +145,6 @@
 (set-face-foreground 'fill-column-indicator "#373844")
 
 ;; LSP config
-
 (use-package lsp-mode
   :commands lsp
   :diminish lsp-mode
@@ -163,19 +162,7 @@
   :commands helm-lsp-workspace-symbol)
 
 ;; REPL config
-
 (use-package simple-httpd)
-
-(defun sh/term ()
-  "Calls ansi term that behaves like shell mode"
-  (interactive)
-  (split-window-sensibly)
-  (cond ((eq system-type 'gnu/linux)
-          (ansi-term "/bin/bash"))
-    ((eq system-type 'darwin)
-      (ansi-term "/bin/zsh")))
-  (sh/term-toggle-mode)
-  (other-window 1))
 
 (require 'term)
 (defun sh/term-toggle-mode ()
@@ -184,72 +171,6 @@
   (if (term-in-line-mode)
     (term-char-mode)
     (term-line-mode)))
-
-; Send line or region to ansi-term
-(defun sh/term-send-line-or-region (&optional step)
-  "Send the line or the region to a term buffer"
-  (interactive)
-  (let ((proc (get-process "*ansi-term*"))
-         pbuf min max command)
-    (unless proc
-      (let ((currbuff (current-buffer)))
-        (sh/term)
-        (switch-to-buffer currbuff)
-        (setq proc (get-process "*ansi-term*"))))
-    (setq pbuff (process-buffer proc))
-    (if (use-region-p)
-      (setq min (region-beginning)
-        max (region-end))
-      (setq min (point-at-bol)
-        max (point-at-eol)))
-    (setq command (concat (buffer-substring min max) "\n"))
-    (with-current-buffer pbuff
-      (goto-char (process-mark proc))
-      (insert command)
-      (move-marker (process-mark proc) (point)))
-    (process-send-string  proc command)
-    (display-buffer (process-buffer proc) t)
-    (when step
-      (goto-char max)
-      (next-line))))
-
-; Send command to shell
-(defun sh/term-command (arg &optional step)
-  (interactive
-    (list
-      (read-string "Enter the command to send: ")))
-  (let ((proc (get-process "*ansi-term*"))
-         pbuf min max command)
-    (unless proc
-      (let ((currbuff (current-buffer)))
-        (sh/term)
-        (switch-to-buffer currbuff)
-        (setq proc (get-process "*ansi-term*"))))
-    (setq pbuff (process-buffer proc))
-    (setq command (concat arg "\n"))
-    (with-current-buffer pbuff
-      (goto-char (process-mark proc))
-      (insert command)
-      (move-marker (process-mark proc) (point)))
-    (process-send-string  proc command)
-    (display-buffer (process-buffer proc) t)
-    (when step
-      (goto-char max)
-      (next-line))))
-
-(defun sh/term-send-line-or-region-and-step ()
-  (interactive)
-  (sh/term-send-line-or-region t))
-
-(defun sh/term-switch-to-process-buffer ()
-  (interactive)
-  (pop-to-buffer (process-buffer (get-process "*ansi-term*")) t))
-
-(defun sh/clear-buffer ()
-  "Clear the current shell buffer."
-  (interactive)
-  (with-current-buffer (process-buffer (get-process "*ansi-term*"))
-    (comint-clear-buffer)))
 
 (defun skewer-eval-defun-and-focus ()
   "Execute function at point in browser and switch to REPL in insert state"
