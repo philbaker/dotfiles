@@ -34,8 +34,8 @@
 (nvim.set_keymap :n :<leader>do ":e ~/notes<CR>" {:noremap true})
 
 ; Window management
-(nvim.set_keymap :n :<localleader>ar ":resize 10<CR>" {:noremap true})
-(nvim.set_keymap :n :<localleader>ac ":resize 40<CR>" {:noremap true})
+(nvim.set_keymap :n :<localleader>ah ":resize 10<CR>" {:noremap true})
+(nvim.set_keymap :n :<localleader>ag ":resize 40<CR>" {:noremap true})
 (nvim.set_keymap :n :<localleader>as "<C-W>s<C-W>v" {:noremap true})
 (nvim.set_keymap :n :<localleader>at ":term<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>c ":q" {:noremap true})
