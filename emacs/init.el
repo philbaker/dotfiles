@@ -1,7 +1,4 @@
-;;
 ;; Initial setup
-;;
-
 (let ((local-settings "~/.emacs.local"))
   (if (file-exists-p local-settings)
     (load-file local-settings)))
@@ -12,21 +9,15 @@
 ; (setq custom-file (concat user-emacs-directory "/custom.el"))
 
 (require 'package)
-
 (setq use-package-always-ensure t)
-
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-
 (package-initialize)
-
 (unless package-archive-contents
   (package-refresh-contents))
-
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
-
 (require 'use-package)
 
 ; Remove initial buffer, set index file
@@ -36,28 +27,21 @@
 (setq visible-bell nil)
 (setq ring-bell-function 'ignore)
 
-;;
 ;; Visual tweaks
-;;
-
 (blink-cursor-mode 0)
 
 ; Fonts
 (use-package fira-code-mode
   :custom (fira-code-mode-disabled-ligatures '("[]" "#{" "#(" "#_" "#_(" "x")) ;; List of ligatures to turn off
   :hook prog-mode) ;; Enables fira-code-mode automatically for programming major modes
-
 (set-face-attribute 'fixed-pitch nil :font "Fira Code" :height 120)
 (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 115 :weight 'regular)
-
 (when (eq system-type 'gnu/linux)
   (set-face-attribute 'default nil :height 150 :family "Fira Code"))
-
 (when (eq system-type 'darwin)
   (set-face-attribute 'fixed-pitch nil :family "Fira Code" :height 165)
   (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 165 :weight 'regular)
   (set-face-attribute 'default nil :height 165))
-
 (setq-default line-spacing 0.4)
 
 ; Stop showing % in terminal session
@@ -69,13 +53,11 @@
 (use-package dracula-theme
   :config
   (load-theme 'dracula t))
-
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
 ; Modeline customisation
 (use-package all-the-icons)
-
 (use-package doom-modeline
   :init (doom-modeline-mode 1))
 
@@ -87,10 +69,7 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 
-;;
 ;; Windows
-;;
-
 ; Remember window layout to enable :only
 (winner-mode 1)
 
@@ -100,10 +79,7 @@
 (setq auto-save-file-name-transforms
   `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
-;;
 ;; Evil mode
-;;
-
 (setq evil-want-keybinding nil)
 (setq evil-want-C-i-jump nil)
 
@@ -148,38 +124,27 @@
 
 ; Vim-commentary
 (use-package evil-commentary)
-
 (evil-commentary-mode)
-
 (fset 'scroll-repl-top
    (kmacro-lambda-form [?\C-w ?l ?G ?z ?t ?\C-w ?h] 0 "%d"))
 
-;;
 ;; Language config
-;;
-
 (use-package clojure-mode)
 (use-package cider)
-
 (use-package editorconfig
   :config
   (editorconfig-mode 1))
-
 (use-package smartparens)
 (require 'smartparens-config)
 (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
 (add-hook 'emacs-lisp-mode-hook #'smartparens-strict-mode)
-
 (use-package evil-cleverparens)
 (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
 (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
-
 (global-display-fill-column-indicator-mode)
 (set-face-foreground 'fill-column-indicator "#373844")
 
-;;
 ;; LSP config
-;;
 
 (use-package lsp-mode
   :commands lsp
@@ -197,9 +162,7 @@
 (use-package helm-lsp
   :commands helm-lsp-workspace-symbol)
 
-;;
 ;; REPL config
-;;
 
 (use-package simple-httpd)
 
@@ -215,7 +178,6 @@
   (other-window 1))
 
 (require 'term)
-
 (defun sh/term-toggle-mode ()
   "Toggles term between line mode and char mode"
   (interactive)
@@ -320,15 +282,11 @@
 (use-package undo-fu-session)
 (global-undo-fu-session-mode)
 
-;;
 ;; Menus and completion
-;;
-
 (use-package which-key
   :init (which-key-mode)
   :config
   (setq which-key-idle-delay 0.3))
-
 (use-package which-key
   :config 
   (setq which-key-idle-delay 0.3)
@@ -337,7 +295,6 @@
   (which-key-setup-minibuffer)
   (set-face-attribute 'which-key-local-map-description-face nil 
     :weight 'bold))
-
 (use-package helm
   :init
   (require 'helm-config)
@@ -355,31 +312,20 @@
   (global-set-key (kbd "C-h a") 'helm-apropos) ; Helmized apropos interface
   (global-set-key (kbd "M-x") 'helm-M-x) ; Improved M-x menu
   (global-set-key (kbd "M-y") 'helm-show-kill-ring)) ; Show kill ring, pick something to paste
-
 (use-package helm-ag)
-
 (use-package projectile)
-
 (setq projectile-git-submodule-command "")
-
 (use-package flycheck
   :init
   (global-flycheck-mode t))
-
 (use-package company
   :config
   (global-company-mode))
 
-;;
 ;; Version control
-;;
-
 (use-package magit)
 
-;;
 ;; Navigation
-;;
-
 (use-package treemacs
   :defer t
   :init
@@ -440,10 +386,7 @@
 (use-package treemacs-projectile
   :after treemacs projectile)
 
-;;
 ;; Help
-;;
-
 (use-package helpful)
 (global-set-key (kbd "C-h f") #'helpful-callable)
 (global-set-key (kbd "C-h v") #'helpful-variable)
@@ -452,9 +395,7 @@
 (global-set-key (kbd "C-h F") #'helpful-function)
 (global-set-key (kbd "C-h C") #'helpful-command)
 
-;;
 ;; Org mode
-;;
 
 (use-package org
   :config
@@ -549,10 +490,8 @@
 (setq org-pomodoro-manual-break t
   org-pomodoro-keep-killed-pomodoro-time t
   org-pomodoro-play-sounds nil)
-
 (setq org-agenda-clockreport-parameter-plist 
  '(:fileskip0 t :link t :maxlevel 2 :formula "$4=($2+$3)*(60/25);t"))
-
 (org-babel-do-load-languages
   'org-babel-load-languages
   '((emacs-lisp . t)
@@ -560,17 +499,14 @@
      (clojure . t)
      (css . t)
      (sql . t)))
-
 (setq org-confirm-babel-evaluate nil)
 (require 'ob-clojure)
 (require 'cider)
 (setq org-babel-clojure-backend 'cider)
 (require 'org-tempo)
-
 (add-to-list 'org-structure-template-alist '("clj" . "src clojure"))
 (add-to-list 'org-structure-template-alist '("js" . "src js"))
 (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
-
 (defun org-font-setup ()
   ;; Replace list hyphen with dot
   (font-lock-add-keywords 'org-mode
