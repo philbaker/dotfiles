@@ -43,7 +43,7 @@
 (nvim.set_keymap :n :<localleader>ag ":resize 40<CR>" {:noremap true})
 (nvim.set_keymap :n :<localleader>as "<C-W>s<C-W>v" {:noremap true})
 (nvim.set_keymap :n :<localleader>at ":term<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>c ":q" {:noremap true})
+(nvim.set_keymap :n :<leader>c ":q<CR>" {:noremap true})
 
 ; Movement
 (nvim.set_keymap :n :<C-J> "J" {:noremap true})
