@@ -51,7 +51,7 @@
 (nvim.set_keymap :n :J "<C-W>j" {:noremap true})
 (nvim.set_keymap :n :K "<C-W>k" {:noremap true})
 (nvim.set_keymap :n :L "<C-W>l" {:noremap true})
-(nvim.set_keymap :n :B "<C-W><C-P>" {:noremap true})
+(nvim.set_keymap :n :<C-L> "<C-W><C-P>" {:noremap true})
 (nvim.set_keymap :n :M "<Plug>(zoom-toggle)" {:noremap true})
 
 ; Global file path
