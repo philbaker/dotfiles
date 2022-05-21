@@ -6,7 +6,7 @@
 (nvim.set_keymap :n :<leader>i "<Plug>SlimeParagraphSend" {:noremap false})
 (nvim.set_keymap :n :<c-c>v "<Plug>SlimeConfig" {:noremap false})
 (nvim.set_keymap :n :<localleader>ac ":echo &channel<CR>" {:noremap false})
-(nvim.set_keymap :n :<localleader>aj "JG<esc>K" {:noremap false})
+(nvim.set_keymap :n :<localleader>ad "JG<esc>K" {:noremap false})
 (nvim.set_keymap :n :<localleader>ak "LG<esc>K" {:noremap false})
 
 ; Send current line
