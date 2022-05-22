@@ -52,7 +52,19 @@
 (nvim.set_keymap :n :K "<C-W>k" {:noremap true})
 (nvim.set_keymap :n :L "<C-W>l" {:noremap true})
 (nvim.set_keymap :n :<C-L> "<C-W><C-P>" {:noremap true})
+(nvim.set_keymap :n :<C-H> "<C-W><C-J><C-W><C-L>" {:noremap true})
 (nvim.set_keymap :n :M "<Plug>(zoom-toggle)" {:noremap true})
 
 ; Global file path
 (nvim.set_keymap :n :<leader>g ":echo expand('%:p')<CR>" {:noremap true})
+
+; Git
+(nvim.set_keymap :n :<leader>gf ":echo expand('%:p')<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>gg ":G<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>ga ":G add .<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>gp ":G push<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>gc ":G checkout " {:noremap true})
+(nvim.set_keymap :n :<leader>gn "!npm run prod" {:noremap true})
+(nvim.set_keymap :n :<leader>gra ":G rebase --abort<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>gsa ":G stash<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>gsp ":G stash pop<CR>" {:noremap true})
