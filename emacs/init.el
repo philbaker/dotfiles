@@ -325,9 +325,10 @@
   (setq org-log-into-drawer t)
   (setq org-agenda-files '("~/notes/tasks.org" "~/notes/ob.org" "~/notes/bd.org"))
   (setq org-todo-keywords
-    '((sequence "TODO(t)" "NEXT(n)" "ACTIVE(a)" "WAITING(w@/!)" "SOMEDAY(s)" "PROJ(p)" "|" "DONE(d)" "CANCELLED(c@)")))
+    '((sequence "REPEAT(r)" "TODO(t)" "NEXT(n)" "ACTIVE(a)" "WAITING(w@/!)" "SOMEDAY(s)" "PROJ(p)" "|" "DONE(d)" "CANCELLED(c@)")))
   (setq org-todo-keyword-faces
-    '(("TODO" . "white")
+    '(("REPEAT" . "white") 
+       ("TODO" . "white")
        ("NEXT" . "pink")
        ("ACTIVE" . "yellow")
        ("WAITING" . "orange")
