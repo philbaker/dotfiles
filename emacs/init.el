@@ -325,20 +325,15 @@
   (setq org-log-into-drawer t)
   (setq org-agenda-files '("~/notes/tasks.org" "~/notes/ob.org" "~/notes/bd.org"))
   (setq org-todo-keywords
-    '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
-       (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANCELLED(k@)")))
+    '((sequence "TODO(t)" "NEXT(n)" "ACTIVE(a)" "WAITING(w@/!)" "SOMEDAY(s)" "PROJ(p)" "|" "DONE(d)" "CANCELLED(c@)")))
   (setq org-todo-keyword-faces
     '(("TODO" . "white")
-       ("NEXT" . "yellow")
-       ("DONE" . "green")
-       ("BACKLOG" . "gray")
-       ("PLAN" . "teal")
-       ("READY" . "blue")
+       ("NEXT" . "pink")
        ("ACTIVE" . "yellow")
-       ("REVIEW" . "magenta")
-       ("WAIT" . "orange")
-       ("HOLD" . "pink")
-       ("COMPLETE" . "green")
+       ("WAITING" . "orange")
+       ("SOMEDAY" . "salmon")
+       ("PROJ" . "teal")
+       ("DONE" . "green")
        ("CANCELLED" . "red")))
   (setq org-refile-targets
     '(("archive.org" :maxlevel . 1)
@@ -361,23 +356,9 @@
            (org-agenda-max-todos 20)
            (org-agenda-files org-agenda-files)))
        ("w" "Workflow Status"
-         ((todo "WAIT"
+         ((todo "WAITING"
             ((org-agenda-overriding-header "Waiting on External")
               (org-agenda-files org-agenda-files)))
-           (todo "REVIEW"
-             ((org-agenda-overriding-header "In Review")
-               (org-agenda-files org-agenda-files)))
-           (todo "PLAN"
-             ((org-agenda-overriding-header "In Planning")
-               (org-agenda-todo-list-sublevels nil)
-               (org-agenda-files org-agenda-files)))
-           (todo "BACKLOG"
-             ((org-agenda-overriding-header "Project Backlog")
-               (org-agenda-todo-list-sublevels nil)
-               (org-agenda-files org-agenda-files)))
-           (todo "READY"
-             ((org-agenda-overriding-header "Ready for Work")
-               (org-agenda-files org-agenda-files)))
            (todo "ACTIVE"
              ((org-agenda-overriding-header "Active Projects")
                (org-agenda-files org-agenda-files)))
