@@ -11,8 +11,6 @@
 
 ; Send current line
 (nvim.set_keymap :n :<leader>r "V$<leader>i" {:noremap false})
-; Send current paragraph 
-(nvim.set_keymap :n :<leader>l "V$%<leader>i" {:noremap false})
 
 ; Copy REPL output and paste in current buffer
 (nvim.set_keymap :n :<leader>o "<C-W>jGkyy<C-W>kpgcc" {:noremap false})
