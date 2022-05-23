@@ -64,7 +64,7 @@
 (nvim.set_keymap :n :<leader>ga ":G add .<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>gp ":G push<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>gc ":G checkout " {:noremap true})
-(nvim.set_keymap :n :<leader>gn "!npm run prod" {:noremap true})
+(nvim.set_keymap :n :<leader>gn ":!npm run prod<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>grm ":G rebase -i main<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>gra ":G rebase --abort<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>gsa ":G stash<CR>" {:noremap true})
