@@ -59,7 +59,7 @@
 
   ; Git
   :tpope/vim-fugitive {}
-  :airblade/vim-gitgutter {}
+  :airblade/vim-gitgutter {:mod :gitgutter}
 
   ; Parsing system
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
