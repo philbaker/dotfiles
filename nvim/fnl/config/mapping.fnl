@@ -53,6 +53,8 @@
 (nvim.set_keymap :n :<leader>pp "<C-W><C-P>" {:noremap true})
 (nvim.set_keymap :n :<leader>pl "<C-W><C-J><C-W><C-L>" {:noremap true})
 (nvim.set_keymap :n :<leader>pm "<Plug>(zoom-toggle)" {:noremap true})
+(nvim.set_keymap :n :<leader>o "<ESC>jcc" {:noremap true})
+(nvim.set_keymap :n :<localleader>o "k==o" {:noremap true})
 
 ; Global file path
 (nvim.set_keymap :n :<leader>g ":echo expand('%:p')<CR>" {:noremap true})

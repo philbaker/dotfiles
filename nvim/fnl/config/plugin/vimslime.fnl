@@ -13,5 +13,5 @@
 (nvim.set_keymap :n :<leader>r "V$<leader>i" {:noremap false})
 
 ; Copy REPL output and paste in current buffer
-(nvim.set_keymap :n :<leader>o "<C-W>jGkyy<C-W>kpgcc" {:noremap false})
-(nvim.set_keymap :n :<leader>e "<C-W>lGkyy<C-W>hpgcc" {:noremap false})
+(nvim.set_keymap :n :<leader>ea "<C-W>jGkyy<C-W>kpgcc" {:noremap false})
+(nvim.set_keymap :n :<leader>eo "<C-W>lGkyy<C-W>hpgcc" {:noremap false})
