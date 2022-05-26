@@ -60,7 +60,6 @@
 (nvim.set_keymap :n :<leader>g ":echo expand('%:p')<CR>" {:noremap true})
 
 ; Git
-(nvim.set_keymap :n :<leader>gf ":echo expand('%:p')<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>gg ":tab G<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>ga ":G add .<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>gp ":G push<CR>" {:noremap true})
