@@ -466,3 +466,5 @@
          ("C-c n j" . org-roam-dailies-capture-today))
   :config
   (org-roam-db-autosync-mode))
+
+(org-indent-mode t)
