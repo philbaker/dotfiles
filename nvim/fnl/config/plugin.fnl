@@ -47,8 +47,7 @@
 
   ; REPL tools
   :Olical/conjure {:branch :master :mod :conjure}
-  :preservim/vimux {:mod :vimux}
-  :jpalardy/vim-slime {:mod :vimslime}
+  :kassio/neoterm {:mod :neoterm}
 
   ; S-expressions
   :guns/vim-sexp {:mod :sexp}
