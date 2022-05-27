@@ -47,7 +47,7 @@
 (nvim.set_keymap :n :<leader>k "<C-W>k" {:noremap true})
 (nvim.set_keymap :n :<leader>l "<C-W>l" {:noremap true})
 (nvim.set_keymap :n :<leader>pl "<C-W><C-J><C-W><C-L>" {:noremap true})
-(nvim.set_keymap :n :<leader>pm "<Plug>(zoom-toggle)" {:noremap true})
+(nvim.set_keymap :n :<leader>m "<Plug>(zoom-toggle)" {:noremap true})
 (nvim.set_keymap :n :<leader>o "<ESC>jcc" {:noremap true})
 (nvim.set_keymap :n :<localleader>o "k==o" {:noremap true})
 ; Offset zt by a couple of lines
