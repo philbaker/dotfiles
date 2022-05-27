@@ -3,7 +3,7 @@
 
 ; Defaults
 (nvim.ex.let "g:neoterm_autoscroll = 1")
-(nvim.ex.let "g:neoterm_size = 8")
+(nvim.ex.let "g:neoterm_size = 10")
 
 ; Send to REPL
 (nvim.set_keymap :n :<leader>r "<Plug>(neoterm-repl-send-line)" {:noremap false})
