@@ -21,5 +21,5 @@
 ; Open split terminal windows at bottom
 (nvim.set_keymap :n :<leader>en ":botright Tnew<CR><Esc>:vsplit<CR>:Tnew<CR><Esc><C-W><C-R><C-W>h<C-W>k" {:noremap false})
 
-; Resize terminal windowsn
-(nvim.set_keymap :n :<leader>er ":resize 8<CR><C-W>k" {:noremap false})
+; Resize terminal windows
+(nvim.set_keymap :n :<leader>er ":resize 10<CR><C-W>k" {:noremap false})
