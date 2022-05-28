@@ -27,3 +27,6 @@ vim.g["aniseed#env"] = {
   module = "config.init",
   compile = true
 }
+
+-- Load Vimscript if needed
+-- vim.cmd("source ~/dotfiles/nvim/functions.vim")
