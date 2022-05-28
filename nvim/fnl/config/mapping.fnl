@@ -54,8 +54,6 @@
 (nvim.set_keymap :n :<leader>m "<Plug>(zoom-toggle)" {:noremap true})
 (nvim.set_keymap :n :<leader>o "<ESC>jcc" {:noremap true})
 (nvim.set_keymap :n :<localleader>o "k==o" {:noremap true})
-; Offset zt by a couple of lines
-(nvim.set_keymap :n :zt "ztkkjj" {:noremap true})
 
 ; Git
 (nvim.set_keymap :n :<leader>gg ":tab G<CR>" {:noremap true})
