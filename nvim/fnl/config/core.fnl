@@ -37,7 +37,7 @@
        :undodir "/tmp/undodir"
        ; Share clipboard
        :clipboard "unnamedplus"
-       :scrolloff "4"}]
+       :scrolloff 3}]
   (each [option value (pairs options)]
     (core.assoc nvim.o option value)))
 
