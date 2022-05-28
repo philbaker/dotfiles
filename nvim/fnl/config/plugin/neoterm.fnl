@@ -23,3 +23,10 @@
 
 ; Resize terminal windows
 (nvim.set_keymap :n :<leader>er ":resize 10<CR><C-W>k" {:noremap false})
+
+; Start iex
+(nvim.set_keymap :n :<leader>ei ":2T iex -S mix<CR>" {:noremap false})
+
+; Npm
+(nvim.set_keymap :n :<leader>ew ":1T npm run watch<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>ep ":1T npm run prod<CR>" {:noremap true})

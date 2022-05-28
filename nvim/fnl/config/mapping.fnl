@@ -56,15 +56,11 @@
 ; Offset zt by a couple of lines
 (nvim.set_keymap :n :zt "ztkkjj" {:noremap true})
 
-; Global file path
-(nvim.set_keymap :n :<leader>g ":echo expand('%:p')<CR>" {:noremap true})
-
 ; Git
 (nvim.set_keymap :n :<leader>gg ":tab G<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>ga ":G add .<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>gp ":G push<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>gc ":G checkout " {:noremap true})
-(nvim.set_keymap :n :<leader>gn ":!npm run prod<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>grm ":1T git rebase -i main<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>grc ":1T git rebase --continue<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>gra ":1T git rebase --abort<CR>" {:noremap true})
