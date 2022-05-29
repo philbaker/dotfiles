@@ -8,9 +8,6 @@
 ; Don't wrap lines
 (nvim.ex.set :nowrap)
 
-; Don't show line numbers
-(nvim.ex.set :nonumber)
-
 ; Global options
 (let [options
       {:backup false
@@ -31,8 +28,6 @@
        :ignorecase true
        ; Smart search case
        :smartcase true
-       ; Line numbers
-       :number true
        ; Keep lsp column open to prevent text jumping
        :signcolumn "yes"
        ; Persistent undo
