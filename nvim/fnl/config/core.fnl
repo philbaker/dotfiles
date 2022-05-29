@@ -18,8 +18,6 @@
        :splitbelow true
        ; Open new vertical panes on right pane
        :splitright true
-       ; Add dollar to cw command
-       :cpoptions "ces$"
        ; Auto completion
        :completeopt "menuone,noselect"
        ; Feedback when using substitute
