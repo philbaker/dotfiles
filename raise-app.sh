@@ -8,5 +8,3 @@ do
     exit
   fi
 done
-## Launch the program if we reach here
-$1 & disown
