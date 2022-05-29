@@ -8,6 +8,9 @@
 ; Don't wrap lines
 (nvim.ex.set :nowrap)
 
+; Don't show line numbers
+(nvim.ex.set :nonumber)
+
 ; Global options
 (let [options
       {:backup false

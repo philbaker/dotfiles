@@ -65,3 +65,6 @@
 (nvim.set_keymap :n :<leader>gra ":1T git rebase --abort<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>gsa ":G stash<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>gsp ":G stash pop<CR>" {:noremap true})
+
+; Toggle line numbers
+(nvim.set_keymap :n :<leader>pn ":set invnumber<CR>" {:noremap true})
