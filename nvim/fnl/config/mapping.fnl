@@ -35,10 +35,6 @@
 (nvim.set_keymap :n :<leader>dv ":e ~/dotfiles/nvim/fnl/config/plugin/vimtest.fnl<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>dl ":e ~/dotfiles/nvim/fnl/config/plugin/lspconfig.fnl<CR>" {:noremap true})
 
-; Open notes
-(nvim.set_keymap :n :<leader>dr ":e ~/rotes<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>dn ":e ~/notes<CR>" {:noremap true})
-
 ; Window management
 (nvim.set_keymap :n :<leader>q ":q<CR>" {:noremap true})
 
