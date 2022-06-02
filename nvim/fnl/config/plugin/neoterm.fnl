@@ -23,8 +23,9 @@
 ; Resize terminal windows
 (nvim.set_keymap :n :<leader>er "<C-W>j:resize 10<CR><C-W>k" {:noremap false})
 
-; Start iex
+; Elixir shortcuts
 (nvim.set_keymap :n :<leader>ei ":2T iex -S mix<CR>" {:noremap false})
+(nvim.set_keymap :n :<leader>ep ":1T mix phx.server<CR>" {:noremap false})
 
 ; Stop processes
 (nvim.set_keymap :n :<leader>ehc ":1Tclear<CR>" {:noremap true})
