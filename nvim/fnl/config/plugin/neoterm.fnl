@@ -24,7 +24,7 @@
 (nvim.set_keymap :n :<leader>er ":resize 10<CR><C-W>k" {:noremap false})
 
 ; Start iex
-(nvim.set_keymap :n :<leader>ee ":2T iex -S mix<CR>" {:noremap false})
+(nvim.set_keymap :n :<leader>ei ":2T iex -S mix<CR>" {:noremap false})
 
 ; Stop processes
 (nvim.set_keymap :n :<leader>ehc ":1Tclear<CR>" {:noremap true})
