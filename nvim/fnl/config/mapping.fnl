@@ -44,6 +44,7 @@
 (nvim.set_keymap :n :<leader>k "<C-W>k" {:noremap true})
 (nvim.set_keymap :n :<leader>l "<C-W>l" {:noremap true})
 (nvim.set_keymap :n :<leader>pp "<C-W><C-P>" {:noremap true})
+(nvim.set_keymap :n :<leader>pl "<C-W>j<C-W>l" {:noremap true})
 (nvim.set_keymap :n :<leader>phm "<C-W>j<Plug>(zoom-toggle)" {:noremap true})
 (nvim.set_keymap :n :<leader>phl "<C-W>j<C-W>l<Plug>(zoom-toggle)" {:noremap true})
 (nvim.set_keymap :n :<leader>phk "<C-W>k<Plug>(zoom-toggle)" {:noremap true})
