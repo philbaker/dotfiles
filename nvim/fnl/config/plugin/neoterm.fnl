@@ -18,23 +18,26 @@
 (nvim.set_keymap :n :<leader>eo "<C-W>lGkyy<C-W>hpgcc" {:noremap false})
 
 ; Open split terminal windows at bottom
-(nvim.set_keymap :n :<leader>en ":botright Tnew<CR><Esc>:vsplit<CR>:Tnew<CR><Esc><C-W><C-R><C-W>h<C-W>k" {:noremap false})
+(nvim.set_keymap :n :<leader>en ":Tnew<CR><Esc>mT:botright Tnew<CR><Esc>:vsplit<CR>:Tnew<CR><Esc><C-W><C-R><C-W>h<C-W>k" {:noremap false})
 
 ; Resize terminal windows
 (nvim.set_keymap :n :<leader>er "<C-W>j:resize 10<CR><C-W>k" {:noremap false})
 
 ; Elixir shortcuts
-(nvim.set_keymap :n :<leader>ei ":2T iex -S mix<CR>" {:noremap false})
-(nvim.set_keymap :n :<leader>ep ":1T mix phx.server<CR>" {:noremap false})
+(nvim.set_keymap :n :<leader>ei ":3T iex -S mix<CR>" {:noremap false})
+(nvim.set_keymap :n :<leader>emp ":1T mix phx.server<CR>" {:noremap false})
 
 ; Stop processes
-(nvim.set_keymap :n :<leader>ehc ":1Tclear<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>ehk ":1Tkill<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>ehp ":1T " {:noremap true})
 (nvim.set_keymap :n :<leader>elc ":2Tclear<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>elk ":2Tkill<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>elp ":2T " {:noremap true})
+(nvim.set_keymap :n :<leader>ehc ":3Tclear<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>ehk ":3Tkill<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>ehp ":3T " {:noremap true})
+(nvim.set_keymap :n :<leader>ekc ":1Tclear<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>ekk ":1Tkill<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>ekp ":1T " {:noremap true})
 
 ; Npm
-(nvim.set_keymap :n :<leader>ew ":1T npm run watch<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>ep ":1T npm run prod<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>ew ":2T npm run watch<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>ep ":2T npm run prod<CR>" {:noremap true})
