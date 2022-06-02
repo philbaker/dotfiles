@@ -82,7 +82,6 @@
   :jwalton512/vim-blade {}
   :stephpy/vim-php-cs-fixer {}
   :chrisbra/matchit {}
-  :elixir-editors/vim-elixir {}
   :axvr/org.vim {}
 
   ; Session management
