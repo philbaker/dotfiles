@@ -27,10 +27,12 @@
 (nvim.set_keymap :n :<leader>ee ":2T iex -S mix<CR>" {:noremap false})
 
 ; Stop processes
-(nvim.set_keymap :n :<leader>eu ":2Tclear<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>ei ":1Tclear<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>ej ":2Tkill<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>ek ":1Tkill<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>ehc ":1Tclear<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>ehk ":1Tkill<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>ehp ":1T " {:noremap true})
+(nvim.set_keymap :n :<leader>elc ":2Tclear<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>elk ":2Tkill<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>elp ":2T " {:noremap true})
 
 ; Npm
 (nvim.set_keymap :n :<leader>ew ":1T npm run watch<CR>" {:noremap true})
