@@ -81,7 +81,7 @@
   :prettier/vim-prettier {}
   :jwalton512/vim-blade {}
   :stephpy/vim-php-cs-fixer {}
-  :andymass/vim-matchup {}
+  :andymass/vim-matchup {:mod :matchup}
   :elixir-editors/vim-elixir {}
   :axvr/org.vim {}
 
