@@ -29,4 +29,4 @@ vim.g["aniseed#env"] = {
 }
 
 -- Load Vimscript if needed
--- vim.cmd("source ~/dotfiles/nvim/functions.vim")
+vim.cmd("source ~/dotfiles/nvim/scripts.vim")

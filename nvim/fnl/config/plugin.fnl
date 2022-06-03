@@ -81,7 +81,8 @@
   :prettier/vim-prettier {}
   :jwalton512/vim-blade {}
   :stephpy/vim-php-cs-fixer {}
-  :chrisbra/matchit {}
+  :andymass/vim-matchup {}
+  :elixir-editors/vim-elixir {}
   :axvr/org.vim {}
 
   ; Session management
