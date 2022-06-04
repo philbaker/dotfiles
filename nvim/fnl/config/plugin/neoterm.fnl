@@ -14,6 +14,7 @@
 ; Copy repl output to current buffer
 ; Horizontal split
 (nvim.set_keymap :n :<leader>ea "<C-W>jGkyy<C-W>kpgcc" {:noremap false})
+(nvim.set_keymap :n :<leader>eu "<C-W>jGkV%y<C-W>kpV%gcc<ESC>" {:noremap false})
 ; Vertical split
 (nvim.set_keymap :n :<leader>eo "<C-W>lGkyy<C-W>hpgcc" {:noremap false})
 
