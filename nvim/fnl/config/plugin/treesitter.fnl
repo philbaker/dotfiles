@@ -2,7 +2,8 @@
   {autoload {treesitter nvim-treesitter.configs}})
 
 (treesitter.setup {:highlight {:enable true}
-                   :indent {:enable true}
+                   :indent {:enable true
+                            :disable ["elixir"]}
                    :ensure_installed ["html"
                                       "css"
                                       "javascript"
@@ -15,4 +16,3 @@
                                       "regex"
                                       "yaml"
                                       "svelte"]})
-
