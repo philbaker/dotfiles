@@ -15,6 +15,8 @@
 ; Horizontal split
 (nvim.set_keymap :n :<leader>ea "<C-W>jGkyy<C-W>kpgcc" {:noremap false})
 (nvim.set_keymap :n :<leader>eu "<C-W>jGkV%y<C-W>kpV%gcc<ESC>" {:noremap false})
+(nvim.set_keymap :n :<leader>ep "<leader>r:sleep 10m<CR><leader>ea" {:noremap false})
+(nvim.set_keymap :n :<leader>ey "<leader>r:sleep 10m<CR><leader>eu" {:noremap false})
 ; Vertical split
 (nvim.set_keymap :n :<leader>eo "<C-W>lGkyy<C-W>hpgcc" {:noremap false})
 
@@ -40,5 +42,5 @@
 (nvim.set_keymap :n :<leader>ekp ":1T " {:noremap true})
 
 ; Npm
-(nvim.set_keymap :n :<leader>ew ":2T npm run watch<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>ep ":2T npm run prod<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>ejw ":2T npm run watch<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>ejp ":2T npm run prod<CR>" {:noremap true})
