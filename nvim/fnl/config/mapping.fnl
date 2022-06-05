@@ -9,7 +9,7 @@
 ; General mapping
 
 ; Disable highlight
-(nvim.set_keymap :n :<leader><CR> ":noh<CR><CR>" {:noremap true})
+(nvim.set_keymap :n :<leader><CR> ":noh<CR>" {:noremap true})
 
 ; Save file
 (nvim.set_keymap :n :<leader>s ":w<CR>" {:noremap true})
