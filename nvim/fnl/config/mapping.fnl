@@ -35,9 +35,6 @@
 (nvim.set_keymap :n :<leader>dv ":e ~/dotfiles/nvim/fnl/config/plugin/vimtest.fnl<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>dl ":e ~/dotfiles/nvim/fnl/config/plugin/lspconfig.fnl<CR>" {:noremap true})
 
-; Window management
-(nvim.set_keymap :n :<leader>q ":q<CR>" {:noremap true})
-
 ; Movement
 (nvim.set_keymap :n :<leader>h "<C-W>h" {:noremap true})
 (nvim.set_keymap :n :<leader>j "<C-W>j" {:noremap true})
