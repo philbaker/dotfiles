@@ -42,12 +42,12 @@
 
 ; Use correct comment syntax for Elixir
 (augroup comment-type
-  (nvim.ex.autocmd
-    :FileType "elixir"
-    "setlocal commentstring=#\\ %s")
-  (nvim.ex.autocmd
-    :FileType "heex"
-    "setlocal commentstring=<%#%s%>"))
+         (nvim.ex.autocmd
+           :FileType "elixir"
+           "setlocal commentstring=#\\ %s")
+         (nvim.ex.autocmd
+           :FileType "heex"
+           "setlocal commentstring=<%#%s%>"))
 
 ; Follow terminal output
 (nvim.ex.let "neoterm_autoinsert=1")
