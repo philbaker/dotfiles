@@ -10,10 +10,10 @@
         warn  (.. prefix "SignWarn")
         info  (.. prefix "SignInfo")
         hint  (.. prefix "SignHint")]
-  (vim.fn.sign_define error {:text "x" :texthl error})
-  (vim.fn.sign_define warn  {:text "!" :texthl warn})
-  (vim.fn.sign_define info  {:text "i" :texthl info})
-  (vim.fn.sign_define hint  {:text "?" :texthl hint})))
+    (vim.fn.sign_define error {:text "x" :texthl error})
+    (vim.fn.sign_define warn  {:text "!" :texthl warn})
+    (vim.fn.sign_define info  {:text "i" :texthl info})
+    (vim.fn.sign_define hint  {:text "?" :texthl hint})))
 
 (define-signs "Diagnostic")
 
@@ -55,8 +55,8 @@
                     (nvim.buf_set_keymap bufnr :n :<leader>ci ":lua require('telescope.builtin').lsp_implementations()<cr>" {:noremap true})))]
 
   (def- defaults {:on_attach on_attach
-                   :handlers handlers
-                   :capabilities capabilities})
+                  :handlers handlers
+                  :capabilities capabilities})
 
   (lsp.clojure_lsp.setup defaults)
   (lsp.tsserver.setup defaults)
@@ -69,7 +69,7 @@
                        :on_attach on_attach
                        :handlers handlers
                        :capabilities capabilities})
-  
+
   (lsp.intelephense.setup {:on_attach on_attach
                            :flags [:debounce_text_changes 500]
                            :init_options [:licenceKey (.. (os.getenv "HOME") "/intelephense/licence.txt")]
