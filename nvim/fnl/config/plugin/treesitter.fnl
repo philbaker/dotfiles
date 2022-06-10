@@ -2,6 +2,8 @@
   {autoload {treesitter nvim-treesitter.configs}})
 
 (treesitter.setup {:highlight {:enable true}
+                   :matchup {:enable true
+                             :disable ["javascript"]}
                    :indent {:enable true
                             :disable ["elixir"]}
                    :ensure_installed ["html"
