@@ -48,6 +48,11 @@
 (nvim.set_keymap :n :<leader>m "<Plug>(zoom-toggle)" {:noremap true})
 (nvim.set_keymap :n :<leader>o "<ESC>jcc" {:noremap true})
 (nvim.set_keymap :n :<localleader>o "k==o" {:noremap true})
+; Resize windows
+(nvim.set_keymap :n :<S-Up> "<C-w>+" {:noremap true})
+(nvim.set_keymap :n :<S-Down> "<C-w>-" {:noremap true})
+(nvim.set_keymap :n :<S-Right> "<C-w>>" {:noremap true})
+(nvim.set_keymap :n :<S-Left> "<C-w><" {:noremap true})
 
 ; Git
 (nvim.set_keymap :n :<leader>gg ":tab G<CR>" {:noremap true})
