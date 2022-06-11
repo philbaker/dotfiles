@@ -50,7 +50,7 @@
   :kassio/neoterm {:mod :neoterm}
 
   ; S-expressions
-  :guns/vim-sexp {:mod :sexp}
+  :philbaker/vim-sexp {:mod :sexp}
   :tpope/vim-sexp-mappings-for-regular-people {}
 
   ; Comments

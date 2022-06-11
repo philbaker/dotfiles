@@ -8,3 +8,5 @@ vim/syntax/
 nvim/.netrwhist
 nvim/lua/*
 tags
+.clj-kondo
+.lsp
