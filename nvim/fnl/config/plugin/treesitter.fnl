@@ -17,4 +17,5 @@
                                       "php"
                                       "regex"
                                       "yaml"
-                                      "svelte"]})
+                                      "svelte"
+                                      "fennel"]})
