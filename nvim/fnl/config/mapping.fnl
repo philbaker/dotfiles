@@ -24,7 +24,7 @@
 (nvim.set_keymap :n :<C-R> "<C-R>" {:noremap true})
 
 ; Switch buffer
-(nvim.set_keymap :n :<leader>u ":b#<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>u "<C-^>" {:noremap true})
 
 ; Open nvim config
 (nvim.set_keymap :n :<leader>dc ":e ~/dotfiles/nvim/fnl/config/core.fnl<CR>" {:noremap true})
