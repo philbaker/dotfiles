@@ -66,8 +66,9 @@
 
   ; Navigation
   :preservim/nerdtree {:mod :nerdtree}
-  :tpope/vim-vinegar {:mod :vimvinegar}
   :dhruvasagar/vim-zoom {}
+  :justinmk/vim-dirvish {}
+  :roginfarrer/vim-dirvish-dovish {}
 
   ; LSP
   :neovim/nvim-lspconfig {:mod :lspconfig}

@@ -14,6 +14,7 @@ On first load Neovim will download Packer and Aniseed. It will show a few errors
 ## Dependencies
 - Neovim >= 0.5 `brew install neovim`
 - Ag `brew install the_silver_searcher`
+- Trash CLI `npm install --gtrash-cli`
 - [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)
 - [TypeScript language server](https://www.npmjs.com/package/typescript-language-server) `npm install -g typescript-language-server typescript`
 - vscode-eslint-language-server `npm install -g vscode-langservers-extracted`
