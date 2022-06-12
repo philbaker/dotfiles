@@ -21,7 +21,7 @@
 (nvim.set_keymap :n :<leader>eo "<C-W>lGkyy<C-W>hpgcc" {:noremap false})
 
 ; Open split terminal windows at bottom
-(nvim.set_keymap :n :<leader>en ":Tnew<CR><Esc>mT:botright Tnew<CR><Esc>:vsplit<CR>:Tnew<CR><Esc><C-W><C-R><C-W>h<C-W>k" {:noremap false})
+(nvim.set_keymap :n :<leader>en ":Tnew<CR><Esc>mT<leader>u:botright Tnew<CR><Esc>:vsplit<CR>:Tnew<CR><Esc><C-W><C-R><C-W>h<C-W>k" {:noremap false})
 
 ; Resize terminal windows
 (nvim.set_keymap :n :<leader>er "<C-W>j:resize 10<CR><C-W>k" {:noremap false})
