@@ -2,7 +2,7 @@
   {autoload {nvim aniseed.nvim}})
 
 (nvim.set_keymap :n :<leader>. ":Buffers<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>t ":Files<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>te ":Files<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>a "<Plug>AgRawSearch" {:noremap true})
 (nvim.set_keymap :n :<leader>fg ":GFiles<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>fm ":Marks<CR>" {:noremap true})

@@ -14,6 +14,7 @@
 ; Copy repl output to current buffer
 ; Horizontal split
 (nvim.set_keymap :n :<leader>ea "<C-W>jGkyy<C-W>kpgcc" {:noremap false})
+(nvim.set_keymap :n :<leader>eb "<C-W>lGkyy<C-W>hpgcc" {:noremap false})
 (nvim.set_keymap :n :<leader>eu "<C-W>jGkV%y<C-W>kpV%gcc<ESC>" {:noremap false})
 (nvim.set_keymap :n :<leader>ep "<leader>r:sleep 10m<CR><leader>ea" {:noremap false})
 (nvim.set_keymap :n :<leader>ey "<leader>r:sleep 10m<CR><leader>eu" {:noremap false})
@@ -22,6 +23,11 @@
 
 ; Open split terminal windows at bottom
 (nvim.set_keymap :n :<leader>en ":Tnew<CR><Esc>mT<leader>u:botright Tnew<CR><Esc>:vsplit<CR>:Tnew<CR><Esc><C-W><C-R><C-W>h<C-W>k" {:noremap false})
+; Open split terminal windows at right
+(nvim.set_keymap :n :<leader>et ":Tnew<CR><Esc>mT<leader>:vsplit<CR>:Tnew<CR><Esc>:split<CR>:Tnew<CR><Esc><C-W><C-R><C-W>h<C-W>k" {:noremap false})
+
+; Clojure setup
+(nvim.set_keymap :n :<leader>ec ":Tnew<CR><Esc>mT:1T clj -A:dev<CR><ESC><leader>u<localleader>lv" {:noremap false})
 
 ; Resize terminal windows
 (nvim.set_keymap :n :<leader>er "<C-W>j:resize 10<CR><C-W>k" {:noremap false})
