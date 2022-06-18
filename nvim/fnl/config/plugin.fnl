@@ -90,6 +90,10 @@
   ; Session management
   :tpope/vim-obsession {}
 
+  ; Notes
+  :vimwiki/vimwiki {:mod :vimwiki}
+  :michal-h21/vim-zettel {}
+
   ; Autocomplete
   :hrsh7th/vim-vsnip {:mod :vimvsnip}
   :hrsh7th/cmp-nvim-lsp {}
