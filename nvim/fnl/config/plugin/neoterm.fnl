@@ -48,5 +48,17 @@
 (nvim.set_keymap :n :<leader>ekp ":1T " {:noremap true})
 
 ; Npm
-(nvim.set_keymap :n :<leader>ejw ":2T npm run watch<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>ejp ":2T npm run prod<CR>" {:noremap true})
+(vim.api.nvim_create_user_command 
+  "NPMRunWatch"
+  (fn [] (vim.cmd "2T npm run watch"))
+  {:bang false})
+
+(vim.api.nvim_create_user_command 
+  "NPMRunProd" 
+  (fn [] (vim.cmd "2T npm run prod"))
+  {:bang false})
+
+(vim.api.nvim_create_user_command 
+  "NPMStopCheckoutMain"
+  (fn [] (vim.cmd ":2Tkill<CR>:2T git checkout .<CR>:2T git checkout main<CR>"))
+  {:bang false})

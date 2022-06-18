@@ -59,12 +59,6 @@
 (nvim.set_keymap :n :<leader>ga ":G add .<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>gp ":G push<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>gc ":G checkout " {:noremap true})
-(nvim.set_keymap :n :<leader>grm ":1T git rebase -i main<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>grc ":1T git rebase --continue<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>gra ":1T git rebase --abort<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>gsa ":G stash<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>gsp ":G stash pop<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>goo ":1Tkill<CR>:1T git checkout .<CR>:1T git checkout main<CR>" {:noremap true})
 
 ; Toggle line numbers
 (nvim.set_keymap :n :<leader>pn ":set invnumber<CR>" {:noremap true})
