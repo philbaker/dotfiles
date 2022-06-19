@@ -18,4 +18,5 @@
                                       "regex"
                                       "yaml"
                                       "svelte"
-                                      "fennel"]})
+                                      "fennel"
+                                      "markdown"]})

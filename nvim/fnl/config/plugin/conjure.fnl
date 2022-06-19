@@ -9,3 +9,4 @@
 ; Pretty print maps with syntax highlighting
 (nvim.set_keymap :n :<localleader>za "ysaf)aclojure.pprint/pprint<ESC><localleader>eru" {:noremap false})
 (nvim.set_keymap :n :<localleader>zb "kf}V%:s/; (out) /<CR>f}%:noh<CR>" {:noremap false})
+
