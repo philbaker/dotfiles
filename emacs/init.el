@@ -56,11 +56,6 @@
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
-; Modeline customisation
-(use-package all-the-icons)
-(use-package doom-modeline
-  :init (doom-modeline-mode 1))
-
 ; Line numbering
 (global-display-line-numbers-mode)
 
