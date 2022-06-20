@@ -89,6 +89,7 @@
 
   ; Session management
   :tpope/vim-obsession {}
+  :jamessan/vim-gnupg {}
 
   ; Notes
   :vimwiki/vimwiki {:mod :vimwiki}

@@ -13,7 +13,6 @@
       {:backup false
        :swapfile false
        :colorcolumn "80"
-       :foldenable false
        ; Open new horizontal panes on down pane
        :splitbelow true
        ; Open new vertical panes on right pane
