@@ -50,7 +50,7 @@
 ; Npm
 (vim.api.nvim_create_user_command 
   "NPMRunWatch"
-  (fn [] (vim.cmd "2T npm run watch"))
+  (fn [] (vim.cmd "1T npm run watch"))
   {:bang false})
 
 (vim.api.nvim_create_user_command 
