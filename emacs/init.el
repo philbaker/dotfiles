@@ -50,9 +50,10 @@
 ; Ensure git branch in mode line is up to date
 (setq auto-revert-check-vc-info t)
 
-(use-package dracula-theme
+(use-package atom-one-dark-theme
   :config
-  (load-theme 'dracula t))
+  (load-theme 'atom-one-dark t))
+
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
