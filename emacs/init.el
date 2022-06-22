@@ -50,9 +50,9 @@
 ; Ensure git branch in mode line is up to date
 (setq auto-revert-check-vc-info t)
 
-(use-package atom-one-dark-theme
+(use-package zenburn-theme
   :config
-  (load-theme 'atom-one-dark t))
+  (load-theme 'zenburn t))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))

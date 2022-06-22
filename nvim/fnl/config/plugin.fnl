@@ -85,15 +85,9 @@
   :stephpy/vim-php-cs-fixer {}
   :andymass/vim-matchup {:mod :matchup}
   :elixir-editors/vim-elixir {}
-  :axvr/org.vim {}
 
   ; Session management
   :tpope/vim-obsession {}
-  :jamessan/vim-gnupg {}
-
-  ; Notes
-  :vimwiki/vimwiki {:mod :vimwiki}
-  :michal-h21/vim-zettel {}
 
   ; Autocomplete
   :hrsh7th/vim-vsnip {:mod :vimvsnip}
