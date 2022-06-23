@@ -321,12 +321,13 @@
   (setq org-log-into-drawer t)
   (setq org-agenda-files '("~/notes/tasks.org" "~/notes/ob.org" "~/notes/bd.org"))
   (setq org-todo-keywords
-    '((sequence "REPEAT(r)" "TODO(t)" "NEXT(n)" "ACTIVE(a)" "WAITING(w@/!)" "SOMEDAY(s)" "PROJ(p)" "|" "DONE(d)" "CANCELLED(c@)")))
+    '((sequence "REPEAT(r)" "TODO(t)" "NEXT(n)" "ACTIVE(a)" "REVIEW(l)" "WAITING(w@/!)" "SOMEDAY(s)" "PROJ(p)" "|" "DONE(d)" "CANCELLED(c@)")))
   (setq org-todo-keyword-faces
     '(("REPEAT" . "white") 
        ("TODO" . "white")
        ("NEXT" . "pink")
        ("ACTIVE" . "yellow")
+       ("REVIEW" . "orange")
        ("WAITING" . "orange")
        ("SOMEDAY" . "salmon")
        ("PROJ" . "teal")
@@ -358,6 +359,9 @@
               (org-agenda-files org-agenda-files)))
            (todo "ACTIVE"
              ((org-agenda-overriding-header "Active Projects")
+               (org-agenda-files org-agenda-files)))
+           (todo "REVIEW"
+             ((org-agenda-overriding-header "Waiting for code review")
                (org-agenda-files org-agenda-files)))
            (todo "COMPLETED"
              ((org-agenda-overriding-header "Completed Projects")
