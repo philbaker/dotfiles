@@ -61,7 +61,6 @@
   (lsp.clojure_lsp.setup defaults)
   (lsp.tsserver.setup defaults)
   (lsp.eslint.setup defaults)
-  (lsp.tailwindcss.setup defaults)
   (lsp.svelte.setup defaults)
   (lsp.cssls.setup defaults)
 
@@ -74,5 +73,11 @@
                            :flags [:debounce_text_changes 500]
                            :init_options [:licenceKey (.. (os.getenv "HOME") "/intelephense/licence.txt")]
                            :handlers handlers
-                           :capabilities capabilities}))
+                           :capabilities capabilities})
 
+  (lsp.tailwindcss.setup {:on_attach on_attach
+                          :handlers handlers
+                          :capabilities capabilities
+                          :filetypes ["html" "markdown" "php" "css" "postcss" "sass" "scss" "javascript" "javascriptreact" "typescript" "typescriptreact" "vue" "svelte" "clojure"]
+                          :settings
+                          {:tailwindCSS {:experimental {:classRegex [[":\\w+([^\\s]*)" "\\.([^\\.]*)"]]}}}}))
