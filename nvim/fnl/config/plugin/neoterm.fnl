@@ -4,12 +4,13 @@
 ; Defaults
 (nvim.ex.let "g:neoterm_autoscroll = 1")
 (nvim.ex.let "g:neoterm_size = 10")
+(nvim.ex.let "g:neoterm_bracketed_paste = 1")
 
 ; Send to REPL
 (nvim.set_keymap :n :<leader>r "<Plug>(neoterm-repl-send-line)" {:noremap false})
 (nvim.set_keymap :n :<leader>i "<Plug>(neoterm-repl-send)" {:noremap false})
 (nvim.set_keymap :v :<leader>i "<Plug>(neoterm-repl-send)" {:noremap false})
-(nvim.set_keymap :v :<leader>ef ":TREPLSendFile<CR>" {:noremap false})
+(nvim.set_keymap :n :<leader>ef ":TREPLSendFile<CR>" {:noremap false})
 
 ; Copy repl output to current buffer
 ; Horizontal split
@@ -62,3 +63,4 @@
   "NPMStopCheckoutMain"
   (fn [] (vim.cmd ":2Tkill<CR>:2T git checkout .<CR>:2T git checkout main<CR>"))
   {:bang false})
+

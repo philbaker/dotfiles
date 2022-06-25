@@ -19,4 +19,5 @@
                                       "yaml"
                                       "svelte"
                                       "fennel"
-                                      "markdown"]})
+                                      "markdown"
+                                      "python"]})
