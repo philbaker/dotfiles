@@ -63,6 +63,7 @@
   (lsp.eslint.setup defaults)
   (lsp.svelte.setup defaults)
   (lsp.cssls.setup defaults)
+  (lsp.pylsp.setup defaults)
 
   (lsp.elixirls.setup {:cmd [(.. (os.getenv "HOME") "/elixirls/language_server.sh")]
                        :on_attach on_attach

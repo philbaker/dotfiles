@@ -24,3 +24,4 @@ On first load Neovim will download Packer and Aniseed. It will show a few errors
 - [Elixir language server](https://github.com/elixir-lsp/elixir-ls)
 - [Clojure language server](https://clojure-lsp.io/installation/) `brew install clojure-lsp/brew/clojure-lsp-native`
 - [Intelephense](https://www.npmjs.com/package/intelephense) `npm install -g intelephense`
+- [Python lsp server](https://github.com/python-lsp/python-lsp-server) `pip install python-lsp-server`
