@@ -82,3 +82,9 @@
                           :filetypes ["html" "markdown" "php" "css" "postcss" "sass" "scss" "javascript" "javascriptreact" "typescript" "typescriptreact" "vue" "svelte" "clojure"]
                           :settings
                           {:tailwindCSS {:experimental {:classRegex [[":\\w+([^\\s]*)" "\\.([^\\.]*)"]]}}}}))
+
+(lsp.solargraph.setup {:on_attach on_attach
+                       :handlers handlers
+                       :flags {:debounce_text_changes 300}
+                       :capabilities capabilities
+                       :single_file_support true})
