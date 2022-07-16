@@ -4,7 +4,8 @@
 ; Defaults
 (nvim.ex.let "g:neoterm_autoscroll = 1")
 (nvim.ex.let "g:neoterm_size = 10")
-(nvim.ex.let "g:neoterm_bracketed_paste = 1")
+; Python fix
+; (nvim.ex.let "g:neoterm_bracketed_paste = 1")
 
 ; Send to REPL
 (nvim.set_keymap :n :<leader>r "<Plug>(neoterm-repl-send-line)" {:noremap false})
