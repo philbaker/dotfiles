@@ -17,6 +17,8 @@
 ; Horizontal split
 (nvim.set_keymap :n :<leader>ea "<C-W>jGkyy<C-W>kpgcc" {:noremap false})
 (nvim.set_keymap :n :<leader>eb "<C-W>lGkyy<C-W>hpgcc" {:noremap false})
+(nvim.set_keymap :n :<leader>ed "<C-W>lG$V%y<C-W>hpV%gcc<ESC>" {:noremap false})
+(nvim.set_keymap :n :<leader>ee "<localleader>er:sleep 10m<CR><C-W>lG$V%y<C-W>hpV%gcc<ESC>" {:noremap false})
 (nvim.set_keymap :n :<leader>eu "<C-W>jGkV%y<C-W>kpV%gcc<ESC>" {:noremap false})
 (nvim.set_keymap :n :<leader>ep "<leader>r:sleep 10m<CR><leader>ea" {:noremap false})
 (nvim.set_keymap :n :<leader>ey "<leader>r:sleep 10m<CR><leader>eu" {:noremap false})
