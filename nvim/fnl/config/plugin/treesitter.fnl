@@ -20,4 +20,5 @@
                                       "svelte"
                                       "fennel"
                                       "markdown"
-                                      "python"]})
+                                      "python"
+                                      "java"]})
