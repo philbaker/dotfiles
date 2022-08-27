@@ -82,3 +82,5 @@ flycheck_*.el
 .dir-locals.el
 
 .rgignore
+
+scratch.*

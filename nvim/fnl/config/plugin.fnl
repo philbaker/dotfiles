@@ -48,6 +48,8 @@
   ; REPL tools
   :Olical/conjure {:branch :master :mod :conjure}
   :kassio/neoterm {:mod :neoterm}
+  :clojure-vim/vim-jack-in {}
+  :tpope/vim-dispatch {}
 
   ; S-expressions
   :philbaker/vim-sexp {:mod :sexp}
