@@ -81,7 +81,8 @@
                           :capabilities capabilities
                           :filetypes ["html" "markdown" "php" "css" "postcss" "sass" "scss" "javascript" "javascriptreact" "typescript" "typescriptreact" "vue" "svelte" "clojure"]
                           :settings
-                          {:tailwindCSS {:experimental {:classRegex [[":\\w+([^\\s]*)" "\\.([^\\.]*)"]]}}}}))
+                          ; https://github.com/tailwindlabs/tailwindcss-intellisense/issues/400#issuecomment-1218494303
+                          {:tailwindCSS {:experimental {:classRegex [":class\\s+\"([^\"]*)\"" ":[\\w-.#>]+\\.([\\w-]*)"]}}}}))
 
 (lsp.solargraph.setup {:on_attach on_attach
                        :handlers handlers
