@@ -67,3 +67,16 @@
   (fn [] (vim.cmd ":2Tkill<CR>:2T git checkout .<CR>:2T git checkout main<CR>"))
   {:bang false})
 
+(vim.api.nvim_create_user_command 
+  "Sq"
+  (fn [] 
+    (vim.cmd "w")
+    (vim.cmd "3T npx squint %"))
+  {:bang false})
+
+(vim.api.nvim_create_user_command 
+  "Sqall"
+  (fn [] 
+    (vim.cmd "w")
+    (vim.cmd "3T npx squint compile **/*.cljs"))
+  {:bang false})

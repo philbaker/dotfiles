@@ -13,6 +13,7 @@
 
 ; Save file
 (nvim.set_keymap :n :<leader>s ":w<CR>" {:noremap true})
+(nvim.set_keymap :n :<localleader>s ":Sq<CR>" {:noremap true})
 
 ; Escape for terminal mode
 (nvim.set_keymap :t :<Esc> "<C-\\><C-n>" {:noremap true})
