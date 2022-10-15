@@ -80,3 +80,9 @@
     (vim.cmd "w")
     (vim.cmd "3T npx squint compile **/*.cljs"))
   {:bang false})
+
+(vim.api.nvim_create_user_command 
+  "Sqr"
+  (fn [] 
+    (vim.cmd "3T bb mjs_to_js.clj ./pages"))
+  {:bang false})
