@@ -87,6 +87,7 @@
   :stephpy/vim-php-cs-fixer {}
   :andymass/vim-matchup {:mod :matchup}
   :elixir-editors/vim-elixir {}
+  :axvr/org.vim {}
 
   ; Session management
   :tpope/vim-obsession {}
