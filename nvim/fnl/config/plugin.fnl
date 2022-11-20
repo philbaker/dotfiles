@@ -34,7 +34,7 @@
   :Olical/aniseed {}
 
   ; Theme
-  :ful1e5/onedark.nvim {:mod :theme}
+  :folke/tokyonight.nvim {:branch :main}
   :kyazdani42/nvim-web-devicons {}
 
   ; Status line

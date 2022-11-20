@@ -58,3 +58,6 @@
 
 ; Open quickfix list at bottom
 (nvim.ex.autocmd :FileType :qf "wincmd J")
+
+; Set colorscheme
+(vim.cmd "colorscheme tokyonight")	

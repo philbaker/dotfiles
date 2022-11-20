@@ -3,8 +3,8 @@
          '[babashka.fs :as fs])
 
 ; Set up Neovim directory
-(tasks/shell "rm" "-rf" (str (fs/home) "/.config/nvim"))
-(tasks/shell "ln" "-sf" (str (fs/cwd) "/nvim " (fs/home) "/.config/nvim"))
+(tasks/shell (str "rm -rf " (fs/home) "/.config/nvim"))
+(tasks/shell (str "ln -sf " (fs/home) "/dotfiles/nvim " (fs/home) "/.config/nvim"))
 
 ; Install dependencies
 (tasks/shell "brew install neovim")
