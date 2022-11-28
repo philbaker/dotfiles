@@ -82,15 +82,9 @@
                           :filetypes ["html" "markdown" "php" "css" "postcss" "sass" "scss" "javascript" "javascriptreact" "typescript" "typescriptreact" "vue" "svelte" "clojure"]
                           :settings
                           ; https://github.com/tailwindlabs/tailwindcss-intellisense/issues/400#issuecomment-1218494303
-                          {:tailwindCSS {:experimental {:classRegex [":class\\s+\"([^\"]*)\"" ":className\\s+\"([^\"]*)\"" ":[\\w-.#>]+\\.([\\w-]*)"]}}}}))
-
-(lsp.solargraph.setup {:on_attach on_attach
-                       :handlers handlers
-                       :flags {:debounce_text_changes 300}
-                       :capabilities capabilities
-                       :single_file_support true})
-
-(lsp.java_language_server.setup {:cmd [(.. (os.getenv "HOME") "/java-language-server/dist/lang_server_linux.sh")]
-                                 :on_attach on_attach
-                                 :handlers handlers
-                                 :capabilities capabilities})
+                          {:tailwindCSS {:experimental {:classRegex [":class\\s+\"([^\"]*)\"" ":className\\s+\"([^\"]*)\"" ":[\\w-.#>]+\\.([\\w-]*)"]}}}})
+  
+  (lsp.java_language_server.setup {:cmd [(.. (os.getenv "HOME") "/java-language-server/dist/lang_server_linux.sh")]
+                                   :on_attach on_attach
+                                   :handlers handlers
+                                   :capabilities capabilities}))
