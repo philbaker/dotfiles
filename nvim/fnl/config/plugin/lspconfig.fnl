@@ -89,3 +89,8 @@
                        :flags {:debounce_text_changes 300}
                        :capabilities capabilities
                        :single_file_support true})
+
+(lsp.java_language_server.setup {:cmd [(.. (os.getenv "HOME") "/java-language-server/dist/lang_server_linux.sh")]
+                                 :on_attach on_attach
+                                 :handlers handlers
+                                 :capabilities capabilities})
