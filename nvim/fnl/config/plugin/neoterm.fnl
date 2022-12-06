@@ -71,6 +71,12 @@
   {:bang false})
 
 (vim.api.nvim_create_user_command 
+  "Cln"
+  (fn [] 
+    (vim.cmd "1T clj -A:dev"))
+  {:bang false})
+
+(vim.api.nvim_create_user_command 
   "Sqr"
   (fn [] 
     (vim.cmd "3T bb mjs_to_js.clj ./pages"))
@@ -87,3 +93,13 @@
   (fn [] 
     (vim.cmd "ConjureConnect 1667"))
   {:bang false})
+
+(vim.api.nvim_create_user_command 
+  "ClerkShow"
+  (fn []
+    (do
+      (vim.cmd "w")
+      (vim.cmd (.. "ConjureEval (clerk/show! \"" (.. "notebooks/" (vim.fn.expand "%:t"))"\")"))))
+{:bang false})
+
+(nvim.set_keymap :n :<localleader>cs ":ClerkShow<cr>" {:noremap false})
