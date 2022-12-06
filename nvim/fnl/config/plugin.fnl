@@ -88,6 +88,7 @@
   :andymass/vim-matchup {:mod :matchup}
   :elixir-editors/vim-elixir {}
   :axvr/org.vim {}
+  :sbdchd/neoformat {}
 
   ; Session management
   :tpope/vim-obsession {}

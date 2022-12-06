@@ -75,3 +75,15 @@
   (fn [] 
     (vim.cmd "3T bb mjs_to_js.clj ./pages"))
   {:bang false})
+
+(vim.api.nvim_create_user_command 
+  "Bbn"
+  (fn [] 
+    (vim.cmd "1T bb nrepl-server 1667"))
+  {:bang false})
+
+(vim.api.nvim_create_user_command 
+  "Bbc"
+  (fn [] 
+    (vim.cmd "ConjureConnect 1667"))
+  {:bang false})
