@@ -44,7 +44,7 @@
                     (nvim.buf_set_keymap bufnr :n :<leader>cn "<cmd>lua vim.lsp.buf.rename()<CR>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>ce "<cmd>lua vim.diagnostic.open_float()<CR>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>cq "<cmd>lua vim.diagnostic.setloclist()<CR>" {:noremap true})
-                    (nvim.buf_set_keymap bufnr :n :<leader>cf "<cmd>lua vim.lsp.buf.formatting()<CR>" {:noremap true})
+                    (nvim.buf_set_keymap bufnr :n :<leader>cf "<cmd>lua vim.lsp.buf.format()<CR>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>cj "<cmd>lua vim.diagnostic.goto_next()<CR>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>ck "<cmd>lua vim.diagnostic.goto_prev()<CR>" {:noremap true})
                     ; Telescope
