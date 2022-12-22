@@ -37,7 +37,7 @@
 (nvim.set_keymap :n :<leader>dd ":e ~/clotes/dev/notebooks<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>dw ":e ~/clotes/domain/notebooks<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>dg ":e ~/clotes/general/notebooks<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>ds ":e ~/clotes/dev/notebooks/vim-sexp-key-bindings.md" {:noremap true})
+(nvim.set_keymap :n :<leader>ds ":e ~/clotes/dev/notebooks/vim-sexp-key-bindings.md<CR>" {:noremap true})
 
 ; Movement
 (nvim.set_keymap :n :<leader>h "<C-W>h" {:noremap true})
