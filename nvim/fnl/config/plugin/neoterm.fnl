@@ -103,3 +103,19 @@
 {:bang false})
 
 (nvim.set_keymap :n :<localleader>cs ":ClerkShow<cr>" {:noremap false})
+
+; Compile / run current Java file
+(vim.api.nvim_create_user_command
+  "Jac"
+  (fn []
+    (vim.cmd (.. "3T javac " (vim.fn.expand "%:t"))))
+  {:bang false})
+
+(vim.api.nvim_create_user_command
+  "Jar"
+  (fn []
+    (vim.cmd (.. "3T java " (vim.fn.expand "%:t:r"))))
+  {:bang false})
+
+(nvim.set_keymap :n :<localleader>jc ":Jac<cr>" {:noremap false})
+(nvim.set_keymap :n :<localleader>jr ":Jar<cr>" {:noremap false})
