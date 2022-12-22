@@ -70,3 +70,6 @@
 ; Show directories
 (nvim.set_keymap :n :<leader>- "<Plug>(dirvish_up)<CR>" {:noremap true})
 (nvim.set_keymap :n :- "<Plug>(dirvish_up)<CR>" {:noremap true})
+
+; Format
+(nvim.set_keymap :n :<leader>pr ":Prettier<CR>" {:noremap true})
