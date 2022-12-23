@@ -11,4 +11,4 @@
 (nvim.set_keymap :n :<localleader>zb "kf}V%:s/; (out) /<CR>f}%:noh<CR>" {:noremap false})
 
 ; Stop Lua errors during eval comment
-(nvim.set_keymap :n :<localleader>eco "l<localleader>ecr:sleep 10m<CR>f;hxi<CR><ESC>$" {:noremap false})
+(nvim.set_keymap :n :<localleader>ecc "^l<localleader>ecr:sleep 10m<CR>f;hxi<CR><ESC>$" {:noremap false})
