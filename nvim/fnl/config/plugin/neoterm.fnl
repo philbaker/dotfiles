@@ -102,7 +102,7 @@
       (vim.cmd (.. "ConjureEval (clerk/show! \"" (.. "notebooks/" (vim.fn.expand "%:t"))"\")"))))
 {:bang false})
 
-(nvim.set_keymap :n :<localleader>cs ":ClerkShow<cr>" {:noremap false})
+(nvim.set_keymap :n :<localleader>cs ":ClerkShow<CR>" {:noremap false})
 
 ; Compile / run current Java file
 (vim.api.nvim_create_user_command
@@ -117,5 +117,11 @@
     (vim.cmd (.. "3T java " (vim.fn.expand "%:t:r"))))
   {:bang false})
 
-(nvim.set_keymap :n :<localleader>jc ":Jac<cr>" {:noremap false})
-(nvim.set_keymap :n :<localleader>jr ":Jar<cr>" {:noremap false})
+(nvim.set_keymap :n :<localleader>jc ":Jac<CR>" {:noremap false})
+(nvim.set_keymap :n :<localleader>jr ":Jar<CR>" {:noremap false})
+
+(vim.api.nvim_create_user_command
+  "Cljfmt"
+  (fn []
+    (vim.cmd "3T clj -M:cljfmt %"))
+  {:bang false})
