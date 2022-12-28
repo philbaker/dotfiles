@@ -59,5 +59,7 @@
 ; Open quickfix list at bottom
 (nvim.ex.autocmd :FileType :qf "wincmd J")
 
+(vim.cmd "autocmd BufNewFile,BufRead *.phel set syntax=clojure")
+
 ; Set colorscheme
 (vim.cmd "colorscheme tokyonight")	
