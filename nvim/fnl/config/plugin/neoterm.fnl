@@ -129,5 +129,5 @@
 (vim.api.nvim_create_user_command
   "Phr"
   (fn []
-    (vim.cmd (.. "2T vendor/bin/phel run " (vim.fn.expand "%"))))
+    (vim.cmd (.. "2T vendor/bin/phel run %")))
   {:bang false})
