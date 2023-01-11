@@ -689,5 +689,15 @@
     "prefix": "error",
     "body": ["console.error($1);", "$0"],
     "description": "Log error to the console"
+  },
+  "Jasmine describe": {
+    "prefix": "jdesc",
+    "body": "describe(\"$0\", function () {\n});",
+    "description": "Jasmine describe block"
+  },
+  "Jasmine it": {
+    "prefix": "jit",
+    "body": "it(\"$0\", function () {\n});",
+    "description": "Jasmine it block"
   }
 }
