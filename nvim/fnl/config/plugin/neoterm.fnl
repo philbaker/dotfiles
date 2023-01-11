@@ -13,7 +13,7 @@
 
 ; Copy repl output to current buffer
 ; Horizontal split
-(nvim.set_keymap :n :<leader>ecr "<C-W>jGkyy<C-W>kpgcc" {:noremap false})
+(nvim.set_keymap :n :<leader>ecc "<C-W>jGkyy<C-W>kpgcc" {:noremap false})
 (nvim.set_keymap :n :<leader>eca "<C-W>jGkV%y<C-W>kpV%gcc<ESC>" {:noremap false})
 (nvim.set_keymap :n :<leader>ep "<leader>r:sleep 10m<CR><leader>ea" {:noremap false})
 (nvim.set_keymap :n :<leader>ey "<leader>r:sleep 10m<CR><leader>eu" {:noremap false})
