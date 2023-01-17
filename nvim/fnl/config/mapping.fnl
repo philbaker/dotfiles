@@ -87,3 +87,6 @@
 (nvim.set_keymap :n :<leader>pe ":Rex<CR>" {:noremap false})
 (nvim.set_keymap :n :<leader>pc ":Rco<CR>" {:noremap false})
 (nvim.set_keymap :n :<leader>pt ":Rle<CR>" {:noremap false})
+
+; write Jasmine test from rich comment
+(nvim.set_keymap :n :<leader>pj "f;xIexpect(<ESC>A).toBe(<ESC>JxA);<ESC>" {:noremap false})
