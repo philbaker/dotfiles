@@ -60,6 +60,7 @@
 
 ; Git
 (nvim.set_keymap :n :<leader>gg ":tab G<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>gl ":tab G log<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>ga ":G add .<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>gp ":G push<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>gc ":G checkout " {:noremap true})
