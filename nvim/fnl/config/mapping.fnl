@@ -73,3 +73,17 @@
 
 ; Format
 (nvim.set_keymap :n :<leader>pr ":Prettier<CR>" {:noremap true})
+
+; Clerk
+(nvim.set_keymap :n :<localleader>cs ":ClerkShow<CR>" {:noremap false})
+
+; Compile Java
+(nvim.set_keymap :n :<localleader>jc ":Jac<CR>" {:noremap false})
+
+; Run Java
+(nvim.set_keymap :n :<localleader>jr ":Jar<CR>" {:noremap false})
+
+; Node REPL helpers
+(nvim.set_keymap :n :<leader>pe ":Rex<CR>" {:noremap false})
+(nvim.set_keymap :n :<leader>pc ":Rco<CR>" {:noremap false})
+(nvim.set_keymap :n :<leader>pt ":Rle<CR>" {:noremap false})

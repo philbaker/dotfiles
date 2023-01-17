@@ -63,3 +63,6 @@
 
 ; Set colorscheme
 (vim.cmd "colorscheme tokyonight")	
+
+; Macro to write Jasmine test from rich comment
+(vim.fn.setreg "r" "f;xIexpect(A).toBe(JxA);")
