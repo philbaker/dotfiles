@@ -92,3 +92,6 @@
 
 ; write Jasmine test from rich comment
 (nvim.set_keymap :n :<leader>pj "f;xIexpect(<ESC>A).toBe(<ESC>JxA);<ESC>" {:noremap false})
+
+; turn it back into a comment
+(nvim.set_keymap :n :<leader>pk "/to<CR>hxi<CR><ESC> <CR>wdt(%x^xkdt(%x^xA;<ESC>^" {:noremap false})
