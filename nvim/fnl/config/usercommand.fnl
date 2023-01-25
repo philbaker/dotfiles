@@ -128,3 +128,22 @@
     (vim.cmd ":%s/let")
     (vim.cmd ":w"))
   {:bang false})
+
+(vim.api.nvim_create_user_command 
+  "Pec"
+  (fn [] 
+    (vim.cmd "w")
+    (vim.cmd ":e index.html")
+    (vim.cmd ":w")
+    (vim.cmd ":b #"))
+  {:bang false})
+
+(vim.api.nvim_create_user_command 
+  "Pint"
+  (fn []
+    (do
+      (vim.cmd ":w")
+      (vim.cmd (.. "3T pint " (vim.fn.expand "%:p")))
+      (vim.cmd ":sleep 300m")
+      (vim.cmd ":e %")))
+{:bang false})
