@@ -95,3 +95,7 @@
 
 ; turn it back into a comment
 (nvim.set_keymap :n :<leader>pk "/to<CR>hxi<CR><ESC> <CR>wdt(%x^xkdt(%x^xA;<ESC>^" {:noremap false})
+
+(nvim.set_keymap :n :<leader>ps ":Pec<CR>" {:noremap false})
+
+(nvim.set_keymap :n :<leader>pi ":Pint<CR>" {:noremap false})
