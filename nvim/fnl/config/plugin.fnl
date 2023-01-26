@@ -44,6 +44,8 @@
   :junegunn/fzf {}
   :junegunn/fzf.vim {:mod :fzf}
   :jesseleite/vim-agriculture {}
+  :gfanto/fzf-lsp.nvim {}
+  :nvim-lua/plenary.nvim {}
 
   ; REPL tools
   :Olical/conjure {:branch :master :mod :conjure}
