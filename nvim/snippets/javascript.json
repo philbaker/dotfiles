@@ -699,5 +699,29 @@
     "prefix": "jit",
     "body": "it(\"$0\", function () {\n});",
     "description": "Jasmine it block"
+  },
+  "React Functional Component": {
+    "prefix": "rfc",
+    "body": [
+      "function $1($2) {",
+        "\t\treturn (",
+          "\t\t\t$0",
+          "\t\t);",
+          "}"
+    ],
+    "description": "React functional component" 
+  },
+  "React Functional Component Export": {
+    "prefix": "rfce",
+    "body": [
+      "import React from \"react\";",
+      "",
+      "export default function $1($2) {",
+        "\t\treturn (",
+          "\t\t\t$0",
+          "\t\t);",
+          "}"
+    ],
+    "description": "React functional component with export" 
   }
 }
