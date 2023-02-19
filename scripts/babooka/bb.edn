@@ -1,0 +1,7 @@
+{:paths ["src"]
+ :tasks {:requires ([babashka.fs :as fs]
+                    [journal.list :as list])
+         welcome (println "welcome to your dream journal")
+         clear (fs/delete-if-exists "entries.edn")
+         list (list/list-entries nil)
+         add (exec 'journal.add/add-entry)}}
