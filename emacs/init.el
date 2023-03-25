@@ -481,4 +481,8 @@
   :config
   (org-roam-db-autosync-mode))
 
+; Better terminal integration
+(use-package vterm
+  :ensure t)
+
 (org-indent-mode t)
