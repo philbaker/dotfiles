@@ -136,6 +136,20 @@
 (global-display-fill-column-indicator-mode)
 (set-face-foreground 'fill-column-indicator "#373844")
 
+;; Syntax
+(use-package web-mode
+  :commands (web-mode)
+  :init
+  (add-to-list 'auto-mode-alist '("\\.blade.php\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.ts\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
+  :config
+  (setq web-mode-engines-alist
+    '(("php"    . "\\.phtml\\'")
+       ("blade"  . "\\.blade\\."))))
+
 ;; LSP config
 (use-package lsp-mode
   :commands lsp
@@ -225,6 +239,10 @@
   (global-set-key (kbd "C-h a") 'helm-apropos) ; Helmized apropos interface
   (global-set-key (kbd "M-x") 'helm-M-x) ; Improved M-x menu
   (global-set-key (kbd "M-y") 'helm-show-kill-ring)) ; Show kill ring, pick something to paste
+
+; Similar to vim-vinegar
+(define-key evil-normal-state-map (kbd "-") 'find-file)
+
 (use-package helm-ag)
 (use-package projectile)
 (setq projectile-git-submodule-command "")
