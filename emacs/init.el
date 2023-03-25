@@ -2,7 +2,6 @@
 (let ((local-settings "~/.emacs.local"))
   (if (file-exists-p local-settings)
     (load-file local-settings)))
-
 ; .emacs.local
 ; (setq user-emacs-directory "/path/to/.emacs.d")
 ; (setenv "HOME" "/home/me/")
@@ -31,9 +30,6 @@
 (blink-cursor-mode 0)
 
 ; Fonts
-(use-package fira-code-mode
-  :custom (fira-code-mode-disabled-ligatures '("[]" "#{" "#(" "#_" "#_(" "x")) ;; List of ligatures to turn off
-  :hook prog-mode) ;; Enables fira-code-mode automatically for programming major modes
 (set-face-attribute 'fixed-pitch nil :font "Fira Code" :height 120)
 (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 115 :weight 'regular)
 (when (eq system-type 'gnu/linux)
