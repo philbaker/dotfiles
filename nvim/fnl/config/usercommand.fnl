@@ -147,3 +147,10 @@
       (vim.cmd ":sleep 300m")
       (vim.cmd ":e %")))
 {:bang false})
+
+; ':Note info.md' will open a buffer for Ymd-info.md
+(vim.api.nvim_create_user_command 
+  "Note"
+  (fn [opts] 
+    (vim.cmd (.. ":e" (.. (os.date "!%Y%m%d-") opts.args))))
+  {:nargs "?"})	
