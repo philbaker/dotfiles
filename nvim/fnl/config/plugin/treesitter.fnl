@@ -1,7 +1,9 @@
 (module config.plugin.treesitter
   {autoload {treesitter nvim-treesitter.configs}})
 
-(treesitter.setup {:highlight {:enable true}
+(treesitter.setup {:highlight {:enable true
+                               :disable ["org"]
+                               :additional_vim_regex_highlighting ["org"]}
                    :matchup {:enable true
                              :disable ["javascript"]}
                    :indent {:enable true
@@ -21,4 +23,5 @@
                                       "fennel"
                                       "markdown"
                                       "python"
-                                      "java"]})
+                                      "java"
+                                      "org"]})

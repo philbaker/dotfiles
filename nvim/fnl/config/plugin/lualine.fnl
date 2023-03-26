@@ -36,6 +36,7 @@
    :sections {:lualine_a []
               :lualine_b [[:mode {:upper true}]]
               :lualine_c [["FugitiveHead"]
+                          ["orgmode.statusline()"]
                           [:filename {:filestatus true
                                       :path 1}]]
               :lualine_x [[:diagnostics {:sections [:error

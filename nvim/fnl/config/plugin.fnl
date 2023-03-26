@@ -92,6 +92,9 @@
   :axvr/org.vim {}
   :sbdchd/neoformat {}
 
+  ; Org mode
+  :nvim-orgmode/orgmode {:mod :orgmode}
+
   ; Session management
   :tpope/vim-obsession {}
 
