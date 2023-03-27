@@ -46,3 +46,10 @@
     (let [current-word (vim.call "expand" "<cword>")
           replacement (nbb-script "rem_to_pixel" (tostring current-word)) ]
       (vim.cmd (.. "normal! diwi" replacement)))))
+
+(def replace-hex-rgb
+  (fn
+    []
+    (let [current-word (vim.call "expand" "<cword>")
+          replacement (nbb-script "hex_to_rgb" (.. "\"" (tostring current-word) "\""))]
+      (vim.cmd (.. "normal! diwi" replacement)))))

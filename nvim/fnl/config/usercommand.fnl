@@ -206,3 +206,9 @@
   (fn []
     (helper.replace-rem-pixel))
 {:bang false})
+
+(vim.api.nvim_create_user_command 
+  "Nhr"
+  (fn []
+    (helper.replace-hex-rgb))
+{:bang false})
