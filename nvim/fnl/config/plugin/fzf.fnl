@@ -5,6 +5,8 @@
 (nvim.set_keymap :n :<leader>te ":Files<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>ah ":Files<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>aa "<Plug>AgRawSearch" {:noremap true})
+; Search gitignored files
+(nvim.set_keymap :n :<leader>au ":AgRaw -u " {:noremap true})
 (nvim.set_keymap :n :<leader>ag ":GFiles<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>am ":Marks<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>al ":tab help " {:noremap true})

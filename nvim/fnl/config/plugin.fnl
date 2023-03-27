@@ -91,6 +91,7 @@
   :elixir-editors/vim-elixir {}
   :axvr/org.vim {}
   :sbdchd/neoformat {}
+  :junegunn/vim-easy-align {:mod :vimeasyalign}
 
   ; Org mode
   :nvim-orgmode/orgmode {:mod :orgmode}

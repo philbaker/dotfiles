@@ -154,3 +154,14 @@
   (fn [opts] 
     (vim.cmd (.. ":e" (.. (os.date "!%Y%m%d-") opts.args))))
   {:nargs "?"})	
+
+; Checklists
+(vim.api.nvim_create_user_command
+  "ChTest"
+  (fn []
+    (do
+      (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/all/01-checklists/dev-testing.md"))
+      (vim.cmd "normal! ggyG")
+      (vim.cmd :b#)))
+  {:bang false})
+
