@@ -194,3 +194,15 @@
     (let [current-dir (vim.fn.getcwd)]
       (vim.cmd (.. ":3T cd ~/neotes && bb scripts/decrypt.clj && cd " current-dir))))
 {:bang false})
+
+(vim.api.nvim_create_user_command 
+  "Npxr"
+  (fn []
+    (helper.replace-pixel-rem))
+{:bang false})
+
+(vim.api.nvim_create_user_command 
+  "Nrpx"
+  (fn []
+    (helper.replace-rem-pixel))
+{:bang false})

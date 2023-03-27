@@ -1,0 +1,11 @@
+{
+  "name": "nbbs",
+  "version": "0.1.0",
+  "description": "A set of command line scripts",
+  "main": "index.mjs",
+  "author": "philbaker",
+  "license": "MIT",
+  "dependencies": {
+    "nbb": "^1.2.171"
+  }
+}
