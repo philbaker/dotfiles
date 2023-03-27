@@ -93,9 +93,6 @@
   :sbdchd/neoformat {}
   :junegunn/vim-easy-align {:mod :vimeasyalign}
 
-  ; Org mode
-  :nvim-orgmode/orgmode {:mod :orgmode}
-
   ; Session management
   :tpope/vim-obsession {}
 
