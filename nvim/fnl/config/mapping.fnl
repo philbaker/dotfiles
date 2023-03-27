@@ -26,10 +26,13 @@
 
 ; Open nvim config
 (nvim.set_keymap :n :<leader>dc ":e ~/dotfiles/nvim/fnl/config/core.fnl<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>dm ":e ~/dotfiles/nvim/fnl/config/mapping.fnl<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>du ":e ~/dotfiles/nvim/fnl/config/usercommand.fnl<CR>" {:noremap true})
 
 ; Open notes
 (nvim.set_keymap :n :<leader>da ":e ~/neotes/all<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>dv ":e ~/neotes/all/vim-sexp-key-bindings.md<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>de ":Note " {:noremap true})
 
 ; Movement
 (nvim.set_keymap :n :<leader>h "<C-W>h" {:noremap true})

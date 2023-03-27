@@ -148,13 +148,6 @@
       (vim.cmd ":e %")))
 {:bang false})
 
-; ':Note info.md' will open a buffer for Ymd-info.md
-(vim.api.nvim_create_user_command 
-  "Note"
-  (fn [opts] 
-    (vim.cmd (.. ":e" (.. (os.date "!%Y%m%d-") opts.args))))
-  {:nargs "?"})	
-
 ; Checklists
 (vim.api.nvim_create_user_command
   "ChTest"
@@ -162,6 +155,50 @@
     (do
       (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/all/01-checklists/dev-testing.md"))
       (vim.cmd "normal! ggyG")
-      (vim.cmd :b#)))
+      (vim.cmd :b#)
+      (vim.cmd "normal! p")))
   {:bang false})
 
+(fn ag-outside-cwd
+  [dir args]
+  "Runs Ag search outside of current directory"
+  (let [current-dir (vim.fn.getcwd)]
+      (do
+        (vim.api.nvim_set_current_dir (.. (os.getenv "HOME") dir))
+        (vim.cmd (.. ":AgRaw -u " args))
+        (vim.api.nvim_set_current_dir current-dir))))
+
+(vim.api.nvim_create_user_command 
+  "Sv"
+  (fn [opts]
+    (ag-outside-cwd "/dotfiles/nvim" opts.args))
+  {:nargs "?"})
+
+; Notes
+; ':Note info.md' will open a buffer for Ymd-info.md
+(vim.api.nvim_create_user_command 
+  "Note"
+  (fn [opts] 
+    (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/all/" (os.date "!%Y%m%d-") opts.args))
+  {:nargs "?"})	
+
+(vim.api.nvim_create_user_command 
+  "Sn"
+  (fn [opts]
+    (let [current-dir (vim.fn.getcwd)]
+      (ag-outside-cwd "/neotes" opts.args)))
+  {:nargs "?"})
+
+(vim.api.nvim_create_user_command 
+  "En"
+  (fn []
+    (let [current-dir (vim.fn.getcwd)]
+      (vim.cmd (.. ":3T cd ~/neotes && bb scripts/encrypt.clj && cd " current-dir))))
+{:bang false})
+
+(vim.api.nvim_create_user_command 
+  "De"
+  (fn []
+    (let [current-dir (vim.fn.getcwd)]
+      (vim.cmd (.. ":3T cd ~/neotes && bb scripts/decrypt.clj && cd " current-dir))))
+{:bang false})
