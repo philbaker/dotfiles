@@ -179,8 +179,8 @@
 (vim.api.nvim_create_user_command 
   "Note"
   (fn [opts] 
-    (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/all/" (os.date "!%Y%m%d-") opts.args))
-  {:nargs "?"})	
+    (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/all/" (os.date "!%Y%m%d-") opts.args)))
+  {:nargs "?"})
 
 (vim.api.nvim_create_user_command 
   "Sn"
