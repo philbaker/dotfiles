@@ -1,4 +1,6 @@
-(module config.usercommand)
+(module config.usercommand
+  {autoload {a aniseed.core
+             helper config.helper}})
 
 (vim.api.nvim_create_user_command 
   "RebaseMain"
@@ -152,26 +154,16 @@
 (vim.api.nvim_create_user_command
   "ChTest"
   (fn []
-    (do
-      (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/all/01-checklists/dev-testing.md"))
-      (vim.cmd "normal! ggyG")
-      (vim.cmd :b#)
-      (vim.cmd "normal! p")))
+    (let [file (assert (io.open (.. (os.getenv "HOME") "/neotes/all/01-checklists/dev-testing.md")))
+          lines (helper.split-string-by-line (file:read "*a"))]
+      (file:close)
+      (vim.api.nvim_buf_set_lines 0 -1 -1 false lines)))
   {:bang false})
-
-(fn ag-outside-cwd
-  [dir args]
-  "Runs Ag search outside of current directory"
-  (let [current-dir (vim.fn.getcwd)]
-      (do
-        (vim.api.nvim_set_current_dir (.. (os.getenv "HOME") dir))
-        (vim.cmd (.. ":AgRaw -u " args))
-        (vim.api.nvim_set_current_dir current-dir))))
 
 (vim.api.nvim_create_user_command 
   "Sv"
   (fn [opts]
-    (ag-outside-cwd "/dotfiles/nvim" opts.args))
+    (helper.ag-outside-cwd "/dotfiles/nvim" opts.args))
   {:nargs "?"})
 
 ; Notes
@@ -186,7 +178,7 @@
   "Sn"
   (fn [opts]
     (let [current-dir (vim.fn.getcwd)]
-      (ag-outside-cwd "/neotes" opts.args)))
+      (helper.ag-outside-cwd "/neotes" opts.args)))
   {:nargs "?"})
 
 (vim.api.nvim_create_user_command 

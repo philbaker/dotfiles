@@ -1,5 +1,5 @@
 (module config.mapping
-  {autoload { nvim aniseed.nvim}})
+  {autoload {nvim aniseed.nvim}})
 
 ; Leader mapping
 (nvim.set_keymap :n :<space> :<nop> {:noremap true})
