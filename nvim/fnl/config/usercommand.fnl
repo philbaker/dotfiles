@@ -203,3 +203,9 @@
   (fn []
     (helper.replace-hex-rgb))
 {:bang false})
+
+(vim.api.nvim_create_user_command 
+  "Svg"
+  (fn [opts]
+    (helper.insert-optimised-svg opts.args))
+{:nargs "?"})

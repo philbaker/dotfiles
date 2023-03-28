@@ -30,6 +30,12 @@
     (remove-all-spaces 
       (vim.fn.system (.. "nbb " scripts-dir script ".cljs " args)))))
 
+(defn nbb-script-spaces
+  [script args]
+  "Calls external nbb scripts"
+  (let [scripts-dir (.. (os.getenv "HOME") "/dotfiles/scripts/nbbs/")]
+    (vim.fn.system (.. "nbb " scripts-dir script ".cljs " args))))
+
 (defn replace-pixel-rem
   []
   "Replaces pixel value with rem in place"
@@ -55,3 +61,11 @@
   []
   "Returns Linux or Darwin"
   (. (vim.loop.os_uname) "sysname"))
+
+(defn insert-optimised-svg
+  [file-name id]
+  (vim.api.nvim_buf_set_lines 0 -1 -1 false 
+                              (split-string-by-line 
+                                (if id
+                                  (nbb-script-spaces "svg_to_symbol" (.. (os.getenv "HOME") "/Downloads/" file-name id))
+                                  (nbb-script-spaces "svg_to_symbol" (.. (os.getenv "HOME") "/Downloads/" file-name))))))
