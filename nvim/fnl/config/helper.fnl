@@ -50,3 +50,8 @@
   (let [current-word (vim.call "expand" "<cword>")
         replacement (nbb-script "hex_to_rgb" (.. "\"" (tostring current-word) "\""))]
     (vim.cmd (.. "normal! diwi" replacement))))
+
+(defn system-os
+  []
+  "Returns Linux or Darwin"
+  (. (vim.loop.os_uname) "sysname"))

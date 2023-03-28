@@ -2,34 +2,45 @@
   {autoload {a aniseed.core
              helper config.helper}})
 
+; Build processes
 (vim.api.nvim_create_user_command 
-  "RebaseMain"
-  (fn [] (vim.cmd ":2T git rebase -i main"))
+  "Nbb"
+  (fn [opts] 
+    (vim.cmd (.. "1T nbb nrepl-server :port " opts.args)))
+  {:nargs "?"})
+
+(vim.api.nvim_create_user_command 
+  "Shw"
+  (fn [] 
+    (vim.cmd "1T npm run shadow:watch"))
   {:bang false})
 
 (vim.api.nvim_create_user_command 
-  "RebaseContinue"
-  (fn [] (vim.cmd ":2T git rebase --continue"))
+  "Shr"
+  (fn [] 
+    (vim.cmd "1T npm run shadow:release"))
   {:bang false})
 
 (vim.api.nvim_create_user_command 
-  "RebaseAbort"
-  (fn [] (vim.cmd ":2T git rebase --abort"))
+  "Tww"
+  (fn [] 
+    (vim.cmd "1T npm run tailwind:watch"))
   {:bang false})
 
 (vim.api.nvim_create_user_command 
-  "NPMRunWatch"
+  "Twr"
+  (fn [] 
+    (vim.cmd "1T npm run tailwind:release"))
+  {:bang false})
+
+(vim.api.nvim_create_user_command 
+  "Npw"
   (fn [] (vim.cmd "1T npm run watch"))
   {:bang false})
 
 (vim.api.nvim_create_user_command 
-  "NPMRunProd" 
+  "Npr" 
   (fn [] (vim.cmd "2T npm run prod"))
-  {:bang false})
-
-(vim.api.nvim_create_user_command 
-  "NPMStopCheckoutMain"
-  (fn [] (vim.cmd ":2Tkill<CR>:2T git checkout .<CR>:2T git checkout main<CR>"))
   {:bang false})
 
 (vim.api.nvim_create_user_command 
@@ -47,7 +58,7 @@
   {:bang false})
 
 (vim.api.nvim_create_user_command 
-  "Cln"
+  "Clj"
   (fn [] 
     (vim.cmd "1T clj -A:dev"))
   {:bang false})
@@ -56,18 +67,6 @@
   "Sqr"
   (fn [] 
     (vim.cmd "3T bb mjs_to_js.clj ./pages"))
-  {:bang false})
-
-(vim.api.nvim_create_user_command 
-  "Bbn"
-  (fn [] 
-    (vim.cmd "1T bb nrepl-server 1667"))
-  {:bang false})
-
-(vim.api.nvim_create_user_command 
-  "Bbc"
-  (fn [] 
-    (vim.cmd "ConjureConnect 1667"))
   {:bang false})
 
 (vim.api.nvim_create_user_command 
@@ -124,13 +123,6 @@
     (vim.cmd ":w"))
   {:bang false})
 
-(vim.api.nvim_create_user_command
-  "Rle"
-  (fn []
-    (vim.cmd ":%s/let")
-    (vim.cmd ":w"))
-  {:bang false})
-
 (vim.api.nvim_create_user_command 
   "Pec"
   (fn [] 
@@ -150,7 +142,7 @@
       (vim.cmd ":e %")))
 {:bang false})
 
-; Checklists
+; Note helpers
 (vim.api.nvim_create_user_command
   "ChTest"
   (fn []
@@ -166,8 +158,6 @@
     (helper.ag-outside-cwd "/dotfiles/nvim" opts.args))
   {:nargs "?"})
 
-; Notes
-; ':Note info.md' will open a buffer for Ymd-info.md
 (vim.api.nvim_create_user_command 
   "Note"
   (fn [opts] 
@@ -195,6 +185,7 @@
       (vim.cmd (.. ":3T cd ~/neotes && bb scripts/decrypt.clj && cd " current-dir))))
 {:bang false})
 
+; Dev helpers
 (vim.api.nvim_create_user_command 
   "Npxr"
   (fn []
