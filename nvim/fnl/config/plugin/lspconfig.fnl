@@ -65,11 +65,6 @@
   (lsp.cssls.setup defaults)
   (lsp.pylsp.setup defaults)
 
-  (lsp.elixirls.setup {:cmd [(.. (os.getenv "HOME") "/elixirls/language_server.sh")]
-                       :on_attach on_attach
-                       :handlers handlers
-                       :capabilities capabilities})
-
   (lsp.intelephense.setup {:on_attach on_attach
                            :flags [:debounce_text_changes 500]
                            :init_options [:licenceKey (.. (os.getenv "HOME") "/intelephense/licence.txt")]

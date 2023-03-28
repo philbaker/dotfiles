@@ -3,7 +3,9 @@
 
 (nvim.set_keymap :n :<leader>. ":Buffers<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>te ":Files<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>ah ":Files<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>td ":Files ~/dotfiles<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>tn ":Files ~/neotes<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>tf ":Files ~/Downloads<CR>" {:noremap true})
 (nvim.set_keymap :n :<leader>aa "<Plug>AgRawSearch" {:noremap true})
 (nvim.set_keymap :n :<leader>av ":Sv " {:noremap true})
 (nvim.set_keymap :n :<leader>an ":Sn " {:noremap true})

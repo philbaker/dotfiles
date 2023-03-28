@@ -1,7 +1,6 @@
 (module config.core
   {autoload {core aniseed.core
              nvim aniseed.nvim
-             util config.util
              str aniseed.string}
    require-macros [config.macro]})
 
@@ -40,18 +39,6 @@
 
 ; Stop repeating comment character on new line
 (nvim.ex.autocmd :FileType :* "setlocal formatoptions-=c formatoptions-=r formatoptions-=o")
-
-; Use correct comment syntax
-(augroup comment-type
-         (nvim.ex.autocmd
-           :FileType "elixir"
-           "setlocal commentstring=#\\ %s")
-         (nvim.ex.autocmd
-           :FileType "heex"
-           "setlocal commentstring=<%#%s%>")
-         (nvim.ex.autocmd
-           :FileType "svelte"
-           "setlocal commentstring=<!--%s-->"))
 
 ; Follow terminal output
 (nvim.ex.let "neoterm_autoinsert=1")

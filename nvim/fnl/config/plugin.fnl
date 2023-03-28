@@ -1,7 +1,6 @@
 (module config.plugin
   {autoload {nvim aniseed.nvim
              a aniseed.core
-             util config.util
              packer packer}})
 
 (defn- safe-require-plugin-config [name]
@@ -50,12 +49,6 @@
   ; REPL tools
   :Olical/conjure {:branch :master :mod :conjure}
   :kassio/neoterm {:mod :neoterm}
-  :clojure-vim/vim-jack-in {}
-  :tpope/vim-dispatch {}
-
-  ; S-expressions
-  :philbaker/vim-sexp {:mod :sexp}
-  :tpope/vim-sexp-mappings-for-regular-people {}
 
   ; Comments
   :tpope/vim-commentary {}
@@ -64,12 +57,7 @@
   :tpope/vim-fugitive {}
   :airblade/vim-gitgutter {:mod :gitgutter}
 
-  ; Parsing system
-  :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
-                                    :mod :treesitter}
-
   ; Navigation
-  :preservim/nerdtree {:mod :nerdtree}
   :dhruvasagar/vim-zoom {}
   :justinmk/vim-dirvish {}
   :roginfarrer/vim-dirvish-dovish {}
@@ -81,6 +69,8 @@
   :vim-test/vim-test {:mod :vimtest}
 
   ; Syntax
+  :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
+                                    :mod :treesitter}
   :tpope/vim-repeat {}
   :tpope/vim-surround {}
   :sgur/vim-editorconfig {}
@@ -88,13 +78,13 @@
   :jwalton512/vim-blade {}
   :stephpy/vim-php-cs-fixer {}
   :andymass/vim-matchup {:mod :matchup}
-  :elixir-editors/vim-elixir {}
   :axvr/org.vim {}
   :sbdchd/neoformat {}
   :junegunn/vim-easy-align {:mod :vimeasyalign}
 
-  ; Session management
-  :tpope/vim-obsession {}
+  ; S-expressions
+  :philbaker/vim-sexp {:mod :sexp}
+  :tpope/vim-sexp-mappings-for-regular-people {}
 
   ; Autocomplete
   :hrsh7th/vim-vsnip {:mod :vimvsnip}
