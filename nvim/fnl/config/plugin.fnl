@@ -81,6 +81,7 @@
   :axvr/org.vim {}
   :sbdchd/neoformat {}
   :junegunn/vim-easy-align {:mod :vimeasyalign}
+  :JoosepAlviste/nvim-ts-context-commentstring {}
 
   ; S-expressions
   :philbaker/vim-sexp {:mod :sexp}
