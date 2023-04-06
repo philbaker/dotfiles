@@ -20,4 +20,5 @@
                                       "markdown"
                                       "python"
                                       "java"
-                                      "org"]})
+                                      "org"
+                                      "vue"]})
