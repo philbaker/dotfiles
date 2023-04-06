@@ -1,29 +1,30 @@
 (module config.plugin.neoterm
-  {autoload {nvim aniseed.nvim}})
+  {autoload {nvim aniseed.nvim
+             util config.util}})
 
 ; Defaults
 (nvim.ex.let "g:neoterm_autoscroll = 1")
 (nvim.ex.let "g:neoterm_size = 10")
 
 ; Send to REPL
-(nvim.set_keymap :n :<leader>r "<Plug>(neoterm-repl-send-line)" {:noremap false})
-(nvim.set_keymap :n :<leader>er "<Plug>(neoterm-repl-send)" {:noremap false})
-(nvim.set_keymap :v :<leader>E "<Plug>(neoterm-repl-send)" {:noremap false})
-(nvim.set_keymap :n :<leader>ef ":TREPLSendFile<CR>" {:noremap false})
+(util.set-key :<leader>r "<Plug>(neoterm-repl-send-line)" false)
+(util.set-key :<leader>er "<Plug>(neoterm-repl-send)" false)
+(util.set-key :<leader>E "<Plug>(neoterm-repl-send)" false :v)
+(util.set-key :<leader>ef ":TREPLSendFile<CR>" false)
 
 ; Copy repl output to current buffer
 ; Horizontal split
-(nvim.set_keymap :n :<leader>ecc "<C-W>jGkyy<C-W>kpgcc" {:noremap false})
-(nvim.set_keymap :n :<leader>eca "<C-W>jGkV%y<C-W>kpV%gcc<ESC>" {:noremap false})
-(nvim.set_keymap :n :<leader>ep "<leader>r:sleep 10m<CR><leader>ea" {:noremap false})
-(nvim.set_keymap :n :<leader>ey "<leader>r:sleep 10m<CR><leader>eu" {:noremap false})
+(util.set-key :<leader>ecc "<C-W>jGkyy<C-W>kpgcc" false)
+(util.set-key :<leader>eca "<C-W>jGkV%y<C-W>kpV%gcc<ESC>" false)
+(util.set-key :<leader>ep "<leader>r:sleep 10m<CR><leader>ea" false)
+(util.set-key :<leader>ey "<leader>r:sleep 10m<CR><leader>eu" false)
 
 ; Open split terminal windows at bottom
-(nvim.set_keymap :n :<leader>en ":Tnew<CR><Esc>mT<leader>u:botright Tnew<CR><Esc>:vsplit<CR>:Tnew<CR><Esc><C-W><C-R><C-W>h<C-W>k" {:noremap false})
+(util.set-key :<leader>en ":Tnew<CR><Esc>mT<leader>u:botright Tnew<CR><Esc>:vsplit<CR>:Tnew<CR><Esc><C-W><C-R><C-W>h<C-W>k" false)
 ; Open split terminal windows at right
-(nvim.set_keymap :n :<leader>et ":Tnew<CR><Esc>mT<leader>:vsplit<CR>:Tnew<CR><Esc>:split<CR>:Tnew<CR><Esc><C-W><C-R><C-W>h<C-W>k" {:noremap false})
+(util.set-key :<leader>et ":Tnew<CR><Esc>mT<leader>:vsplit<CR>:Tnew<CR><Esc>:split<CR>:Tnew<CR><Esc><C-W><C-R><C-W>h<C-W>k" false)
 
-(nvim.set_keymap :n :<leader>ec ":TcloseAll!" {:noremap false})
+(util.set-key :<leader>ec ":TcloseAll!" false)
 
 ; Resize terminal windows
-(nvim.set_keymap :n :<leader>ei "<C-W>j:resize 10<CR><C-W>k" {:noremap false})
+(util.set-key :<leader>ei "<C-W>j:resize 10<CR><C-W>k" false)

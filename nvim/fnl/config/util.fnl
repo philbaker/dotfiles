@@ -1,4 +1,5 @@
-(module config.helper)
+(module config.util
+  {autoload {nvim aniseed.nvim}})
 
 (defn ag-outside-cwd 
   [dir args]
@@ -69,3 +70,12 @@
                                 (if id
                                   (nbb-script-spaces "svg_to_symbol" (.. (os.getenv "HOME") "/Downloads/" file-name id))
                                   (nbb-script-spaces "svg_to_symbol" (.. (os.getenv "HOME") "/Downloads/" file-name))))))
+
+(defn set-key [key action noremap ?mode]
+  (nvim.set_keymap (or ?mode :n) key action {:noremap noremap}))
+
+(defn set-uc [name command ?opts]
+  (vim.api.nvim_create_user_command 
+    name 
+    command 
+    (or ?opts {:bang false})))

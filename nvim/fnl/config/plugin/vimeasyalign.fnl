@@ -1,5 +1,6 @@
 (module config.plugin.vimeasyalign
-  {autoload { nvim aniseed.nvim}})
+  {autoload {nvim aniseed.nvim
+             util config.util}})
 
-(nvim.set_keymap :x :<leader>ea "<Plug>(EasyAlign)" {:noremap true})
-(nvim.set_keymap :n :<leader>ea "<Plug>(EasyAlign)" {:noremap true})
+(util.set-key :<leader>ea "<Plug>(EasyAlign)" true :x)
+(util.set-key :<leader>ea "<Plug>(EasyAlign)" true)

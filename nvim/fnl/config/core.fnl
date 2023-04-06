@@ -1,8 +1,7 @@
 (module config.core
   {autoload {core aniseed.core
              nvim aniseed.nvim
-             str aniseed.string}
-   require-macros [config.macro]})
+             str aniseed.string}})
 
 ; Don't wrap lines
 (nvim.ex.set :nowrap)

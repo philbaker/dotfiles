@@ -1,97 +1,98 @@
 (module config.mapping
-  {autoload {nvim aniseed.nvim}})
+  {autoload {nvim aniseed.nvim
+             util config.util}})
 
 ; Leader mapping
-(nvim.set_keymap :n :<space> :<nop> {:noremap true})
+(util.set-key :<space> :<nop>)
 (set nvim.g.mapleader " ")
 (set nvim.g.maplocalleader ",")
 
 ; General mapping
 
 ; Disable highlight
-(nvim.set_keymap :n :<leader><CR> ":noh<CR>" {:noremap true})
+(util.set-key :<leader><CR> ":noh<CR>" false)
 
 ; Save file
-(nvim.set_keymap :n :<leader>s ":w<CR>" {:noremap true})
-(nvim.set_keymap :n :<localleader>s ":Sq<CR>:Sqr<CR>" {:noremap true})
+(util.set-key :<leader>s ":w<CR>" false)
+(util.set-key :<localleader>s ":Sq<CR>:Sqr<CR>" false)
 
 ; Escape for terminal mode
-(nvim.set_keymap :t :<Esc> "<C-\\><C-n>" {:noremap true})
+(util.set-key :<Esc> "<C-\\><C-n>" false :t)
 
 ; Restore default redo
-(nvim.set_keymap :n :<C-R> "<C-R>" {:noremap true})
+(util.set-key :<C-R> "<C-R>" false)
 
 ; Switch buffer
-(nvim.set_keymap :n :<leader>u "<C-^>" {:noremap true})
+(util.set-key :<leader>u "<C-^>" false)
 
 ; Open nvim config
-(nvim.set_keymap :n :<leader>dc ":e ~/dotfiles/nvim/fnl/config/core.fnl<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>dm ":e ~/dotfiles/nvim/fnl/config/mapping.fnl<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>du ":e ~/dotfiles/nvim/fnl/config/usercommand.fnl<CR>" {:noremap true})
+(util.set-key :<leader>dc ":e ~/dotfiles/nvim/fnl/config/core.fnl<CR>" false)
+(util.set-key :<leader>dm ":e ~/dotfiles/nvim/fnl/config/mapping.fnl<CR>" false)
+(util.set-key :<leader>du ":e ~/dotfiles/nvim/fnl/config/usercommand.fnl<CR>" false)
 
 ; Open notes
-(nvim.set_keymap :n :<leader>da ":e ~/neotes/all<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>dv ":e ~/neotes/all/vim-sexp-key-bindings.md<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>de ":Note " {:noremap true})
+(util.set-key :<leader>da ":e ~/neotes/all<CR>" true)
+(util.set-key :<leader>dv ":e ~/neotes/all/vim-sexp-key-bindings.md<CR>" true)
+(util.set-key :<leader>de ":Note " true)
 
 ; Movement
-(nvim.set_keymap :n :<leader>h "<C-W>h" {:noremap true})
-(nvim.set_keymap :n :<leader>j "<C-W>j" {:noremap true})
-(nvim.set_keymap :n :<leader>k "<C-W>k" {:noremap true})
-(nvim.set_keymap :n :<leader>l "<C-W>l" {:noremap true})
-(nvim.set_keymap :n :<leader>pp "<C-W><C-P>" {:noremap true})
-(nvim.set_keymap :n :<leader>pl "<C-W>j<C-W>l" {:noremap true})
-(nvim.set_keymap :n :<leader>pmj "<C-W>j<Plug>(zoom-toggle)" {:noremap true})
-(nvim.set_keymap :n :<leader>pml "<C-W>j<C-W>l<Plug>(zoom-toggle)" {:noremap true})
-(nvim.set_keymap :n :<leader>pmk "<C-W>k<Plug>(zoom-toggle)" {:noremap true})
-(nvim.set_keymap :n :<leader>m "<Plug>(zoom-toggle)" {:noremap true})
-(nvim.set_keymap :n :<leader>o "<ESC>jcc" {:noremap true})
-(nvim.set_keymap :n :<localleader>o "k==o" {:noremap true})
+(util.set-key :<leader>h "<C-W>h" true)
+(util.set-key :<leader>j "<C-W>j" true)
+(util.set-key :<leader>k "<C-W>k" true)
+(util.set-key :<leader>l "<C-W>l" true)
+(util.set-key :<leader>pp "<C-W><C-P>" true)
+(util.set-key :<leader>pl "<C-W>j<C-W>l" true)
+(util.set-key :<leader>pmj "<C-W>j<Plug>(zoom-toggle)" true)
+(util.set-key :<leader>pml "<C-W>j<C-W>l<Plug>(zoom-toggle)" true)
+(util.set-key :<leader>pmk "<C-W>k<Plug>(zoom-toggle)" true)
+(util.set-key :<leader>m "<Plug>(zoom-toggle)" true)
+(util.set-key :<leader>o "<ESC>jcc" true)
+(util.set-key :<localleader>o "k==o" true)
 
 ; Resize windows
-(nvim.set_keymap :n :<S-Up> "<C-w>+" {:noremap true})
-(nvim.set_keymap :n :<S-Down> "<C-w>-" {:noremap true})
-(nvim.set_keymap :n :<S-Right> "<C-w>>" {:noremap true})
-(nvim.set_keymap :n :<S-Left> "<C-w><" {:noremap true})
+(util.set-key :<S-Up> "<C-w>+" true)
+(util.set-key :<S-Down> "<C-w>-" true)
+(util.set-key :<S-Right> "<C-w>>" true)
+(util.set-key :<S-Left> "<C-w><" true)
 
 ; Git
-(nvim.set_keymap :n :<leader>gg ":tab G<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>gl ":tab G log<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>ga ":G add .<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>gp ":G push<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>gc ":G checkout " {:noremap true})
+(util.set-key :<leader>gg ":tab G<CR>" true)
+(util.set-key :<leader>gl ":tab G log<CR>" true)
+(util.set-key :<leader>ga ":G add .<CR>" true)
+(util.set-key :<leader>gp ":G push<CR>" true)
+(util.set-key :<leader>gc ":G checkout " true)
 
 ; Toggle line numbers
-(nvim.set_keymap :n :<leader>pn ":set invnumber<CR>" {:noremap true})
+(util.set-key :<leader>pn ":set invnumber<CR>" true)
 
 ; Show directories
-(nvim.set_keymap :n :<leader>- "<Plug>(dirvish_up)<CR>" {:noremap true})
-(nvim.set_keymap :n :- "<Plug>(dirvish_up)<CR>" {:noremap true})
+(util.set-key :<leader>- "<Plug>(dirvish_up)<CR>" true)
+(util.set-key :- "<Plug>(dirvish_up)<CR>" true)
 
 ; Format
-(nvim.set_keymap :n :<leader>pr ":Prettier<CR>" {:noremap true})
+(util.set-key :<leader>pr ":Prettier<CR>" true)
 
 ; Clerk
-(nvim.set_keymap :n :<localleader>cs ":ClerkShow<CR>" {:noremap false})
+(util.set-key :<localleader>cs ":ClerkShow<CR>" false)
 
 ; Compile Java
-(nvim.set_keymap :n :<localleader>jc ":Jac<CR>" {:noremap false})
+(util.set-key :<localleader>jc ":Jac<CR>" false)
 
 ; Run Java
-(nvim.set_keymap :n :<localleader>jr ":Jar<CR>" {:noremap false})
+(util.set-key :<localleader>jr ":Jar<CR>" false)
 
-; Node REPL helpers
-(nvim.set_keymap :n :<leader>pe ":Rex<CR>" {:noremap false})
-(nvim.set_keymap :n :<leader>pc ":Rco<CR>" {:noremap false})
-(nvim.set_keymap :n :<leader>pt ":Rle<CR>" {:noremap false})
-(nvim.set_keymap :n :<leader>pf "$V%:s/export //g<CR>" {:noremap false})
+; Node REPL utils
+(util.set-key :<leader>pe ":Rex<CR>" false)
+(util.set-key :<leader>pc ":Rco<CR>" false)
+(util.set-key :<leader>pt ":Rle<CR>" false)
+(util.set-key :<leader>pf "$V%:s/export //g<CR>" false)
 
 ; write Jasmine test from rich comment
-(nvim.set_keymap :n :<leader>pj "f;xIexpect(<ESC>A).toBe(<ESC>JxA);<ESC>" {:noremap false})
+(util.set-key :<leader>pj "f;xIexpect(<ESC>A).toBe(<ESC>JxA);<ESC>" false)
 
 ; turn it back into a comment
-(nvim.set_keymap :n :<leader>pk "/to<CR>hxi<CR><ESC> <CR>wdt(%x^xkdt(%x^xA;<ESC>^" {:noremap false})
+(util.set-key :<leader>pk "/to<CR>hxi<CR><ESC> <CR>wdt(%x^xkdt(%x^xA;<ESC>^" false)
 
-(nvim.set_keymap :n :<leader>ps ":Pec<CR>" {:noremap false})
+(util.set-key :<leader>ps ":Pec<CR>" false)
 
-(nvim.set_keymap :n :<leader>pi ":Pint<CR>" {:noremap false})
+(util.set-key :<leader>pi ":Pint<CR>" false)

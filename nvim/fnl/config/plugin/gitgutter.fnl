@@ -1,8 +1,9 @@
 (module config.plugin.gitgutter
-  {autoload {nvim aniseed.nvim}})
+  {autoload {nvim aniseed.nvim
+             util config.util}})
 
 (nvim.ex.let "g:gitgutter_map_keys = 0")
-(nvim.set_keymap :n :<leader>ghp "<Plug>(GitGutterPreviewHunk)" {:noremap true})
-(nvim.set_keymap :n :<leader>ghu "<Plug>(GitGutterUndoHunk)" {:noremap true})
-(nvim.set_keymap :n :<leader>ghs "<Plug>(GitGuttonStageHunk)" {:noremap true})
-(nvim.set_keymap :x :<leader>ghs "<Plug>(GitGutterStageHunk)" {:noremap true})
+(util.set-key :<leader>ghp "<Plug>(GitGutterPreviewHunk)" true)
+(util.set-key :<leader>ghu "<Plug>(GitGutterUndoHunk)" true)
+(util.set-key :<leader>ghs "<Plug>(GitGuttonStageHunk)" true)
+(util.set-key :<leader>ghs "<Plug>(GitGutterStageHunk)" true :x)
