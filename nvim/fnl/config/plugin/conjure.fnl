@@ -12,4 +12,4 @@
 (util.set-key :<localleader>zb "kf}V%:s/; (out) /<CR>f}%:noh<CR>" false)
 
 ; Stop Lua errors during eval comment
-(util.set-key :n :<localleader>ecc "^l<localleader>ecr:sleep 10m<CR>f;hxi<CR><ESC>$" false)
+(util.set-key :<localleader>ecc "^l<localleader>ecr:sleep 10m<CR>f;hxi<CR><ESC>$" false)

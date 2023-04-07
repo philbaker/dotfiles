@@ -45,6 +45,12 @@
   :jesseleite/vim-agriculture {}
   :gfanto/fzf-lsp.nvim {}
   :nvim-lua/plenary.nvim {}
+  :nvim-telescope/telescope-live-grep-args.nvim {}
+  :nvim-telescope/telescope.nvim {:mod :telescope
+                                  :requires [:nvim-lua/plenary.nvim
+                                             :nvim-telescope/telescope-live-grep-args.nvim]}
+  :AckslD/nvim-neoclip.lua {:mod :neoclip
+                            :requires [:nvim-telescope/telescope.nvim]}
 
   ; REPL tools
   :Olical/conjure {:branch :master :mod :conjure}
@@ -59,8 +65,7 @@
 
   ; Navigation
   :dhruvasagar/vim-zoom {}
-  :justinmk/vim-dirvish {}
-  :roginfarrer/vim-dirvish-dovish {}
+  :elihunter173/dirbuf.nvim {}
 
   ; LSP
   :neovim/nvim-lspconfig {:mod :lspconfig}

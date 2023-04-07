@@ -96,3 +96,5 @@
 (util.set-key :<leader>ps ":Pec<CR>" false)
 
 (util.set-key :<leader>pi ":Pint<CR>" false)
+
+(util.set-key :<leader>- ":Dirbuf<CR>" false)

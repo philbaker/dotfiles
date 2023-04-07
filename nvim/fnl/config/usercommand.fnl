@@ -114,6 +114,10 @@
     (let [current-dir (vim.fn.getcwd)]
       (vim.cmd (.. ":3T cd ~/neotes && bb scripts/decrypt.clj && cd " current-dir)))))
 
+(util.set-uc "Qtc" (fn [] 
+                    (vim.cmd "tabe")
+                    (vim.cmd "cope")))
+
 ; Dev utils
 (util.set-uc "Npxr" #(util.replace-pixel-rem))
 
