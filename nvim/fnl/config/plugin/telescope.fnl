@@ -3,6 +3,7 @@
              util config.util
              telescope telescope
              actions telescope.actions
+             layout telescope.actions.layout
              themes telescope.themes}})
 
 (telescope.load_extension "live_grep_args")
@@ -10,7 +11,9 @@
 (telescope.load_extension "neoclip")
 
 (telescope.setup {:defaults {:file_ignore_patterns ["node_modules" "public/vendor" "public/js/vendor"]
-                             :mappings {:i {:<c-l> (+ actions.send_to_qflist)}}}
+                             :mappings {:i {:<c-l> actions.send_to_qflist
+                                            :<esc> actions.close
+                                            :? layout.toggle_preview}}}
                   :pickers {:find_files {:find_command ["rg" "--files" "--iglob" "!.git" "--hidden"]}}})
 
 (util.set-key :<leader>ta ":lua require('telescope.builtin').find_files()<CR>" true)
