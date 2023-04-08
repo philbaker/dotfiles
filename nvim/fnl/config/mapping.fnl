@@ -97,4 +97,4 @@
 
 (util.set-key :<leader>pi ":Pint<CR>" false)
 
-(util.set-key :<leader>- ":Dirbuf<CR>" false)
+(util.set-key :- ":Dirbuf<CR>" false)
