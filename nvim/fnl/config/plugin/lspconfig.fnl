@@ -47,12 +47,10 @@
                     (nvim.buf_set_keymap bufnr :n :<leader>cf "<cmd>lua vim.lsp.buf.format()<CR>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>cj "<cmd>lua vim.diagnostic.goto_next()<CR>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>ck "<cmd>lua vim.diagnostic.goto_prev()<CR>" {:noremap true})
-                    ; FZF
-                    (nvim.buf_set_keymap bufnr :n :<leader>ad ":Definitions<CR>" {:noremap true})
-                    (nvim.buf_set_keymap bufnr :n :<leader>as ":DocumentSymbols<CR>" {:noremap true})
-                    (nvim.buf_set_keymap bufnr :n :<leader>ai ":Diagnostics<CR>" {:noremap true})
-                    (nvim.buf_set_keymap bufnr :n :<leader>as ":DiagnosticsAll<CR>" {:noremap true})
-                    (nvim.buf_set_keymap bufnr :n :<leader>ar ":References<CR>" {:noremap true})))]
+                    ; Telescope
+                    (nvim.buf_set_keymap bufnr :n :<leader>ai ":lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>" {:noremap true})
+                    (nvim.buf_set_keymap bufnr :n :<leader>ar ":lua require('telescope.builtin').lsp_references()<CR>" {:noremap true})
+                    (nvim.buf_set_keymap bufnr :n :<leader>ad ":lua require('telescope.builtin').lsp_implementations()<CR>" {:noremap true})))]
 
   (def- defaults {:on_attach on_attach
                   :handlers handlers

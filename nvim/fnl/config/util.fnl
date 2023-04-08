@@ -1,15 +1,6 @@
 (module config.util
   {autoload {nvim aniseed.nvim}})
 
-(defn ag-outside-cwd 
-  [dir args]
-  "Runs Ag search outside of current directory"
-  (let [current-dir (vim.fn.getcwd)]
-    (do
-      (vim.api.nvim_set_current_dir (.. (os.getenv "HOME") dir))
-      (vim.cmd (.. ":AgRaw -u " args))
-      (vim.api.nvim_set_current_dir current-dir))))
-
 (defn split-string-by-line
   [str]
   "Splits a multiline string into an array of lines"

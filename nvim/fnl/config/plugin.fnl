@@ -40,15 +40,13 @@
   :nvim-lualine/lualine.nvim {:mod :lualine}
 
   ; File searching
-  :junegunn/fzf {}
-  :junegunn/fzf.vim {:mod :fzf}
-  :jesseleite/vim-agriculture {}
-  :gfanto/fzf-lsp.nvim {}
   :nvim-lua/plenary.nvim {}
   :nvim-telescope/telescope-live-grep-args.nvim {}
+  :nvim-telescope/telescope-project.nvim {}
   :nvim-telescope/telescope.nvim {:mod :telescope
                                   :requires [:nvim-lua/plenary.nvim
-                                             :nvim-telescope/telescope-live-grep-args.nvim]}
+                                             :nvim-telescope/telescope-live-grep-args.nvim
+                                             :nvim-telescope/telescope-project.nvim]}
   :AckslD/nvim-neoclip.lua {:mod :neoclip
                             :requires [:nvim-telescope/telescope.nvim]}
 
