@@ -48,6 +48,17 @@
 
 (util.set-uc "Phr" #(vim.cmd (.. "2T vendor/bin/phel run %")))
 
+(util.set-uc "Nter" (fn []
+                     (vim.cmd "normal mZ")
+                     (vim.cmd "1Topen")
+                     (vim.cmd "normal mA")
+                     (vim.cmd "2Topen")
+                     (vim.cmd "normal mB")
+                     (vim.cmd "3Topen")
+                     (vim.cmd "normal mC")
+                     (vim.cmd "normal 'Z")
+                     (vim.cmd "stopinsert")))
+
 ; Node REPL utils
 (util.set-uc "Rex" (fn [] 
                      (vim.cmd ":%s/export //g") 

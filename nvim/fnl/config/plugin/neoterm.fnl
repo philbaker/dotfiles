@@ -19,6 +19,9 @@
 (util.set-key :<leader>ep "<leader>r:sleep 10m<CR><leader>ea" false)
 (util.set-key :<leader>ey "<leader>r:sleep 10m<CR><leader>eu" false)
 
+; Sets up default terminals without splits
+(util.set-key :<leader>eg ":Nter<CR>" false)
+
 ; Open split terminal windows at bottom
 (util.set-key :<leader>en ":Tnew<CR><Esc>mT<leader>u:botright Tnew<CR><Esc>:vsplit<CR>:Tnew<CR><Esc><C-W><C-R><C-W>h<C-W>k" false)
 ; Open split terminal windows at right
