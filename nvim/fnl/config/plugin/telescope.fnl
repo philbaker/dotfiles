@@ -12,7 +12,7 @@
 
 (telescope.load_extension "neoclip")
 
-(telescope.load_extension "harpoon");
+(telescope.load_extension "harpoon")
 
 (telescope.setup {:defaults {:file_ignore_patterns ["node_modules" "public/vendor" "public/js/vendor"]
                              :mappings {:i {:<c-l> actions.send_to_qflist
