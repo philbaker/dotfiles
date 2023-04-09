@@ -37,6 +37,7 @@
               :lualine_b [[:mode {:upper true}]]
               :lualine_c [["FugitiveHead"]
                           ["orgmode.statusline()"]
+                          ["tostring(string.gsub(vim.fn.getcwd(), os.getenv('HOME'), ''))"]
                           [:filename {:filestatus true
                                       :path 1}]]
               :lualine_x [[:diagnostics {:sections [:error

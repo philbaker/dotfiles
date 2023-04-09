@@ -70,3 +70,12 @@
     name 
     command 
     (or ?opts {:bang false})))
+
+(defn getcwf 
+  []
+  "Returns abbreviated current working directory"
+  (tostring
+    (string.gsub 
+      (vim.fn.getcwd) 
+      (os.getenv "HOME") 
+      "")))
