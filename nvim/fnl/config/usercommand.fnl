@@ -140,4 +140,38 @@
   "Svg"
   (fn [opts]
     (util.insert-optimised-svg opts.args))
-{:nargs "?"})
+  {:nargs "?"})
+
+; REPL
+; Sets up a terminal split for RDD
+(util.set-uc 
+  "Rsp"
+  (fn []
+    (vim.cmd "sp")
+    (vim.cmd "normal 'C")
+    (vim.cmd "resize 10")
+    (util.cmdtc "<C-w>k"))
+  {:nargs "?"})
+
+; Puts REPL output in code buffer
+(util.set-uc 
+  "Rspa"
+  (fn [opts]
+    (if (not= opts.args "block")
+      (util.cmdtc "<Plug>(neoterm-repl-send-line)"))
+    (vim.cmd "sleep 100ms")
+    (util.cmdtc "<C-w>j")
+    (vim.cmd "normal G")
+    (vim.cmd "normal k")
+    (if (= opts.args "block")
+      (vim.cmd "normal V%y")
+      (vim.cmd "normal yy"))
+    (util.cmdtc "<C-w>k")
+    (vim.cmd "normal p")
+    (if (= opts.args "block")
+      (vim.cmd "normal V%gc")
+      (vim.cmd "normal gcc"))
+    (util.cmdtc "<C-w>j")
+    (vim.cmd "normal G")
+    (util.cmdtc "<C-w>k"))
+  {:nargs "?"})

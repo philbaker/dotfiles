@@ -79,3 +79,8 @@
       (vim.fn.getcwd) 
       (os.getenv "HOME") 
       "")))
+
+(defn cmdtc 
+  [cmd]
+  "A shorter version of nvim_replace_termcodes"
+   (vim.cmd (vim.api.nvim_replace_termcodes (.. "normal " cmd) true true true)))
