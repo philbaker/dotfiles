@@ -12,6 +12,8 @@
 
 (telescope.load_extension "neoclip")
 
+(telescope.load_extension "harpoon");
+
 (telescope.setup {:defaults {:file_ignore_patterns ["node_modules" "public/vendor" "public/js/vendor"]
                              :mappings {:i {:<c-l> actions.send_to_qflist
                                             :<c-r> actions.close
@@ -23,6 +25,7 @@
 (util.set-key :<leader>aa ":lua require('telescope.builtin').live_grep()<CR>" true)
 (util.set-key :<leader>ar ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>" true)
 (util.set-key :<leader>th ":lua require('telescope.builtin').help_tags()<CR>" true)
+(util.set-key :<leader>ta ":Telescope harpoon marks<CR>" true)
 (util.set-key :<leader>tq ":lua require ('telescope.builtin').quickfix()<CR>" true)
 (util.set-key :<leader>tm ":lua require ('telescope.builtin').marks()<CR>" true)
 (util.set-key :<leader>tl ":lua require ('telescope.builtin').resume()<CR>" true)

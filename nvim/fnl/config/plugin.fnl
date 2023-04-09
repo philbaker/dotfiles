@@ -64,6 +64,7 @@
   ; Navigation
   :dhruvasagar/vim-zoom {}
   :elihunter173/dirbuf.nvim {}
+  :ThePrimeagen/harpoon {:mod :harpoon}
 
   ; LSP
   :neovim/nvim-lspconfig {:mod :lspconfig}
