@@ -69,6 +69,7 @@
   :dhruvasagar/vim-zoom {}
   :elihunter173/dirbuf.nvim {}
   :ThePrimeagen/harpoon {:mod :harpoon}
+  :mbbill/undotree {:mod :undotree}
 
   ; LSP
   :neovim/nvim-lspconfig {:mod :lspconfig}

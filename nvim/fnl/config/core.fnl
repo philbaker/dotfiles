@@ -27,7 +27,7 @@
        :signcolumn "yes"
        ; Persistent undo
        :undofile true
-       :undodir "/tmp/undodir"
+       :undodir (vim.fn.expand "~/.undodir")
        ; Share clipboard
        :clipboard "unnamedplus"
        :scrolloff 3
