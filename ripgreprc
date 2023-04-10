@@ -14,7 +14,16 @@ web:*.{html,css,js}*
 --glob=!.clj-kondo/*
 --glob=!.shadow-cljs/*
 --glob=!.lsp/*
+--glob=!.phpunit*
 --glob=!package-lock.json
+--glob=!vendor/*
+--glob=!vendor_local/*
+--glob=!nova-components/*
+--glob=!public/css/*
+--glob=!public/js/*
+--glob=!public/assets/js/*
+--glob=!public/assets/css/*
+--glob=!storage/framework/*
 
 # Set the colors.
 --colors=line:none
