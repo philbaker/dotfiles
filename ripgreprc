@@ -24,6 +24,8 @@ web:*.{html,css,js}*
 --glob=!public/assets/js/*
 --glob=!public/assets/css/*
 --glob=!storage/framework/*
+--glob=!.cpcache/*
+--glob=!.clerk/*
 
 # Set the colors.
 --colors=line:none
