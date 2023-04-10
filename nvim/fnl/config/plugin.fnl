@@ -50,6 +50,10 @@
   :AckslD/nvim-neoclip.lua {:mod :neoclip
                             :requires [:nvim-telescope/telescope.nvim]}
 
+  ; Notes
+  :renerocksai/telekasten.nvim {:mod :telekasten}
+  :renerocksai/calendar-vim {}
+
   ; REPL tools
   :Olical/conjure {:branch :master :mod :conjure}
   :kassio/neoterm {:mod :neoterm}
