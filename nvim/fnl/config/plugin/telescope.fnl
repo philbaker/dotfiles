@@ -18,7 +18,7 @@
                              :mappings {:i {:<c-l> (+ actions.send_to_qflist actions.open_qflist)
                                             :<c-r> actions.close
                                             :? layout.toggle_preview}}}
-                  :pickers {:find_files {:find_command ["rg" "--files" "--iglob" "!.git" "--hidden"]}}})
+                  :pickers {:find_files {:find_command ["rg" "--files" "--iglob" "!.git" "--hidden" "--no-ignore-vcs"]}}})
 
 (util.set-key :<leader>te ":lua require('telescope.builtin').find_files()<CR>" true)
 (util.set-key :<leader>. ":lua require('telescope.builtin').buffers()<CR>" true)

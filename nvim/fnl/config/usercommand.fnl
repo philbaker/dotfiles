@@ -103,6 +103,12 @@
 (util.set-uc 
   "Note"
   (fn [opts] 
+    (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/none/" (os.date "!%Y%m%d-") opts.args)))
+  {:nargs "?"})
+
+(util.set-uc 
+  "Notee"
+  (fn [opts] 
     (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/all/" (os.date "!%Y%m%d-") opts.args)))
   {:nargs "?"})
 
