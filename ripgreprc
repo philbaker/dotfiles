@@ -23,7 +23,7 @@ web:*.{html,css,js}*
 --glob=!public/js/*
 --glob=!public/assets/js/*
 --glob=!public/assets/css/*
---glob=!storage/framework/*
+--glob=!storage/*
 --glob=!.cpcache/*
 --glob=!.clerk/*
 

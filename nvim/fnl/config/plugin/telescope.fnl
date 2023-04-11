@@ -28,7 +28,7 @@
 (util.set-key :<leader>ta ":Telescope harpoon marks<CR>" true)
 (util.set-key :<leader>tq ":lua require ('telescope.builtin').quickfix()<CR>" true)
 (util.set-key :<leader>tm ":lua require ('telescope.builtin').marks()<CR>" true)
-(util.set-key :<leader>tl ":lua require ('telescope.builtin').resume()<CR>" true)
+(util.set-key :<leader>t. ":lua require ('telescope.builtin').resume()<CR>" true)
 (util.set-key :<leader>tj ":lua require ('telescope.builtin').jumplist()<CR>" true)
 (util.set-key :<leader>to ":lua require ('telescope.builtin').autocommands()<CR>" true)
 (util.set-key :<leader>tc ":Qtc<CR>" true)
