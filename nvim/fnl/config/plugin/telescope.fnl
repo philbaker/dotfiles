@@ -31,3 +31,7 @@
 (util.set-key :<leader>tc ":Qtc<CR>" true)
 (util.set-key :<leader>ty ":Telescope neoclip n<CR>" true)
 (util.set-key :<leader>tp ":lua require'telescope'.extensions.project.project{}<CR>" true)
+(util.set-key "<leader>td" ":lua require('telescope.builtin').find_files({search_dirs={vim.fn.expand('~/dotfiles')}})<CR>" false)
+(util.set-key "<leader>tn" ":lua require('telescope.builtin').find_files({search_dirs={vim.fn.expand('~/neotes')}})<CR>" false)
+(util.set-key :<leader>ad ":lua require('telescope.builtin').live_grep({search_dirs={vim.fn.expand('~/dotfiles')}})<CR>" true)
+(util.set-key :<leader>an ":lua require('telescope.builtin').live_grep({search_dirs={vim.fn.expand('~/neotes')}})<CR>" true)
