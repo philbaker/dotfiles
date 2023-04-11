@@ -28,7 +28,6 @@
 (util.set-key :<leader>t. ":lua require ('telescope.builtin').resume()<CR>" true)
 (util.set-key :<leader>tj ":lua require ('telescope.builtin').jumplist()<CR>" true)
 (util.set-key :<leader>to ":lua require ('telescope.builtin').autocommands()<CR>" true)
-(util.set-key :<leader>tc ":Qtc<CR>" true)
 (util.set-key :<leader>ty ":Telescope neoclip n<CR>" true)
 (util.set-key :<leader>tp ":lua require'telescope'.extensions.project.project{}<CR>" true)
 (util.set-key "<leader>td" ":lua require('telescope.builtin').find_files({search_dirs={vim.fn.expand('~/dotfiles')}})<CR>" false)

@@ -98,3 +98,9 @@
 (util.set-key :<leader>pi ":Pint<CR>" false)
 
 (util.set-key :- ":Dirbuf<CR>" false)
+
+; Quick fix list
+(util.set-key :<leader>co ":cope<CR>" true)
+(util.set-key :<leader>cc ":ccl<CR>" true)
+(util.set-key :<leader>cn ":cn<CR>" true)
+(util.set-key :<leader>cp ":cp<CR>" true)
