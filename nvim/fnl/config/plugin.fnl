@@ -58,9 +58,6 @@
   :Olical/conjure {:branch :master :mod :conjure}
   :kassio/neoterm {:mod :neoterm}
 
-  ; Comments
-  :tpope/vim-commentary {}
-
   ; Git
   :tpope/vim-fugitive {}
   :airblade/vim-gitgutter {:mod :gitgutter}
@@ -90,6 +87,10 @@
   :axvr/org.vim {}
   :sbdchd/neoformat {}
   :junegunn/vim-easy-align {:mod :vimeasyalign}
+  :posva/vim-vue {}
+
+  ; Comments
+  :terrortylor/nvim-comment {:mod :nvimcomment}
   :JoosepAlviste/nvim-ts-context-commentstring {}
 
   ; S-expressions
