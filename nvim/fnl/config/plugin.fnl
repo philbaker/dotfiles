@@ -90,8 +90,8 @@
   :posva/vim-vue {}
 
   ; Comments
-  :terrortylor/nvim-comment {:mod :nvimcomment}
   :JoosepAlviste/nvim-ts-context-commentstring {}
+  :terrortylor/nvim-comment {:mod :nvimcomment}
 
   ; S-expressions
   :philbaker/vim-sexp {:mod :sexp}
