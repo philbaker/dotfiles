@@ -17,6 +17,3 @@
 (util.set-key "<leader>zb" "<cmd>Telekasten show_backlinks<CR>" false)
 (util.set-key "<leader>zI" "<cmd>Telekasten insert_img_link<CR>" false)
 (util.set-key "<C-c><C-c>" ":lua require('telekasten').toggle_todo({onlyTodo=true})<CR>" false)
-
-; Call insert link automatically when we start typing a link
-(util.set-key "[[" "<cmd>Telekasten insert_link<CR>" false :i)
