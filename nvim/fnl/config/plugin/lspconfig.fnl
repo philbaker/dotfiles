@@ -41,7 +41,7 @@
                     (nvim.buf_set_keymap bufnr :n :<leader>cd "<Cmd>lua vim.lsp.buf.declaration()<CR>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>ct "<cmd>lua vim.lsp.buf.type_definition()<CR>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>ch "<cmd>lua vim.lsp.buf.signature_help()<CR>" {:noremap true})
-                    (nvim.buf_set_keymap bufnr :n :<leader>cn "<cmd>lua vim.lsp.buf.rename()<CR>" {:noremap true})
+                    (nvim.buf_set_keymap bufnr :n :<leader>cr "<cmd>lua vim.lsp.buf.rename()<CR>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>ce "<cmd>lua vim.diagnostic.open_float()<CR>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>cq "<cmd>lua vim.diagnostic.setloclist()<CR>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>cf "<cmd>lua vim.lsp.buf.format()<CR>" {:noremap true})
