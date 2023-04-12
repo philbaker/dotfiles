@@ -58,10 +58,6 @@
 ; Toggle line numbers
 (util.set-key :<leader>pn ":set invnumber<CR>" true)
 
-; Show directories
-(util.set-key :<leader>- "<Plug>(dirvish_up)<CR>" true)
-(util.set-key :- "<Plug>(dirvish_up)<CR>" true)
-
 ; Format
 (util.set-key :<leader>pr ":Prettier<CR>" true)
 
