@@ -8,6 +8,9 @@
 (set nvim.g.maplocalleader ",")
 
 ; General mapping
+(util.set-key :<leader>ps ":Pec<CR>" false)
+(util.set-key :<leader>pi ":Pint<CR>" false)
+(util.set-key :- ":Dirbuf<CR>" false)
 
 ; Disable highlight
 (util.set-key :<leader><CR> ":noh<CR>" false)
@@ -24,16 +27,6 @@
 
 ; Switch buffer
 (util.set-key :<leader>u "<C-^>" false)
-
-; Open nvim config
-(util.set-key :<leader>dc ":e ~/dotfiles/nvim/fnl/config/core.fnl<CR>" false)
-(util.set-key :<leader>dm ":e ~/dotfiles/nvim/fnl/config/mapping.fnl<CR>" false)
-(util.set-key :<leader>du ":e ~/dotfiles/nvim/fnl/config/usercommand.fnl<CR>" false)
-
-; Open notes
-(util.set-key :<leader>da ":e ~/neotes/all<CR>" true)
-(util.set-key :<leader>dv ":e ~/neotes/all/vim-sexp-key-bindings.md<CR>" true)
-(util.set-key :<leader>de ":Note " true)
 
 ; Movement
 (util.set-key :<leader>h "<C-W>h" true)
@@ -89,15 +82,8 @@
 
 ; write Jasmine test from rich comment
 (util.set-key :<leader>pj "f;xIexpect(<ESC>A).toBe(<ESC>JxA);<ESC>" false)
-
 ; turn it back into a comment
 (util.set-key :<leader>pk "/to<CR>hxi<CR><ESC> <CR>wdt(%x^xkdt(%x^xA;<ESC>^" false)
-
-(util.set-key :<leader>ps ":Pec<CR>" false)
-
-(util.set-key :<leader>pi ":Pint<CR>" false)
-
-(util.set-key :- ":Dirbuf<CR>" false)
 
 ; Quick fix list
 (util.set-key :<leader>co ":cope<CR>" true)
