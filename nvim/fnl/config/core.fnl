@@ -1,7 +1,6 @@
 (module config.core
   {autoload {core aniseed.core
-             nvim aniseed.nvim
-             str aniseed.string}})
+             nvim aniseed.nvim}})
 
 ; Don't wrap lines
 (nvim.ex.set :nowrap)

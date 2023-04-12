@@ -1,7 +1,6 @@
 (module config.plugin.lualine
   {autoload {core aniseed.core
-             lualine lualine
-             lsp config.plugin.lspconfig}})
+             lualine lualine}})
 
 (defn lsp_connection []
   (if (vim.tbl_isempty (vim.lsp.buf_get_clients 0)) "" ""))

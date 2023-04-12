@@ -1,6 +1,5 @@
 (module config.plugin.cmp
-  {autoload {nvim aniseed.nvim
-             cmp cmp}})
+  {autoload {cmp cmp}})
 
 (def- cmp-src-menu-items
   {:vsnip "vsnip"

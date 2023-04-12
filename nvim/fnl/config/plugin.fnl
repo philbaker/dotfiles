@@ -1,6 +1,5 @@
 (module config.plugin
-  {autoload {nvim aniseed.nvim
-             a aniseed.core
+  {autoload {a aniseed.core
              packer packer}})
 
 (defn- safe-require-plugin-config [name]

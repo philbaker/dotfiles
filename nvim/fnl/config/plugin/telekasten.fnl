@@ -1,6 +1,5 @@
 (module config.plugin.telekasten
-  {autoload {nvim aniseed.nvim
-             telekasten telekasten
+  {autoload {telekasten telekasten
              util config.util}})
 
 (telekasten.setup {:home (vim.fn.expand "~/neotes/all")})

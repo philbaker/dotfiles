@@ -1,6 +1,5 @@
 (module config.usercommand
-  {autoload {a aniseed.core
-             util config.util}})
+  {autoload {util config.util}})
 
 ; Build processes
 (util.set-uc 

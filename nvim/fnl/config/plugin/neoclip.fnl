@@ -1,5 +1,4 @@
 (module config.plugin.neoclip
-  {autoload {nvim aniseed.nvim
-             neoclip neoclip}})
+  {autoload {neoclip neoclip}})
 
 (neoclip.setup)

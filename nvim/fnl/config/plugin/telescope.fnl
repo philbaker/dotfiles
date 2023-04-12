@@ -1,10 +1,8 @@
 (module config.plugin.telescope
-  {autoload {nvim aniseed.nvim
-             util config.util
+  {autoload {util config.util
              telescope telescope
              actions telescope.actions
-             layout telescope.actions.layout
-             themes telescope.themes}})
+             layout telescope.actions.layout}})
 
 (telescope.load_extension "live_grep_args")
 

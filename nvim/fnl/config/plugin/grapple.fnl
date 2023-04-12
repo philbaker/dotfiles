@@ -1,6 +1,5 @@
 (module config.plugin.conjure
-  {autoload {nvim aniseed.nvim
-             util config.util}})
+  {autoload {util config.util}})
 
 (util.set-key :<leader>hh ":GrapplePopup tags<CR>" false)
 (util.set-key :<leader>ht ":GrappleTag<CR>" false)
