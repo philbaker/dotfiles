@@ -65,7 +65,7 @@
   ; Navigation
   :dhruvasagar/vim-zoom {}
   :elihunter173/dirbuf.nvim {}
-  :ThePrimeagen/harpoon {:mod :harpoon}
+  :cbochs/grapple.nvim {:mod :grapple}
   :mbbill/undotree {:mod :undotree}
 
   ; LSP
