@@ -48,6 +48,7 @@
                                              :nvim-telescope/telescope-project.nvim]}
   :AckslD/nvim-neoclip.lua {:mod :neoclip
                             :requires [:nvim-telescope/telescope.nvim]}
+  :lalitmee/browse.nvim {:mod :browse}
 
   ; Notes
   :renerocksai/telekasten.nvim {:mod :telekasten}
