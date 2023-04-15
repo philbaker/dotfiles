@@ -59,15 +59,15 @@
                      (vim.cmd "stopinsert")))
 
 ; Node REPL utils
-(util.set-uc "Rex" (fn [] 
+(util.set-uc "JSRemoveExport" (fn [] 
                      (vim.cmd ":%s/export //g") 
                      (vim.cmd ":w")))
 
-(util.set-uc "Rco" (fn []
+(util.set-uc "JSReplaceConstWithVar" (fn []
                      (vim.cmd ":%s/const/var/g")
                      (vim.cmd ":w")))
 
-(util.set-uc "Rle" (fn []
+(util.set-uc "JSRemoveLet" (fn []
                      (vim.cmd ":%s/let")
                      (vim.cmd ":w")))
 

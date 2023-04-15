@@ -3,11 +3,6 @@
              util config.util
              which-key which-key}})
 
-; General mapping
-(util.set-key :<leader>ps ":SaveIndexAndReturn" false)
-
-; Save file
-(util.set-key :<localleader>s ":Sq<CR>:Sqr<CR>" false)
 
 ; Escape for terminal mode
 (util.set-key :<Esc> "<C-\\><C-n>" false :t)
@@ -18,36 +13,12 @@
 (util.set-key :<leader>o "<ESC>jcc" true)
 (util.set-key :<localleader>o "k==o" true)
 
-; Toggle line numbers
-(util.set-key :<leader>pn ":set invnumber<CR>" true)
-
-; Clerk
-(util.set-key :<localleader>cs ":ClerkShow<CR>" false)
-
-; Compile Java
-(util.set-key :<localleader>jc ":Jac<CR>" false)
-
-; Run Java
-(util.set-key :<localleader>jr ":Jar<CR>" false)
-
-; Node REPL utils
-(util.set-key :<leader>pe ":Rex<CR>" false)
-(util.set-key :<leader>pc ":Rco<CR>" false)
-(util.set-key :<leader>pt ":Rle<CR>" false)
-(util.set-key :<leader>pf "$V%:s/export //g<CR>" false)
-
 ; write Jasmine test from rich comment
 (util.set-key :<leader>pj "f;xIexpect(<ESC>A).toBe(<ESC>JxA);<ESC>" false)
 ; turn it back into a comment
 (util.set-key :<leader>pk "/to<CR>hxi<CR><ESC> <CR>wdt(%x^xkdt(%x^xA;<ESC>^" false)
 
-; Quick fix list
-(util.set-key :<leader>co ":cope<CR>" true)
-(util.set-key :<leader>cc ":ccl<CR>" true)
-(util.set-key :<leader>cn ":cn<CR>" true)
-(util.set-key :<leader>cp ":cp<CR>" true)
-
-(which-key.setup {:triggers_blacklist {:n ["'"]}})
+(which-key.setup {:triggers_blacklist {:n ["'" "\""]}})
 
 (which-key.register 
   {:. "Buffer list"
@@ -58,7 +29,11 @@
        :d "Dotfiles grep"
        :n "Neotes grep"
        :r "Grep with args"}
-   :c {:name "LSP"}
+   :c {:name "LSP and QF"
+       :o [":cope<CR>" "Open Quickfix list"]
+       :c [":ccl<CR>" "Close Quickfix list"]
+       :n [":cn<CR>" "Next Quickfix item"]
+       :n [":cp<CR>" "Previous Quickfix item"]}
    :e {:name "Terminal"}
    :f "Undo tree"
    :g {:name "Git"
@@ -69,6 +44,15 @@
        :c [":Git checkout " "Git checkout"]}
    :gh {:name "GitGutter"}
    :m {:name "Meta"
+       :ps [":SaveIndexAndReturn<CR>" "Vite save / reload"]
+       :n [":set invnumber<CR>" "Toggle current line number"]
+       :c [":ClerkShow<CR>" "Show Clerk notebook"]
+       :jc [":Jac<CR>" "Compile Java"]
+       :jr [":Jar<CR>" "Run Java"]
+       :je [":JSRemoveExportSave<CR>" "JS remove export"]
+       :jeb ["$V%:s/export //g<CR>" "JS remove in block"]
+       :jv [":JSRemoveExportSave<CR>" "JS replace const with var"]
+       :jt [":JSRemoveLet<CR>" "JS remove let"]
        }
    :p {:name "Formatting"
        :r [":Prettier<CR>" "Prettier"]
