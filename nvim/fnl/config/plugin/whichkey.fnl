@@ -39,8 +39,8 @@
    :g {:name "Git"
        :g [":tab Git<CR>" "Git status"]
        :l [":tab Git log<CR>" "Git log"]
-       :a [":Git add ." "Git add ."]
-       :p [":Git push" "Git push"]
+       :a [":Git add .<CR>" "Git add ."]
+       :p [":Git push<CR>" "Git push"]
        :c [":Git checkout " "Git checkout"]}
    :gh {:name "GitGutter"}
    :m {:name "Meta"
