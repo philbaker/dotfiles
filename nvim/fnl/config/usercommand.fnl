@@ -71,7 +71,7 @@
                      (vim.cmd ":%s/let")
                      (vim.cmd ":w")))
 
-(util.set-uc "Pec" (fn [] 
+(util.set-uc "SaveIndexAndReturn" (fn [] 
                      (vim.cmd "w")
                      (vim.cmd ":e index.html")
                      (vim.cmd ":w")

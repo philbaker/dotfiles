@@ -1,46 +1,14 @@
 (module config.mapping
-  {autoload {nvim aniseed.nvim
-             util config.util}})
+  {autoload {util config.util
+             core aniseed.core
+             nvim aniseed.nvim}})
+
+(set vim.o.timeoutlen 300)
 
 ; Leader mapping
 (util.set-key :<space> :<nop>)
 (set nvim.g.mapleader " ")
 (set nvim.g.maplocalleader ",")
-
-; General mapping
-(util.set-key :<leader>ps ":Pec<CR>" false)
-(util.set-key :<leader>pi ":Pint<CR>" false)
-(util.set-key :- ":Dirbuf<CR>" false)
-
-; Disable highlight
-(util.set-key :<leader><CR> ":noh<CR>" false)
-
-; Save file
-(util.set-key :<leader>s ":w<CR>" false)
-(util.set-key :<localleader>s ":Sq<CR>:Sqr<CR>" false)
-
-; Escape for terminal mode
-(util.set-key :<Esc> "<C-\\><C-n>" false :t)
-
-; Restore default redo
-(util.set-key :<C-R> "<C-R>" false)
-
-; Switch buffer
-(util.set-key :<leader>u "<C-^>" false)
-
-; Movement
-(util.set-key :<leader>h "<C-W>h" true)
-(util.set-key :<leader>j "<C-W>j" true)
-(util.set-key :<leader>k "<C-W>k" true)
-(util.set-key :<leader>l "<C-W>l" true)
-(util.set-key :<leader>pp "<C-W><C-P>" true)
-(util.set-key :<leader>pl "<C-W>j<C-W>l" true)
-(util.set-key :<leader>pmj "<C-W>j<Plug>(zoom-toggle)" true)
-(util.set-key :<leader>pml "<C-W>j<C-W>l<Plug>(zoom-toggle)" true)
-(util.set-key :<leader>pmk "<C-W>k<Plug>(zoom-toggle)" true)
-(util.set-key :<leader>m "<Plug>(zoom-toggle)" true)
-(util.set-key :<leader>o "<ESC>jcc" true)
-(util.set-key :<localleader>o "k==o" true)
 
 ; Resize windows
 (util.set-key :<S-Up> "<C-w>+" true)
@@ -48,41 +16,3 @@
 (util.set-key :<S-Right> "<C-w>>" true)
 (util.set-key :<S-Left> "<C-w><" true)
 
-; Git
-(util.set-key :<leader>gg ":tab G<CR>" true)
-(util.set-key :<leader>gl ":tab G log<CR>" true)
-(util.set-key :<leader>ga ":G add .<CR>" true)
-(util.set-key :<leader>gp ":G push<CR>" true)
-(util.set-key :<leader>gc ":G checkout " true)
-
-; Toggle line numbers
-(util.set-key :<leader>pn ":set invnumber<CR>" true)
-
-; Format
-(util.set-key :<leader>pr ":Prettier<CR>" true)
-
-; Clerk
-(util.set-key :<localleader>cs ":ClerkShow<CR>" false)
-
-; Compile Java
-(util.set-key :<localleader>jc ":Jac<CR>" false)
-
-; Run Java
-(util.set-key :<localleader>jr ":Jar<CR>" false)
-
-; Node REPL utils
-(util.set-key :<leader>pe ":Rex<CR>" false)
-(util.set-key :<leader>pc ":Rco<CR>" false)
-(util.set-key :<leader>pt ":Rle<CR>" false)
-(util.set-key :<leader>pf "$V%:s/export //g<CR>" false)
-
-; write Jasmine test from rich comment
-(util.set-key :<leader>pj "f;xIexpect(<ESC>A).toBe(<ESC>JxA);<ESC>" false)
-; turn it back into a comment
-(util.set-key :<leader>pk "/to<CR>hxi<CR><ESC> <CR>wdt(%x^xkdt(%x^xA;<ESC>^" false)
-
-; Quick fix list
-(util.set-key :<leader>co ":cope<CR>" true)
-(util.set-key :<leader>cc ":ccl<CR>" true)
-(util.set-key :<leader>cn ":cn<CR>" true)
-(util.set-key :<leader>cp ":cp<CR>" true)
