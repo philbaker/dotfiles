@@ -60,7 +60,8 @@
        :q "Set loclist"
        :f "Format"
        :n "Next diagnostic"
-       :p "Previous diagnostic"}
+       :p "Previous diagnostic"
+       :s "Document symbols"}
    :m {:name "Meta"
        :ps [":SaveIndexAndReturn<CR>" "Vite save / reload"]
        :n [":set invnumber<CR>" "Toggle current line number"]

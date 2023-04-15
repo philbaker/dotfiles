@@ -50,7 +50,8 @@
                     ; Telescope
                     (nvim.buf_set_keymap bufnr :n :<leader>la ":lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>lb ":lua require('telescope.builtin').lsp_references()<CR>" {:noremap true})
-                    (nvim.buf_set_keymap bufnr :n :<leader>lc ":lua require('telescope.builtin').lsp_implementations()<CR>" {:noremap true})))]
+                    (nvim.buf_set_keymap bufnr :n :<leader>lc ":lua require('telescope.builtin').lsp_implementations()<CR>" {:noremap true})
+                    (nvim.buf_set_keymap bufnr :n :<leader>ls ":lua require('telescope.builtin').lsp_document_symbols()<CR>" {:noremap true})))]
 
   (def- defaults {:on_attach on_attach
                   :handlers handlers
