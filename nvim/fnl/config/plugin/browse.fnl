@@ -1,4 +1,4 @@
-(module config.plugin.cmp
+(module config.plugin.browse
   {autoload {browse browse
              util config.util}})
 
