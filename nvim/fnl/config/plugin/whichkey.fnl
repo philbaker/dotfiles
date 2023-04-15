@@ -29,8 +29,27 @@
        :d "Dotfiles grep"
        :n "Neotes grep"
        :r "Grep with args"}
-   :c {:name "LSP"
-       :. "Fuzzy diagnostics"
+   :c {:name "Quickfix list"
+       :o [":cope<CR>" "Open Quickfix list"]
+       :c [":ccl<CR>" "Close Quickfix list"]
+       :n [":cn<CR>" "Next Quickfix item"]
+       :p [":cp<CR>" "Previous Quickfix item"]
+       :l {:name "Location list"
+           :o [":lopen<CR>" "Open location list"]
+           :c [":lcl<CR>" "Close location list"]
+           :n [":lnext<CR>" "Next location list item"]
+           :p [":lprev<CR>" "Previous location list item"]}}
+   :e {:name "Terminal"}
+   :f "Undo tree"
+   :g {:name "Git"
+       :g [":tab Git<CR>" "Git status"]
+       :l [":tab Git log<CR>" "Git log"]
+       :a [":Git add .<CR>" "Git add ."]
+       :p [":Git push<CR>" "Git push"]
+       :c [":Git checkout " "Git checkout"]}
+   :gh {:name "GitGutter"}
+   :l {:name "LSP"
+       :a "Fuzzy diagnostics"
        :b "Fuzzy references"
        :c "Fuzzy implementations"
        :d "Declaration"
@@ -42,20 +61,6 @@
        :f "Format"
        :n "Next diagnostic"
        :p "Previous diagnostic"}
-   :e {:name "Terminal"}
-   :f "Undo tree"
-   :g {:name "Git"
-       :g [":tab Git<CR>" "Git status"]
-       :l [":tab Git log<CR>" "Git log"]
-       :a [":Git add .<CR>" "Git add ."]
-       :p [":Git push<CR>" "Git push"]
-       :c [":Git checkout " "Git checkout"]}
-   :gh {:name "GitGutter"}
-   :l {:name "Quickfix list"
-       :o [":cope<CR>" "Open Quickfix list"]
-       :c [":ccl<CR>" "Close Quickfix list"]
-       :n [":cn<CR>" "Next Quickfix item"]
-       :p [":cp<CR>" "Previous Quickfix item"]}
    :m {:name "Meta"
        :ps [":SaveIndexAndReturn<CR>" "Vite save / reload"]
        :n [":set invnumber<CR>" "Toggle current line number"]
