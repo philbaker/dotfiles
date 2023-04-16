@@ -6,12 +6,6 @@
 (set nvim.g.conjure#client#clojure#nrepl#eval#auto_require false)
 (set nvim.g.conjure#client#clojure#nrepl#connection#auto_repl#enabled false)
 (set nvim.g.conjure#hud#ignore_low_priority "v:true")
-(set nvim.g.conjure#filetype#scheme "conjure.client.guile.socket")
-(set nvim.g.conjure#client#guile#socket#pipename ".guile-repl.socket")
-
-; Pretty print maps with syntax highlighting
-(util.set-key :<localleader>za "ysaf)aclojure.pprint/pprint<ESC><localleader>eru" false)
-(util.set-key :<localleader>zb "kf}V%:s/; (out) /<CR>f}%:noh<CR>" false)
 
 ; Stop Lua errors during eval comment
 (util.set-key :<localleader>ecc "^l<localleader>ecr:sleep 10m<CR>f;hxi<CR><ESC>$" false)

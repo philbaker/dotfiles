@@ -33,6 +33,15 @@
        :p [":Git push<CR>" "Git push"]
        :c [":Git checkout " "Git checkout"]}
    :gh {:name "GitGutter"}
+   :h {:name "Harpoon"
+       :f [":lua require('harpoon.mark').add_file()<CR>" "Add file"]
+       :h [":lua require('harpoon.ui').toggle_quick_menu()<CR>" "Show menu"]
+       :a [":lua require('harpoon.ui').nav_file(1)<CR>" "Nav file 1"]
+       :b [":lua require('harpoon.ui').nav_file(2)<CR>" "Nav file 2"]
+       :c [":lua require('harpoon.ui').nav_file(3)<CR>" "Nav file 3"]
+       :d [":lua require('harpoon.ui').nav_file(4)<CR>" "Nav file 4"]
+       :p [":lua require('harpoon.ui').nav_prev()<CR>" "Nav prev"]
+       :n [":lua require('harpoon.ui').nav_next()<CR>" "Nav next"]}
    :l {:name "LSP"
        :a "Fuzzy diagnostics"
        :b "Fuzzy references"
