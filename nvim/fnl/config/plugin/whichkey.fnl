@@ -103,7 +103,6 @@
        :p [":lua require'telescope'.extensions.project.project{}<CR>" "Projects"]
        :q [":lua require ('telescope.builtin').quickfix()<CR>" "Quickfix list"]
        :y [":Telescope neoclip n<CR>" "Neoclip"]}
-   :tt {:name "Test"}
    :u ["<C-^>" "Switch buffer"]
    :z {:name "Telekasten"
        :f ["<cmd>Telekasten find_notes<CR>" "Find notes"]
