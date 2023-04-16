@@ -32,7 +32,10 @@
        :a [":Git add .<CR>" "Git add ."]
        :p [":Git push<CR>" "Git push"]
        :c [":Git checkout " "Git checkout"]}
-   :gh {:name "GitGutter"}
+   :gh {:name "GitGutter"
+        :p ["<Plug>(GitGutterPreviewHunk)" "Preview hunk"]
+        :u ["<Plug>(GitGutterUndoHunk)"  "Undo hunk"]
+        :s ["<Plug>(GitGutterStageHunk)"  "Stage hunk"]}
    :h {:name "Harpoon"
        :f [":lua require('harpoon.mark').add_file()<CR>" "Add file"]
        :h [":lua require('harpoon.ui').toggle_quick_menu()<CR>" "Show menu"]
@@ -96,5 +99,14 @@
        :q "Quickfix list"
        :y "Neoclip"}
    :tt {:name "Test"}
-   :u ["<C-^>" "Switch buffer"]} 
+   :u ["<C-^>" "Switch buffer"]
+   :z {:name "Telekasten"
+       :f ["<cmd>Telekasten find_notes<CR>" "Find notes"]
+       :g ["<cmd>Telekasten search_notes<CR>" "Search notes"]
+       :d ["<cmd>Telekasten goto_today<CR>" "Go to today"]
+       :z ["<cmd>Telekasten follow_link<CR>" "Follow link"]
+       :n ["<cmd>Telekasten new_note<CR>" "New note"]
+       :c ["<cmd>Telekasten show_calendar<CR>" "Show calendar"]
+       :b ["<cmd>Telekasten show_backlinks<CR>" "Show backlinks"]
+       :I ["<cmd>Telekasten insert_img_link<CR>" "Insert image link"]}} 
   {:prefix "<leader>"})

@@ -8,4 +8,3 @@
 
 ; Send to REPL (visual mode)
 (util.set-key :<leader>E "<Plug>(neoterm-repl-send)" false :v)
-
