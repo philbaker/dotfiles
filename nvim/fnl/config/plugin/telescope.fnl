@@ -15,20 +15,3 @@
                                             :<c-r> actions.close
                                             :? layout.toggle_preview}}}
                   :pickers {:find_files {:find_command ["rg" "--files" "--iglob" "!.git" "--hidden" "--no-ignore-vcs"]}}})
-
-(util.set-key :<leader>te ":lua require('telescope.builtin').find_files()<CR>" true)
-(util.set-key :<leader>. ":lua require('telescope.builtin').buffers()<CR>" true)
-(util.set-key :<leader>aa ":lua require('telescope.builtin').live_grep()<CR>" true)
-(util.set-key :<leader>ar ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>" true)
-(util.set-key :<leader>th ":lua require('telescope.builtin').help_tags()<CR>" true)
-(util.set-key :<leader>tq ":lua require ('telescope.builtin').quickfix()<CR>" true)
-(util.set-key :<leader>tm ":lua require ('telescope.builtin').marks()<CR>" true)
-(util.set-key :<leader>t. ":lua require ('telescope.builtin').resume()<CR>" true)
-(util.set-key :<leader>tj ":lua require ('telescope.builtin').jumplist()<CR>" true)
-(util.set-key :<leader>to ":lua require ('telescope.builtin').autocommands()<CR>" true)
-(util.set-key :<leader>ty ":Telescope neoclip n<CR>" true)
-(util.set-key :<leader>tp ":lua require'telescope'.extensions.project.project{}<CR>" true)
-(util.set-key "<leader>td" ":lua require('telescope.builtin').find_files({search_dirs={vim.fn.expand('~/dotfiles')}})<CR>" false)
-(util.set-key "<leader>tn" ":lua require('telescope.builtin').find_files({search_dirs={vim.fn.expand('~/neotes')}})<CR>" false)
-(util.set-key :<leader>ad ":lua require('telescope.builtin').live_grep({search_dirs={vim.fn.expand('~/dotfiles')}})<CR>" true)
-(util.set-key :<leader>an ":lua require('telescope.builtin').live_grep({search_dirs={vim.fn.expand('~/neotes')}})<CR>" true)
