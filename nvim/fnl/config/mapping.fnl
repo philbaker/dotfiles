@@ -16,3 +16,9 @@
 (util.set-key :<S-Right> "<C-w>>" true)
 (util.set-key :<S-Left> "<C-w><" true)
 
+; Escape for terminal mode
+(util.set-key :<Esc> "<C-\\><C-n>" false :t)
+
+; Restore default redo
+(util.set-key :<C-R> "<C-R>" false)
+

@@ -4,21 +4,7 @@
              which-key which-key}})
 
 
-; Escape for terminal mode
-(util.set-key :<Esc> "<C-\\><C-n>" false :t)
-
-; Restore default redo
-(util.set-key :<C-R> "<C-R>" false)
-
-(util.set-key :<leader>o "<ESC>jcc" true)
-(util.set-key :<localleader>o "k==o" true)
-
-; write Jasmine test from rich comment
-(util.set-key :<leader>pj "f;xIexpect(<ESC>A).toBe(<ESC>JxA);<ESC>" false)
-; turn it back into a comment
-(util.set-key :<leader>pk "/to<CR>hxi<CR><ESC> <CR>wdt(%x^xkdt(%x^xA;<ESC>^" false)
-
-(which-key.setup {:triggers_blacklist {:n ["'" "\""]}})
+(which-key.setup {:triggers_blacklist {:n ["'" "\"" "v"]}})
 
 (which-key.register 
   {:. "Buffer list"
@@ -39,7 +25,6 @@
            :c [":lcl<CR>" "Close location list"]
            :n [":lnext<CR>" "Next location list item"]
            :p [":lprev<CR>" "Previous location list item"]}}
-   :e {:name "Terminal"}
    :f "Undo tree"
    :g {:name "Git"
        :g [":tab Git<CR>" "Git status"]
@@ -62,6 +47,15 @@
        :n "Next diagnostic"
        :p "Previous diagnostic"
        :s "Document symbols"}
+   :n {:name "Terminal"
+       :n [":Nter<CR>" "Open default terminals"]
+       :t [":Rsp<CR>" "Terminal split for RDD"]
+       :r ["<Plug>(neoterm-repl-send-line)" "Send line to REPL"]
+       :f ["<Plug>(neoterm-repl-send)" "Send form to REPL"]
+       :b [":TREPLSendFile<CR>" "Send file to REPL"]
+       :cc [":Rspa<CR>" "Put REPL line output to current bufer"]
+       :ca [":Rspa block<CR>" "Put REPL block output to current bufer"]
+       :i [":<C-W>j:resize 10<CR><C-W>k" "Resize terminal windows"]}
    :m {:name "Meta"
        :ps [":SaveIndexAndReturn<CR>" "Vite save / reload"]
        :n [":set invnumber<CR>" "Toggle current line number"]
@@ -71,7 +65,9 @@
        :je [":JSRemoveExportSave<CR>" "JS remove export"]
        :jeb ["$V%:s/export //g<CR>" "JS remove in block"]
        :jv [":JSRemoveExportSave<CR>" "JS replace const with var"]
-       :jt [":JSRemoveLet<CR>" "JS remove let"]}
+       :jt [":JSRemoveLet<CR>" "JS remove let"]
+       :pj ["f;xIexpect(<ESC>A).toBe(<ESC>JxA);<ESC>" "Test from rich comment"]
+       :pk ["/to<CR>hxi<CR><ESC> <CR>wdt(%x^xkdt(%x^xA;<ESC>^" "Turn test back into comment"]}
    :p {:name "Formatting"
        :r [":Prettier<CR>" "Prettier"]
        :i [":Pint<CR>" "Pint"]} 
