@@ -78,9 +78,20 @@
        :r ["<Plug>(neoterm-repl-send-line)" "Send line to REPL"]
        :f ["<Plug>(neoterm-repl-send)" "Send form to REPL"]
        :b [":TREPLSendFile<CR>" "Send file to REPL"]
+       :c {:name "REPL"}
        :cc [":Rspa<CR>" "Put REPL line output to current bufer"]
        :ca [":Rspa block<CR>" "Put REPL block output to current bufer"]
-       :i [":Resize10<CR>" "Make bottom split size 10"]}
+       :i [":Resize10<CR>" "Make bottom split size 10"]
+       :p {:name "Process"}
+       :ps {:name "Shadow"}
+       :psw [":1T npm run shadow:watch<CR>" "npm run shadow:watch"]
+       :psr [":1T npm run shadow:release<CR>" "npm run shadow:release"]
+       :ps {:name "Tailwind"}
+       :ptw [":2T npm run tailwind:watch<CR>" "npm run tailwind:watch"]
+       :ptr [":2T npm run tailwind:release<CR>" "npm run tailwind:release"]
+       :pw [":1T npm run watch<CR>" "npm run watch"]
+       :pr [":1T npm run prod<CR>" "npm run prod"]
+       :pc [":1T clj -A:dev<CR>" "clj -A:dev"]}
    :p {:name "Formatting"
        :r [":Prettier<CR>" "Prettier"]
        :i [":Pint<CR>" "Pint"]} 
@@ -109,7 +120,9 @@
        :q [":lua require ('telescope.builtin').quickfix()<CR>" "Quickfix list"]
        :y [":Telescope neoclip n<CR>" "Neoclip"]}
    :u ["<C-^>" "Switch buffer"]
-   :z {:name "Telekasten"
+   :z {:name "Notes"
+       :a [":VimSexpKeyBindings<CR>" "Vim Sexp bindings"]
+       :e [":VimSexpKeyMappings<CR>" "Vim Sexp mappings"]
        :f ["<cmd>Telekasten find_notes<CR>" "Find notes"]
        :g ["<cmd>Telekasten search_notes<CR>" "Search notes"]
        :d ["<cmd>Telekasten goto_today<CR>" "Go to today"]

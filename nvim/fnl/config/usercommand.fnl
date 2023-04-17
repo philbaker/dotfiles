@@ -3,22 +3,24 @@
 
 ; Build processes
 (util.set-uc 
-  "Nbb"
+  "NbbRepl"
   (fn [opts] 
     (vim.cmd (.. "1T nbb nrepl-server :port " opts.args)))
   {:nargs "?"})
 
-(util.set-uc "Shw" #(vim.cmd "1T npm run shadow:watch"))
+(util.set-uc "NPMShadowWatch" #(vim.cmd "1T npm run shadow:watch"))
 
-(util.set-uc "Shr" #(vim.cmd "1T npm run shadow:release"))
+(util.set-uc "NPMShadowRelease" #(vim.cmd "1T npm run shadow:release"))
 
-(util.set-uc "Tww" #(vim.cmd "1T npm run tailwind:watch"))
+(util.set-uc "NPMTailwindWatch" #(vim.cmd "2T npm run tailwind:watch"))
 
-(util.set-uc "Twr" #(vim.cmd "1T npm run tailwind:release"))
+(util.set-uc "NPMTailwindRelease" #(vim.cmd "2T npm run tailwind:release"))
 
-(util.set-uc "Npw" #(vim.cmd "1T npm run watch"))
+(util.set-uc "NPMRunWatch" #(vim.cmd "1T npm run watch"))
 
-(util.set-uc "Npr" #(vim.cmd "2T npm run prod"))
+(util.set-uc "NPMRunProd" #(vim.cmd "1T npm run prod"))
+
+(util.set-uc "ClojureStartRepl" #(vim.cmd "1T clj -A:dev"))
 
 (util.set-uc "Sq" (fn [] 
                     (vim.cmd "w")
@@ -28,7 +30,6 @@
                        (vim.cmd "w")
                        (vim.cmd "3T npx squint compile **/*.cljs")))
 
-(util.set-uc "Clj" #(vim.cmd "1T clj -A:dev"))
 
 (util.set-uc "Sqr" #(vim.cmd "3T bb mjs_to_js.clj ./pages"))
 
@@ -92,6 +93,16 @@
           lines (util.split-string-by-line (file:read "*a"))]
       (file:close)
       (vim.api.nvim_buf_set_lines 0 -1 -1 false lines))))
+
+(util.set-uc
+  "VimSexpKeyBindings"
+  (fn []
+    (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/none/vim-sexp-key-bindings.md"))))
+
+(util.set-uc
+  "VimSexpKeyMappings"
+  (fn []
+    (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/none/20230411-vim-sexp-mappings.md"))))
 
 (util.set-uc 
   "Sv"
