@@ -148,6 +148,14 @@
   {:nargs "?"})
 
 ; REPL
+
+(util.set-uc
+  "Resize10"
+  (fn []
+    (util.cmdtc "<C-W>j")
+    (vim.cmd "resize 10")
+    (util.cmdtc "<C-W>k")))
+
 ; Sets up a terminal split for RDD
 (util.set-uc 
   "Rsp"

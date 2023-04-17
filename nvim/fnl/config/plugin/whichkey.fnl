@@ -15,22 +15,15 @@
        :d [":lua require('telescope.builtin').live_grep({search_dirs={vim.fn.expand('~/dotfiles')}})<CR>" "Dotfiles grep"]
        :n [":lua require('telescope.builtin').live_grep({search_dirs={vim.fn.expand('~/neotes')}})<CR>" "Neotes grep"]
        :r [":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>" "Grep with args"]}
-   :c {:name "Quickfix list"
-       :o [":cope<CR>" "Open Quickfix list"]
-       :c [":ccl<CR>" "Close Quickfix list"]
-       :n [":cn<CR>" "Next Quickfix item"]
-       :p [":cp<CR>" "Previous Quickfix item"]
-       :l {:name "Location list"
-           :o [":lopen<CR>" "Open location list"]
-           :c [":lcl<CR>" "Close location list"]
-           :n [":lnext<CR>" "Next location list item"]
-           :p [":lprev<CR>" "Previous location list item"]}}
+   :c {:name "Conjure"}
    :d {:name "Test"
        :n [":2T :<CR> :TestNearest<CR>" "Nearest"]
        :f [":2T :<CR> :TestFile<CR>" "File"]
        :s [":2T :<CR> :TestSuite<CR>" "Suite"]
        :p [":2T :<CR> :TestLast<CR>" "Previous"]
        :a [":TestVisit<CR>" "Last run test code"]}
+   :e {:name "Easy Align"
+       :a ["<Plug>(EasyAlign)" "Align"]}
    :f "Undo tree"
    :g {:name "Git"
        :g [":tab Git<CR>" "Git status"]
@@ -51,6 +44,8 @@
        :d [":lua require('harpoon.ui').nav_file(4)<CR>" "Nav file 4"]
        :p [":lua require('harpoon.ui').nav_prev()<CR>" "Nav prev"]
        :n [":lua require('harpoon.ui').nav_next()<CR>" "Nav next"]}
+   :j ["<C-W>j" "Window down"]
+   :k ["<C-W>k" "Window up"]
    :l {:name "LSP"
        :a "Fuzzy diagnostics"
        :b "Fuzzy references"
@@ -85,10 +80,20 @@
        :b [":TREPLSendFile<CR>" "Send file to REPL"]
        :cc [":Rspa<CR>" "Put REPL line output to current bufer"]
        :ca [":Rspa block<CR>" "Put REPL block output to current bufer"]
-       :i [":<C-W>j:resize 10<CR><C-W>k" "Resize terminal windows"]}
+       :i [":Resize10<CR>" "Make bottom split size 10"]}
    :p {:name "Formatting"
        :r [":Prettier<CR>" "Prettier"]
        :i [":Pint<CR>" "Pint"]} 
+   :q {:name "Quickfix list"
+       :o [":cope<CR>" "Open Quickfix list"]
+       :c [":ccl<CR>" "Close Quickfix list"]
+       :n [":cn<CR>" "Next Quickfix item"]
+       :p [":cp<CR>" "Previous Quickfix item"]
+       :l {:name "Location list"
+           :o [":lopen<CR>" "Open location list"]
+           :c [":lcl<CR>" "Close location list"]
+           :n [":lnext<CR>" "Next location list item"]
+           :p [":lprev<CR>" "Previous location list item"]}}
    :s [":w<CR>" "Save"]
    :t {:name "Fuzzy file"
        :. [":lua require ('telescope.builtin').resume()<CR>" "Last search"]

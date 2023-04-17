@@ -12,8 +12,12 @@ web:*.{html,css,js}*
 --glob=!node_modules/*
 --glob=!public/js/cljs-runtime/*
 --glob=!.clj-kondo/*
+--glob=!**/.clj-kondo/*
+--glob=!.nbb/*
+--glob=!**/.nbb/*
 --glob=!.shadow-cljs/*
 --glob=!.lsp/*
+--glob=!**/.lsp/*
 --glob=!.phpunit*
 --glob=!package-lock.json
 --glob=!vendor/*

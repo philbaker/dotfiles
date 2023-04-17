@@ -3,7 +3,7 @@
              core aniseed.core
              nvim aniseed.nvim}})
 
-(set vim.o.timeoutlen 300)
+(set vim.o.timeoutlen 500)
 
 ; Leader mapping
 (util.set-key :<space> :<nop>)
@@ -21,4 +21,3 @@
 
 ; Restore default redo
 (util.set-key :<C-R> "<C-R>" false)
-
