@@ -71,7 +71,11 @@
        :jv [":JSRemoveExportSave<CR>" "JS replace const with var"]
        :jt [":JSRemoveLet<CR>" "JS remove let"]
        :pj ["f;xIexpect(<ESC>A).toBe(<ESC>JxA);<ESC>" "Test from rich comment"]
-       :pk ["/to<CR>hxi<CR><ESC> <CR>wdt(%x^xkdt(%x^xA;<ESC>^" "Turn test back into comment"]}
+       :pk ["/to<CR>hxi<CR><ESC> <CR>wdt(%x^xkdt(%x^xA;<ESC>^" "Turn test back into comment"]
+       :ea [":EncryptNotes all<CR>" "Encrypt all"]
+       :da [":DecryptNotes all<CR>" "Decrypt all"]
+       :eh [":EncryptNotes home<CR>" "Encrypt home"]
+       :dh [":DecryptNotes home<CR>" "Decrypt home"]}
    :n {:name "Terminal"
        :n [":Nter<CR>" "Open default terminals"]
        :t [":Rsp<CR>" "Terminal split for RDD"]
@@ -86,12 +90,14 @@
        :ps {:name "Shadow"}
        :psw [":1T npm run shadow:watch<CR>" "npm run shadow:watch"]
        :psr [":1T npm run shadow:release<CR>" "npm run shadow:release"]
-       :ps {:name "Tailwind"}
+       :pt {:name "Tailwind"}
        :ptw [":2T npm run tailwind:watch<CR>" "npm run tailwind:watch"]
        :ptr [":2T npm run tailwind:release<CR>" "npm run tailwind:release"]
        :pw [":1T npm run watch<CR>" "npm run watch"]
        :pr [":1T npm run prod<CR>" "npm run prod"]
-       :pc [":1T clj -A:dev<CR>" "clj -A:dev"]}
+       :pc [":1T clj -A:dev<CR>" "clj -A:dev"]
+       :pbb [":BbRepl 1667<CR>" "BB nrepl server"]
+       :pbn [":NbbRepl 1337" "NBB nrepl server"]}
    :p {:name "Formatting"
        :r [":Prettier<CR>" "Prettier"]
        :i [":Pint<CR>" "Pint"]} 

@@ -3,6 +3,12 @@
 
 ; Build processes
 (util.set-uc 
+  "BbRepl"
+  (fn [opts] 
+    (vim.cmd (.. "1T bb nrepl-server " opts.args)))
+  {:nargs "?"})
+
+(util.set-uc 
   "NbbRepl"
   (fn [opts] 
     (vim.cmd (.. "1T nbb nrepl-server :port " opts.args)))
@@ -123,6 +129,12 @@
   {:nargs "?"})
 
 (util.set-uc 
+  "Noteh"
+  (fn [opts] 
+    (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/home/" (os.date "!%Y%m%d-") opts.args)))
+  {:nargs "?"})
+
+(util.set-uc 
   "Sn"
   (fn [opts]
     (let [current-dir (vim.fn.getcwd)]
@@ -130,16 +142,18 @@
   {:nargs "?"})
 
 (util.set-uc 
-  "En"
-  (fn []
+  "EncryptNotes"
+  (fn [opts]
     (let [current-dir (vim.fn.getcwd)]
-      (vim.cmd (.. ":3T cd ~/neotes && bb scripts/encrypt.clj && cd " current-dir)))))
+      (vim.cmd (.. ":3T cd ~/neotes && bb scripts/encrypt.clj " opts.args " && cd " current-dir))))
+  {:nargs "?"})
 
 (util.set-uc 
-  "De"
-  (fn []
+  "DecryptNotes"
+  (fn [opts]
     (let [current-dir (vim.fn.getcwd)]
-      (vim.cmd (.. ":3T cd ~/neotes && bb scripts/decrypt.clj && cd " current-dir)))))
+      (vim.cmd (.. ":3T cd ~/neotes && bb scripts/decrypt.clj " opts.args " && cd " current-dir))))
+  {:nargs "?"})
 
 (util.set-uc "Qtc" (fn [] 
                     (vim.cmd "tabe")
