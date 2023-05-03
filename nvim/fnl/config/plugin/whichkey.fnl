@@ -42,6 +42,7 @@
        :b [":lua require('harpoon.ui').nav_file(2)<CR>" "Nav file 2"]
        :c [":lua require('harpoon.ui').nav_file(3)<CR>" "Nav file 3"]
        :d [":lua require('harpoon.ui').nav_file(4)<CR>" "Nav file 4"]
+       :e [":lua require('harpoon.ui').nav_file(5)<CR>" "Nav file 5"]
        :p [":lua require('harpoon.ui').nav_prev()<CR>" "Nav prev"]
        :n [":lua require('harpoon.ui').nav_next()<CR>" "Nav next"]}
    :j ["<C-W>j" "Window down"]
