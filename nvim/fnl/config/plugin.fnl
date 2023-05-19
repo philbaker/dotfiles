@@ -50,10 +50,6 @@
                             :requires [:nvim-telescope/telescope.nvim]}
   :lalitmee/browse.nvim {:mod :browse}
 
-  ; Notes
-  :renerocksai/telekasten.nvim {:mod :telekasten}
-  :renerocksai/calendar-vim {}
-
   ; REPL tools
   :Olical/conjure {:branch :master :mod :conjure}
   :kassio/neoterm {:mod :neoterm}

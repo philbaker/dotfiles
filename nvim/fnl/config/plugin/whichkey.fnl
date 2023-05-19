@@ -129,13 +129,5 @@
    :u ["<C-^>" "Switch buffer"]
    :z {:name "Notes"
        :a [":VimSexpKeyBindings<CR>" "Vim Sexp bindings"]
-       :e [":VimSexpKeyMappings<CR>" "Vim Sexp mappings"]
-       :f ["<cmd>Telekasten find_notes<CR>" "Find notes"]
-       :g ["<cmd>Telekasten search_notes<CR>" "Search notes"]
-       :d ["<cmd>Telekasten goto_today<CR>" "Go to today"]
-       :z ["<cmd>Telekasten follow_link<CR>" "Follow link"]
-       :n ["<cmd>Telekasten new_note<CR>" "New note"]
-       :c ["<cmd>Telekasten show_calendar<CR>" "Show calendar"]
-       :b ["<cmd>Telekasten show_backlinks<CR>" "Show backlinks"]
-       :I ["<cmd>Telekasten insert_img_link<CR>" "Insert image link"]}}
+       :e [":VimSexpKeyMappings<CR>" "Vim Sexp mappings"]}}
    {:prefix "<leader>"})
