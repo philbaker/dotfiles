@@ -9,6 +9,6 @@
 (set nvim.g.conjure#mapping#prefix "<leader>c")
 
 ; Stop Lua errors during eval comment
-(util.set-key :<localleader>ecc "l<leader>cecr:sleep 10m<CR>f;hxi<CR><ESC>$" false)
+(util.set-key :<localleader>ecc "^l<leader>cecr:sleep 10m<CR>f;hxi<CR><ESC>$" false)
 
 (util.set-key :<leader>cdl "vie<m-e>y:ConjureEval (def <c-r>\")<cr>" false)
