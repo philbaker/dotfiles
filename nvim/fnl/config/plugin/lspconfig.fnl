@@ -63,6 +63,7 @@
   (lsp.svelte.setup defaults)
   (lsp.cssls.setup defaults)
   (lsp.pylsp.setup defaults)
+  (lsp.vuels.setup defaults)
 
   (lsp.intelephense.setup {:on_attach on_attach
                            :flags [:debounce_text_changes 500]

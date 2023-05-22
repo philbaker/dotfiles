@@ -163,11 +163,11 @@
                     (vim.cmd "cope")))
 
 ; Dev utils
-(util.set-uc "Npxr" #(util.replace-pixel-rem))
+(util.set-uc "PixelToRem" #(util.replace-pixel-rem))
 
-(util.set-uc "Nrpx" #(util.replace-rem-pixel))
+(util.set-uc "RemToPixel" #(util.replace-rem-pixel))
 
-(util.set-uc "Nhr" #(util.replace-hex-rgb))
+(util.set-uc "HexToRgb" #(util.replace-hex-rgb))
 
 (util.set-uc 
   "Svg"
