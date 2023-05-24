@@ -105,4 +105,6 @@
                                 :hrsh7th/cmp-vsnip
                                 :hrsh7th/cmp-path]
                      :mod :cmp}
-  :folke/which-key.nvim {:mod :whichkey})
+  :folke/which-key.nvim {:mod :whichkey}
+  :kevinhwang91/nvim-ufo {:mod :nvimufo
+                          :requires [:kevinhwang91/promise-async]})
