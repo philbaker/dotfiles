@@ -65,6 +65,8 @@
                      (vim.cmd "4Topen")
                      (vim.cmd "4T ranger")
                      (vim.cmd "normal mD")
+                     (vim.cmd "5Topen")
+                     (vim.cmd "normal mE")
                      (vim.cmd "normal 'Z")
                      (vim.cmd "stopinsert")))
 
