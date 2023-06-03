@@ -26,9 +26,9 @@
                (c/read-string)) 
           [r g b])))
 
-(defn rgba-format-css
+(defn rgb-format-css
   "Formats rgb output in CSS rgb() form"
-  [rgba-code]
-  (str "rgba(" (str/join ", " rgba-code) ")"))
+  [rgb-code]
+  (str "rgb(" (str/join ", " rgb-code) ")"))
 
-(println (rgba-format-css (hex-to-rgb (first *command-line-args*))))
+(println (rgb-format-css (hex-to-rgb (first *command-line-args*))))

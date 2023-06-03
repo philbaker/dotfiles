@@ -76,7 +76,14 @@
        :ea [":EncryptNotes all<CR>" "Encrypt all"]
        :da [":DecryptNotes all<CR>" "Decrypt all"]
        :eh [":EncryptNotes home<CR>" "Encrypt home"]
-       :dh [":DecryptNotes home<CR>" "Decrypt home"]}
+       :dh [":DecryptNotes home<CR>" "Decrypt home"]
+       :u {:name "Utils"
+           :r [":PixelToRem<CR>" "Pixel to Rem"]
+           :p [":RemToPixel<CR>" "Rem to Pixel"]
+           :g [":HexToRgb<CR>" "Hex to RGB"]
+           :h [":RgbToHex<CR>" "RGB to Hex"]
+           :th [":TailwindClassToHex<CR>" "Tailwind class to hex"]
+           :tc [":TailwindHexToClass<CR>" "Tailwind hex to class"]}}
    :n {:name "Terminal"
        :n [":Nter<CR>" "Open default terminals"]
        :t [":Rsp<CR>" "Terminal split for RDD"]

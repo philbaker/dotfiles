@@ -171,6 +171,15 @@
 
 (util.set-uc "HexToRgb" #(util.replace-hex-rgb))
 
+(util.set-uc "RgbToHex" (fn []
+                          (vim.cmd "normal dt(r[f)r]^")
+                          (vim.cmd "normal f xf x")
+                          (util.replace-rgb-hex)))
+
+(util.set-uc "TailwindHexToClass" #(util.tailwind-hex-to-class))
+
+(util.set-uc "TailwindClassToHex" #(util.tailwind-class-to-hex))
+
 (util.set-uc 
   "Svg"
   (fn [opts]
