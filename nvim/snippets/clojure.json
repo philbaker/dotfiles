@@ -1,0 +1,10 @@
+{
+  "logRawSql": {
+    "prefix": "rsql",
+    "body": "(->> [\"${0}\"] \n     c/pp-query)"
+  },
+  "logHoneySql": {
+    "prefix": "hsql",
+    "body": "(->> {:${0}} \n     c/pp-query)"
+  }
+}
