@@ -1,0 +1,18 @@
+{
+  "name": "tailwind-colors",
+  "version": "0.1.0",
+  "description": "Find a Tailwind color class name, hex or rgb value based on another value.",
+  "author": "philbaker",
+  "license": "EPL-1.0",
+  "dependencies": {
+    "app-root-path": "^3.1.0",
+    "nbb": "^1.2.173"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/philbaker/tailwind-colors.git"
+  },
+  "bin": {
+    "tailwind-colors": "index.mjs"
+  }
+}

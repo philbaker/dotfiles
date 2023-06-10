@@ -56,7 +56,7 @@
 
 (defn tailwind-colors [arg]
   (let [current-word (vim.call "expand" "<cWORD>")
-        replacement (node-script "tailwind-colors/index.mjs" (.. " " arg " " "\"" (tostring current-word) "\""))]
+        replacement (node-script "tw-colors/index.mjs" (.. " " arg " " "\"" (tostring current-word) "\""))]
     (vim.cmd (.. "normal! diWi" replacement))))
 
 (defn tailwind-class-to-hex []

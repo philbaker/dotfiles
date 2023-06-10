@@ -1,0 +1,6 @@
+/node_modules
+.nrepl-port
+.clj-kondo/
+.lsp/
+.nbb/
+config.edn
