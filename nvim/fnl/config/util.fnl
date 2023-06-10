@@ -14,7 +14,7 @@
   (tostring (string.gsub str "%s+" "")))
 
 (defn nbb-script [script args]
-  "Calls external nbb scripts"
+  "Calls external nbb script"
   (let [scripts-dir (.. (os.getenv "HOME") "/dotfiles/scripts/nbbs/")]
     (remove-all-spaces 
       (vim.fn.system (.. "nbb " scripts-dir script ".cljs " args)))))
@@ -23,6 +23,12 @@
   "Calls external nbb scripts"
   (let [scripts-dir (.. (os.getenv "HOME") "/dotfiles/scripts/nbbs/")]
     (vim.fn.system (.. "nbb " scripts-dir script ".cljs " args))))
+
+(defn node-script [script args]
+  "Calls external node script"
+  (let [scripts-dir (.. (os.getenv "HOME") "/dotfiles/scripts/")]
+    (remove-all-spaces 
+      (vim.fn.system (.. "node " scripts-dir script args)))))
 
 (defn replace-pixel-rem []
   "Replaces pixel value with rem in place"
@@ -48,17 +54,18 @@
         replacement (nbb-script "rgb_to_hex" (.. "\"" (tostring current-word) "\""))]
     (vim.cmd (.. "normal! diWi" replacement))))
 
-(defn tailwind-hex-to-class []
-  "Replace Hex code with Tailwind class name"
+(defn tailwind-colors [arg]
   (let [current-word (vim.call "expand" "<cWORD>")
-        replacement (nbb-script "tailwind_colors/hex_to_class" (.. "\"" (tostring current-word) "\""))]
+        replacement (node-script "tailwind-colors/index.mjs" (.. " " arg " " "\"" (tostring current-word) "\""))]
     (vim.cmd (.. "normal! diWi" replacement))))
 
 (defn tailwind-class-to-hex []
-  "Replace Tailwind class name with hex code"
-  (let [current-word (vim.call "expand" "<cWORD>")
-        replacement (nbb-script "tailwind_colors/class_to_hex" (.. "\"" (tostring current-word) "\""))]
-    (vim.cmd (.. "normal! diWi" replacement))))
+  "Replaces a Tailwind class name with its hex value"
+  (tailwind-colors "ch"))
+
+(defn tailwind-hex-to-class []
+  "Replaces a hex value with its Tailwind class name"
+  (tailwind-colors "hc"))
 
 (defn system-os []
   "Returns Linux or Darwin"
