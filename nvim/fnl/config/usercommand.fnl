@@ -1,5 +1,7 @@
 (module config.usercommand
-  {autoload {util config.util}})
+  {autoload {util config.util
+             a aniseed.core
+             str aniseed.string}})
 
 ; Build processes
 (util.set-uc 
@@ -63,10 +65,7 @@
                      (vim.cmd "3Topen")
                      (vim.cmd "normal mC")
                      (vim.cmd "4Topen")
-                     (vim.cmd "4T ranger")
                      (vim.cmd "normal mD")
-                     (vim.cmd "5Topen")
-                     (vim.cmd "normal mE")
                      (vim.cmd "normal 'Z")
                      (vim.cmd "stopinsert")))
 
@@ -230,7 +229,11 @@
 
 ; Open current file or directory via OS
 (util.set-uc "Open" (fn []
-                      (let [path (vim.api.nvim_buf_get_name 0)]
+                      (let [path (vim.api.nvim_buf_get_name 0)
+                            directory (str.join
+                                        "/"
+                                        (a.butlast 
+                                          (str.split path "/")))]
                         (if (= (util.system-os) "Linux")
-                          (os.execute (.. "xdg-open " path))
-                          (os.execute (.. "open -R " path))))))
+                          (os.execute (.. "xdg-open " directory))
+                          (os.execute (.. "open -R " directory))))))
