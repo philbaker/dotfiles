@@ -7,8 +7,9 @@
 
 ; Global options
 (let [options
-      {:backup false
+      {:backup true
        :swapfile false
+       :termguicolors true
        :colorcolumn "80"
        ; Open new horizontal panes on down pane
        :splitbelow true
@@ -27,6 +28,11 @@
        ; Persistent undo
        :undofile true
        :undodir (vim.fn.expand "~/.undodir")
+       ; Confirmation when closing unsaved file
+       :confirm true
+       ; Maintain indent when wrapping indented lines
+       :breakindent true
+       :list true
        ; Share clipboard
        :clipboard "unnamedplus"
        :scrolloff 3
@@ -48,3 +54,9 @@
 
 ; Set colorscheme
 (vim.cmd "colorscheme tokyonight")	
+
+; Don't keep backup in local dir
+(vim.opt.backupdir:remove ".")
+
+; Set custom list chars
+(set vim.opt.listchars {:tab "▸ " :trail "·"})
