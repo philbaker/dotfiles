@@ -24,7 +24,6 @@
        :a [":TestVisit<CR>" "Last run test code"]}
    :e {:name "Easy Align"
        :a ["<Plug>(EasyAlign)" "Align"]}
-   :f "Undo tree"
    :g {:name "Git"
        :g [":tab Git<CR>" "Git status"]
        :l [":tab Git log<CR>" "Git log"]
