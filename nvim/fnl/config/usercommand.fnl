@@ -231,6 +231,6 @@
 ; Open current file or directory via OS
 (util.set-uc "Open" (fn []
                       (let [path (vim.api.nvim_buf_get_name 0)]
-                        (if (util.system-os)
+                        (if (= (util.system-os) "Linux")
                           (os.execute (.. "xdg-open " path))
                           (os.execute (.. "open -R " path))))))
