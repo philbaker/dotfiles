@@ -227,3 +227,10 @@
     (vim.cmd "normal G")
     (util.cmdtc "<C-w>k"))
   {:nargs "?"})
+
+; Open current file or directory via OS
+(util.set-uc "Open" (fn []
+                      (let [path (vim.api.nvim_buf_get_name 0)]
+                        (if (util.system-os)
+                          (os.execute (.. "xdg-open " path))
+                          (os.execute (.. "open -R " path))))))
