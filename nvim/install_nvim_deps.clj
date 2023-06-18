@@ -13,7 +13,7 @@
 (tasks/shell "npm install -g typescript-language-server typescript")
 (tasks/shell "npm install -g vscode-langservers-extracted")
 (tasks/shell "npm install -g @tailwindcss/language-server")
-(tasks/shell "npm install -g vls")
+(tasks/shell "npm install -g @volar/vue-language-server")
 (tasks/shell "npm install -g prettier")
 (tasks/shell "brew install clojure-lsp/brew/clojure-lsp-native")
 

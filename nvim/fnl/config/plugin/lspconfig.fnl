@@ -63,7 +63,13 @@
   (lsp.svelte.setup defaults)
   (lsp.cssls.setup defaults)
   (lsp.pylsp.setup defaults)
-  (lsp.vuels.setup defaults)
+
+  (lsp.volar.setup {:capabilities capabilities
+                    :flags {:debounce_text_changes 150}
+                    :init_options {:typescript {:tsdk (.. (os.getenv "HOME") "/.nvm/versions/node/v20.3.0/lib/node_modules/typescript/lib")}}
+                    :on_attach on_attach
+                    :handlers handlers
+                    :filetypes ["vue"]})
 
   (lsp.intelephense.setup {:on_attach on_attach
                            :flags [:debounce_text_changes 500]
