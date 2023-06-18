@@ -11,10 +11,10 @@
    :- [":Dirbuf<CR>" "Dirbuf"]
    :<CR> [":noh<CR>" "Clear highlights"]
    :a {:name "Fuzzy grep"
-       :a [":lua require('telescope.builtin').live_grep()<CR>" "Grep"]
+       :a [":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>" "Grep with args"]
        :d [":lua require('telescope.builtin').live_grep({search_dirs={vim.fn.expand('~/dotfiles')}})<CR>" "Dotfiles grep"]
        :n [":lua require('telescope.builtin').live_grep({search_dirs={vim.fn.expand('~/neotes')}})<CR>" "Neotes grep"]
-       :r [":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>" "Grep with args"]}
+       }
    :c {:name "Conjure"}
    :d {:name "Test"
        :n [":2T :<CR> :TestNearest<CR>" "Nearest"]
@@ -122,6 +122,7 @@
    :t {:name "Fuzzy file"
        :. [":lua require ('telescope.builtin').resume()<CR>" "Last search"]
        :b [":lua require('browse').browse({ bookmarks = bookmarks })<CR>" "Documentation"]
+       :c [":lua require('telescope.builtin').oldfiles()<CR>" "History"]
        :d [":lua require('telescope.builtin').find_files({search_dirs={vim.fn.expand('~/dotfiles')}})<CR>" "Dotfiles"]
        :e [":lua require('telescope.builtin').find_files()<CR>" "Files"]
        :h [":lua require('telescope.builtin').help_tags()<CR>" "Help"]
