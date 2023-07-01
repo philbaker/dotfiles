@@ -1,6 +1,5 @@
 (module config.plugin.browse
-  {autoload {browse browse
-             util config.util}})
+  {autoload {browse browse}})
 
 (browse.setup {:bookmarks 
                {:github {:name "search github from neovim"

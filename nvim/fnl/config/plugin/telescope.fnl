@@ -1,6 +1,5 @@
 (module config.plugin.telescope
-  {autoload {util config.util
-             telescope telescope
+  {autoload {telescope telescope
              actions telescope.actions
              layout telescope.actions.layout
              lga-actions telescope-live-grep-args.actions}})

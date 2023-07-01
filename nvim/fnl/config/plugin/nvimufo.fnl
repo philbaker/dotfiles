@@ -1,6 +1,5 @@
 (module config.plugin.nvimufo
-  {autoload {nvim aniseed.nvim
-             util config.util
+  {autoload {util config.util
              ufo ufo}})
 
 ; z-c - collapse fold

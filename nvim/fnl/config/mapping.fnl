@@ -1,6 +1,5 @@
 (module config.mapping
   {autoload {util config.util
-             core aniseed.core
              nvim aniseed.nvim}})
 
 (set vim.o.timeoutlen 500)

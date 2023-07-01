@@ -1,8 +1,5 @@
 (module config.plugin.whichkey
-  {autoload {nvim aniseed.nvim
-             util config.util
-             which-key which-key}})
-
+  {autoload {which-key which-key}})
 
 (which-key.setup {:triggers_blacklist {:n ["'" "\"" "v"]}})
 

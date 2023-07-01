@@ -1,6 +1,6 @@
 (module config.usercommand
   {autoload {util config.util
-             a aniseed.core
+             core aniseed.core
              str aniseed.string}})
 
 ; Build processes
@@ -232,7 +232,7 @@
                       (let [path (vim.api.nvim_buf_get_name 0)
                             directory (str.join
                                         "/"
-                                        (a.butlast 
+                                        (core.butlast 
                                           (str.split path "/")))]
                         (if (= (util.system-os) "Linux")
                           (os.execute (.. "xdg-open " directory))

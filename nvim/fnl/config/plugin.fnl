@@ -1,5 +1,5 @@
 (module config.plugin
-  {autoload {a aniseed.core
+  {autoload {core aniseed.core
              packer packer}})
 
 (defn- safe-require-plugin-config [name]
@@ -14,11 +14,11 @@
   (let [pkgs [...]]
     (packer.startup
       (fn [use]
-        (for [i 1 (a.count pkgs) 2]
+        (for [i 1 (core.count pkgs) 2]
           (let [name (. pkgs i)
                 opts (. pkgs (+ i 1))]
             (-?> (. opts :mod) (safe-require-plugin-config))
-            (use (a.assoc opts 1 name)))))))
+            (use (core.assoc opts 1 name)))))))
   nil)
 
 ; Plugins managed by packer
@@ -57,6 +57,7 @@
   ; Git
   :tpope/vim-fugitive {}
   :airblade/vim-gitgutter {:mod :gitgutter}
+  :sindrets/diffview.nvim {:mod :diffview}
 
   ; Navigation
   :dhruvasagar/vim-zoom {}

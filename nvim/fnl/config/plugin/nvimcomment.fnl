@@ -4,5 +4,4 @@
 (nvim_comment.setup
   {:hook (fn []
            ((. (require :ts_context_commentstring.internal)
-               :update_commentstring)))}
-  )
+               :update_commentstring)))})
