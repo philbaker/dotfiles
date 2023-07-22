@@ -133,5 +133,6 @@
    :u ["<C-^>" "Switch buffer"]
    :z {:name "Notes"
        :a [":VimSexpKeyBindings<CR>" "Vim Sexp bindings"]
-       :e [":VimSexpKeyMappings<CR>" "Vim Sexp mappings"]}}
+       :e [":VimSexpKeyMappings<CR>" "Vim Sexp mappings"]
+       :i [":VimSurroundKeyMappings<CR>" "Vim Surround mappings"]}}
    {:prefix "<leader>"})

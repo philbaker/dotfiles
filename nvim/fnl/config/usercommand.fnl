@@ -114,6 +114,11 @@
   (fn []
     (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/none/20230411-vim-sexp-mappings.md"))))
 
+(util.set-uc
+  "VimSurroundKeyMappings"
+  (fn []
+    (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/none/20230722-vim-surround.md"))))
+
 (util.set-uc 
   "Sv"
   (fn [opts]
