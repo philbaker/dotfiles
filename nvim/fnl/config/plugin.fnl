@@ -84,7 +84,6 @@
   :sbdchd/neoformat {}
   :junegunn/vim-easy-align {:mod :vimeasyalign}
   :posva/vim-vue {}
-  :github/copilot.vim {:mod :copilot}
 
   ; Comments
   :JoosepAlviste/nvim-ts-context-commentstring {}
