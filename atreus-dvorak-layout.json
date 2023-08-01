@@ -46,7 +46,7 @@
       {"code": 13, "label": {"base": "j", "shifted": "J"}},
       {"code": 14, "label": {"base": "k", "shifted": "K"}},
       {"code": 27, "label": {"base": "x", "shifted": "X"}},
-      {"code": 51, "label": {"base": ";", "shifted": ":"}},
+      {"code": 46, "label": {"base": "=", "shifted": "+"}},
       {"code": 53, "label": {"base": "`", "shifted": "~"}},
       {"code": 5, "label": {"base": "b", "shifted": "B"}},
       {"code": 16, "label": {"base": "m", "shifted": "M"}},
@@ -105,7 +105,7 @@
         "categories": ["modifier"]
       },
       {"code": 45, "label": {"base": "-", "shifted": "_"}},
-      {"code": 46, "label": {"base": "=", "shifted": "+"}}
+      {"code": 51, "label": {"base": ";", "shifted": ":"}}
     ],
     [
       {
