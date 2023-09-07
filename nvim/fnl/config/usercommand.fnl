@@ -105,6 +105,14 @@
       (vim.api.nvim_buf_set_lines 0 -1 -1 false lines))))
 
 (util.set-uc
+  "ChTrello"
+  (fn []
+    (let [file (assert (io.open (.. (os.getenv "HOME") "/neotes/all/01-checklists/trello-template.md")))
+          lines (util.split-string-by-line (file:read "*a"))]
+      (file:close)
+      (vim.api.nvim_buf_set_lines 0 -1 -1 false lines))))
+
+(util.set-uc
   "VimSexpKeyBindings"
   (fn []
     (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/none/vim-sexp-key-bindings.md"))))
