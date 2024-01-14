@@ -6,8 +6,6 @@ vim/doc/
 vim/indent/
 vim/syntax/
 nvim/.netrwhist
-nvim/lua/*
-nvim/plugin/*
 tags
 .clj-kondo
 .lsp
