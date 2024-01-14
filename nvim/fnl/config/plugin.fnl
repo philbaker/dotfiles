@@ -30,6 +30,7 @@
 
   ; Nvim config and plugins in Fennel
   :Olical/aniseed {}
+  :Olical/nfnl {}
 
   ; Theme
   :folke/tokyonight.nvim {:branch :main}
