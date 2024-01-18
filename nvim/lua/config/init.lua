@@ -1,18 +1,13 @@
-local _2afile_2a = "/home/pb/.config/nvim/fnl/config/init.fnl"
-local _2amodule_name_2a = "config.init"
-local _2amodule_2a
+-- [nfnl] Compiled from fnl/config/init.fnl by https://github.com/Olical/nfnl, do not edit.
+local _local_1_ = require("nfnl.module")
+local autoload = _local_1_["autoload"]
+local nvim = autoload("nvim")
+local core = autoload("nfnl.core")
+nvim.set_keymap("n", "<space>", "<nop>", {noremap = true})
 do
-  package.loaded[_2amodule_name_2a] = {}
-  _2amodule_2a = package.loaded[_2amodule_name_2a]
+  local options = {expandtab = true, tabstop = 2, shiftwidth = 2, softtabstop = 2, completeopt = "menuone,noselect", ignorecase = true, smartcase = true, clipboard = "unnamedplus", number = true, ruler = true, signcolumn = "number"}
+  for option, value in pairs(options) do
+    core.assoc(nvim.o, option, value)
+  end
 end
-local _2amodule_locals_2a
-do
-  _2amodule_2a["aniseed/locals"] = {}
-  _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
-end
-require("config.util")
-require("config.core")
-require("config.mapping")
-require("config.plugin")
-require("config.usercommand")
-return _2amodule_2a
+return {}
