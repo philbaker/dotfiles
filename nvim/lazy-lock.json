@@ -1,0 +1,6 @@
+{
+  "conjure": { "branch": "master", "commit": "4880144f13a7693cded529b302de491bfbaedbd6" },
+  "lazy.nvim": { "branch": "main", "commit": "96584866b9c5e998cbae300594d0ccfd0c464627" },
+  "nfnl": { "branch": "main", "commit": "cca56a8f29e7e55b2044216762d5192d23403946" },
+  "nvim.lua": { "branch": "master", "commit": "5d57be0b6eea6c06977b1c5fe0752da909cf4154" }
+}
