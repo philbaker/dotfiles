@@ -1,0 +1,10 @@
+- lualine
+- nvim-lspconfig
+- nvim-cmp + dependencies (look at example)
+- mason.nvim (to manage lsp server installation)
+- nvim-neoclip.lua (is this needed?) 
+- browse.nvim (is this needed?)
+- diffview.nvim (is this needed?)
+- nvim-ts-context-commentstring (is this needed?)
+- nvim-comment
+- nvim-ufo (is this needed?)
