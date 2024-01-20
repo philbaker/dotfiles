@@ -3,5 +3,7 @@
   "lazy.nvim": { "branch": "main", "commit": "96584866b9c5e998cbae300594d0ccfd0c464627" },
   "nfnl": { "branch": "main", "commit": "cca56a8f29e7e55b2044216762d5192d23403946" },
   "nvim.lua": { "branch": "master", "commit": "5d57be0b6eea6c06977b1c5fe0752da909cf4154" },
+  "vim-gitgutter": { "branch": "main", "commit": "67ef116100b40f9ca128196504a2e0bc0a2753b0" },
+  "vim-test": { "branch": "master", "commit": "a41a9d571e253d2d02e3898f2a08d129c52ec3f2" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" }
 }
