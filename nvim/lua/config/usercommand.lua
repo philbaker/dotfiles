@@ -217,25 +217,25 @@ local function _45_(opts)
 end
 util["set-uc"]("Svg", _45_, {nargs = "?"})
 local function _46_()
-  cmdtc("<C-W>j")
+  util.cmdtc("<C-W>j")
   vim.cmd("resize 10")
-  return cmdtc("<C-W>k")
+  return util.cmdtc("<C-W>k")
 end
 util["set-uc"]("Resize10", _46_)
 local function _47_()
   vim.cmd("sp")
   vim.cmd("normal 'C")
   vim.cmd("resize 10")
-  return cmdtc("<C-w>k")
+  return util.cmdtc("<C-w>k")
 end
 util["set-uc"]("Rsp", _47_, {nargs = "?"})
 local function _48_(opts)
   if (opts.args ~= "block") then
-    cmdtc("<Plug>(neoterm-repl-send-line)")
+    util.cmdtc("<Plug>(neoterm-repl-send-line)")
   else
   end
   vim.cmd("sleep 100ms")
-  cmdtc("<C-w>j")
+  util.cmdtc("<C-w>j")
   vim.cmd("normal G")
   vim.cmd("normal k")
   if (opts.args == "block") then
@@ -243,16 +243,16 @@ local function _48_(opts)
   else
     vim.cmd("normal yy")
   end
-  cmdtc("<C-w>k")
+  util.cmdtc("<C-w>k")
   vim.cmd("normal p")
   if (opts.args == "block") then
     vim.cmd("normal V%gc")
   else
     vim.cmd("normal gcc")
   end
-  cmdtc("<C-w>j")
+  util.cmdtc("<C-w>j")
   vim.cmd("normal G")
-  return cmdtc("<C-w>k")
+  return util.cmdtc("<C-w>k")
 end
 util["set-uc"]("Rspa", _48_, {nargs = "?"})
 local function _52_()

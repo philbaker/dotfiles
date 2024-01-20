@@ -39,7 +39,6 @@
                        (vim.cmd "w")
                        (vim.cmd "3T npx squint compile **/*.cljs")))
 
-
 (util.set-uc "Sqr" #(vim.cmd "3T bb mjs_to_js.clj ./pages"))
 
 (util.set-uc
@@ -212,9 +211,9 @@
 (util.set-uc
   "Resize10"
   (fn []
-    (cmdtc "<C-W>j")
+    (util.cmdtc "<C-W>j")
     (vim.cmd "resize 10")
-    (cmdtc "<C-W>k")))
+    (util.cmdtc "<C-W>k")))
 
 ; Sets up a terminal split for RDD
 (util.set-uc
@@ -223,7 +222,7 @@
     (vim.cmd "sp")
     (vim.cmd "normal 'C")
     (vim.cmd "resize 10")
-    (cmdtc "<C-w>k"))
+    (util.cmdtc "<C-w>k"))
   {:nargs "?"})
 
 ; Puts REPL output in code buffer
@@ -231,22 +230,22 @@
   "Rspa"
   (fn [opts]
     (if (not= opts.args "block")
-      (cmdtc "<Plug>(neoterm-repl-send-line)"))
+      (util.cmdtc "<Plug>(neoterm-repl-send-line)"))
     (vim.cmd "sleep 100ms")
-    (cmdtc "<C-w>j")
+    (util.cmdtc "<C-w>j")
     (vim.cmd "normal G")
     (vim.cmd "normal k")
     (if (= opts.args "block")
       (vim.cmd "normal V%y")
       (vim.cmd "normal yy"))
-    (cmdtc "<C-w>k")
+    (util.cmdtc "<C-w>k")
     (vim.cmd "normal p")
     (if (= opts.args "block")
       (vim.cmd "normal V%gc")
       (vim.cmd "normal gcc"))
-    (cmdtc "<C-w>j")
+    (util.cmdtc "<C-w>j")
     (vim.cmd "normal G")
-    (cmdtc "<C-w>k"))
+    (util.cmdtc "<C-w>k"))
   {:nargs "?"})
 
 ; Open current file or directory via OS
