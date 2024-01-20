@@ -53,7 +53,7 @@
 (vim.cmd "autocmd BufNewFile,BufRead *.phel set syntax=clojure")
 
 ; Set colorscheme
-; (vim.cmd "colorscheme tokyonight")
+(vim.cmd "colorscheme tokyonight")
 
 ; Don't keep backup in local dir
 (vim.opt.backupdir:remove ".")

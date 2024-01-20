@@ -14,6 +14,7 @@ nvim.ex.autocmd("FileType", "*", "setlocal formatoptions-=c formatoptions-=r for
 nvim.ex.let("neoterm_autoinsert=1")
 nvim.ex.autocmd("FileType", "qf", "wincmd J")
 vim.cmd("autocmd BufNewFile,BufRead *.phel set syntax=clojure")
+vim.cmd("colorscheme tokyonight")
 do end (vim.opt.backupdir):remove(".")
 vim.opt.listchars = {tab = "\226\150\184 ", trail = "\194\183"}
 nvim.set_keymap("n", "<space>", "<nop>", {noremap = true})

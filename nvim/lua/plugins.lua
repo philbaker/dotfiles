@@ -10,5 +10,5 @@ return {
     init = function()
       require("config")
     end,
-  },
+  }
 }
