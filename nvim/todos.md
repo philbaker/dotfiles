@@ -1,3 +1,4 @@
+- neoterm
 - lualine
 - nvim-lspconfig
 - nvim-cmp + dependencies (look at example)
