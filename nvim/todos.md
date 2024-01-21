@@ -1,12 +1,12 @@
 - [x] neoterm
-- [x] mason.nvim (to manage lsp server installation)
+- [x] mason.nvim
 - [x] nvim-lspconfig
 - [x] lualine
-- [x] nvim-cmp + dependencies (look at example)
-- [ ] nvim-neoclip.lua (is this needed?) 
-- [ ] browse.nvim (is this needed?)
-- [ ] diffview.nvim (is this needed?)
-- [-] nvim-ts-context-commentstring (is this needed?)
+- [x] nvim-cmp + dependencies
 - [x] nvim-comment
-- [ ] nvim-ufo (is this needed?)
-- [ ] neoclip? (for telescope?)
+- [-] nvim-ts-context-commentstring
+- [ ] nvim-neoclip.lua
+- [ ] browse.nvim
+- [ ] diffview.nvim
+- [ ] nvim-ufo
+- [ ] neoclip?
