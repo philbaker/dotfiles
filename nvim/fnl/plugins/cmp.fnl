@@ -1,3 +1,22 @@
+(local cmp-src-menu-items
+  {:buffer "buff"
+   :conjure "conj"
+   :nvim_lsp "lsp"
+   :vsnip "vsnp"
+   :luasnip "lsnp"})
+
+(local cmp-srcs
+  [{:name :nvim_lsp}
+   {:name :conjure}
+   {:name :buffer}
+   {:name :vsnip}
+   {:name :luasnip}])
+
+(fn has-words-before []
+  (let [(line col) (unpack (vim.api.nvim_win_get_cursor 0))]
+    (and (not= col 0)
+         (= (: (: (. (vim.api.nvim_buf_get_lines 0 (- line 1) line true) 1) :sub col col) :match "%s") nil))))
+
 [{1 :hrsh7th/nvim-cmp
   :dependencies [:hrsh7th/cmp-buffer
                  :hrsh7th/cmp-nvim-lsp
