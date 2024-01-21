@@ -1,0 +1,12 @@
+- [x] neoterm
+- [x] mason.nvim
+- [x] nvim-lspconfig
+- [x] lualine
+- [x] nvim-cmp + dependencies
+- [x] nvim-comment
+- [-] nvim-ts-context-commentstring
+- [ ] nvim-neoclip.lua
+- [ ] browse.nvim
+- [ ] diffview.nvim
+- [ ] nvim-ufo
+- [ ] neoclip?

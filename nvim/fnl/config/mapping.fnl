@@ -1,6 +1,8 @@
-(module config.mapping
-  {autoload {util config.util
-             nvim aniseed.nvim}})
+(local {: autoload} (require :nfnl.module))
+(local nvim (autoload :nvim))
+(local util (autoload :config.util))
+
+; Mapping
 
 (set vim.o.timeoutlen 500)
 
@@ -20,3 +22,5 @@
 
 ; Restore default redo
 (util.set-key :<C-R> "<C-R>" false)
+
+{}

@@ -1,18 +1,19 @@
-(module config.usercommand
-  {autoload {util config.util
-             core aniseed.core
-             str aniseed.string}})
+(local {: autoload} (require :nfnl.module))
+(local nvim (autoload :nvim))
+(local util (autoload :config.util))
+
+; User commands
 
 ; Build processes
-(util.set-uc 
+(util.set-uc
   "BbRepl"
-  (fn [opts] 
+  (fn [opts]
     (vim.cmd (.. "1T bb nrepl-server " opts.args)))
   {:nargs "?"})
 
-(util.set-uc 
+(util.set-uc
   "NbbRepl"
-  (fn [opts] 
+  (fn [opts]
     (vim.cmd (.. "1T nbb nrepl-server :port " opts.args)))
   {:nargs "?"})
 
@@ -30,14 +31,13 @@
 
 (util.set-uc "ClojureStartRepl" #(vim.cmd "1T clj -A:dev"))
 
-(util.set-uc "Sq" (fn [] 
+(util.set-uc "Sq" (fn []
                     (vim.cmd "w")
                     (vim.cmd "3T npx squint %")))
 
-(util.set-uc "Sqall" (fn [] 
+(util.set-uc "Sqall" (fn []
                        (vim.cmd "w")
                        (vim.cmd "3T npx squint compile **/*.cljs")))
-
 
 (util.set-uc "Sqr" #(vim.cmd "3T bb mjs_to_js.clj ./pages"))
 
@@ -57,36 +57,36 @@
 (util.set-uc "Phr" #(vim.cmd (.. "2T vendor/bin/phel run %")))
 
 (util.set-uc "Nter" (fn []
-                     (vim.cmd "normal mZ")
-                     (vim.cmd "1Topen")
-                     (vim.cmd "normal mA")
-                     (vim.cmd "2Topen")
-                     (vim.cmd "normal mB")
-                     (vim.cmd "3Topen")
-                     (vim.cmd "normal mC")
-                     (vim.cmd "4Topen")
-                     (vim.cmd "normal mD")
-                     (vim.cmd "normal 'Z")
-                     (vim.cmd "stopinsert")))
+                      (vim.cmd "normal mZ")
+                      (vim.cmd "1Topen")
+                      (vim.cmd "normal mA")
+                      (vim.cmd "2Topen")
+                      (vim.cmd "normal mB")
+                      (vim.cmd "3Topen")
+                      (vim.cmd "normal mC")
+                      (vim.cmd "4Topen")
+                      (vim.cmd "normal mD")
+                      (vim.cmd "normal 'Z")
+                      (vim.cmd "stopinsert")))
 
 ; Node REPL utils
 (util.set-uc "JSRemoveExport" (fn [] 
-                     (vim.cmd ":%s/export //g") 
-                     (vim.cmd ":w")))
+                                (vim.cmd ":%s/export //g") 
+                                (vim.cmd ":w")))
 
 (util.set-uc "JSReplaceConstWithVar" (fn []
-                     (vim.cmd ":%s/const/var/g")
-                     (vim.cmd ":w")))
+                                       (vim.cmd ":%s/const/var/g")
+                                       (vim.cmd ":w")))
 
 (util.set-uc "JSRemoveLet" (fn []
-                     (vim.cmd ":%s/let")
-                     (vim.cmd ":w")))
+                             (vim.cmd ":%s/let")
+                             (vim.cmd ":w")))
 
-(util.set-uc "SaveIndexAndReturn" (fn [] 
-                     (vim.cmd "w")
-                     (vim.cmd ":e index.html")
-                     (vim.cmd ":w")
-                     (vim.cmd ":b #")))
+(util.set-uc "SaveIndexAndReturn" (fn []
+                                    (vim.cmd "w")
+                                    (vim.cmd ":e index.html")
+                                    (vim.cmd ":w")
+                                    (vim.cmd ":b #")))
 
 (util.set-uc "Pint" (fn []
                       (do
@@ -100,7 +100,7 @@
   "ChTest"
   (fn []
     (let [file (assert (io.open (.. (os.getenv "HOME") "/neotes/all/01-checklists/dev-testing.md")))
-          lines (util.split-string-by-line (file:read "*a"))]
+          lines (split-string-by-line (file:read "*a"))]
       (file:close)
       (vim.api.nvim_buf_set_lines 0 -1 -1 false lines))))
 
@@ -108,7 +108,7 @@
   "ChTrello"
   (fn []
     (let [file (assert (io.open (.. (os.getenv "HOME") "/neotes/all/01-checklists/trello-template.md")))
-          lines (util.split-string-by-line (file:read "*a"))]
+          lines (split-string-by-line (file:read "*a"))]
       (file:close)
       (vim.api.nvim_buf_set_lines 0 -1 -1 false lines))))
 
@@ -116,7 +116,7 @@
   "AbTest"
   (fn []
     (let [file (assert (io.open (.. (os.getenv "HOME") "/neotes/all/01-checklists/ab-testing.md")))
-          lines (util.split-string-by-line (file:read "*a"))]
+          lines (split-string-by-line (file:read "*a"))]
       (file:close)
       (vim.api.nvim_buf_set_lines 0 -1 -1 false lines))))
 
@@ -135,75 +135,75 @@
   (fn []
     (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/none/20230722-vim-surround.md"))))
 
-(util.set-uc 
+(util.set-uc
   "Sv"
   (fn [opts]
-    (util.ag-outside-cwd "/dotfiles/nvim" opts.args))
+    (ag-outside-cwd "/dotfiles/nvim" opts.args))
   {:nargs "?"})
 
-(util.set-uc 
+(util.set-uc
   "Note"
-  (fn [opts] 
+  (fn [opts]
     (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/none/" (os.date "!%Y%m%d-") opts.args)))
   {:nargs "?"})
 
-(util.set-uc 
+(util.set-uc
   "Notee"
-  (fn [opts] 
+  (fn [opts]
     (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/all/" (os.date "!%Y%m%d-") opts.args)))
   {:nargs "?"})
 
-(util.set-uc 
+(util.set-uc
   "Noteh"
-  (fn [opts] 
+  (fn [opts]
     (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/home/" (os.date "!%Y%m%d-") opts.args)))
   {:nargs "?"})
 
-(util.set-uc 
+(util.set-uc
   "Sn"
   (fn [opts]
     (let [current-dir (vim.fn.getcwd)]
-      (util.ag-outside-cwd "/neotes" opts.args)))
+      (ag-outside-cwd "/neotes" opts.args)))
   {:nargs "?"})
 
-(util.set-uc 
+(util.set-uc
   "EncryptNotes"
   (fn [opts]
     (let [current-dir (vim.fn.getcwd)]
       (vim.cmd (.. ":3T cd ~/neotes && bb scripts/encrypt.clj " opts.args " && cd " current-dir))))
   {:nargs "?"})
 
-(util.set-uc 
+(util.set-uc
   "DecryptNotes"
   (fn [opts]
     (let [current-dir (vim.fn.getcwd)]
       (vim.cmd (.. ":3T cd ~/neotes && bb scripts/decrypt.clj " opts.args " && cd " current-dir))))
   {:nargs "?"})
 
-(util.set-uc "Qtc" (fn [] 
-                    (vim.cmd "tabe")
-                    (vim.cmd "cope")))
+(util.set-uc "Qtc" (fn []
+                     (vim.cmd "tabe")
+                     (vim.cmd "cope")))
 
 ; Dev utils
-(util.set-uc "PixelToRem" #(util.replace-pixel-rem))
+(util.set-uc "PixelToRem" #(replace-pixel-rem))
 
-(util.set-uc "RemToPixel" #(util.replace-rem-pixel))
+(util.set-uc "RemToPixel" #(replace-rem-pixel))
 
-(util.set-uc "HexToRgb" #(util.replace-hex-rgb))
+(util.set-uc "HexToRgb" #(replace-hex-rgb))
 
 (util.set-uc "RgbToHex" (fn []
                           (vim.cmd "normal dt(r[f)r]^")
                           (vim.cmd "normal f xf x")
-                          (util.replace-rgb-hex)))
+                          (replace-rgb-hex)))
 
-(util.set-uc "TailwindHexToClass" #(util.tailwind-hex-to-class))
+(util.set-uc "TailwindHexToClass" #(tailwind-hex-to-class))
 
-(util.set-uc "TailwindClassToHex" #(util.tailwind-class-to-hex))
+(util.set-uc "TailwindClassToHex" #(tailwind-class-to-hex))
 
-(util.set-uc 
+(util.set-uc
   "Svg"
   (fn [opts]
-    (util.insert-optimised-svg opts.args))
+    (insert-optimised-svg opts.args))
   {:nargs "?"})
 
 ; REPL
@@ -216,7 +216,7 @@
     (util.cmdtc "<C-W>k")))
 
 ; Sets up a terminal split for RDD
-(util.set-uc 
+(util.set-uc
   "Rsp"
   (fn []
     (vim.cmd "sp")
@@ -226,7 +226,7 @@
   {:nargs "?"})
 
 ; Puts REPL output in code buffer
-(util.set-uc 
+(util.set-uc
   "Rspa"
   (fn [opts]
     (if (not= opts.args "block")
@@ -253,8 +253,10 @@
                       (let [path (vim.api.nvim_buf_get_name 0)
                             directory (str.join
                                         "/"
-                                        (core.butlast 
+                                        (core.butlast
                                           (str.split path "/")))]
-                        (if (= (util.system-os) "Linux")
+                        (if (= (system-os) "Linux")
                           (os.execute (.. "xdg-open " directory))
                           (os.execute (.. "open -R " directory))))))
+
+{}
