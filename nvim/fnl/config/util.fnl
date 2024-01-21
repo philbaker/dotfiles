@@ -97,23 +97,23 @@
 
 (fn cmdtc [cmd]
   "A shorter version of nvim_replace_termcodes"
-   (vim.cmd (vim.api.nvim_replace_termcodes (.. "normal " cmd) true true true)))
+  (vim.cmd (vim.api.nvim_replace_termcodes (.. "normal " cmd) true true true)))
 
 {: split-string-by-line
-: remove-all-spaces
-: nbb-script
-: nbb-script-spaces
-: node-script
-: replace-pixel-rem
-: replace-rem-pixel
-: replace-hex-rgb
-: replace-rgb-hex
-: tailwind-colors
-: tailwind-class-to-hex
-: tailwind-hex-to-class
-: insert-optimised-svg
-: system-os
-: set-uc
-: set-key
-: getcwf
-: cmdtc}
+ : remove-all-spaces
+ : nbb-script
+ : nbb-script-spaces
+ : node-script
+ : replace-pixel-rem
+ : replace-rem-pixel
+ : replace-hex-rgb
+ : replace-rgb-hex
+ : tailwind-colors
+ : tailwind-class-to-hex
+ : tailwind-hex-to-class
+ : insert-optimised-svg
+ : system-os
+ : set-uc
+ : set-key
+ : getcwf
+ : cmdtc}

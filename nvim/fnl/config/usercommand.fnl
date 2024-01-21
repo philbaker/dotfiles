@@ -57,36 +57,36 @@
 (util.set-uc "Phr" #(vim.cmd (.. "2T vendor/bin/phel run %")))
 
 (util.set-uc "Nter" (fn []
-                     (vim.cmd "normal mZ")
-                     (vim.cmd "1Topen")
-                     (vim.cmd "normal mA")
-                     (vim.cmd "2Topen")
-                     (vim.cmd "normal mB")
-                     (vim.cmd "3Topen")
-                     (vim.cmd "normal mC")
-                     (vim.cmd "4Topen")
-                     (vim.cmd "normal mD")
-                     (vim.cmd "normal 'Z")
-                     (vim.cmd "stopinsert")))
+                      (vim.cmd "normal mZ")
+                      (vim.cmd "1Topen")
+                      (vim.cmd "normal mA")
+                      (vim.cmd "2Topen")
+                      (vim.cmd "normal mB")
+                      (vim.cmd "3Topen")
+                      (vim.cmd "normal mC")
+                      (vim.cmd "4Topen")
+                      (vim.cmd "normal mD")
+                      (vim.cmd "normal 'Z")
+                      (vim.cmd "stopinsert")))
 
 ; Node REPL utils
 (util.set-uc "JSRemoveExport" (fn [] 
-                     (vim.cmd ":%s/export //g") 
-                     (vim.cmd ":w")))
+                                (vim.cmd ":%s/export //g") 
+                                (vim.cmd ":w")))
 
 (util.set-uc "JSReplaceConstWithVar" (fn []
-                     (vim.cmd ":%s/const/var/g")
-                     (vim.cmd ":w")))
+                                       (vim.cmd ":%s/const/var/g")
+                                       (vim.cmd ":w")))
 
 (util.set-uc "JSRemoveLet" (fn []
-                     (vim.cmd ":%s/let")
-                     (vim.cmd ":w")))
+                             (vim.cmd ":%s/let")
+                             (vim.cmd ":w")))
 
 (util.set-uc "SaveIndexAndReturn" (fn []
-                     (vim.cmd "w")
-                     (vim.cmd ":e index.html")
-                     (vim.cmd ":w")
-                     (vim.cmd ":b #")))
+                                    (vim.cmd "w")
+                                    (vim.cmd ":e index.html")
+                                    (vim.cmd ":w")
+                                    (vim.cmd ":b #")))
 
 (util.set-uc "Pint" (fn []
                       (do
@@ -181,8 +181,8 @@
   {:nargs "?"})
 
 (util.set-uc "Qtc" (fn []
-                    (vim.cmd "tabe")
-                    (vim.cmd "cope")))
+                     (vim.cmd "tabe")
+                     (vim.cmd "cope")))
 
 ; Dev utils
 (util.set-uc "PixelToRem" #(replace-pixel-rem))

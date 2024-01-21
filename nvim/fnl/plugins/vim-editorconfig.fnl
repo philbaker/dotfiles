@@ -1,2 +1,2 @@
 [{1 :sgur/vim-editorconfig
-    :init (fn [])}]
+  :init (fn [])}]
