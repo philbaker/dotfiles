@@ -27,5 +27,4 @@
                                                                      "!.git"
                                                                      "--hidden"]}})
               (telescope.load_extension "live_grep_args")
-              (telescope.load_extension "project")
-              (telescope.load_extension "neoclip")))}]
+              (telescope.load_extension "project")))}]
