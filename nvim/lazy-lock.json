@@ -3,6 +3,7 @@
   "dirbuf.nvim": { "branch": "main", "commit": "ac7ad3c8e61630d15af1f6266441984f54f54fd2" },
   "harpoon": { "branch": "master", "commit": "ccae1b9bec717ae284906b0bf83d720e59d12b91" },
   "lazy.nvim": { "branch": "main", "commit": "96584866b9c5e998cbae300594d0ccfd0c464627" },
+  "neoterm": { "branch": "master", "commit": "eca22dc90a9db5e52d8baf91f31991ad540ffe36" },
   "nfnl": { "branch": "main", "commit": "9e5777da3dcbde0f6e3847371e13fd61fb70b022" },
   "nvim-treesitter": { "branch": "master", "commit": "5cc562748729b6dc9563ea5a3d676ff102ab38b1" },
   "nvim-web-devicons": { "branch": "master", "commit": "140edfcf25093e8b321d13e154cbce89ee868ca0" },
