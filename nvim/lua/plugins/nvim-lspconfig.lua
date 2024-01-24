@@ -44,6 +44,7 @@ local function _2_()
   lsp.svelte.setup(defaults)
   lsp.cssls.setup(defaults)
   lsp.pylsp.setup(defaults)
-  return lsp.fennel_ls.setup(defaults)
+  lsp.fennel_ls.setup(defaults)
+  return lsp.lua_ls.setup(defaults)
 end
 return {{"neovim/nvim-lspconfig", config = _2_}}
