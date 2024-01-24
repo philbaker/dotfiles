@@ -62,5 +62,4 @@
               (lsp.eslint.setup defaults)
               (lsp.svelte.setup defaults)
               (lsp.cssls.setup defaults)
-              (lsp.pylsp.setup defaults)
-              (lsp.fennel_ls.setup defaults)))}]
+              (lsp.pylsp.setup defaults)))}]
