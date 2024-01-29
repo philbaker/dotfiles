@@ -64,4 +64,5 @@
               (lsp.cssls.setup defaults)
               (lsp.pylsp.setup defaults)
               (lsp.fennel_ls.setup defaults)
-              (lsp.lua_ls.setup defaults)))}]
+              (lsp.lua_ls.setup defaults)
+              (lsp.intelephense.setup defaults)))}]
