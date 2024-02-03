@@ -45,6 +45,8 @@ local function _2_()
   lsp.cssls.setup(defaults)
   lsp.pylsp.setup(defaults)
   lsp.fennel_ls.setup(defaults)
-  return lsp.lua_ls.setup(defaults)
+  lsp.lua_ls.setup(defaults)
+  lsp.intelephense.setup(defaults)
+  return lsp.tailwindcss.setup({on_attach = on_attach, handlers = handlers, capabilities = capabilities, filetypes = {"html", "markdown", "php", "css", "postcss", "sass", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "clojure"}, settings = {tailwindCSS = {experimental = {classRegex = {":class\\s+\"([^\"]*)\"", ":className\\s+\"([^\"]*)\"", ":[\\w-.#>]+\\.([\\w-]*)"}}}}})
 end
 return {{"neovim/nvim-lspconfig", config = _2_}}
