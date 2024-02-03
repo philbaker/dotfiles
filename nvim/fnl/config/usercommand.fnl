@@ -259,4 +259,15 @@
                           (os.execute (.. "xdg-open " directory))
                           (os.execute (.. "open -R " directory))))))
 
+(util.set-uc "Ftd" (fn []
+                      (let [items ["G - Clojure(Script)"
+                                   "W - HTML/CSS/React"
+                                   "W - JavaScript/Node"
+                                   "W - SQL"
+                                   "W - HTTP/Ring"
+                                   "V - Fennel/Lua"
+                                   "V - Keyboard"]
+                            item (. items (math.random (length items)))]
+                        (print item))))
+
 {}
