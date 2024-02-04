@@ -263,6 +263,7 @@
                       (let [items ["G - Clojure(Script)"
                                    "W - HTML/CSS/React"
                                    "W - JavaScript/Node"
+                                   "W - PHP/Laravel"
                                    "W - SQL"
                                    "W - HTTP/Ring"
                                    "V - Fennel/Lua"
