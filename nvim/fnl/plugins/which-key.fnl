@@ -17,8 +17,6 @@
        :s [":2T :<CR> :TestSuite<CR>" "Suite"]
        :p [":2T :<CR> :TestLast<CR>" "Previous"]
        :a [":TestVisit<CR>" "Last run test code"]}
-   :e {:name "Easy Align"
-       :a ["<Plug>(EasyAlign)" "Align"]}
    :g {:name "Git"
        :g [":tab Git<CR>" "Git status"]
        :l [":tab Git log<CR>" "Git log"]
@@ -77,7 +75,9 @@
            :g [":HexToRgb<CR>" "Hex to RGB"]
            :h [":RgbToHex<CR>" "RGB to Hex"]
            :th [":TailwindClassToHex<CR>" "Tailwind class to hex"]
-           :tc [":TailwindHexToClass<CR>" "Tailwind hex to class"]}}
+           :tc [":TailwindHexToClass<CR>" "Tailwind hex to class"]}
+       :y {:name "Neoclip"
+           :y [":Telescope neoclip plus<CR>" "Put selected yank into plus register"]}}
    :n {:name "Terminal"
        :n [":Nter<CR>" "Open default terminals"]
        :t [":Rsp<CR>" "Terminal split for RDD"]
