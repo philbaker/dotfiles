@@ -260,14 +260,11 @@
                           (os.execute (.. "open -R " directory))))))
 
 (util.set-uc "Ftd" (fn []
-                      (let [items ["G - Clojure(Script)"
-                                   "W - HTML/CSS/React"
-                                   "W - JavaScript/Node"
-                                   "W - PHP/Laravel"
-                                   "W - SQL"
-                                   "W - HTTP/Ring"
-                                   "V - Fennel/Lua"
-                                   "V - Keyboard"]
+                     (let [items ["W - HTML/CSS"
+                                  "W - TypeScript/JavaScript/React/Node"
+                                  "G - Clojure(Script)"
+                                  "W - SQL"
+                                  "V - Vim/Fennel/Lua/Keyboard"]
                             item (. items (math.random (length items)))]
                         (print item))))
 
