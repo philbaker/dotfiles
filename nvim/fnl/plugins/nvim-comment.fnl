@@ -4,4 +4,7 @@
 
 [{1 :terrortylor/nvim-comment
   :init (fn []
-          (nvim-comment.setup))}]
+          (nvim-comment.setup
+            {:hook (fn []
+                     ((. (require :ts_context_commentstring.internal)
+                         :update_commentstring)))}))}]

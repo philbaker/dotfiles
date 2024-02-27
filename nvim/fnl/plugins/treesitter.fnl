@@ -6,7 +6,6 @@
                                  :matchup {:enable true
                                            :disable ["javascript"]}
                                  :indent {:enable true}
-                                 :context_commentstring {:enable true}
                                  :ensure_installed ["html"
                                                     "css"
                                                     "javascript"
