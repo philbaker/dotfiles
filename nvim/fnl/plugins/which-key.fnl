@@ -1,5 +1,4 @@
 (local {: autoload} (require :nfnl.module))
-(local nvim (autoload :nvim))
 (local wk (require "which-key"))
 
 (wk.register
