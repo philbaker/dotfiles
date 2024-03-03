@@ -23,10 +23,6 @@
        :a [":Git add .<CR>" "Git add ."]
        :p [":Git push<CR>" "Git push"]
        :c [":Git checkout " "Git checkout"]}
-   :gh {:name "GitGutter"
-        :p ["<Plug>(GitGutterPreviewHunk)" "Preview hunk"]
-        :u ["<Plug>(GitGutterUndoHunk)"  "Undo hunk"]
-        :s ["<Plug>(GitGutterStageHunk)"  "Stage hunk"]}
    :h {:name "Harpoon"
        :f [":lua require('harpoon.mark').add_file()<CR>" "Add file"]
        :h [":lua require('harpoon.ui').toggle_quick_menu()<CR>" "Show menu"]
