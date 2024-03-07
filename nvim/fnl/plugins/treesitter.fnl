@@ -28,4 +28,7 @@
                                                     "python"
                                                     "java"
                                                     "org"
-                                                    "vue"]})))}]
+                                                    "vue"
+                                                    "c"
+                                                    "vim"
+                                                    "vimdoc"]})))}]
