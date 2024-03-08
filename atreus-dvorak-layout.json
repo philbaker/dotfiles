@@ -55,7 +55,7 @@
       {"code": 29, "label": {"base": "z", "shifted": "Z"}},
       {
         "code": 227,
-        "label": {"base": {"full": "Super", "1u": "Sup.", "short": "Su"}},
+        "label": {"base": {"full": "Command", "1u": "Cmd", "short": "Cm"}},
         "location": "left",
         "categories": ["modifier"]
       },
@@ -139,11 +139,9 @@
         "categories": ["blanks"]
       },
       {
-        "code": 17409,
-        "label": {"hint": "LockTo", "base": "#1"},
-        "target": 1,
-        "rangeStart": 17408,
-        "categories": ["layer", "locktolayer"]
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
       },
       {"code": 36, "label": {"base": "7", "shifted": "&"}},
       {"code": 37, "label": {"base": "8", "shifted": "*"}},
@@ -242,7 +240,7 @@
       },
       {
         "code": 227,
-        "label": {"base": {"full": "Super", "1u": "Sup.", "short": "Su"}},
+        "label": {"base": {"full": "Command", "1u": "Cmd", "short": "Cm"}},
         "location": "left",
         "categories": ["modifier"]
       },
