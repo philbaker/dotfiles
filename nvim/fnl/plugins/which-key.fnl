@@ -111,10 +111,10 @@
    :s [":w<CR>" "Save"]
    :t {:name "Fuzzy file"
        :. [":lua require ('telescope.builtin').resume()<CR>" "Last search"]
-       :b [":lua require('browse').browse({ bookmarks = bookmarks })<CR>" "Documentation"]
-       :c [":lua require('telescope.builtin').oldfiles()<CR>" "History"]
+       :c [":lua require('telescope.builtin').commands()<CR>" "Commands"]
        :d [":lua require('telescope.builtin').find_files({search_dirs={vim.fn.expand('~/dotfiles')}})<CR>" "Dotfiles"]
        :e [":lua require('telescope.builtin').find_files()<CR>" "Files"]
+       :f [":lua require('telescope.builtin').oldfiles()<CR>" "History"]
        :h [":lua require('telescope.builtin').help_tags()<CR>" "Help"]
        :j [":lua require ('telescope.builtin').quickfix()<CR>" "Jumplist"]
        :n [":lua require('telescope.builtin').find_files({search_dirs={vim.fn.expand('~/neotes')}})<CR>" "Neotes"]
