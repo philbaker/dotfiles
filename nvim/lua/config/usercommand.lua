@@ -266,7 +266,7 @@ local function _52_()
 end
 util["set-uc"]("Open", _52_)
 local function _54_()
-  local items = {"W - HTML/CSS", "W - TypeScript/JavaScript/React/Node", "G - Clojure(Script)", "W - SQL", "V - Vim/Fennel/Lua/Keyboard"}
+  local items = {"Biff", "CSS", "Clojure", "ClojureScript", "DSA", "Database design", "Dumdom / Portfolio", "Fennel", "FP", "HTTP", "JavaScript", "Keyboard", "Linux CLI", "React", "REST", "SQL", "Squint", "Vim"}
   local item = items[math.random(#items)]
   return print(item)
 end
