@@ -261,28 +261,17 @@
 
 (util.set-uc "Ftd" (fn []
                      (let [items 
-                           ["Biff"
-                            "CSS"
+                           ["CSS"
                             "Clojure"
                             "ClojureScript"
-                            "DSA"
-                            "Database design"
-                            "Dumdom/Portfolio"
-                            "Fennel"
-                            "FP"
-                            "HTTP"
-                            "Integrant"
                             "JavaScript"
+                            "HTTP/Ring"
                             "Keyboard"
-                            "Linux CLI"
-                            "Malli"
-                            "React"
-                            "REST"
+                            "React/Helix"
                             "Regex/Regal"
-                            "Ring"
                             "SQL/Next/Honey"
-                            "Squint"
-                            "Vim"]
+                            "UI/Dumdom/Portfolio"
+                            "Vim/Fennel/Lua"]
                             item (. items (math.random (length items)))]
                         (print item))))
 
