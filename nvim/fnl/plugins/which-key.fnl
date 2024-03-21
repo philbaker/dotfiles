@@ -115,6 +115,7 @@
        :d [":lua require('telescope.builtin').find_files({search_dirs={vim.fn.expand('~/dotfiles')}})<CR>" "Dotfiles"]
        :e [":lua require('telescope.builtin').find_files()<CR>" "Files"]
        :f [":lua require('telescope.builtin').oldfiles()<CR>" "History"]
+       :g [":lua require('telescope').extensions.git_file_history.git_file_history()<CR>" "Git history"]
        :h [":lua require('telescope.builtin').help_tags()<CR>" "Help"]
        :j [":lua require ('telescope.builtin').quickfix()<CR>" "Jumplist"]
        :n [":lua require('telescope.builtin').find_files({search_dirs={vim.fn.expand('~/neotes')}})<CR>" "Neotes"]
