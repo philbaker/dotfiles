@@ -261,10 +261,10 @@
 
 (util.set-uc "Ftd" (fn []
                      (let [items 
-                           ["CSS"
+                           ["CSS/Tailwind"
                             "Clojure"
                             "ClojureScript"
-                            "JavaScript"
+                            "JavaScript/Squint"
                             "HTTP/Ring"
                             "Keyboard"
                             "React/Helix"
