@@ -187,49 +187,19 @@ local function _38_()
 end
 util["set-uc"]("Qtc", _38_)
 local function _39_()
-  return __fnl_global__replace_2dpixel_2drem()
-end
-util["set-uc"]("PixelToRem", _39_)
-local function _40_()
-  return __fnl_global__replace_2drem_2dpixel()
-end
-util["set-uc"]("RemToPixel", _40_)
-local function _41_()
-  return __fnl_global__replace_2dhex_2drgb()
-end
-util["set-uc"]("HexToRgb", _41_)
-local function _42_()
-  vim.cmd("normal dt(r[f)r]^")
-  vim.cmd("normal f xf x")
-  return __fnl_global__replace_2drgb_2dhex()
-end
-util["set-uc"]("RgbToHex", _42_)
-local function _43_()
-  return __fnl_global__tailwind_2dhex_2dto_2dclass()
-end
-util["set-uc"]("TailwindHexToClass", _43_)
-local function _44_()
-  return __fnl_global__tailwind_2dclass_2dto_2dhex()
-end
-util["set-uc"]("TailwindClassToHex", _44_)
-local function _45_(opts)
-  return __fnl_global__insert_2doptimised_2dsvg(opts.args)
-end
-util["set-uc"]("Svg", _45_, {nargs = "?"})
-local function _46_()
   util.cmdtc("<C-W>j")
   vim.cmd("resize 10")
   return util.cmdtc("<C-W>k")
 end
-util["set-uc"]("Resize10", _46_)
-local function _47_()
+util["set-uc"]("Resize10", _39_)
+local function _40_()
   vim.cmd("sp")
   vim.cmd("normal 'C")
   vim.cmd("resize 10")
   return util.cmdtc("<C-w>k")
 end
-util["set-uc"]("Rsp", _47_, {nargs = "?"})
-local function _48_(opts)
+util["set-uc"]("Rsp", _40_, {nargs = "?"})
+local function _41_(opts)
   if (opts.args ~= "block") then
     util.cmdtc("<Plug>(neoterm-repl-send-line)")
   else
@@ -254,8 +224,8 @@ local function _48_(opts)
   vim.cmd("normal G")
   return util.cmdtc("<C-w>k")
 end
-util["set-uc"]("Rspa", _48_, {nargs = "?"})
-local function _52_()
+util["set-uc"]("Rspa", _41_, {nargs = "?"})
+local function _45_()
   local path = vim.api.nvim_buf_get_name(0)
   local directory = str.join("/", core.butlast(str.split(path, "/")))
   if (__fnl_global__system_2dos() == "Linux") then
@@ -264,15 +234,15 @@ local function _52_()
     return os.execute(("open -R " .. directory))
   end
 end
-util["set-uc"]("Open", _52_)
-local function _54_()
+util["set-uc"]("Open", _45_)
+local function _47_()
   local items = {"CSS/Tailwind", "Clojure", "ClojureScript", "JavaScript/Squint", "HTTP/Ring", "Keyboard", "React/Helix", "Regex/Regal", "SQL/Next/Honey", "UI/Dumdom/Portfolio", "Vim/Fennel/Lua"}
   local item = items[math.random(#items)]
   return print(item)
 end
-util["set-uc"]("Ftd", _54_)
+util["set-uc"]("Ftd", _47_)
 do local _ = {} end
-local function _55_()
+local function _48_()
   return vim.fn.setreg("+", vim.fn.expand("%:~:."))
 end
-return util["set-uc"]("YankFilePath", _55_)
+return util["set-uc"]("YankFilePath", _48_)

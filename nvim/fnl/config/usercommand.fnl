@@ -184,27 +184,6 @@
                      (vim.cmd "tabe")
                      (vim.cmd "cope")))
 
-; Dev utils
-(util.set-uc "PixelToRem" #(replace-pixel-rem))
-
-(util.set-uc "RemToPixel" #(replace-rem-pixel))
-
-(util.set-uc "HexToRgb" #(replace-hex-rgb))
-
-(util.set-uc "RgbToHex" (fn []
-                          (vim.cmd "normal dt(r[f)r]^")
-                          (vim.cmd "normal f xf x")
-                          (replace-rgb-hex)))
-
-(util.set-uc "TailwindHexToClass" #(tailwind-hex-to-class))
-
-(util.set-uc "TailwindClassToHex" #(tailwind-class-to-hex))
-
-(util.set-uc
-  "Svg"
-  (fn [opts]
-    (insert-optimised-svg opts.args))
-  {:nargs "?"})
 
 ; REPL
 
