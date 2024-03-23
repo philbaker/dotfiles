@@ -183,8 +183,6 @@
 (util.set-uc "Qtc" (fn []
                      (vim.cmd "tabe")
                      (vim.cmd "cope")))
-
-
 ; REPL
 
 (util.set-uc
@@ -254,8 +252,8 @@
                             item (. items (math.random (length items)))]
                         (print item))))
 
-{}
-
 (util.set-uc "YankFilePath"
              (fn []
                (vim.fn.setreg "+" (vim.fn.expand "%:~:."))))
+
+{}

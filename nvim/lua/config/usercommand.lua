@@ -241,8 +241,8 @@ local function _47_()
   return print(item)
 end
 util["set-uc"]("Ftd", _47_)
-do local _ = {} end
 local function _48_()
   return vim.fn.setreg("+", vim.fn.expand("%:~:."))
 end
-return util["set-uc"]("YankFilePath", _48_)
+util["set-uc"]("YankFilePath", _48_)
+return {}

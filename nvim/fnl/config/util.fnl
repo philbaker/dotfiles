@@ -50,21 +50,6 @@
       "tw-colors/index.mjs" 
       (.. " " arg " " "\"" (tostring color) "\""))))
 
-(comment
-  ; class to hex
-  (tailwind-color "ch" "red-100")
-
-  ; class to rgb
-  (tailwind-color "cr" "red-100")
-
-  ; hex to class
-  (tailwind-color "hc" "#fee2e2")
-
-  ; rgb to class
-  (tailwind-color "rc" "rgb(254, 226, 226)")
-  )
-
-
 {: split-string-by-line
  : remove-all-spaces
  : call-script!
@@ -72,5 +57,5 @@
  : set-uc
  : set-key
  : getcwf
- : cmdtc}
-
+ : cmdtc
+ : tailwind-color}
