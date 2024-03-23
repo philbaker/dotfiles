@@ -14,7 +14,7 @@
   ; "hello"
 
   (vim.fn.getline 11) 
-  ; "  (vim.fn.getline 11)"
+  ; "  ; \"/home/user\""
 
   (vim.cmd (vim.fn.input "echo hi"))
 
@@ -57,4 +57,4 @@
 
   (util.rgb->hex "(34 34 34)")
   ; "#222222"
-)
+  )
