@@ -1,8 +1,9 @@
 (local {: autoload} (require :nfnl.module))
 (local util (autoload :config.util))
 
-; Basic fennel
 (comment
+  ; BASICS
+
   (os.clock) 
   ; 7.342779
 
@@ -22,10 +23,9 @@
   (vim.fn.setqflist {} " " {:lines ["hello" "world"]})
   (vim.cmd.copen)
   (vim.cmd.cclose)
-)
 
-; Tailwind colors
-(comment
+  ; TAILWIND COLORS
+
   ; class to hex
   (util.tailwind-color "ch" "red-100")
   ; "#fee2e2"
@@ -41,19 +41,17 @@
   ; rgb to class
   (util.tailwind-color "rc" "rgb(254, 226, 226)")
   ; "red-100"
-)
 
-; Rem/Pixel
-(comment
+  ; REM/PIXEL
+
   (util.pixel->rem 16)
   ; 1
 
   (util.rem->pixel 1)
   ; 16
-)
 
-; Colors
-(comment
+  ; HEX/RGB
+
   (util.hex->rgb "#222222")
   ; "rgb(34,34,34)"
 
