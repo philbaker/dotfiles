@@ -71,10 +71,6 @@ local function _17_()
 end
 util["set-uc"]("Cljfmt", _17_)
 local function _18_()
-  return vim.cmd("2T vendor/bin/phel run %")
-end
-util["set-uc"]("Phr", _18_)
-local function _19_()
   vim.cmd("normal mZ")
   vim.cmd("1Topen")
   vim.cmd("normal mA")
@@ -87,162 +83,71 @@ local function _19_()
   vim.cmd("normal 'Z")
   return vim.cmd("stopinsert")
 end
-util["set-uc"]("Nter", _19_)
-local function _20_()
-  vim.cmd(":%s/export //g")
-  return vim.cmd(":w")
-end
-util["set-uc"]("JSRemoveExport", _20_)
-local function _21_()
-  vim.cmd(":%s/const/var/g")
-  return vim.cmd(":w")
-end
-util["set-uc"]("JSReplaceConstWithVar", _21_)
-local function _22_()
-  vim.cmd(":%s/let")
-  return vim.cmd(":w")
-end
-util["set-uc"]("JSRemoveLet", _22_)
-local function _23_()
-  vim.cmd("w")
-  vim.cmd(":e index.html")
-  vim.cmd(":w")
-  return vim.cmd(":b #")
-end
-util["set-uc"]("SaveIndexAndReturn", _23_)
-local function _24_()
+util["set-uc"]("Nter", _18_)
+local function _19_()
   vim.cmd(":w")
   vim.cmd(("2T pint " .. vim.fn.expand("%:p")))
   vim.cmd(":sleep 300m")
   return vim.cmd(":e %")
 end
-util["set-uc"]("Pint", _24_)
-local function _25_()
+util["set-uc"]("Pint", _19_)
+local function _20_()
   local file = assert(io.open((os.getenv("HOME") .. "/neotes/all/01-checklists/dev-testing.md")))
   local lines = util["split-string-by-line"](file:read("*a"))
   file:close()
   return vim.api.nvim_buf_set_lines(0, -1, -1, false, lines)
 end
-util["set-uc"]("ChTest", _25_)
-local function _26_()
+util["set-uc"]("ChTest", _20_)
+local function _21_()
   local file = assert(io.open((os.getenv("HOME") .. "/neotes/all/01-checklists/trello-template.md")))
   local lines = util["split-string-by-line"](file:read("*a"))
   file:close()
   return vim.api.nvim_buf_set_lines(0, -1, -1, false, lines)
 end
-util["set-uc"]("ChTrello", _26_)
-local function _27_()
-  local file = assert(io.open((os.getenv("HOME") .. "/neotes/all/01-checklists/ab-testing.md")))
-  local lines = util["split-string-by-line"](file:read("*a"))
-  file:close()
-  return vim.api.nvim_buf_set_lines(0, -1, -1, false, lines)
-end
-util["set-uc"]("AbTest", _27_)
-local function _28_()
-  return vim.cmd((":e " .. os.getenv("HOME") .. "/neotes/none/vim-sexp-key-bindings.md"))
-end
-util["set-uc"]("VimSexpKeyBindings", _28_)
-local function _29_()
-  return vim.cmd((":e " .. os.getenv("HOME") .. "/neotes/none/20230411-vim-sexp-mappings.md"))
-end
-util["set-uc"]("VimSexpKeyMappings", _29_)
-local function _30_()
-  return vim.cmd((":e " .. os.getenv("HOME") .. "/neotes/none/20230722-vim-surround.md"))
-end
-util["set-uc"]("VimSurroundKeyMappings", _30_)
-local function _31_(opts)
-  return __fnl_global__ag_2doutside_2dcwd("/dotfiles/nvim", opts.args)
-end
-util["set-uc"]("Sv", _31_, {nargs = "?"})
-local function _32_(opts)
+util["set-uc"]("ChTrello", _21_)
+local function _22_(opts)
   return vim.cmd((":e " .. os.getenv("HOME") .. "/neotes/none/" .. os.date("!%Y%m%d-") .. opts.args))
 end
-util["set-uc"]("Note", _32_, {nargs = "?"})
-local function _33_(opts)
+util["set-uc"]("Note", _22_, {nargs = "?"})
+local function _23_(opts)
   return vim.cmd((":e " .. os.getenv("HOME") .. "/neotes/all/" .. os.date("!%Y%m%d-") .. opts.args))
 end
-util["set-uc"]("Notee", _33_, {nargs = "?"})
-local function _34_(opts)
+util["set-uc"]("Notee", _23_, {nargs = "?"})
+local function _24_(opts)
   return vim.cmd((":e " .. os.getenv("HOME") .. "/neotes/home/" .. os.date("!%Y%m%d-") .. opts.args))
 end
-util["set-uc"]("Noteh", _34_, {nargs = "?"})
-local function _35_(opts)
-  local current_dir = vim.fn.getcwd()
-  return __fnl_global__ag_2doutside_2dcwd("/neotes", opts.args)
-end
-util["set-uc"]("Sn", _35_, {nargs = "?"})
-local function _36_(opts)
+util["set-uc"]("Noteh", _24_, {nargs = "?"})
+local function _25_(opts)
   local current_dir = vim.fn.getcwd()
   return vim.cmd((":3T cd ~/neotes && bb scripts/encrypt.clj " .. opts.args .. " && cd " .. current_dir))
 end
-util["set-uc"]("EncryptNotes", _36_, {nargs = "?"})
-local function _37_(opts)
+util["set-uc"]("EncryptNotes", _25_, {nargs = "?"})
+local function _26_(opts)
   local current_dir = vim.fn.getcwd()
   return vim.cmd((":3T cd ~/neotes && bb scripts/decrypt.clj " .. opts.args .. " && cd " .. current_dir))
 end
-util["set-uc"]("DecryptNotes", _37_, {nargs = "?"})
-local function _38_()
-  vim.cmd("tabe")
-  return vim.cmd("cope")
-end
-util["set-uc"]("Qtc", _38_)
-local function _39_()
+util["set-uc"]("DecryptNotes", _26_, {nargs = "?"})
+local function _27_()
   util.cmdtc("<C-W>j")
   vim.cmd("resize 10")
   return util.cmdtc("<C-W>k")
 end
-util["set-uc"]("Resize10", _39_)
-local function _40_()
+util["set-uc"]("Resize10", _27_)
+local function _28_()
   vim.cmd("sp")
   vim.cmd("normal 'C")
   vim.cmd("resize 10")
   return util.cmdtc("<C-w>k")
 end
-util["set-uc"]("Rsp", _40_, {nargs = "?"})
-local function _41_(opts)
-  if (opts.args ~= "block") then
-    util.cmdtc("<Plug>(neoterm-repl-send-line)")
-  else
-  end
-  vim.cmd("sleep 100ms")
-  util.cmdtc("<C-w>j")
-  vim.cmd("normal G")
-  vim.cmd("normal k")
-  if (opts.args == "block") then
-    vim.cmd("normal V%y")
-  else
-    vim.cmd("normal yy")
-  end
-  util.cmdtc("<C-w>k")
-  vim.cmd("normal p")
-  if (opts.args == "block") then
-    vim.cmd("normal V%gc")
-  else
-    vim.cmd("normal gcc")
-  end
-  util.cmdtc("<C-w>j")
-  vim.cmd("normal G")
-  return util.cmdtc("<C-w>k")
-end
-util["set-uc"]("Rspa", _41_, {nargs = "?"})
-local function _45_()
-  local path = vim.api.nvim_buf_get_name(0)
-  local directory = str.join("/", core.butlast(str.split(path, "/")))
-  if (__fnl_global__system_2dos() == "Linux") then
-    return os.execute(("xdg-open " .. directory))
-  else
-    return os.execute(("open -R " .. directory))
-  end
-end
-util["set-uc"]("Open", _45_)
-local function _47_()
+util["set-uc"]("Rsp", _28_, {nargs = "?"})
+local function _29_()
   local items = {"CSS/Tailwind", "Clojure", "ClojureScript", "JavaScript/Squint", "HTTP/Ring", "Keyboard", "React/Helix", "Regex/Regal", "SQL/Next/Honey", "UI/Dumdom/Portfolio", "Vim/Fennel/Lua"}
   local item = items[math.random(#items)]
   return print(item)
 end
-util["set-uc"]("Ftd", _47_)
-local function _48_()
+util["set-uc"]("Ftd", _29_)
+local function _30_()
   return vim.fn.setreg("+", vim.fn.expand("%:~:."))
 end
-util["set-uc"]("YankFilePath", _48_)
+util["set-uc"]("YankFilePath", _30_)
 return {}

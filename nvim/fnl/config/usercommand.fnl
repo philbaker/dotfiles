@@ -54,8 +54,6 @@
 
 (util.set-uc "Cljfmt" #(vim.cmd "3T clj -M:cljfmt %"))
 
-(util.set-uc "Phr" #(vim.cmd (.. "2T vendor/bin/phel run %")))
-
 (util.set-uc "Nter" (fn []
                       (vim.cmd "normal mZ")
                       (vim.cmd "1Topen")
@@ -70,24 +68,6 @@
                       (vim.cmd "stopinsert")))
 
 ; Node REPL utils
-(util.set-uc "JSRemoveExport" (fn [] 
-                                (vim.cmd ":%s/export //g") 
-                                (vim.cmd ":w")))
-
-(util.set-uc "JSReplaceConstWithVar" (fn []
-                                       (vim.cmd ":%s/const/var/g")
-                                       (vim.cmd ":w")))
-
-(util.set-uc "JSRemoveLet" (fn []
-                             (vim.cmd ":%s/let")
-                             (vim.cmd ":w")))
-
-(util.set-uc "SaveIndexAndReturn" (fn []
-                                    (vim.cmd "w")
-                                    (vim.cmd ":e index.html")
-                                    (vim.cmd ":w")
-                                    (vim.cmd ":b #")))
-
 (util.set-uc "Pint" (fn []
                       (do
                         (vim.cmd ":w")
@@ -113,35 +93,6 @@
       (vim.api.nvim_buf_set_lines 0 -1 -1 false lines))))
 
 (util.set-uc
-  "AbTest"
-  (fn []
-    (let [file (assert (io.open (.. (os.getenv "HOME") "/neotes/all/01-checklists/ab-testing.md")))
-          lines (util.split-string-by-line (file:read "*a"))]
-      (file:close)
-      (vim.api.nvim_buf_set_lines 0 -1 -1 false lines))))
-
-(util.set-uc
-  "VimSexpKeyBindings"
-  (fn []
-    (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/none/vim-sexp-key-bindings.md"))))
-
-(util.set-uc
-  "VimSexpKeyMappings"
-  (fn []
-    (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/none/20230411-vim-sexp-mappings.md"))))
-
-(util.set-uc
-  "VimSurroundKeyMappings"
-  (fn []
-    (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/none/20230722-vim-surround.md"))))
-
-(util.set-uc
-  "Sv"
-  (fn [opts]
-    (ag-outside-cwd "/dotfiles/nvim" opts.args))
-  {:nargs "?"})
-
-(util.set-uc
   "Note"
   (fn [opts]
     (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/none/" (os.date "!%Y%m%d-") opts.args)))
@@ -160,13 +111,6 @@
   {:nargs "?"})
 
 (util.set-uc
-  "Sn"
-  (fn [opts]
-    (let [current-dir (vim.fn.getcwd)]
-      (ag-outside-cwd "/neotes" opts.args)))
-  {:nargs "?"})
-
-(util.set-uc
   "EncryptNotes"
   (fn [opts]
     (let [current-dir (vim.fn.getcwd)]
@@ -179,11 +123,6 @@
     (let [current-dir (vim.fn.getcwd)]
       (vim.cmd (.. ":3T cd ~/neotes && bb scripts/decrypt.clj " opts.args " && cd " current-dir))))
   {:nargs "?"})
-
-(util.set-uc "Qtc" (fn []
-                     (vim.cmd "tabe")
-                     (vim.cmd "cope")))
-; REPL
 
 (util.set-uc
   "Resize10"
@@ -201,40 +140,6 @@
     (vim.cmd "resize 10")
     (util.cmdtc "<C-w>k"))
   {:nargs "?"})
-
-; Puts REPL output in code buffer
-(util.set-uc
-  "Rspa"
-  (fn [opts]
-    (if (not= opts.args "block")
-      (util.cmdtc "<Plug>(neoterm-repl-send-line)"))
-    (vim.cmd "sleep 100ms")
-    (util.cmdtc "<C-w>j")
-    (vim.cmd "normal G")
-    (vim.cmd "normal k")
-    (if (= opts.args "block")
-      (vim.cmd "normal V%y")
-      (vim.cmd "normal yy"))
-    (util.cmdtc "<C-w>k")
-    (vim.cmd "normal p")
-    (if (= opts.args "block")
-      (vim.cmd "normal V%gc")
-      (vim.cmd "normal gcc"))
-    (util.cmdtc "<C-w>j")
-    (vim.cmd "normal G")
-    (util.cmdtc "<C-w>k"))
-  {:nargs "?"})
-
-; Open current file or directory via OS
-(util.set-uc "Open" (fn []
-                      (let [path (vim.api.nvim_buf_get_name 0)
-                            directory (str.join
-                                        "/"
-                                        (core.butlast
-                                          (str.split path "/")))]
-                        (if (= (system-os) "Linux")
-                          (os.execute (.. "xdg-open " directory))
-                          (os.execute (.. "open -R " directory))))))
 
 (util.set-uc "Ftd" (fn []
                      (let [items 
