@@ -41,4 +41,22 @@
   ; rgb to class
   (util.tailwind-color "rc" "rgb(254, 226, 226)")
   ; "red-100"
-  )
+)
+
+; Rem/Pixel
+(comment
+  (util.pixel->rem 16)
+  ; 1
+
+  (util.rem->pixel 1)
+  ; 16
+)
+
+; Colors
+(comment
+  (util.hex->rgb "#222222")
+  ; "rgb(34,34,34)"
+
+  (util.rgb->hex "(34 34 34)")
+  ; "#222222"
+)

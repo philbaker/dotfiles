@@ -50,6 +50,26 @@
       "tw-colors/index.mjs" 
       (.. " " arg " " "\"" (tostring color) "\""))))
 
+(fn pixel->rem [val]
+  (/ val 16))
+
+(fn rem->pixel [val]
+  (* val 16))
+
+(fn hex->rgb [val]
+  (remove-all-spaces 
+    (call-script! 
+      "nbb" 
+      "nbbs/hex_to_rgb.cljs" 
+      (.. " " "\"" (tostring val) "\""))))
+
+(fn rgb->hex [val]
+  (remove-all-spaces 
+    (call-script! 
+      "nbb" 
+      "nbbs/rgb_to_hex.cljs" 
+      (.. " " "\"" (tostring val) "\""))))
+
 {: split-string-by-line
  : remove-all-spaces
  : call-script!
@@ -58,4 +78,8 @@
  : set-key
  : getcwf
  : cmdtc
- : tailwind-color}
+ : tailwind-color
+ : pixel->rem
+ : rem->pixel
+ : rgb->hex
+ : hex->rgb}

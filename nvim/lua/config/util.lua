@@ -37,4 +37,16 @@ end
 local function tailwind_color(arg, color)
   return remove_all_spaces(call_script_21("node", "tw-colors/index.mjs", (" " .. arg .. " " .. "\"" .. tostring(color) .. "\"")))
 end
-return {["split-string-by-line"] = split_string_by_line, ["remove-all-spaces"] = remove_all_spaces, ["call-script!"] = call_script_21, ["system-os"] = system_os, ["set-uc"] = set_uc, ["set-key"] = set_key, getcwf = getcwf, cmdtc = cmdtc, ["tailwind-color"] = tailwind_color}
+local function pixel__3erem(val)
+  return (val / 16)
+end
+local function rem__3epixel(val)
+  return (val * 16)
+end
+local function hex__3ergb(val)
+  return remove_all_spaces(call_script_21("nbb", "nbbs/hex_to_rgb.cljs", (" " .. "\"" .. tostring(val) .. "\"")))
+end
+local function rgb__3ehex(val)
+  return remove_all_spaces(call_script_21("nbb", "nbbs/rgb_to_hex.cljs", (" " .. "\"" .. tostring(val) .. "\"")))
+end
+return {["split-string-by-line"] = split_string_by_line, ["remove-all-spaces"] = remove_all_spaces, ["call-script!"] = call_script_21, ["system-os"] = system_os, ["set-uc"] = set_uc, ["set-key"] = set_key, getcwf = getcwf, cmdtc = cmdtc, ["tailwind-color"] = tailwind_color, ["pixel->rem"] = pixel__3erem, ["rem->pixel"] = rem__3epixel, ["rgb->hex"] = rgb__3ehex, ["hex->rgb"] = hex__3ergb}
