@@ -67,6 +67,12 @@
                       (vim.cmd "normal 'Z")
                       (vim.cmd "stopinsert")))
 
+(util.set-uc "SaveIndexAndReturn" (fn []
+                                    (vim.cmd "w")
+                                    (vim.cmd ":e index.html")
+                                    (vim.cmd ":w")
+                                    (vim.cmd ":b #")))
+
 ; Node REPL utils
 (util.set-uc "Pint" (fn []
                       (do
