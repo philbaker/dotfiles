@@ -49,6 +49,7 @@
        :p "Previous diagnostic"
        :s "Document symbols"}
    :m {:name "Misc"
+       :m [":e ~/dotfiles/nvim/fnl/config/scratch.fnl<CR>" "Scratch file"]
        :s [":SaveIndexAndReturn<CR>" "Vite save / reload"]
        :n [":set invnumber<CR>" "Toggle current line number"]
        :c [":ClerkShow<CR>" "Show Clerk notebook"]
