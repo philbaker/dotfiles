@@ -112,49 +112,68 @@ local function _22_()
   return vim.api.nvim_buf_set_lines(0, -1, -1, false, lines)
 end
 util["set-uc"]("ChTrello", _22_)
-local function _23_(opts)
+local function _23_()
+  local file = assert(io.open("src/notebooks/general/stemplate.md"))
+  local lines = util["split-string-by-line"](file:read("*a"))
+  file:close()
+  return vim.api.nvim_buf_set_lines(0, -1, -1, false, lines)
+end
+util["set-uc"]("ChSt", _23_)
+local function _24_()
+  return vim.fn.input((":e " .. "src/jl/" .. os.date("!%Y%m%d-")))
+end
+util["set-uc"]("Jote", _24_, {nargs = "?"})
+local function _25_(opts)
   return vim.cmd((":e " .. os.getenv("HOME") .. "/neotes/none/" .. os.date("!%Y%m%d-") .. opts.args))
 end
-util["set-uc"]("Note", _23_, {nargs = "?"})
-local function _24_(opts)
+util["set-uc"]("Note", _25_, {nargs = "?"})
+local function _26_(opts)
   return vim.cmd((":e " .. os.getenv("HOME") .. "/neotes/all/" .. os.date("!%Y%m%d-") .. opts.args))
 end
-util["set-uc"]("Notee", _24_, {nargs = "?"})
-local function _25_(opts)
+util["set-uc"]("Notee", _26_, {nargs = "?"})
+local function _27_(opts)
   return vim.cmd((":e " .. os.getenv("HOME") .. "/neotes/home/" .. os.date("!%Y%m%d-") .. opts.args))
 end
-util["set-uc"]("Noteh", _25_, {nargs = "?"})
-local function _26_(opts)
+util["set-uc"]("Noteh", _27_, {nargs = "?"})
+local function _28_(opts)
   local current_dir = vim.fn.getcwd()
   return vim.cmd((":3T cd ~/neotes && bb scripts/encrypt.clj " .. opts.args .. " && cd " .. current_dir))
 end
-util["set-uc"]("EncryptNotes", _26_, {nargs = "?"})
-local function _27_(opts)
+util["set-uc"]("EncryptNotes", _28_, {nargs = "?"})
+local function _29_(opts)
   local current_dir = vim.fn.getcwd()
   return vim.cmd((":3T cd ~/neotes && bb scripts/decrypt.clj " .. opts.args .. " && cd " .. current_dir))
 end
-util["set-uc"]("DecryptNotes", _27_, {nargs = "?"})
-local function _28_()
+util["set-uc"]("DecryptNotes", _29_, {nargs = "?"})
+local function _30_(opts)
+  return vim.cmd((":3T bb scripts/encrypt.clj " .. opts.args))
+end
+util["set-uc"]("EncryptJotes", _30_, {nargs = "?"})
+local function _31_(opts)
+  return vim.cmd((":3T bb scripts/decrypt.clj " .. opts.args))
+end
+util["set-uc"]("DecryptJotes", _31_, {nargs = "?"})
+local function _32_()
   util.cmdtc("<C-W>j")
   vim.cmd("resize 10")
   return util.cmdtc("<C-W>k")
 end
-util["set-uc"]("Resize10", _28_)
-local function _29_()
+util["set-uc"]("Resize10", _32_)
+local function _33_()
   vim.cmd("sp")
   vim.cmd("normal 'C")
   vim.cmd("resize 10")
   return util.cmdtc("<C-w>k")
 end
-util["set-uc"]("Rsp", _29_, {nargs = "?"})
-local function _30_()
+util["set-uc"]("Rsp", _33_, {nargs = "?"})
+local function _34_()
   local items = {"CSS/Tailwind", "Clojure", "ClojureScript", "JavaScript/Squint", "HTTP/Ring", "Keyboard", "React/Helix", "Regex/Regal", "SQL/Next/Honey", "UI/Dumdom/Portfolio", "Vim/Fennel/Lua"}
   local item = items[math.random(#items)]
   return print(item)
 end
-util["set-uc"]("Ftd", _30_)
-local function _31_()
+util["set-uc"]("Ftd", _34_)
+local function _35_()
   return vim.fn.setreg("+", vim.fn.expand("%:~:."))
 end
-util["set-uc"]("YankFilePath", _31_)
+util["set-uc"]("YankFilePath", _35_)
 return {}
