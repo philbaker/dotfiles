@@ -109,8 +109,7 @@
 (util.set-uc
   "Jote"
   (fn []
-    (vim.fn.input (.. ":e " "src/jl/" (os.date "!%Y%m%d-"))))
-  {:nargs "?"})
+    (vim.cmd (.. ":e " "src/jl/" (os.date "!%Y%m%d-daily.md")))))
 
 (util.set-uc
   "Note"
