@@ -176,9 +176,9 @@
                      (let [items 
                            ["Clojure"
                             "ClojureScript"
-                            "HTML"
-                            "CSS"
+                            "HTML/CSS"
                             "JavaScript"
+                            "React"
                             "Node"
                             "SQL"]
                             item (. items (math.random (length items)))]

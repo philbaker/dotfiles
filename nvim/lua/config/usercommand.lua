@@ -167,7 +167,7 @@ local function _33_()
 end
 util["set-uc"]("Rsp", _33_, {nargs = "?"})
 local function _34_()
-  local items = {"Clojure", "ClojureScript", "HTML", "CSS", "JavaScript", "Node", "SQL"}
+  local items = {"Clojure", "ClojureScript", "HTML/CSS", "JavaScript", "React", "Node", "SQL"}
   local item = items[math.random(#items)]
   return print(item)
 end
