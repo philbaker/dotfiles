@@ -12,6 +12,8 @@ do
 end
 nvim.ex.autocmd("FileType", "*", "setlocal formatoptions-=c formatoptions-=r formatoptions-=o")
 nvim.ex.let("neoterm_autoinsert=1")
+nvim.ex.let("markdown_folding=1")
+vim.cmd("au FileType markdown setlocal foldlevel=99")
 nvim.ex.autocmd("FileType", "qf", "wincmd J")
 vim.cmd("autocmd BufNewFile,BufRead *.phel set syntax=clojure")
 vim.cmd("colorscheme tokyonight")

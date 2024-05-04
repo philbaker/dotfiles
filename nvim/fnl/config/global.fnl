@@ -47,6 +47,10 @@
 ; Follow terminal output
 (nvim.ex.let "neoterm_autoinsert=1")
 
+; Markdown folding
+(nvim.ex.let "markdown_folding=1")
+(vim.cmd "au FileType markdown setlocal foldlevel=99")
+
 ; Open quickfix list at bottom
 (nvim.ex.autocmd :FileType :qf "wincmd J")
 

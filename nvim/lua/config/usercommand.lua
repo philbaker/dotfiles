@@ -128,7 +128,7 @@ local function _25_(opts)
 end
 util["set-uc"]("Note", _25_, {nargs = "?"})
 local function _26_(opts)
-  return vim.cmd((":e " .. os.getenv("HOME") .. "/neotes/all/" .. os.date("!%Y%m%d-") .. opts.args))
+  return vim.cmd((":e " .. os.getenv("HOME") .. "/neotes/all/clo/notebooks/" .. os.date("!%Y%m%d-") .. opts.args))
 end
 util["set-uc"]("Notee", _26_, {nargs = "?"})
 local function _27_(opts)

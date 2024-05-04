@@ -120,7 +120,7 @@
 (util.set-uc
   "Notee"
   (fn [opts]
-    (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/all/" (os.date "!%Y%m%d-") opts.args)))
+    (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/all/clo/notebooks/" (os.date "!%Y%m%d-") opts.args)))
   {:nargs "?"})
 
 (util.set-uc
