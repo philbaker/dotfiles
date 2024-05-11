@@ -101,7 +101,7 @@
 (util.set-uc
   "ChSt"
   (fn []
-    (let [file (assert (io.open "src/notebooks/general/stemplate.md"))
+    (let [file (assert (io.open "n/notebooks/general/stemplate.md"))
           lines (util.split-string-by-line (file:read "*a"))]
       (file:close)
       (vim.api.nvim_buf_set_lines 0 -1 -1 false lines))))

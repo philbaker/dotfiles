@@ -113,7 +113,7 @@ local function _22_()
 end
 util["set-uc"]("ChTrello", _22_)
 local function _23_()
-  local file = assert(io.open("src/notebooks/general/stemplate.md"))
+  local file = assert(io.open("n/notebooks/general/stemplate.md"))
   local lines = util["split-string-by-line"](file:read("*a"))
   file:close()
   return vim.api.nvim_buf_set_lines(0, -1, -1, false, lines)
