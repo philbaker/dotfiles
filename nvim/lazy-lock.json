@@ -25,6 +25,7 @@
   "nvim.lua": { "branch": "master", "commit": "5d57be0b6eea6c06977b1c5fe0752da909cf4154" },
   "oil.nvim": { "branch": "master", "commit": "bf753c3e3f8736939ad5597f92329dfe7b1df4f5" },
   "org.vim": { "branch": "master", "commit": "79dd8529ea942a0c97e10c351f31541e7a044d2a" },
+  "orgmode": { "branch": "master", "commit": "cda615fa7c8607bfb7aaf7d2c9424dd5969f2625" },
   "plenary.nvim": { "branch": "master", "commit": "55d9fe89e33efd26f532ef20223e5f9430c8b0c0" },
   "telescope-git-file-history.nvim": { "branch": "master", "commit": "f94fab1d5a51fa28dd95b1a6bd377505dc1a8e82" },
   "telescope-live-grep-args.nvim": { "branch": "master", "commit": "731a046da7dd3adff9de871a42f9b7fb85f60f47" },

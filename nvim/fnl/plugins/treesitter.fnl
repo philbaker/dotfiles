@@ -27,7 +27,6 @@
                                                     "markdown"
                                                     "python"
                                                     "java"
-                                                    "org"
                                                     "vue"
                                                     "c"
                                                     "vim"
