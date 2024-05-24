@@ -9,3 +9,5 @@ nvim/.netrwhist
 tags
 .clj-kondo
 .lsp
+scratch.fnl
+scratch.lua
