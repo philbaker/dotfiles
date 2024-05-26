@@ -12,7 +12,7 @@
                   actions (require :telescope.actions)
                   layout (require :telescope.actions.layout)
                   lga-actions (require :telescope-live-grep-args.actions)]
-              (telescope.setup {:defaults {:file_ignore_patterns ["node_modules"]
+              (telescope.setup {:defaults {:file_ignore_patterns ["node_modules" "public/vendor"]
                                            :mappings {:i {:<c-l> (+ actions.send_to_qflist actions.open_qflist)
                                                           :<c-r> actions.close
                                                           :<c-n> actions.cycle_history_next
