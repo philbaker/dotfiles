@@ -174,12 +174,10 @@
 
 (util.set-uc "Ftd" (fn []
                      (let [items 
-                           ["Clojure"
-                            "ClojureScript"
-                            "HTML/CSS"
+                           ["HTML/CSS"
                             "JavaScript"
-                            "React"
-                            "Node"
+                            "Java"
+                            "Clojure(Script)"
                             "SQL"]
                             item (. items (math.random (length items)))]
                         (print item))))
