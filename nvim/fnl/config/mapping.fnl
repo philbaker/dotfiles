@@ -23,4 +23,7 @@
 ; Restore default redo
 (util.set-key :<C-R> "<C-R>" false)
 
+; Transform one string into multiple strings (split on space)
+(util.set-key :<leader>r ":s-\\%V \\%V-\\\" \\\"-g<CR>" false :v)
+
 {}

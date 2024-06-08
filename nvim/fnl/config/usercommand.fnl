@@ -186,4 +186,11 @@
              (fn []
                (vim.fn.setreg "+" (vim.fn.expand "%:~:."))))
 
+(util.set-uc
+  "RefreshAgenda"
+  (fn []
+    (vim.cmd ":e ~/orgfiles/phone.org")
+    (vim.cmd ":e ~/orgfiles/tasks.org")
+    (vim.cmd ":Jote")))
+
 {}

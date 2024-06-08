@@ -176,4 +176,10 @@ local function _35_()
   return vim.fn.setreg("+", vim.fn.expand("%:~:."))
 end
 util["set-uc"]("YankFilePath", _35_)
+local function _36_()
+  vim.cmd(":e ~/orgfiles/phone.org")
+  vim.cmd(":e ~/orgfiles/tasks.org")
+  return vim.cmd(":Jote")
+end
+util["set-uc"]("RefreshAgenda", _36_)
 return {}

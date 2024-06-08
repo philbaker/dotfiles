@@ -13,4 +13,5 @@ util["set-key"]("<S-Right>", "<C-w>>", true)
 util["set-key"]("<S-Left>", "<C-w><", true)
 util["set-key"]("<Esc>", "<C-\\><C-n>", false, "t")
 util["set-key"]("<C-R>", "<C-R>", false)
+util["set-key"]("<leader>r", ":s-\\%V \\%V-\\\" \\\"-g<CR>", false, "v")
 return {}
