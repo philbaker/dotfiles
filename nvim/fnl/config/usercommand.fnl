@@ -174,13 +174,15 @@
 
 (util.set-uc "Ftd" (fn []
                      (let [items 
-                           ["HTML/CSS"
+                           ["HTML"
+                            "CSS"
                             "JavaScript"
-                            "Java"
+                            "HTTP"
+                            "SQL"
                             "Clojure(Script)"
-                            "SQL"]
-                            item (. items (math.random (length items)))]
-                        (print item))))
+                            "Vim"]
+                           item (. items (math.random (length items)))]
+                       (print item))))
 
 (util.set-uc "YankFilePath"
              (fn []
