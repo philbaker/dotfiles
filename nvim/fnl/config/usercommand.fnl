@@ -172,18 +172,6 @@
     (util.cmdtc "<C-w>k"))
   {:nargs "?"})
 
-(util.set-uc "Ftd" (fn []
-                     (let [items 
-                           ["HTML"
-                            "CSS"
-                            "JavaScript"
-                            "HTTP"
-                            "SQL"
-                            "Clojure(Script)"
-                            "Vim"]
-                           item (. items (math.random (length items)))]
-                       (print item))))
-
 (util.set-uc "YankFilePath"
              (fn []
                (vim.fn.setreg "+" (vim.fn.expand "%:~:."))))
