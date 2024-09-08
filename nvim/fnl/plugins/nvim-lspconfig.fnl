@@ -58,7 +58,7 @@
                                :capabilities capabilities})
 
               (lsp.clojure_lsp.setup defaults)
-              (lsp.tsserver.setup defaults)
+              (lsp.ts_ls.setup defaults)
               (lsp.eslint.setup defaults)
               (lsp.svelte.setup defaults)
               (lsp.cssls.setup defaults)

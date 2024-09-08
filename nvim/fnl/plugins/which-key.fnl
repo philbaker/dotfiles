@@ -133,4 +133,5 @@
    {:prefix "<leader>"})
 
 [{1 :folke/which-key.nvim
+    :version "2.1.0"
     :opts {:triggers_blacklist {:n ["'" "\"" "v"]}}}]
