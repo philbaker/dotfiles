@@ -58,6 +58,7 @@
 
 ; Set colorscheme
 (vim.cmd "colorscheme tokyonight")
+; (vim.cmd "colorscheme catppuccin-latte")
 
 ; Don't keep backup in local dir
 (vim.opt.backupdir:remove ".")
