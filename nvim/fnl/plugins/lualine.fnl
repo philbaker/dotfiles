@@ -18,6 +18,9 @@
     :command {:a {:bg "#131217" :fg "#24292e"}
               :b {:bg "#131217" :fg "#ccbed8"}
               :c {:bg "#19181e" :fg "#d1d5da"}}
+    :terminal {:a {:bg "#131217" :fg "#24292e"}
+              :b {:bg "#131217" :fg "#ccbed8"}
+              :c {:bg "#19181e" :fg "#d1d5da"}}
     :visual {:a {:bg "#131217" :fg "#24292e"}
              :b {:bg "#131217" :fg "#ced4b1"}
              :c {:bg "#19181e" :fg "#d1d5da"}}
