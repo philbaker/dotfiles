@@ -5,7 +5,7 @@ local nvim = autoload("nvim")
 local nvim_comment = require("nvim_comment")
 local function _2_()
   local function _3_()
-    return (require("ts_context_commentstring.internal")).update_commentstring()
+    return require("ts_context_commentstring.internal").update_commentstring()
   end
   return nvim_comment.setup({hook = _3_})
 end

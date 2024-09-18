@@ -57,6 +57,7 @@
 (vim.cmd "autocmd BufNewFile,BufRead *.phel set syntax=clojure")
 
 ; Set colorscheme
+; (set vim.opt.background "dark")
 (vim.cmd "colorscheme tokyonight")
 ; (vim.cmd "colorscheme catppuccin-latte")
 
