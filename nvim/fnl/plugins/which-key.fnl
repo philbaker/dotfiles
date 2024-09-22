@@ -124,6 +124,7 @@
        :o [":lua require ('telescope.builtin').autocommands()<CR>" "Autocommands"]
        :p [":lua require'telescope'.extensions.project.project{}<CR>" "Projects"]
        :q [":lua require ('telescope.builtin').quickfix()<CR>" "Quickfix list"]
+       :w [":lua require('telescope.builtin').find_files({search_dirs={vim.fn.expand('~/Dropbox/qn')}})<CR>" "Qn"]
        :y [":Telescope neoclip n<CR>" "Neoclip"]}
    :u ["<C-^>" "Switch buffer"]
    :z {:name "Notes"
