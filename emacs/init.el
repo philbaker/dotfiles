@@ -356,6 +356,8 @@
   (with-eval-after-load 'org
                         (add-to-list 'org-modules 'org-habit))
 
+  (setq org-habit-show-all-today t)
+
   ;; Configure custom agenda views
   (setq org-agenda-custom-commands
     '(("d" "Dashboard"
@@ -401,6 +403,11 @@
   :hook (org-mode . org-bullets-mode)
   :custom
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+
+(use-package org-recur
+  :demand t)
+
+(setq org-adapt-indentation t)
 
 (require 'org-crypt)
 (org-crypt-use-before-save-magic)
