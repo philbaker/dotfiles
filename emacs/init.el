@@ -353,6 +353,9 @@
     '(("archive.org" :maxlevel . 1)
        ("tasks.org" :maxlevel . 1)))
 
+  (with-eval-after-load 'org
+                        (add-to-list 'org-modules 'org-habit))
+
   ;; Configure custom agenda views
   (setq org-agenda-custom-commands
     '(("d" "Dashboard"

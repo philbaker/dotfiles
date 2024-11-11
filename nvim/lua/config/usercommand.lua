@@ -160,20 +160,24 @@ local function _32_()
 end
 util["set-uc"]("Resize10", _32_)
 local function _33_()
+  return vim.cmd(":e ~/neotes/none/cycle.md")
+end
+util["set-uc"]("Pro", _33_)
+local function _34_()
   vim.cmd("sp")
   vim.cmd("normal 'C")
   vim.cmd("resize 10")
   return util.cmdtc("<C-w>k")
 end
-util["set-uc"]("Rsp", _33_, {nargs = "?"})
-local function _34_()
+util["set-uc"]("Rsp", _34_, {nargs = "?"})
+local function _35_()
   return vim.fn.setreg("+", vim.fn.expand("%:~:."))
 end
-util["set-uc"]("YankFilePath", _34_)
-local function _35_()
+util["set-uc"]("YankFilePath", _35_)
+local function _36_()
   vim.cmd(":e ~/orgfiles/phone.org")
   vim.cmd(":e ~/orgfiles/tasks.org")
   return vim.cmd(":Jote")
 end
-util["set-uc"]("RefreshAgenda", _35_)
+util["set-uc"]("RefreshAgenda", _36_)
 return {}

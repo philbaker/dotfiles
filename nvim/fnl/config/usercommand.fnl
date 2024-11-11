@@ -162,6 +162,11 @@
     (vim.cmd "resize 10")
     (util.cmdtc "<C-W>k")))
 
+(util.set-uc
+  "Pro"
+  (fn []
+    (vim.cmd ":e ~/neotes/none/cycle.md")))
+
 ; Sets up a terminal split for RDD
 (util.set-uc
   "Rsp"
