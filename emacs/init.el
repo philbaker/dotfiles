@@ -334,11 +334,17 @@
   (setq org-log-done 'time)
   (setq org-log-into-drawer t)
   (setq org-agenda-files '("~/notes/tasks.org" "~/notes/ob.org" "~/orgfiles/tasks.org"))
+  (require 'org-habit)
+  (add-to-list 'org-modules 'org-habit)
+  (setq org-habit-graph-column 60)
+  (setq org-habit-show-all-today t)
   (setq org-todo-keywords
-    '((sequence "REPEAT(r)" "TODO(t)" "NEXT(n)" "ACTIVE(a)" "C REVIEW(o)" "S REVIEW(e)" "REVIEW(l)" "WAITING(w@/!)" "SOMEDAY(s)" "PROJ(p)" "|" "DONE(d)" "CANCELLED(c@)")))
+    '((sequence "REPEAT(r)" "TODO(t)" "NEXT(n)" "ACTIVE(a)" "C REVIEW(o)" "S REVIEW(e)" "REVIEW(l)" "WAITING(w@/!)" "SOMEDAY(s)" "PROJ(p)" "|" "DONE(d!)" "CANCELLED(c@/!)")
+      (sequence "HABIT(h)" "|" "DONE(d!)")))
   (setq org-todo-keyword-faces
     '(("REPEAT" . "white") 
        ("TODO" . "white")
+       ("HABIT" . "white")
        ("NEXT" . "pink")
        ("ACTIVE" . "yellow")
        ("C REVIEW" . "orange")
@@ -352,11 +358,6 @@
   (setq org-refile-targets
     '(("archive.org" :maxlevel . 1)
        ("tasks.org" :maxlevel . 1)))
-
-  (with-eval-after-load 'org
-                        (add-to-list 'org-modules 'org-habit))
-
-  (setq org-habit-show-all-today t)
 
   ;; Configure custom agenda views
   (setq org-agenda-custom-commands
@@ -398,6 +399,8 @@
          (file+olp "~/notes/tasks.org" "Meetings")
          "* %<%e/%m/%g> %<%H:%M> :meetings:\n%?"
          :empty-lines 1))))
+
+(use-package org-habit-stats)
 
 (use-package org-bullets
   :hook (org-mode . org-bullets-mode)
