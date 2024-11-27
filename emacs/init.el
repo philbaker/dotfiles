@@ -333,7 +333,7 @@
   (setq org-agenda-start-with-log-mode t)
   (setq org-log-done 'time)
   (setq org-log-into-drawer t)
-  (setq org-agenda-files '("~/notes/tasks.org" "~/notes/ob.org" "~/orgfiles/tasks.org"))
+  (setq org-agenda-files '("~/org-sync/mobile.org" "~/org-sync/laptop.org" "~/orgfiles/ob.org" "~/orgfiles/bd.org" "~/notes/tasks.org"))
   (require 'org-habit)
   (add-to-list 'org-modules 'org-habit)
   (setq org-habit-graph-column 60)
