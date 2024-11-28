@@ -73,4 +73,9 @@
                  :filetypes ["html" "markdown" "php" "blade" "css" "postcss" "sass" "scss" "javascript" "javascriptreact" "typescript" "typescriptreact" "vue" "svelte" "clojure"]
                  :settings
                  ; https://github.com/tailwindlabs/tailwindcss-intellisense/issues/400#issuecomment-1218494303
-                 {:tailwindCSS {:experimental {:classRegex [":class\\s+\"([^\"]*)\"" ":className\\s+\"([^\"]*)\"" ":[\\w-.#>]+\\.([\\w-]*)"]}}}})))}]
+                 {:tailwindCSS {:experimental {:classRegex [":class\\s+\"([^\"]*)\"" ":className\\s+\"([^\"]*)\"" ":[\\w-.#>]+\\.([\\w-]*)"]}}}})
+              (lsp.volar.setup
+                {:on_attach on_attach
+                 :filetypes  ["typescript" "javascript" "javascriptreact" "typescriptreact" "vue"]
+                 :init_options {:vue {:hybridMode false}
+                                :typescript {:tsdk (.. (os.getenv "HOME") "/.local/share/nvim/mason/packages/vue-language-server/node_modules/typescript/lib/")}}})))}]
