@@ -206,3 +206,9 @@ client.background       #ffffff
 
 # Screen lock
 bindsym control+$mod+l exec i3lock & sleep 5 && xset dpms force off
+
+# Start up program
+exec syncthing
+
+# Dark mode
+exec --no-startup-id /usr/libexec/gsd-xsettings
