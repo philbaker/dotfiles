@@ -41,13 +41,6 @@
 
 (util.set-uc "Sqr" #(vim.cmd "3T bb mjs_to_js.clj ./pages"))
 
-(util.set-uc
-  "ClerkShow"
-  (fn []
-    (do
-      (vim.cmd "w")
-      (vim.cmd (.. "ConjureEval (clerk/show! \"" (.. "notebooks/" (vim.fn.expand "%:t"))"\")")))))
-
 (util.set-uc "Jac" #(vim.cmd (.. "3T javac " (vim.fn.expand "%:t"))))
 
 (util.set-uc "Jar" #(vim.cmd (.. "3T java " (vim.fn.expand "%:t:r"))))
@@ -177,15 +170,27 @@
     (util.cmdtc "<C-w>k"))
   {:nargs "?"})
 
-(util.set-uc "YankFilePath"
+(fn timestamp []
+  (os.date "%Y-%m-%d %H:%M:%S"))
+
+(fn filepath []
+  (vim.fn.expand "%:~:."))
+
+(fn timestamp-filepath []
+  (.. (timestamp) " " (filepath)))
+
+(util.set-uc "Ypath"
              (fn []
-               (vim.fn.setreg "+" (vim.fn.expand "%:~:."))))
+               (vim.fn.setreg "+" (filepath))))
 
 (util.set-uc
-  "RefreshAgenda"
+  "Yts"
   (fn []
-    (vim.cmd ":e ~/orgfiles/phone.org")
-    (vim.cmd ":e ~/orgfiles/tasks.org")
-    (vim.cmd ":Jote")))
+    (vim.fn.setreg "+" (timestamp))))
+
+(util.set-uc
+  "Ytspath"
+  (fn []
+    (vim.fn.setreg "+" (timestamp-filepath))))
 
 {}
