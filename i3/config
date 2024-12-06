@@ -195,10 +195,10 @@ exec --no-startup-id lxpolkit
 # Screen layout
 exec --no-startup-id ~/.screenlayout/monitor.sh
 
-# Colors - border - background - text
+# Colors
 # class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #536878 #ffffff #2e9ef4   #536878
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.focused          #474747 #383838 #ffffff #2e9ef4   #474747
+client.focused_inactive #333333 #222222 #ffffff #484e50   #222222
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
@@ -212,3 +212,6 @@ exec syncthing
 
 # Dark mode
 exec --no-startup-id /usr/libexec/gsd-xsettings
+
+# Set wallpaper
+exec feh --bg-scale ~/Dropbox/t480s/t480s-padgriffin.png
