@@ -333,7 +333,7 @@
   (setq org-agenda-start-with-log-mode t)
   (setq org-log-done 'time)
   (setq org-log-into-drawer t)
-  (setq org-agenda-files '("~/org-sync/mobile.org" "~/org-sync/laptop.org" "~/org-sync/ob.org" "~/org-sync/ob.org" "~/org-sync/work.org"))
+  (setq org-agenda-files '("~/org-sync/mobile.org" "~/org-sync/laptop.org" "~/org-sync/ob.org" "~/org-sync/work.org"))
   (require 'org-habit)
   (add-to-list 'org-modules 'org-habit)
   (setq org-habit-graph-column 60)
@@ -355,9 +355,9 @@
        ("PROJ" . "teal")
        ("DONE" . "green")
        ("CANCELLED" . "red")))
-  (setq org-refile-targets
-    '(("archive.org" :maxlevel . 1)
-       ("tasks.org" :maxlevel . 1)))
+
+  (setq org-refile-targets '((nil :maxlevel . 9)
+    (org-agenda-files :maxlevel . 5)))
 
   ;; Configure custom agenda views
   (setq org-agenda-custom-commands
