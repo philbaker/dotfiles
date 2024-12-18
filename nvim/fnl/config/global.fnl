@@ -70,4 +70,17 @@
 ;space is reserved to be lead
 (nvim.set_keymap :n :<space> :<nop> {:noremap true})
 
+; Conjure state
+(vim.api.nvim_create_augroup "conjure-set-state-key-on-filetype" {:clear true})
+
+(vim.api.nvim_create_autocmd ["BufReadPost" "BufNewFile" "BufEnter"]
+  {:group "conjure-set-state-key-on-filetype"
+   :pattern "*.clj,*.cljc"
+   :command ":ConjureClientState clj"})
+
+(vim.api.nvim_create_autocmd ["BufReadPost" "BufNewFile" "BufEnter"]
+  {:group "conjure-set-state-key-on-filetype"
+   :pattern "*.cljs"
+   :command ":ConjureClientState cljs"})
+
 {}
