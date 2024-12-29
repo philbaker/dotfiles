@@ -66,6 +66,7 @@
               (lsp.fennel_ls.setup defaults)
               (lsp.lua_ls.setup defaults)
               (lsp.intelephense.setup defaults)
+              (lsp.jdtls.setup defaults)
               (lsp.tailwindcss.setup 
                 {:on_attach on_attach
                  :handlers handlers
