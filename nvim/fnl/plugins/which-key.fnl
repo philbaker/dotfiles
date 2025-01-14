@@ -119,7 +119,7 @@
        :g [":lua require('telescope').extensions.git_file_history.git_file_history()<CR>" "Git history"]
        :h [":lua require('telescope.builtin').help_tags()<CR>" "Help"]
        :j [":lua require ('telescope.builtin').quickfix()<CR>" "Jumplist"]
-       :n [":lua require('telescope.builtin').find_files({search_dirs={vim.fn.expand('~/neotes')}})<CR>" "Neotes"]
+       :n [":lua require('telescope.builtin').find_files({search_dirs={vim.fn.expand('~/neotes')}, no_ignore=true})<CR>" "Neotes"]
        :m [":lua require ('telescope.builtin').marks()<CR>" "Marks"]
        :o [":lua require ('telescope.builtin').autocommands()<CR>" "Autocommands"]
        :p [":lua require'telescope'.extensions.project.project{}<CR>" "Projects"]
