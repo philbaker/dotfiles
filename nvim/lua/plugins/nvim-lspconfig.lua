@@ -46,9 +46,10 @@ local function _2_()
   lsp.pylsp.setup(defaults)
   lsp.fennel_ls.setup(defaults)
   lsp.lua_ls.setup(defaults)
-  lsp.intelephense.setup(defaults)
   lsp.jdtls.setup(defaults)
   lsp.tailwindcss.setup({on_attach = on_attach, handlers = handlers, capabilities = capabilities, filetypes = {"html", "markdown", "php", "blade", "css", "postcss", "sass", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "clojure"}, settings = {tailwindCSS = {experimental = {classRegex = {":class\\s+\"([^\"]*)\"", ":className\\s+\"([^\"]*)\"", ":[\\w-.#>]+\\.([\\w-]*)"}}}}})
-  return lsp.volar.setup({on_attach = on_attach, filetypes = {"typescript", "javascript", "javascriptreact", "typescriptreact", "vue"}, init_options = {vue = {hybridMode = false}, typescript = {tsdk = (os.getenv("HOME") .. "/.local/share/nvim/mason/packages/vue-language-server/node_modules/typescript/lib/")}}})
+  lsp.volar.setup({on_attach = on_attach, filetypes = {"typescript", "javascript", "javascriptreact", "typescriptreact", "vue"}, init_options = {vue = {hybridMode = false}, typescript = {tsdk = (os.getenv("HOME") .. "/.local/share/nvim/mason/packages/vue-language-server/node_modules/typescript/lib/")}}})
+  lsp.phpstan.setup(defaults)
+  return lsp.phpactor.setup({on_attach = on_attach, init_options = {["language_server_phpstan.enabled"] = true}})
 end
 return {{"neovim/nvim-lspconfig", config = _2_}}
