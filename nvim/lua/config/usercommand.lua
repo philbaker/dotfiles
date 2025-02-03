@@ -88,7 +88,7 @@ end
 util["set-uc"]("SaveIndexAndReturn", _18_)
 local function _19_()
   vim.cmd(":w")
-  vim.cmd(("2T pint " .. vim.fn.expand("%:p")))
+  vim.cmd(("2T ./vendor/bin/pint " .. vim.fn.expand("%:p")))
   vim.cmd(":sleep 300m")
   return vim.cmd(":e %")
 end

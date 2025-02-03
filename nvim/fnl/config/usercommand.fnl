@@ -70,7 +70,7 @@
 (util.set-uc "Pint" (fn []
                       (do
                         (vim.cmd ":w")
-                        (vim.cmd (.. "2T pint " (vim.fn.expand "%:p")))
+                        (vim.cmd (.. "2T ./vendor/bin/pint " (vim.fn.expand "%:p")))
                         (vim.cmd ":sleep 300m")
                         (vim.cmd ":e %"))))
 
