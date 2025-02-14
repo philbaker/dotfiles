@@ -6,7 +6,6 @@
                                                        "cssls"
                                                        "eslint"
                                                        "phpactor"
-                                                       "phpstan"
                                                        "lua_ls"
                                                        "tailwindcss"
                                                        "ts_ls"
