@@ -6,7 +6,8 @@
                  :nvim-telescope/telescope-live-grep-args.nvim
                  :nvim-telescope/telescope-project.nvim
                  {1 :isak102/telescope-git-file-history.nvim
-                  :dependencies [:tpope/vim-fugitive]}]
+                  :dependencies [:tpope/vim-fugitive]}
+                 :debugloop/telescope-undo.nvim]
   :config (fn []
             (let [telescope (require :telescope)
                   actions (require :telescope.actions)
@@ -30,4 +31,6 @@
                                                                      "--hidden"]}})
               (telescope.load_extension "live_grep_args")
               (telescope.load_extension "project")
-              (telescope.load_extension "git_file_history")))}]
+              (telescope.load_extension "git_file_history")
+              (telescope.load_extension "undo")))}]
+

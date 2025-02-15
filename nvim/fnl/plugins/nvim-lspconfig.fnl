@@ -79,7 +79,6 @@
                  :filetypes  ["typescript" "javascript" "javascriptreact" "typescriptreact" "vue"]
                  :init_options {:vue {:hybridMode false}
                                 :typescript {:tsdk (.. (os.getenv "HOME") "/.local/share/nvim/mason/packages/vue-language-server/node_modules/typescript/lib/")}}})
-              (lsp.phpstan.setup defaults)
               (lsp.phpactor.setup 
                 {:on_attach on_attach
                  :init_options {"language_server_phpstan.enabled" true}})))}]
