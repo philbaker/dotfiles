@@ -45,7 +45,8 @@
 
 (util.set-uc "Jar" #(vim.cmd (.. "3T java " (vim.fn.expand "%:t:r"))))
 
-(util.set-uc "Cljfmt" #(vim.cmd "3T clj -M:cljfmt %"))
+(util.set-uc "Cljfmt" #(vim.cmd "4T clojure -M:format -m cljfmt.main fix %"))
+(util.set-uc "Zprint" #(vim.cmd "4T zprint < %"))
 
 (util.set-uc "Nter" (fn []
                       (vim.cmd "normal mZ")
