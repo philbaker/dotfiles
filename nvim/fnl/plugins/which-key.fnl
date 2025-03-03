@@ -65,6 +65,8 @@
        :da [":DecryptNotes all<CR>" "Decrypt all"]
        :eh [":EncryptNotes home<CR>" "Encrypt home"]
        :dh [":DecryptNotes home<CR>" "Decrypt home"]
+       :tw ["vi\":s/\\%V / :/g<cr>f\"a:<esc>hr[f\"r]:noh<cr>" "Replace Tailwind string with vector of keywords"]
+       :ts ["vi]:s/\\%V :/ /g<cr>f[f:xhr\"f]r\"" "Replace Tailwind vector of keywords with a string"]
        :u {:name "Utils"
            :r [":PixelToRem<CR>" "Pixel to Rem"]
            :p [":RemToPixel<CR>" "Rem to Pixel"]
