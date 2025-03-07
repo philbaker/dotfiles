@@ -10,4 +10,4 @@ local function _2_()
   nvim.g["conjure#mapping#prefix"] = "<leader>c"
   return nil
 end
-return {{"Olical/conjure", branch = "master", init = _2_}}
+return {{"Olical/conjure", branch = "main", init = _2_}}
