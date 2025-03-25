@@ -8,4 +8,6 @@
              clj-kondo.impl.config #include "../src/clj_kondo/impl/config.types.edn"
              clj-kondo.impl.findings #include "../src/clj_kondo/impl/findings.types.edn"}}
            :unresolved-symbol {:exclude [(dumdom.core/defcomponent)
-                                         (portfolio.replicant/defscene)]}}}
+                                         (portfolio.replicant/defscene)
+                                         (uix.core/defui)
+                                         (uix.core/$)]}}}
