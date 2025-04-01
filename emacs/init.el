@@ -118,7 +118,7 @@
 (use-package evil-commentary)
 (evil-commentary-mode)
 (fset 'scroll-repl-top
-   (kmacro-lambda-form [?\C-w ?l ?G ?z ?t ?\C-w ?h] 0 "%d"))
+  (kmacro-lambda-form [?\C-w ?l ?G ?z ?t ?\C-w ?h] 0 "%d"))
 
 ;; Language config
 (use-package clojure-mode)
@@ -148,14 +148,14 @@
   :config
   (setq web-mode-engines-alist
     '(("php"    . "\\.phtml\\'")
-       ("blade"  . "\\.blade\\."))))
+      ("blade"  . "\\.blade\\."))))
 
 ;; LSP config
 (use-package lsp-mode
   :commands lsp
   :diminish lsp-mode
   :hook ((clojure-mode . lsp)
-          (lsp-mode . lsp-enable-which-key-integration))
+         (lsp-mode . lsp-enable-which-key-integration))
   :init
   (setq lsp-keymap-prefix "C-c l")
   (setq lsp-headerline-breadcrumb-enable nil))
@@ -265,52 +265,52 @@
   :config
   (progn
     (setq treemacs-collapse-dirs              (if (executable-find "python") 3 0)
-          treemacs-deferred-git-apply-delay   0.5
-          treemacs-display-in-side-window     t
-          treemacs-file-event-delay           5000
-          treemacs-file-follow-delay          0.2
-          treemacs-follow-after-init          t
-          treemacs-follow-recenter-distance   0.1
-          treemacs-git-command-pipe           ""
-          treemacs-goto-tag-strategy          'refetch-index
-          treemacs-indentation                2
-          treemacs-indentation-string         " "
-          treemacs-is-never-other-window      nil
-          treemacs-max-git-entries            5000
-          treemacs-no-png-images              nil
-          treemacs-no-delete-other-windows    t
-          treemacs-project-follow-cleanup     nil
-          treemacs-persist-file               (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
-          treemacs-recenter-after-file-follow nil
-          treemacs-recenter-after-tag-follow  nil
-          treemacs-show-cursor                nil
-          treemacs-show-hidden-files          t
-          treemacs-silent-filewatch           nil
-          treemacs-silent-refresh             nil
-          treemacs-sorting                    'alphabetic-desc
-          treemacs-space-between-root-nodes   t
-          treemacs-tag-follow-cleanup         t
-          treemacs-tag-follow-delay           1.5
-          treemacs-position                   'right
-          treemacs-width                      35)
+      treemacs-deferred-git-apply-delay   0.5
+      treemacs-display-in-side-window     t
+      treemacs-file-event-delay           5000
+      treemacs-file-follow-delay          0.2
+      treemacs-follow-after-init          t
+      treemacs-follow-recenter-distance   0.1
+      treemacs-git-command-pipe           ""
+      treemacs-goto-tag-strategy          'refetch-index
+      treemacs-indentation                2
+      treemacs-indentation-string         " "
+      treemacs-is-never-other-window      nil
+      treemacs-max-git-entries            5000
+      treemacs-no-png-images              nil
+      treemacs-no-delete-other-windows    t
+      treemacs-project-follow-cleanup     nil
+      treemacs-persist-file               (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
+      treemacs-recenter-after-file-follow nil
+      treemacs-recenter-after-tag-follow  nil
+      treemacs-show-cursor                nil
+      treemacs-show-hidden-files          t
+      treemacs-silent-filewatch           nil
+      treemacs-silent-refresh             nil
+      treemacs-sorting                    'alphabetic-desc
+      treemacs-space-between-root-nodes   t
+      treemacs-tag-follow-cleanup         t
+      treemacs-tag-follow-delay           1.5
+      treemacs-position                   'right
+      treemacs-width                      35)
 
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
     (treemacs-fringe-indicator-mode t)
     (pcase (cons (not (null (executable-find "git")))
-                 (not (null (executable-find "python3"))))
+             (not (null (executable-find "python3"))))
       (`(t . t)
-       (treemacs-git-mode 'deferred))
+        (treemacs-git-mode 'deferred))
       (`(t . _)
-       (treemacs-git-mode 'simple))))
+        (treemacs-git-mode 'simple))))
   :bind
   (:map global-map
-        ("M-0"       . treemacs-select-window)
-        ("C-x t 1"   . treemacs-delete-other-windows)
-        ("C-x t t"   . treemacs)
-        ("C-x t B"   . treemacs-bookmark)
-        ("C-x t C-t" . treemacs-find-file)
-        ("C-x t M-t" . treemacs-find-tag)))
+    ("M-0"       . treemacs-select-window)
+    ("C-x t 1"   . treemacs-delete-other-windows)
+    ("C-x t t"   . treemacs)
+    ("C-x t B"   . treemacs-bookmark)
+    ("C-x t C-t" . treemacs-find-file)
+    ("C-x t M-t" . treemacs-find-tag)))
 
 (use-package treemacs-evil
   :after treemacs evil)
@@ -343,62 +343,62 @@
       (sequence "HABIT(h)" "|" "DONE(d!)")))
   (setq org-todo-keyword-faces
     '(("REPEAT" . "white") 
-       ("TODO" . "white")
-       ("HABIT" . "white")
-       ("NEXT" . "pink")
-       ("ACTIVE" . "yellow")
-       ("C REVIEW" . "orange")
-       ("S REVIEW" . "orange")
-       ("REVIEW" . "orange")
-       ("WAITING" . "orange")
-       ("SOMEDAY" . "salmon")
-       ("PROJ" . "teal")
-       ("DONE" . "green")
-       ("CANCELLED" . "red")))
+      ("TODO" . "white")
+      ("HABIT" . "white")
+      ("NEXT" . "wheat")
+      ("ACTIVE" . "yellow")
+      ("C REVIEW" . "aquamarine")
+      ("S REVIEW" . "pale green")
+      ("REVIEW" . "orange")
+      ("WAITING" . "salmon")
+      ("SOMEDAY" . "wheat")
+      ("PROJ" . "teal")
+      ("DONE" . "green")
+      ("CANCELLED" . "red")))
 
   (setq org-refile-targets '((nil :maxlevel . 9)
-    (org-agenda-files :maxlevel . 5)))
+                             (org-agenda-files :maxlevel . 5)))
 
   ;; Configure custom agenda views
   (setq org-agenda-custom-commands
     '(("d" "Dashboard"
         ((agenda "" ((org-deadline-warning-days 7)))
-          (todo "NEXT"
-            ((org-agenda-overriding-header "Next Tasks")))
-          (tags-todo "agenda/ACTIVE" ((org-agenda-overriding-header "Active Projects")))))
-       ("n" "Next Tasks"
-         ((todo "NEXT"
-            ((org-agenda-overriding-header "Next Tasks")))))
-       ("W" "Work Tasks" tags-todo "+work-email")
+         (todo "NEXT"
+           ((org-agenda-overriding-header "Next Tasks")))
+         (tags-todo "agenda/ACTIVE" ((org-agenda-overriding-header "Active Projects")))))
+      ("n" "Next Tasks"
+        ((todo "NEXT"
+           ((org-agenda-overriding-header "Next Tasks")))))
+      ("W" "Work Tasks" tags-todo "+work-email")
        ;; Low-effort next actions
-       ("e" tags-todo "+TODO=\"NEXT\"+Effort<15&+Effort>0"
-         ((org-agenda-overriding-header "Low Effort Tasks")
-           (org-agenda-max-todos 20)
-           (org-agenda-files org-agenda-files)))
-       ("w" "Workflow Status"
-         ((todo "WAITING"
-            ((org-agenda-overriding-header "Waiting on External")
-              (org-agenda-files org-agenda-files)))
-           (todo "ACTIVE"
-             ((org-agenda-overriding-header "Active Projects")
-               (org-agenda-files org-agenda-files)))
-           (todo "REVIEW"
-             ((org-agenda-overriding-header "Waiting for code review")
-               (org-agenda-files org-agenda-files)))
-           (todo "COMPLETED"
-             ((org-agenda-overriding-header "Completed Projects")
-               (org-agenda-files org-agenda-files)))
-           (todo "CANCELLED"
-             ((org-agenda-overriding-header "Cancelled Projects")
-               (org-agenda-files org-agenda-files)))))))
+      ("e" tags-todo "+TODO=\"NEXT\"+Effort<15&+Effort>0"
+        ((org-agenda-overriding-header "Low Effort Tasks")
+         (org-agenda-max-todos 20)
+         (org-agenda-files org-agenda-files)))
+      ("w" "Workflow Status"
+        ((todo "WAITING"
+           ((org-agenda-overriding-header "Waiting on External")
+            (org-agenda-files org-agenda-files)))
+         (todo "ACTIVE"
+           ((org-agenda-overriding-header "Active Projects")
+            (org-agenda-files org-agenda-files)))
+         (todo "REVIEW"
+           ((org-agenda-overriding-header "Waiting for code review")
+            (org-agenda-files org-agenda-files)))
+         (todo "COMPLETED"
+           ((org-agenda-overriding-header "Completed Projects")
+            (org-agenda-files org-agenda-files)))
+         (todo "CANCELLED"
+           ((org-agenda-overriding-header "Cancelled Projects")
+            (org-agenda-files org-agenda-files)))))))
 
   (setq org-capture-templates
     `(("t" "Task" entry (file+olp "~/notes/tasks.org" "Inbox")
         "* TODO %?\n  %U\n %i")
-       ("m" "Meeting" entry
-         (file+olp "~/notes/tasks.org" "Meetings")
-         "* %<%e/%m/%g> %<%H:%M> :meetings:\n%?"
-         :empty-lines 1))))
+      ("m" "Meeting" entry
+        (file+olp "~/notes/tasks.org" "Meetings")
+        "* %<%e/%m/%g> %<%H:%M> :meetings:\n%?"
+        :empty-lines 1))))
 
 (use-package org-habit-stats)
 
@@ -423,14 +423,14 @@
   org-pomodoro-keep-killed-pomodoro-time t
   org-pomodoro-play-sounds nil)
 (setq org-agenda-clockreport-parameter-plist 
- '(:fileskip0 t :link t :maxlevel 2 :formula "$4=($2+$3)*(60/25);t"))
+  '(:fileskip0 t :link t :maxlevel 2 :formula "$4=($2+$3)*(60/25);t"))
 (org-babel-do-load-languages
   'org-babel-load-languages
   '((emacs-lisp . t)
-     (js . t)
-     (clojure . t)
-     (css . t)
-     (sql . t)))
+    (js . t)
+    (clojure . t)
+    (css . t)
+    (sql . t)))
 (setq org-confirm-babel-evaluate nil)
 (require 'ob-clojure)
 (require 'cider)
@@ -442,8 +442,8 @@
 (defun org-font-setup ()
   ;; Replace list hyphen with dot
   (font-lock-add-keywords 'org-mode
-                          '(("^ *\\([-]\\) "
-                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+    '(("^ *\\([-]\\) "
+        (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
   ;; Set faces for heading levels
   (dolist (face '((org-level-1 . 1.5)
@@ -491,13 +491,13 @@
          ("C-c n g" . org-roam-graph)
          ("C-c n i" . org-roam-node-insert)
          ("C-c n c" . org-roam-capture)
-         ;; Dailies
+          ;; Dailies
          ("C-c n j" . org-roam-dailies-capture-today))
   :config
   (org-roam-db-autosync-mode))
 
 ; Better terminal integration
-(use-package vterm
-  :ensure t)
+; (use-package vterm
+;   :ensure t)
 
 (org-indent-mode t)
