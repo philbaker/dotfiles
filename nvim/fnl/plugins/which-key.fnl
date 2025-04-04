@@ -67,6 +67,7 @@
        :dh [":DecryptNotes home<CR>" "Decrypt home"]
        :tw ["vi\":s/\\%V / :/g<cr>f\"a:<esc>hr[f\"r]:noh<cr>" "Replace Tailwind string with vector of keywords"]
        :ts ["vi]:s/\\%V :/ /g<cr>f[f:xhr\"f]r\"" "Replace Tailwind vector of keywords with a string"]
+       :tv ["vi[:s/\\%V:/\"/g<cr>f[vi[:s/\\%V /\" /g<cr>f]i<space><esc>r\":noh<cr>" "Replace Tailwind vector of keywords with vector of strings"]
        :u {:name "Utils"
            :r [":PixelToRem<CR>" "Pixel to Rem"]
            :p [":RemToPixel<CR>" "Rem to Pixel"]
@@ -134,7 +135,7 @@
        :a [":VimSexpKeyBindings<CR>" "Vim Sexp bindings"]
        :e [":VimSexpKeyMappings<CR>" "Vim Sexp mappings"]
        :i [":VimSurroundKeyMappings<CR>" "Vim Surround mappings"]}}
-   {:prefix "<leader>"})
+  {:prefix "<leader>"})
 
 [{1 :folke/which-key.nvim
     :version "1.6.0"
