@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# From https://github.com/kwrooijen/hiccup-cli?tab=readme-ov-file
+
+middle="$(mktemp)"
+while IFS= read -r line; do
+    echo "$line" >> "$middle"
+done
+
+hiccup-cli --html-file "$middle"
