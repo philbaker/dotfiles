@@ -3,7 +3,6 @@
 
 (wk.register
   {:. [":lua require('telescope.builtin').buffers()<CR>" "Buffer list"]
-   :- [":Dirbuf<CR>" "Dirbuf"]
    :<CR> [":noh<CR>" "Clear highlights"]
    :a {:name "Fuzzy grep"
        :a [":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>" "Grep with args"]
@@ -86,19 +85,7 @@
        :c {:name "REPL"}
        :cc [":Rspa<CR>" "Put REPL line output to current bufer"]
        :ca [":Rspa block<CR>" "Put REPL block output to current bufer"]
-       :i [":Resize10<CR>" "Make bottom split size 10"]
-       :p {:name "Process"}
-       :ps {:name "Shadow"}
-       :psw [":1T npm run shadow:watch<CR>" "npm run shadow:watch"]
-       :psr [":1T npm run shadow:release<CR>" "npm run shadow:release"]
-       :pt {:name "Tailwind"}
-       :ptw [":2T npm run tailwind:watch<CR>" "npm run tailwind:watch"]
-       :ptr [":2T npm run tailwind:release<CR>" "npm run tailwind:release"]
-       :pw [":1T npm run watch<CR>" "npm run watch"]
-       :pr [":1T npm run prod<CR>" "npm run prod"]
-       :pc [":1T clj -A:dev<CR>" "clj -A:dev"]
-       :pbb [":BbRepl 1667<CR>" "BB nrepl server"]
-       :pbn [":NbbRepl 1337" "NBB nrepl server"]}
+       :i [":Resize10<CR>" "Make bottom split size 10"]}
    :p {:name "Formatting"
        :r [":Prettier<CR>" "Prettier"]
        :i [":Pint<CR>" "Pint"]}
@@ -121,7 +108,6 @@
        :f [":lua require('telescope.builtin').oldfiles()<CR>" "History"]
        :g [":lua require('telescope').extensions.git_file_history.git_file_history()<CR>" "Git history"]
        :h [":lua require('telescope.builtin').help_tags()<CR>" "Help"]
-       :j [":lua require ('telescope.builtin').quickfix()<CR>" "Jumplist"]
        :n [":lua require('telescope.builtin').find_files({search_dirs={vim.fn.expand('~/neotes')}, no_ignore=true})<CR>" "Neotes"]
        :m [":lua require ('telescope.builtin').marks()<CR>" "Marks"]
        :o [":lua require ('telescope.builtin').autocommands()<CR>" "Autocommands"]
@@ -130,11 +116,7 @@
        :u [":lua require('telescope').extensions.undo.undo()<CR>" "Undo"]
        :w [":lua require('telescope.builtin').find_files({search_dirs={vim.fn.expand('~/Dropbox/qn')}})<CR>" "Qn"]
        :y [":Telescope neoclip n<CR>" "Neoclip"]}
-   :u ["<C-^>" "Switch buffer"]
-   :z {:name "Notes"
-       :a [":VimSexpKeyBindings<CR>" "Vim Sexp bindings"]
-       :e [":VimSexpKeyMappings<CR>" "Vim Sexp mappings"]
-       :i [":VimSurroundKeyMappings<CR>" "Vim Surround mappings"]}}
+   :u ["<C-^>" "Switch buffer"]}
   {:prefix "<leader>"})
 
 [{1 :folke/which-key.nvim
