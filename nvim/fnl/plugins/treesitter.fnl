@@ -10,8 +10,7 @@
                                    :url "https://github.com/EmranMR/tree-sitter-blade"}})
               (vim.filetype.add {:pattern {".*%.blade%.php" :blade}})
               (treesitter.setup {:highlight {:enable true}
-                                 :matchup {:enable true
-                                           :disable ["javascript"]}
+                                 :matchup {:enable true}
                                  :indent {:enable true}
                                  :ensure_installed ["html"
                                                     "css"
