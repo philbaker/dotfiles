@@ -39,7 +39,7 @@ local function _2_()
   on_attach = _3_
   local defaults = {on_attach = on_attach, handlers = handlers, capabilities = capabilities}
   lsp.clojure_lsp.setup(defaults)
-  lsp.ts_ls.setup(defaults)
+  lsp.ts_ls.setup({on_attach = on_attach, filetypes = {"typescript", "javascript", "typescriptreact", "javascriptreact", "vue"}, settings = {implicitProjectConfiguration = {checkJs = true}}})
   lsp.eslint.setup(defaults)
   lsp.svelte.setup(defaults)
   lsp.cssls.setup(defaults)
