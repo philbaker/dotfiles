@@ -215,3 +215,6 @@ exec --no-startup-id /usr/libexec/gsd-xsettings
 
 # Set wallpaper
 exec feh --bg-scale ~/Dropbox/t480s/t480s-padgriffin.png
+
+# https://git.sr.ht/~steef/snixembed
+exec --no-startup-id snixembed
