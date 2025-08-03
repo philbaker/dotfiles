@@ -14,4 +14,8 @@ util["set-key"]("<S-Left>", "<C-w><", true)
 util["set-key"]("<Esc>", "<C-\\><C-n>", false, "t")
 util["set-key"]("<C-R>", "<C-R>", false)
 util["set-key"]("<leader>r", ":s-\\%V \\%V-\\\" \\\"-g<CR>", false, "v")
+vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
+vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
+vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
+vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 return {}

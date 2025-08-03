@@ -31,8 +31,6 @@
        :e [":lua require('harpoon.ui').nav_file(5)<CR>" "Nav file 5"]
        :p [":lua require('harpoon.ui').nav_prev()<CR>" "Nav prev"]
        :n [":lua require('harpoon.ui').nav_next()<CR>" "Nav next"]}
-   :j ["<C-W>j" "Window down"]
-   :k ["<C-W>k" "Window up"]
    :l {:name "LSP"
        :a "Fuzzy diagnostics"
        :b "Fuzzy references"

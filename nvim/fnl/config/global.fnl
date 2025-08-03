@@ -75,6 +75,11 @@
 
 (vim.api.nvim_create_autocmd ["BufReadPost" "BufNewFile" "BufEnter"]
   {:group "conjure-set-state-key-on-filetype"
+   :pattern "*.fnl"
+   :command ":ConjureClientState fnl"})
+
+(vim.api.nvim_create_autocmd ["BufReadPost" "BufNewFile" "BufEnter"]
+  {:group "conjure-set-state-key-on-filetype"
    :pattern "*.clj,*.cljc"
    :command ":ConjureClientState clj"})
 
