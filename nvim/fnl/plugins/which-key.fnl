@@ -102,7 +102,6 @@
        :. [":lua require ('telescope.builtin').resume()<CR>" "Last search"]
        :c [":lua require('telescope.builtin').commands()<CR>" "Commands"]
        :d [":lua require('telescope.builtin').find_files({search_dirs={vim.fn.expand('~/dotfiles')}})<CR>" "Dotfiles"]
-       :e [":lua require('telescope.builtin').find_files()<CR>" "Files"]
        :f [":lua require('telescope.builtin').oldfiles()<CR>" "History"]
        :g [":lua require('telescope').extensions.git_file_history.git_file_history()<CR>" "Git history"]
        :h [":lua require('telescope.builtin').help_tags()<CR>" "Help"]
