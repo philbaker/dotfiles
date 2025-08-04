@@ -485,18 +485,10 @@
             (concat "\nCREATED: "
                     (cdr org-time-stamp-formats))))
   (org-back-to-heading)
-  ; in org-capture, this folds the entry; when inserting a heading, this moves point back to the heading line
   (move-end-of-line()))
-; when inserting a heading, this moves point to the end of the line
 
-                    ; add to the org-capture hook
-(add-hook 'org-capture-before-finalize-hook 
-         #'insert-created-date
-)
+(add-hook 'org-capture-before-finalize-hook #'insert-created-date)
 
-                    ; hook it to adding headings with M-S-RET
-                    ; do not add this to org-insert-heading-hook, otherwise this also works in non-TODO items
-                    ; and Org-mode has no org-insert-todo-heading-hook
 (advice-add 'org-insert-todo-heading :after #'insert-created-date)
 
 (use-package org-roam
