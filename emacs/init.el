@@ -35,9 +35,9 @@
 (when (eq system-type 'gnu/linux)
   (set-face-attribute 'default nil :height 150 :family "Fira Code"))
 (when (eq system-type 'darwin)
-  (set-face-attribute 'fixed-pitch nil :family "Fira Code" :height 165)
-  (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 165 :weight 'regular)
-  (set-face-attribute 'default nil :height 165))
+  (set-face-attribute 'fixed-pitch nil :family "Fira Code" :height 160)
+  (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 160 :weight 'regular)
+  (set-face-attribute 'default nil :height 160))
 (setq-default line-spacing 0.4)
 
 ; Stop showing % in terminal session
