@@ -18,8 +18,10 @@
                                                           :<c-r> actions.close
                                                           :<c-n> actions.cycle_history_next
                                                           :<c-p> actions.cycle_history_prev
-                                                          :? layout.toggle_preview}}}
-                                :pickers {:find_files {:find_command ["rg" "--files" "--hidden" "--no-ignore" "--glob" "!**/.git/*" "--glob" "!**/.clj-kondo" "--glob" "!**/.clerk" "--glob" "!**/.lsp" "--glob" "!**/.cpcache" "--glob" "!**/node_modules/*" "--glob" "!vendor/*"]}}})
+                                                          :<c-t> layout.toggle_preview
+                                                          :<c-i> (lga-actions.quote_prompt {:postfix " --glob"})}}}
+                                :pickers {:find_files {:find_command ["rg" "--files" "--hidden" "--no-ignore" "--glob" "!**/.git/*" "--glob" "!**/.clj-kondo" "--glob" "!**/.clerk" "--glob" "!**/.lsp" "--glob" "!**/.cpcache" "--glob" "!**/node_modules/*" "--glob" "!vendor/*"]}
+                                          :git_files {:show_untracked true}}})
               (vim.keymap.set "n" "<leader>ti" builtin.find_files {:desc "Find file"})
               (vim.keymap.set "n" "<leader>te" builtin.git_files {:desc "Open git files"})
               (telescope.load_extension "live_grep_args")

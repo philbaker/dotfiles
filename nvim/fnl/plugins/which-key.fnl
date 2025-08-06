@@ -6,8 +6,8 @@
    :<CR> [":noh<CR>" "Clear highlights"]
    :a {:name "Fuzzy grep"
        :a [":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>" "Grep with args"]
-       :d [":lua require('telescope.builtin').live_grep({search_dirs={vim.fn.expand('~/dotfiles')}})<CR>" "Dotfiles grep"]
-       :n [":lua require('telescope.builtin').live_grep({search_dirs={vim.fn.expand('~/neotes')}})<CR>" "Neotes grep"]}
+       :d [":lua require('telescope').extensions.live_grep_args.live_grep_args({search_dirs={vim.fn.expand('~/dotfiles')}})<CR>" "Dotfiles with args"]
+       :n [":lua require('telescope').extensions.live_grep_args.live_grep_args({search_dirs={vim.fn.expand('~/neotes')},additional_args={'--no-ignore'}})<CR>" "Neotes with args"]}
    :c {:name "Conjure"}
    :d {:name "Test"
        :n [":2T :<CR> :TestNearest<CR>" "Nearest"]
