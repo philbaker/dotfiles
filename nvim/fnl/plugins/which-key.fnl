@@ -46,6 +46,7 @@
        :p "Previous diagnostic"
        :s "Document symbols"}
    :m {:name "Misc"
+       :a [":UndotreeToggle<CR>" "UndoTreeToggle"]
        :m [":e ~/dotfiles/nvim/fnl/config/scratch.fnl<CR>" "Scratch file"]
        :s [":SaveIndexAndReturn<CR>" "Vite save / reload"]
        :n [":set invnumber<CR>" "Toggle current line number"]
