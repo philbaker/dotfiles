@@ -11,12 +11,6 @@
 (set nvim.g.mapleader " ")
 (set nvim.g.maplocalleader ",")
 
-; Resize windows
-(util.set-key :<S-Up> "<C-w>+" true)
-(util.set-key :<S-Down> "<C-w>-" true)
-(util.set-key :<S-Right> "<C-w>>" true)
-(util.set-key :<S-Left> "<C-w><" true)
-
 ; Escape for terminal mode
 (util.set-key :<Esc> "<C-\\><C-n>" false :t)
 
@@ -27,9 +21,23 @@
 (util.set-key :<leader>r ":s-\\%V \\%V-\\\" \\\"-g<CR>" false :v)
 
 ; Split navigation
-(vim.keymap.set "n" "<c-k>" ":wincmd k<CR>")
-(vim.keymap.set "n" "<c-j>" ":wincmd j<CR>")
-(vim.keymap.set "n" "<c-h>" ":wincmd h<CR>")
-(vim.keymap.set "n" "<c-l>" ":wincmd l<CR>")
+(vim.keymap.set :n :<c-j> (. (require :smart-splits) :move_cursor_down))
+(vim.keymap.set :n "<leader>wj" (. (require :smart-splits) :move_cursor_down))
+(vim.keymap.set :n :<c-k> (. (require :smart-splits) :move_cursor_up))
+(vim.keymap.set :n "<leader>wk" (. (require :smart-splits) :move_cursor_up))
+(vim.keymap.set :n :<c-l> (. (require :smart-splits) :move_cursor_right))
+(vim.keymap.set :n "<leader>wl" (. (require :smart-splits) :move_cursor_right))
+(vim.keymap.set :n "<c-\\>" (. (require :smart-splits) :move_cursor_previous))
+(vim.keymap.set :n "<leader>w\\" (. (require :smart-splits) :move_cursor_previous))
+
+(vim.keymap.set :n :<leader>H (. (require :smart-splits) :resize_left))
+(vim.keymap.set :n :<leader>J (. (require :smart-splits) :resize_down))
+(vim.keymap.set :n :<leader>K (. (require :smart-splits) :resize_up))
+(vim.keymap.set :n :<leader>L (. (require :smart-splits) :resize_right))
+
+(vim.keymap.set :n :<leader>wH (. (require :smart-splits) :swap_buf_left))
+(vim.keymap.set :n :<leader>wJ (. (require :smart-splits) :swap_buf_down))
+(vim.keymap.set :n :<leader>wK (. (require :smart-splits) :swap_buf_up))
+(vim.keymap.set :n :<leader>wL (. (require :smart-splits) :swap_buf_right))
 
 {}
