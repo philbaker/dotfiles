@@ -1,0 +1,12 @@
+(local {: autoload} (require :nfnl.module))
+
+(vim.lsp.enable "clojure_lsp")
+(vim.lsp.enable "ts_ls")
+(vim.lsp.enable "eslint")
+(vim.lsp.enable "cssls")
+(vim.lsp.enable "fennel_ls")
+(vim.lsp.enable "lua_ls")
+(vim.lsp.enable "jdtls")
+(vim.lsp.enable "tailwindcss")
+(vim.lsp.enable "vue_ls")
+(vim.lsp.enable "phpactor")
