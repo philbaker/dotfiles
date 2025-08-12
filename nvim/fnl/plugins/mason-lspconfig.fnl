@@ -11,5 +11,4 @@
                                                        "lua_ls"
                                                        "tailwindcss"
                                                        "ts_ls"
-                                                       "volar"
                                                        "jdtls"]})))}]

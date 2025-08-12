@@ -1,10 +1,10 @@
--- [nfnl] Compiled from fnl/plugins/lualine.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/plugins/lualine.fnl
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local nvim = autoload("nvim")
 local core = autoload("nfnl.core")
 local function lsp_connection()
-  if vim.tbl_isempty(vim.lsp.buf_get_clients(0)) then
+  if vim.tbl_isempty(vim.lsp.get_clients(0)) then
     return "\239\130\150"
   else
     return "\239\131\136"
