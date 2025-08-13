@@ -12,4 +12,5 @@
                                                        "tailwindcss"
                                                        "ts_ls"
                                                        "vue_ls"
+                                                       "vtsls"
                                                        "jdtls"]})))}]

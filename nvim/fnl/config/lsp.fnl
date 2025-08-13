@@ -33,7 +33,6 @@
     (nvim.buf_set_keymap bufnr :n :<leader>lc ":lua require('telescope.builtin').lsp_implementations()<CR>" {:noremap true})
     (nvim.buf_set_keymap bufnr :n :<leader>ls ":lua require('telescope.builtin').lsp_document_symbols()<CR>" {:noremap true})))
 
-
 (local cmplsp (require :cmp_nvim_lsp))
 
 (local handlers {"textDocument/publishDiagnostics"
@@ -59,7 +58,7 @@
                  :capabilities capabilities})
 
 (tset vim.lsp.config :ts_ls {:on_attach on_attach
-                             :filetypes ["typescript" "javascript" "typescriptreact" "javascriptreact" "vue"]
+                             :filetypes ["typescript" "javascript" "typescriptreact" "javascriptreact"]
                              :settings {:implicitProjectConfiguration {:checkJs true}}})
 
 (tset vim.lsp.config :phpactor {:on_attach on_attach
@@ -77,6 +76,27 @@
 (tset vim.lsp.config :lua_ls defaults)
 (tset vim.lsp.config :jdtls defaults)
 
+(local vue-language-server-path
+  (.. (vim.fn.expand "$MASON/packages/vue-language-server")
+      "/node_modules/@vue/language-server")) ; "/home/pb/.local/share/nvim/mason/packages/vue-language-server/node_modules/@vue/language-server"
+
+(local vue-plugin
+  {:name "@vue/typescript-plugin"
+   :location vue-language-server-path
+   :languages ["vue"]
+   :configNamespace "typescript"})
+
+(local vtsls-config
+  {:settings {:vtsls {:tsserver {:globalPlugins [vue-plugin]}}}
+   :filetypes ["typescript" "javascript" "javascriptreact" "typescriptreact" "vue"]})
+
+;; If you are on most recent `nvim-lspconfig`
+(local vue-ls-config {})
+
+(vim.lsp.config "vtsls" vtsls-config)
+(vim.lsp.config "vue_ls" vue-ls-config)
+(vim.lsp.enable ["vtsls" "vue_ls"])
+
 (vim.lsp.enable "clojure_lsp")
 (vim.lsp.enable "ts_ls")
 (vim.lsp.enable "eslint")
@@ -85,5 +105,4 @@
 (vim.lsp.enable "lua_ls")
 (vim.lsp.enable "jdtls")
 (vim.lsp.enable "tailwindcss")
-(vim.lsp.enable "vue_ls")
 (vim.lsp.enable "phpactor")
