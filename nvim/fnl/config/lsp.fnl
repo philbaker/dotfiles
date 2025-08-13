@@ -78,7 +78,7 @@
 
 (local vue-language-server-path
   (.. (vim.fn.expand "$MASON/packages/vue-language-server")
-      "/node_modules/@vue/language-server")) ; "/home/pb/.local/share/nvim/mason/packages/vue-language-server/node_modules/@vue/language-server"
+      "/node_modules/@vue/language-server"))
 
 (local vue-plugin
   {:name "@vue/typescript-plugin"
