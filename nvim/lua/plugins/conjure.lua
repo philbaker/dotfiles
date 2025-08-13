@@ -8,7 +8,6 @@ local function _2_()
   nvim.g["conjure#client#clojure#nrepl#connection#auto_repl#enabled"] = false
   nvim.g["conjure#hud#ignore_low_priority"] = "v:true"
   nvim.g["conjure#mapping#prefix"] = "<leader>c"
-  nvim.g["conjure#client#javascript#stdio#command"] = "deno"
   return nil
 end
 return {{"Olical/conjure", branch = "main", init = _2_}}
