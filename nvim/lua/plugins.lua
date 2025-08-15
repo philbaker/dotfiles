@@ -5,7 +5,7 @@ return {
   },
   {
     "folke/which-key.nvim",
-    version = "1.6.0",
+    version = "3.17.0",
   },
   {
     "nvim-lualine/lualine.nvim",
