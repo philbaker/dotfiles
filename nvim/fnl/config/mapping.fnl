@@ -21,14 +21,16 @@
 (util.set-key :<leader>r ":s-\\%V \\%V-\\\" \\\"-g<CR>" false :v)
 
 ; Split navigation
+(vim.keymap.set :n :<c-h> (. (require :smart-splits) :move_cursor_left))
+(vim.keymap.set :n "<leader>wh" (. (require :smart-splits) :move_cursor_left))
 (vim.keymap.set :n :<c-j> (. (require :smart-splits) :move_cursor_down))
 (vim.keymap.set :n "<leader>wj" (. (require :smart-splits) :move_cursor_down))
 (vim.keymap.set :n :<c-k> (. (require :smart-splits) :move_cursor_up))
 (vim.keymap.set :n "<leader>wk" (. (require :smart-splits) :move_cursor_up))
 (vim.keymap.set :n :<c-l> (. (require :smart-splits) :move_cursor_right))
 (vim.keymap.set :n "<leader>wl" (. (require :smart-splits) :move_cursor_right))
-(vim.keymap.set :n "<c-\\>" (. (require :smart-splits) :move_cursor_previous))
-(vim.keymap.set :n "<leader>w\\" (. (require :smart-splits) :move_cursor_previous))
+(vim.keymap.set :n "<c-g>" (. (require :smart-splits) :move_cursor_previous))
+(vim.keymap.set :n "<leader>wg" (. (require :smart-splits) :move_cursor_previous))
 
 (vim.keymap.set :n :<leader>H (. (require :smart-splits) :resize_left))
 (vim.keymap.set :n :<leader>J (. (require :smart-splits) :resize_down))

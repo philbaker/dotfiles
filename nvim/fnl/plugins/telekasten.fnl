@@ -3,4 +3,5 @@
   :config (fn []
             (let [telekasten (require :telekasten)
                   notes-dir (vim.fn.expand "~/neotes")]
-              (telekasten.setup {:home notes-dir})))}]
+              (telekasten.setup {:home notes-dir
+                                 :take_over_my_home false})))}]
