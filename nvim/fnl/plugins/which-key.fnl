@@ -179,9 +179,9 @@
    (km "<c-j>" {:desc "Move down"} ":lua require('smart-splits').move_cursor_down()<CR>")
    (km "<c-k>" {:desc "Move up"} ":lua require('smart-splits').move_cursor_up()<CR>")
    (km "<c-l>" {:desc "Move right"} ":lua require('smart-splits').move_cursor_right()<CR>")
-   (km "<c-g>" {:desc "Move previous"} ":lua require('smart-splits').move_cursor_previous()<CR>")])
+   (km "<c-y>" {:desc "Move previous"} ":lua require('smart-splits').move_cursor_previous()<CR>")])
 
 [{1 :folke/which-key.nvim
     :event "VeryLazy"
-    :version "3.17.0"
+    :version "*"
     :opts {}}]
