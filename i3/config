@@ -218,3 +218,6 @@ exec feh --bg-scale ~/Dropbox/t480s/t480s-padgriffin.png
 
 # https://git.sr.ht/~steef/snixembed
 exec --no-startup-id snixembed
+
+# Remap caps lock
+exec setxkbmap -option ctrl:swapcaps
