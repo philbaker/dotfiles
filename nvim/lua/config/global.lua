@@ -25,14 +25,4 @@ vim.api.nvim_create_augroup("conjure-set-state-key-on-filetype", {clear = true})
 vim.api.nvim_create_autocmd({"BufReadPost", "BufNewFile", "BufEnter"}, {group = "conjure-set-state-key-on-filetype", pattern = "*.fnl", command = ":ConjureClientState fnl"})
 vim.api.nvim_create_autocmd({"BufReadPost", "BufNewFile", "BufEnter"}, {group = "conjure-set-state-key-on-filetype", pattern = "*.clj,*.cljc", command = ":ConjureClientState clj"})
 vim.api.nvim_create_autocmd({"BufReadPost", "BufNewFile", "BufEnter"}, {group = "conjure-set-state-key-on-filetype", pattern = "*.cljs", command = ":ConjureClientState cljs"})
-local opt = vim.opt
-opt.clipboard = "unnamedplus"
-if vim.env.SSH_CONNECTION then
-  local function vim_paste()
-    local content = vim.fn.getreg("\"")
-    return vim.split(content, "\n")
-  end
-  vim.g.clipboard = {copy = {["*"] = require("vim.ui.clipboard.osc52").copy("*"), ["+"] = require("vim.ui.clipboard.osc52").copy("+")}, name = "OSC 52", paste = {["*"] = vim_paste, ["+"] = vim_paste}}
-else
-end
 return {}

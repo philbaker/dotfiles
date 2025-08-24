@@ -88,17 +88,4 @@
    :pattern "*.cljs"
    :command ":ConjureClientState cljs"})
 
-(local opt vim.opt)
-(set opt.clipboard :unnamedplus)
-(when vim.env.SSH_CONNECTION
-  (fn vim-paste []
-    (let [content (vim.fn.getreg "\"")] 
-      (vim.split content "\n")))
-
-  (set vim.g.clipboard
-       {:copy {:* ((. (require :vim.ui.clipboard.osc52) :copy) "*")
-               :+ ((. (require :vim.ui.clipboard.osc52) :copy) "+")}
-        :name "OSC 52"
-        :paste {:* vim-paste :+ vim-paste}}))	
-
 {}
