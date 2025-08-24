@@ -88,4 +88,12 @@
    :pattern "*.cljs"
    :command ":ConjureClientState cljs"})
 
+; Use OSC 52 for Tmux / SSH clipboard
+(set vim.g.clipboard
+     {:copy {:* ((. (require :vim.ui.clipboard.osc52) :copy) "*")
+             :+ ((. (require :vim.ui.clipboard.osc52) :copy) "+")}
+      :name "OSC 52"
+      :paste {:* ((. (require :vim.ui.clipboard.osc52) :paste) "*")
+              :+ ((. (require :vim.ui.clipboard.osc52) :paste) "+")}})
+
 {}

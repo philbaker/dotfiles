@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/config/global.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/config/global.fnl
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local nvim = autoload("nvim")
@@ -25,4 +25,5 @@ vim.api.nvim_create_augroup("conjure-set-state-key-on-filetype", {clear = true})
 vim.api.nvim_create_autocmd({"BufReadPost", "BufNewFile", "BufEnter"}, {group = "conjure-set-state-key-on-filetype", pattern = "*.fnl", command = ":ConjureClientState fnl"})
 vim.api.nvim_create_autocmd({"BufReadPost", "BufNewFile", "BufEnter"}, {group = "conjure-set-state-key-on-filetype", pattern = "*.clj,*.cljc", command = ":ConjureClientState clj"})
 vim.api.nvim_create_autocmd({"BufReadPost", "BufNewFile", "BufEnter"}, {group = "conjure-set-state-key-on-filetype", pattern = "*.cljs", command = ":ConjureClientState cljs"})
+vim.g.clipboard = {copy = {["*"] = require("vim.ui.clipboard.osc52").copy("*"), ["+"] = require("vim.ui.clipboard.osc52").copy("+")}, name = "OSC 52", paste = {["*"] = require("vim.ui.clipboard.osc52").paste("*"), ["+"] = require("vim.ui.clipboard.osc52").paste("+")}}
 return {}
