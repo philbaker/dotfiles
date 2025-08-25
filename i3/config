@@ -220,4 +220,7 @@ exec feh --bg-scale ~/Dropbox/t480s/t480s-padgriffin.png
 exec --no-startup-id snixembed
 
 # Remap caps lock
-exec setxkbmap -option ctrl:swapcaps
+exec setxkbmap -option ctrl:nocaps
+
+# Screen flickering issue
+# exec --no-startup-id picom --experimental-backends --vsync
