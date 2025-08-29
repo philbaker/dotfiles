@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/config/usercommand.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/config/usercommand.fnl
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local nvim = autoload("nvim")
@@ -183,4 +183,10 @@ local function _36_()
   return vim.fn.setreg("+", timestamp_filepath())
 end
 util["set-uc"]("Ytspath", _36_)
+local function _37_()
+  vim.cmd(":FasterDisableLsp")
+  vim.cmd(":FasterDisableTreesitter")
+  return vim.cmd(":FasterDisableMatchparen")
+end
+util["set-uc"]("FasterFix", _37_)
 return {}

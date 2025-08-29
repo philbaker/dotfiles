@@ -186,4 +186,9 @@
   (fn []
     (vim.fn.setreg "+" (timestamp-filepath))))
 
+(util.set-uc "FasterFix" (fn []
+                      (do
+                        (vim.cmd ":FasterDisableLsp")
+                        (vim.cmd ":FasterDisableTreesitter")
+                        (vim.cmd ":FasterDisableMatchparen"))))
 {}
