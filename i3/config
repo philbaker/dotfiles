@@ -229,3 +229,12 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 10
 bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 10
 # Mute/unmute
 bindsym XF86AudioMute exec --no-startup-id pamixer -t
+
+# Workspaces on punctuation
+bindsym $mod+apostrophe workspace number 1
+bindsym $mod+comma workspace number 2
+bindsym $mod+period workspace number 3
+
+bindsym $mod+Shift+apostrophe move container to workspace number 1
+bindsym $mod+Shift+comma move container to workspace number 2
+bindsym $mod+Shift+period move container to workspace number 3
