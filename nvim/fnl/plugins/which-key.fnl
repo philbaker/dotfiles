@@ -25,6 +25,7 @@
    (km "<leader>ds" {:desc "Suite"} ":2T :<CR> :TestSuite<CR>")
    (km "<leader>dp" {:desc "Previous"} ":2T :<CR> :TestLast<CR>")
    (km "<leader>da" {:desc "Last run test code"} ":TestVisit<CR>")
+   (km "leader>du" {:desc "dap ui"} ":lua require('dapui').toggle({})")
 
    ; git
    (km "<leader>g" {:group "Git"})
