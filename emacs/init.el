@@ -512,3 +512,18 @@
 ;   :ensure t)
 
 (org-indent-mode t)
+
+(defun org-headings-report-md ()
+  (interactive)
+  (with-output-to-temp-buffer "*Org Markdown Report*"
+    (org-map-entries
+     (lambda ()
+       (let* ((components (org-heading-components))
+              (level (nth 0 components))
+              (todo (nth 2 components))
+              (heading (nth 4 components))
+              (indent (make-string (* 2 (1- level)) ?\s)))
+         (if todo
+             (princ (format "%s- %s %s\n" indent todo heading))
+           (princ (format "%s- *%s*\n" indent heading)))))
+     t 'file)))
