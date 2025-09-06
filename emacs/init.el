@@ -513,17 +513,90 @@
 
 (org-indent-mode t)
 
-(defun org-headings-report-md ()
+(defun org-tasks-report ()
   (interactive)
   (with-output-to-temp-buffer "*Org Markdown Report*"
-    (org-map-entries
-     (lambda ()
-       (let* ((components (org-heading-components))
-              (level (nth 0 components))
-              (todo (nth 2 components))
-              (heading (nth 4 components))
-              (indent (make-string (* 2 (1- level)) ?\s)))
-         (if todo
-             (princ (format "%s- %s %s\n" indent todo heading))
-           (princ (format "%s- *%s*\n" indent heading)))))
-     t 'file)))
+    (let ((ignore-subtrees '("Meta" "Archive")))
+      (org-map-entries
+        (lambda ()
+          (let* ((components (org-heading-components))
+                  (level (nth 0 components))
+                  (todo (nth 2 components))
+                  (heading (nth 4 components))
+                  (tags (nth 5 components))
+                  (ancestor-headings (org-get-outline-path t t))
+                  ;; Remove parentheses from heading
+                  (clean-heading (replace-regexp-in-string " *\\(([^)]*)\\)" "" heading))
+                  ;; Clean up tags
+                  (tag-str (if (and tags (> (length tags) 0))
+                             (format " :%s:"
+                               (replace-regexp-in-string
+                                 " +" ":" (replace-regexp-in-string "^:+\\|:+$" "" tags)))
+                             ""))
+                  ;; Get deadline if present
+                  (deadline (let ((dl (org-entry-get nil "DEADLINE")))
+                              (if dl (format " (Deadline: %s)" dl) ""))))
+            ;; Skip if level 1 or inside ignored subtree
+            (unless (or (= level 1)
+                      (cl-some (lambda (h) (member h ignore-subtrees))
+                        (cons heading ancestor-headings)))
+              ;; Indentation
+              (let ((indent (make-string (* 2 (- level 2)) ?\s)))
+                (cond
+                  ;; Level 2: no bullet
+                  ((= level 2)
+                    (princ (format "%s*%s*%s%s\n" indent clean-heading tag-str deadline)))
+                  ;; TODO items and deeper headings: keep bullet
+                  (t
+                    (if todo
+                      (princ (format "%s- %s %s%s%s\n" indent todo clean-heading tag-str deadline))
+                      (princ (format "%s- *%s*%s%s\n" indent clean-heading tag-str deadline))))))))))
+      t 'file)))
+
+(defun org-done-report (days &optional it)
+  (interactive
+    (list (read-number "Number of days to look back: ")
+      (y-or-n-p "t? ")))
+  (let ((cutoff (time-subtract (current-time) (days-to-time days))))
+    (with-output-to-temp-buffer "*Org Archive Done Tasks Report*"
+      ;; Bold title
+      (princ (format "*Completed in the last %d day%s:*\n" days (if (= days 1) "" "s")))
+      ;; Go to Archive heading
+      (goto-char (point-min))
+      (when (re-search-forward "^\\*+ Archive\\>" nil t)
+        (org-narrow-to-subtree)
+        (org-map-entries
+          (lambda ()
+            (let* ((components (org-heading-components))
+                    (level (nth 0 components))
+                    (todo (nth 2 components))
+                    (heading (nth 4 components))
+                    (tags (nth 5 components))
+                    (closed-str (org-entry-get nil "CLOSED"))
+                    (closed-time (and closed-str (org-time-string-to-time closed-str))))
+              (when (and todo
+                      (string= todo "DONE")
+                      closed-time
+                      (time-less-p cutoff closed-time))
+                ;; Clean heading
+                (let ((clean-heading (replace-regexp-in-string " *\\(([^)]*)\\)" "" heading))
+                       (tag-str (if (and tags (> (length tags) 0))
+                                  (format " :%s:"
+                                    (replace-regexp-in-string
+                                      " +" ":" (replace-regexp-in-string "^:+\\|:+$" "" tags)))
+                                  "")))
+                  ;; Indent
+                  (let ((indent (make-string (* 2 (- level 2)) ?\s))
+                         (time-str
+                           (when it
+                             (save-excursion
+                               (save-restriction
+                                 (org-narrow-to-subtree)
+                                 (let ((total-min (org-clock-sum-current-item)))
+                                   (when (> total-min 0)
+                                     (format " [%d:%02d]" (/ total-min 60) (% total-min 60)))))))))
+                    (princ (format "%s- %s%s (Completed: %s)%s\n"
+                             indent clean-heading tag-str closed-str
+                             (or time-str ""))))))))
+          t 'file)
+        (widen)))))
