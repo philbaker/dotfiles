@@ -224,7 +224,6 @@
     :weight 'bold))
 (use-package helm
   :init
-  (require 'helm-config)
   (setq helm-split-window-in-side-p t
     helm-move-to-line-cycle-in-source t)
   :config 
@@ -600,3 +599,10 @@
                              (or time-str ""))))))))
           t 'file)
         (widen)))))
+
+(setq org-pomodoro-mode-line
+      '(:eval (format " %s" org-pomodoro-mode-line-string)))
+
+(setq-default mode-line-format
+              (append '((:eval org-pomodoro-mode-line))
+                      mode-line-format))
