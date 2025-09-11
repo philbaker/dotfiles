@@ -600,6 +600,15 @@
           t 'file)
         (widen)))))
 
+(defun my-org-clock-modeline-left ()
+  "Move org clock to left side of modeline when active."
+  (when (and (boundp 'org-mode-line-string) org-mode-line-string)
+    (setq mode-line-format
+          (cons '(:eval org-mode-line-string)
+                (remove '(:eval org-mode-line-string) mode-line-format)))))
+
+(add-hook 'org-clock-in-hook 'my-org-clock-modeline-left)
+
 (setq org-pomodoro-mode-line
       '(:eval (format " %s" org-pomodoro-mode-line-string)))
 
