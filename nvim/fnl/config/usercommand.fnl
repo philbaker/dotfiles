@@ -98,6 +98,11 @@
     (vim.cmd (.. ":e " "n/journal/" (os.date "!%Y%m%d-daily.md")))))
 
 (util.set-uc
+  "Kote"
+  (fn []
+    (vim.fn.feedkeys (.. ":e " (os.date "!%Y%m%d-daily.md")))))
+
+(util.set-uc
   "Note"
   (fn [opts]
     (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/none/" (os.date "!%Y%m%d-") opts.args)))
