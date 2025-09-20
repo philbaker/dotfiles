@@ -9,7 +9,8 @@
                                    :files [:src/parser.c]
                                    :url "https://github.com/EmranMR/tree-sitter-blade"}})
               (vim.filetype.add {:pattern {".*%.blade%.php" :blade}})
-              (treesitter.setup {:highlight {:enable true}
+              (treesitter.setup {:highlight {:enable true
+                                             :disable ["markdown"]}
                                  :matchup {:enable true}
                                  :indent {:enable true}
                                  :ensure_installed ["html"
