@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/plugins/cmp.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/plugins/cmp.fnl
 local cmp_src_menu_items = {buffer = "buff", conjure = "conj", nvim_lsp = "lsp", vsnip = "vsnp", luasnip = "lsnp"}
 local cmp_srcs = {{name = "nvim_lsp"}, {name = "conjure"}, {name = "buffer"}, {name = "vsnip"}, {name = "luasnip"}}
 local function has_words_before()
@@ -8,9 +8,10 @@ end
 local function _1_()
   local cmp = require("cmp")
   local luasnip = require("luasnip")
+  local nvim_highlight_colors = require("nvim-highlight-colors")
   local function _2_(entry, item)
     item.menu = (cmp_src_menu_items[entry.source.name] or "")
-    return item
+    return nvim_highlight_colors.format(entry, item)
   end
   local function _3_(fallback)
     if cmp.visible() then
