@@ -105,7 +105,7 @@ local function _21_()
 end
 util["set-uc"]("ChT", _21_)
 local function _22_()
-  local file = assert(io.open("n/notebooks/general/stemplate.md"))
+  local file = assert(io.open("all/journal/t/stemplate.md"))
   local lines = util["split-string-by-line"](file:read("*a"))
   file:close()
   return vim.api.nvim_buf_set_lines(0, -1, -1, false, lines)
@@ -132,40 +132,30 @@ local function _27_(opts)
 end
 util["set-uc"]("Noteh", _27_, {nargs = "?"})
 local function _28_(opts)
-  local current_dir = vim.fn.getcwd()
-  return vim.cmd((":3T cd ~/neotes && bb scripts/encrypt.clj " .. opts.args .. " && cd " .. current_dir))
+  return vim.cmd((":3T bb scripts/encrypt.clj " .. opts.args))
 end
 util["set-uc"]("EncryptNotes", _28_, {nargs = "?"})
 local function _29_(opts)
-  local current_dir = vim.fn.getcwd()
-  return vim.cmd((":3T cd ~/neotes && bb scripts/decrypt.clj " .. opts.args .. " && cd " .. current_dir))
-end
-util["set-uc"]("DecryptNotes", _29_, {nargs = "?"})
-local function _30_(opts)
-  return vim.cmd((":3T bb scripts/encrypt.clj " .. opts.args))
-end
-util["set-uc"]("EncryptJotes", _30_, {nargs = "?"})
-local function _31_(opts)
   return vim.cmd((":3T bb scripts/decrypt.clj " .. opts.args))
 end
-util["set-uc"]("DecryptJotes", _31_, {nargs = "?"})
-local function _32_()
+util["set-uc"]("DecryptNotes", _29_, {nargs = "?"})
+local function _30_()
   util.cmdtc("<C-W>j")
   vim.cmd("resize 10")
   return util.cmdtc("<C-W>k")
 end
-util["set-uc"]("Resize10", _32_)
-local function _33_()
+util["set-uc"]("Resize10", _30_)
+local function _31_()
   return vim.cmd(":e ~/neotes/none/cycle.md")
 end
-util["set-uc"]("Pro", _33_)
-local function _34_()
+util["set-uc"]("Pro", _31_)
+local function _32_()
   vim.cmd("sp")
   vim.cmd("normal 'C")
   vim.cmd("resize 10")
   return util.cmdtc("<C-w>k")
 end
-util["set-uc"]("Rsp", _34_, {nargs = "?"})
+util["set-uc"]("Rsp", _32_, {nargs = "?"})
 local function timestamp()
   return os.date("%Y-%m-%d %H:%M:%S")
 end
@@ -175,22 +165,22 @@ end
 local function timestamp_filepath()
   return (timestamp() .. " " .. filepath())
 end
-local function _35_()
+local function _33_()
   return vim.fn.setreg("+", filepath())
 end
-util["set-uc"]("Ypath", _35_)
-local function _36_()
+util["set-uc"]("Ypath", _33_)
+local function _34_()
   return vim.fn.setreg("+", timestamp())
 end
-util["set-uc"]("Yts", _36_)
-local function _37_()
+util["set-uc"]("Yts", _34_)
+local function _35_()
   return vim.fn.setreg("+", timestamp_filepath())
 end
-util["set-uc"]("Ytspath", _37_)
-local function _38_()
+util["set-uc"]("Ytspath", _35_)
+local function _36_()
   vim.cmd(":FasterDisableLsp")
   vim.cmd(":FasterDisableTreesitter")
   return vim.cmd(":FasterDisableMatchparen")
 end
-util["set-uc"]("FasterFix", _38_)
+util["set-uc"]("FasterFix", _36_)
 return {}

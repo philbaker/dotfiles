@@ -87,7 +87,7 @@
 (util.set-uc
   "ChSt"
   (fn []
-    (let [file (assert (io.open "n/notebooks/general/stemplate.md"))
+    (let [file (assert (io.open "all/journal/t/stemplate.md"))
           lines (util.split-string-by-line (file:read "*a"))]
       (file:close)
       (vim.api.nvim_buf_set_lines 0 -1 -1 false lines))))
@@ -123,25 +123,11 @@
 (util.set-uc
   "EncryptNotes"
   (fn [opts]
-    (let [current-dir (vim.fn.getcwd)]
-      (vim.cmd (.. ":3T cd ~/neotes && bb scripts/encrypt.clj " opts.args " && cd " current-dir))))
-  {:nargs "?"})
-
-(util.set-uc
-  "DecryptNotes"
-  (fn [opts]
-    (let [current-dir (vim.fn.getcwd)]
-      (vim.cmd (.. ":3T cd ~/neotes && bb scripts/decrypt.clj " opts.args " && cd " current-dir))))
-  {:nargs "?"})
-
-(util.set-uc
-  "EncryptJotes"
-  (fn [opts]
     (vim.cmd (.. ":3T bb scripts/encrypt.clj " opts.args)))
   {:nargs "?"})
 
 (util.set-uc
-  "DecryptJotes"
+  "DecryptNotes"
   (fn [opts]
     (vim.cmd (.. ":3T bb scripts/decrypt.clj " opts.args)))
   {:nargs "?"})
