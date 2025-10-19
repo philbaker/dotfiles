@@ -56,10 +56,6 @@
                  :handlers handlers
                  :capabilities capabilities})
 
-(tset vim.lsp.config :ts_ls {:on_attach on_attach
-                             :filetypes ["typescript" "javascript" "typescriptreact" "javascriptreact"]
-                             :settings {:implicitProjectConfiguration {:checkJs true}}})
-
 (tset vim.lsp.config :phpactor {:on_attach on_attach
                                 :init_options {"language_server_phpstan.enabled" true}})
 (tset vim.lsp.config :tailwindcss
@@ -87,7 +83,7 @@
 
 (local vtsls-config
   {:settings {:vtsls {:tsserver {:globalPlugins [vue-plugin]}}}
-   :filetypes ["typescript" "javascript" "javascriptreact" "typescriptreact" "vue"]})
+   :filetypes ["vue"]})
 
 ;; If you are on most recent `nvim-lspconfig`
 (local vue-ls-config {})
@@ -97,7 +93,6 @@
 (vim.lsp.enable ["vtsls" "vue_ls"])
 
 (vim.lsp.enable "clojure_lsp")
-(vim.lsp.enable "ts_ls")
 (vim.lsp.enable "eslint")
 (vim.lsp.enable "cssls")
 (vim.lsp.enable "fennel_ls")

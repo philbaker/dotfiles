@@ -34,7 +34,6 @@ local cmplsp = require("cmp_nvim_lsp")
 local handlers = {["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {severity_sort = true, underline = true, update_in_insert = false, virtual_text = false}), ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = "single"}), ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = "single"})}
 local capabilities = cmplsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local defaults = {on_attach = on_attach, handlers = handlers, capabilities = capabilities}
-vim.lsp.config["ts_ls"] = {on_attach = on_attach, filetypes = {"typescript", "javascript", "typescriptreact", "javascriptreact"}, settings = {implicitProjectConfiguration = {checkJs = true}}}
 vim.lsp.config["phpactor"] = {on_attach = on_attach, init_options = {["language_server_phpstan.enabled"] = true}}
 vim.lsp.config["tailwindcss"] = {on_attach = on_attach, filetypes = {"html", "markdown", "php", "blade", "css", "postcss", "sass", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "clojure"}, settings = {tailwindCSS = {experimental = {classRegex = {":class\\s+\"([^\"]*)\"", ":className\\s+\"([^\"]*)\"", ":[\\w-.#>]+\\.([\\w-]*)", ":class\\s+\\[(.*?)\\]"}}}}}
 vim.lsp.config["eslint"] = defaults
@@ -44,13 +43,12 @@ vim.lsp.config["lua_ls"] = defaults
 vim.lsp.config["jdtls"] = defaults
 local vue_language_server_path = (vim.fn.expand("$MASON/packages/vue-language-server") .. "/node_modules/@vue/language-server")
 local vue_plugin = {name = "@vue/typescript-plugin", location = vue_language_server_path, languages = {"vue"}, configNamespace = "typescript"}
-local vtsls_config = {settings = {vtsls = {tsserver = {globalPlugins = {vue_plugin}}}}, filetypes = {"typescript", "javascript", "javascriptreact", "typescriptreact", "vue"}}
+local vtsls_config = {settings = {vtsls = {tsserver = {globalPlugins = {vue_plugin}}}}, filetypes = {"vue"}}
 local vue_ls_config = {}
 vim.lsp.config("vtsls", vtsls_config)
 vim.lsp.config("vue_ls", vue_ls_config)
 vim.lsp.enable({"vtsls", "vue_ls"})
 vim.lsp.enable("clojure_lsp")
-vim.lsp.enable("ts_ls")
 vim.lsp.enable("eslint")
 vim.lsp.enable("cssls")
 vim.lsp.enable("fennel_ls")
