@@ -190,12 +190,13 @@ exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # Colors
 # class                 border  backgr. text    indicator child_border
-client.focused          #474747 #383838 #ffffff #2e9ef4   #474747
+client.focused          #6d6d6d #484e50 #ffffff #6d6d6d   #6d6d6d
 client.focused_inactive #333333 #222222 #ffffff #484e50   #222222
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
+for_window [class=".*"] border pixel 2
 
 # Screen lock
 bindsym control+$mod+l exec i3lock & sleep 5 && xset dpms force off
@@ -238,3 +239,8 @@ bindsym $mod+period workspace number 3
 bindsym $mod+Shift+apostrophe move container to workspace number 1
 bindsym $mod+Shift+comma move container to workspace number 2
 bindsym $mod+Shift+period move container to workspace number 3
+
+# Ensure workspaces are in correct order
+workspace 1 output HDMI-2
+workspace 2 output HDMI-2
+workspace 3 output eDP-1

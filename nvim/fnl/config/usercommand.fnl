@@ -95,7 +95,7 @@
 (util.set-uc
   "Jote"
   (fn []
-    (vim.cmd (.. ":e " "n/journal/" (os.date "!%Y%m%d-daily.md")))))
+    (vim.cmd (.. ":e " "all/journal/" (os.date "!%Y%m%d-daily.md")))))
 
 (util.set-uc
   "Kote"

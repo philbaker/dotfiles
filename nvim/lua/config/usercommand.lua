@@ -112,7 +112,7 @@ local function _22_()
 end
 util["set-uc"]("ChSt", _22_)
 local function _23_()
-  return vim.cmd((":e " .. "n/journal/" .. os.date("!%Y%m%d-daily.md")))
+  return vim.cmd((":e " .. "all/journal/" .. os.date("!%Y%m%d-daily.md")))
 end
 util["set-uc"]("Jote", _23_)
 local function _24_()
