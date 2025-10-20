@@ -76,10 +76,14 @@
                         (vim.cmd ":e %"))))
 
 ; Note utils
+(local notes-dir (os.getenv "NOTES_DIR"))
+(local jotes-dir (os.getenv "JOTES_DIR"))
+(local clo-dir (os.getenv "CLO_DIR"))
+
 (util.set-uc
   "ChT"
   (fn []
-    (let [file (assert (io.open (.. (os.getenv "HOME") "/neotes/all/01-checklists/t.md")))
+    (let [file (assert (io.open (.. notes-dir "/neotes/all/01-checklists/t.md")))
           lines (util.split-string-by-line (file:read "*a"))]
       (file:close)
       (vim.api.nvim_buf_set_lines 0 -1 -1 false lines))))
@@ -87,7 +91,7 @@
 (util.set-uc
   "ChSt"
   (fn []
-    (let [file (assert (io.open "all/journal/t/stemplate.md"))
+    (let [file (assert (io.open (.. jotes-dir) "/t/stemplate.md"))
           lines (util.split-string-by-line (file:read "*a"))]
       (file:close)
       (vim.api.nvim_buf_set_lines 0 -1 -1 false lines))))
@@ -95,7 +99,7 @@
 (util.set-uc
   "Jote"
   (fn []
-    (vim.cmd (.. ":e " "all/journal/" (os.date "!%Y%m%d-daily.md")))))
+    (vim.cmd (.. ":e " jotes-dir "/" (os.date "!%Y%m%d-daily.md")))))
 
 (util.set-uc
   "Kote"
@@ -105,19 +109,19 @@
 (util.set-uc
   "Note"
   (fn [opts]
-    (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/none/" (os.date "!%Y%m%d-") opts.args)))
+    (vim.cmd (.. ":e " notes-dir "/none/" (os.date "!%Y%m%d-") opts.args)))
   {:nargs "?"})
 
 (util.set-uc
   "Notee"
   (fn [opts]
-    (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/all/clo/notebooks/" (os.date "!%Y%m%d-") opts.args)))
+    (vim.cmd (.. ":e " notes-dir "/" clo-dir "/notebooks/" (os.date "!%Y%m%d-") opts.args)))
   {:nargs "?"})
 
 (util.set-uc
   "Noteh"
   (fn [opts]
-    (vim.cmd (.. ":e " (os.getenv "HOME") "/neotes/home/" (os.date "!%Y%m%d-") opts.args)))
+    (vim.cmd (.. ":e " notes-dir "/home/" (os.date "!%Y%m%d-") opts.args)))
   {:nargs "?"})
 
 (util.set-uc
