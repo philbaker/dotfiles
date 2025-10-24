@@ -83,7 +83,7 @@
 (util.set-uc
   "ChT"
   (fn []
-    (let [file (assert (io.open (.. notes-dir "/neotes/all/01-checklists/t.md")))
+    (let [file (assert (io.open (.. notes-dir "/all/01-checklists/t.md")))
           lines (util.split-string-by-line (file:read "*a"))]
       (file:close)
       (vim.api.nvim_buf_set_lines 0 -1 -1 false lines))))
