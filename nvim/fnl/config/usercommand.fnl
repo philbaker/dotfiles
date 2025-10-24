@@ -91,7 +91,7 @@
 (util.set-uc
   "ChSt"
   (fn []
-    (let [file (assert (io.open (.. jotes-dir) "/t/stemplate.md"))
+    (let [file (assert (io.open (.. jotes-dir "/t/stemplate.md")))
           lines (util.split-string-by-line (file:read "*a"))]
       (file:close)
       (vim.api.nvim_buf_set_lines 0 -1 -1 false lines))))

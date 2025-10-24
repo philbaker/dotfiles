@@ -108,7 +108,7 @@ local function _21_()
 end
 util["set-uc"]("ChT", _21_)
 local function _22_()
-  local file = assert(io.open(jotes_dir, "/t/stemplate.md"))
+  local file = assert(io.open((jotes_dir .. "/t/stemplate.md")))
   local lines = util["split-string-by-line"](file:read("*a"))
   file:close()
   return vim.api.nvim_buf_set_lines(0, -1, -1, false, lines)

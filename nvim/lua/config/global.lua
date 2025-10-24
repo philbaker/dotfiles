@@ -17,7 +17,7 @@ vim.cmd("au FileType markdown setlocal foldlevel=99")
 nvim.ex.autocmd("FileType", "qf", "wincmd J")
 vim.cmd("autocmd BufNewFile,BufRead *.phel set syntax=clojure")
 vim.opt.background = "dark"
-vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme alabaster")
 vim.opt.backupdir:remove(".")
 vim.opt.listchars = {tab = "\226\150\184 ", trail = "\194\183"}
 nvim.set_keymap("n", "<space>", "<nop>", {noremap = true})
