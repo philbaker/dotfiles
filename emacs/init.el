@@ -510,7 +510,7 @@
 ; (use-package vterm
 ;   :ensure t)
 
-(use-package org-kanban :ensure t)
+(use-package kanban :ensure t)
 
 (org-indent-mode t)
 
@@ -623,7 +623,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-    '(org-kanban zenburn-theme which-key web-mode vterm undo-tree undo-fu-session undo-fu treemacs-projectile treemacs-evil simple-httpd rainbow-delimiters org-roam org-recur org-pomodoro org-habit-stats org-bullets no-littering magit lsp-ui helpful helm-lsp helm-ag flycheck evil-matchit evil-leader evil-commentary evil-cleverparens editorconfig company cider)))
+    '(kanban zenburn-theme which-key web-mode vterm undo-tree undo-fu-session undo-fu treemacs-projectile treemacs-evil simple-httpd rainbow-delimiters org-roam org-recur org-pomodoro org-habit-stats org-bullets no-littering magit lsp-ui helpful helm-lsp helm-ag flycheck evil-matchit evil-leader evil-commentary evil-cleverparens editorconfig company cider)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
