@@ -338,7 +338,7 @@
   (setq org-habit-graph-column 60)
   (setq org-habit-show-all-today t)
   (setq org-todo-keywords
-    '((sequence "REPEAT(r)" "TODO(t)" "NEXT(n)" "ACTIVE(a)" "C REVIEW(o)" "S REVIEW(e)" "REVIEW(l)" "WAITING(w@/!)" "SOMEDAY(s)" "PROJ(p)" "|" "DONE(d!)" "CANCELLED(c@/!)")
+    '((sequence "REPEAT(r)" "TODO(t)" "NEXT(n)" "ACTIVE(a)" "C REVIEW(o)" "S REVIEW(e)" "HOLD(l@/!)" "WAITING(w@/!)" "SOMEDAY(s)" "PROJ(p)" "|" "DONE(d!)" "CANCELLED(c@/!)")
       (sequence "HABIT(h)" "|" "DONE(d!)")))
   (setq org-todo-keyword-faces
     '(("REPEAT" . "white") 
@@ -348,7 +348,7 @@
       ("ACTIVE" . "yellow")
       ("C REVIEW" . "aquamarine")
       ("S REVIEW" . "pale green")
-      ("REVIEW" . "orange")
+      ("HOLD" . "orange")
       ("WAITING" . "salmon")
       ("SOMEDAY" . "wheat")
       ("PROJ" . "teal")
@@ -381,8 +381,8 @@
          (todo "ACTIVE"
            ((org-agenda-overriding-header "Active Projects")
             (org-agenda-files org-agenda-files)))
-         (todo "REVIEW"
-           ((org-agenda-overriding-header "Waiting for code review")
+         (todo "HOLD"
+           ((org-agenda-overriding-header "Deprioritised Work In Progress")
             (org-agenda-files org-agenda-files)))
          (todo "COMPLETED"
            ((org-agenda-overriding-header "Completed Projects")
@@ -630,9 +630,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-; | TODO | IN-PROGRESS | DONE |
-; |------+------+------|
-; |      |             |      |
-; |      |             |      |
-; #+TBLFM: @1$1='(kanban-headers)::@2$1..@>$>='(kanban-zero @# $#)
