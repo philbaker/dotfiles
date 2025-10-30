@@ -515,23 +515,18 @@
 (use-package org-super-agenda
   :after org-agenda
   :config
-  (org-super-agenda-mode)) 
-
-(defun my/super-day-agenda ()
-  "Show my custom one-day super agenda view."
-  (interactive)
-  (let ((org-agenda-span 'day)
-         (org-super-agenda-groups
-           '((:name "Time grid items in all-uppercase with RosyBrown1 foreground"
-               :time-grid t
-               :transformer (--> it
-                              (upcase it)
-                              (propertize it 'face '(:foreground "RosyBrown1"))))
-              (:name "Priority >= C items underlined, on black background"
-                :face (:background "black" :underline t)
-                :not (:priority>= "C")
-                :order 100))))
-    (org-agenda nil "a")))
+  (org-super-agenda-mode)
+  (setq org-super-agenda-groups
+    '((:name "Next Items"
+        :time-grid t
+        :tag ("NEXT"))
+       (:name "Important"
+         :priority "A")
+       (:name "Quick Picks"
+         :effort< "0:30")
+       (:priority<= "B"
+         :scheduled future
+         :order 1)))) 
 
 (org-indent-mode t)
 
