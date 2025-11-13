@@ -1,4 +1,6 @@
--- [nfnl] Compiled from fnl/plugins/harpoon.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/plugins/harpoon.fnl
 local function _1_()
+  local harpoon = require("harpoon")
+  return harpoon.setup({menu = {width = (vim.api.nvim_win_get_width(0) - 8)}})
 end
-return {{"ThePrimeagen/harpoon", init = _1_}}
+return {{"ThePrimeagen/harpoon", config = _1_}}
