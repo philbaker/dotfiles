@@ -1,6 +1,6 @@
 -- [nfnl] fnl/config/lsp.fnl
 local _local_1_ = require("nfnl.module")
-local autoload = _local_1_["autoload"]
+local autoload = _local_1_.autoload
 local nvim = autoload("nvim")
 local function define_signs(prefix)
   local error = (prefix .. "SignError")
@@ -25,6 +25,7 @@ local function on_attach(_client, bufnr)
   nvim.buf_set_keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>", {noremap = true})
   nvim.buf_set_keymap(bufnr, "n", "<leader>ln", "<cmd>lua vim.diagnostic.goto_next()<CR>", {noremap = true})
   nvim.buf_set_keymap(bufnr, "n", "<leader>lp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", {noremap = true})
+  nvim.buf_set_keymap(bufnr, "n", "<leader>lu", "<cmd>lua vim.lsp.buf.code_action()<CR>", {noremap = true})
   nvim.buf_set_keymap(bufnr, "n", "<leader>la", ":lua require('telescope.builtin').diagnostics()<CR>", {noremap = true})
   nvim.buf_set_keymap(bufnr, "n", "<leader>lb", ":lua require('telescope.builtin').lsp_references()<CR>", {noremap = true})
   nvim.buf_set_keymap(bufnr, "n", "<leader>lc", ":lua require('telescope.builtin').lsp_implementations()<CR>", {noremap = true})
@@ -44,7 +45,7 @@ vim.lsp.config["jdtls"] = defaults
 local vue_language_server_path = (vim.fn.expand("$MASON/packages/vue-language-server") .. "/node_modules/@vue/language-server")
 local vue_plugin = {name = "@vue/typescript-plugin", location = vue_language_server_path, languages = {"vue"}, configNamespace = "typescript"}
 local vtsls_config = {settings = {vtsls = {tsserver = {globalPlugins = {vue_plugin}}}}, filetypes = {"vue"}}
-local vue_ls_config = {}
+local vue_ls_config = {filetypes = {"vue"}}
 vim.lsp.config("vtsls", vtsls_config)
 vim.lsp.config("vue_ls", vue_ls_config)
 vim.lsp.enable({"vtsls", "vue_ls"})

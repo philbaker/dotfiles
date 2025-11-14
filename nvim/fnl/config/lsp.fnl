@@ -26,6 +26,7 @@
   (nvim.buf_set_keymap bufnr :n :<leader>lf "<cmd>lua vim.lsp.buf.format()<CR>" {:noremap true})
   (nvim.buf_set_keymap bufnr :n :<leader>ln "<cmd>lua vim.diagnostic.goto_next()<CR>" {:noremap true})
   (nvim.buf_set_keymap bufnr :n :<leader>lp "<cmd>lua vim.diagnostic.goto_prev()<CR>" {:noremap true})
+  (nvim.buf_set_keymap bufnr :n :<leader>lu "<cmd>lua vim.lsp.buf.code_action()<CR>" {:noremap true})
   ; Telescope
   (nvim.buf_set_keymap bufnr :n :<leader>la ":lua require('telescope.builtin').diagnostics()<CR>" {:noremap true})
   (nvim.buf_set_keymap bufnr :n :<leader>lb ":lua require('telescope.builtin').lsp_references()<CR>" {:noremap true})
@@ -86,7 +87,7 @@
    :filetypes ["vue"]})
 
 ;; If you are on most recent `nvim-lspconfig`
-(local vue-ls-config {})
+(local vue-ls-config {:filetypes ["vue"]})
 
 (vim.lsp.config "vtsls" vtsls-config)
 (vim.lsp.config "vue_ls" vue-ls-config)
