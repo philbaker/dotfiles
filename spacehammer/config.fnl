@@ -247,10 +247,10 @@
     :action (activator "Emacs")}
    {:key :c
     :title "Chrome"
-    :action (activator "Chrome")}
+    :action (activator "/Applications/Google Chrome.app")}
    {:key :a
     :title "Canary"
-    :action (activator "Chrome Canary")}
+    :action (activator "/Applications/Google Chrome Canary.app")}
    {:key :s
     :title "Slack"
     :action (activator "Slack")}
