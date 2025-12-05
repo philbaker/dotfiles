@@ -89,4 +89,21 @@
    :pattern "*.cljs"
    :command ":ConjureClientState cljs"})
 
+(set vim.g.markdown_fenced_languages
+     [:js=javascript
+      :javascript
+      :typescript
+      :python
+      :bash=sh
+      :sh
+      :lua
+      :vim
+      :json
+      :yaml
+      :html
+      :css
+      :php
+      :clojure])
+
 {}
+

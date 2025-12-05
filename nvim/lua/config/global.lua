@@ -1,6 +1,6 @@
 -- [nfnl] fnl/config/global.fnl
 local _local_1_ = require("nfnl.module")
-local autoload = _local_1_["autoload"]
+local autoload = _local_1_.autoload
 local nvim = autoload("nvim")
 local core = autoload("nfnl.core")
 nvim.ex.set("nowrap")
@@ -25,4 +25,5 @@ vim.api.nvim_create_augroup("conjure-set-state-key-on-filetype", {clear = true})
 vim.api.nvim_create_autocmd({"BufReadPost", "BufNewFile", "BufEnter"}, {group = "conjure-set-state-key-on-filetype", pattern = "*.fnl", command = ":ConjureClientState fnl"})
 vim.api.nvim_create_autocmd({"BufReadPost", "BufNewFile", "BufEnter"}, {group = "conjure-set-state-key-on-filetype", pattern = "*.clj,*.cljc", command = ":ConjureClientState clj"})
 vim.api.nvim_create_autocmd({"BufReadPost", "BufNewFile", "BufEnter"}, {group = "conjure-set-state-key-on-filetype", pattern = "*.cljs", command = ":ConjureClientState cljs"})
+vim.g.markdown_fenced_languages = {"js=javascript", "javascript", "typescript", "python", "bash=sh", "sh", "lua", "vim", "json", "yaml", "html", "css", "php", "clojure"}
 return {}
