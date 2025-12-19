@@ -23,6 +23,7 @@
                                                     "yaml"
                                                     "svelte"
                                                     "fennel"
+                                                    "markdown"
                                                     "python"
                                                     "java"
                                                     "vue"
