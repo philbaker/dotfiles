@@ -528,7 +528,7 @@
          :effort< "0:30")
        (:priority<= "B"
          :scheduled future
-         :order 1)))) 
+         :order 1))))
 
 (org-indent-mode t)
 
