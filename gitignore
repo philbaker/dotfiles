@@ -34,6 +34,8 @@ Temporary Items
 .vscode/
 Session.vim
 tags
+.clj-kondo/
+*.rdb
 
 # Emacs
 *~
