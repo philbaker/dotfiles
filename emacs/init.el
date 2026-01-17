@@ -338,7 +338,7 @@
   (setq org-habit-graph-column 60)
   (setq org-habit-show-all-today t)
   (setq org-todo-keywords
-    '((sequence "REPEAT(r)" "TODO(t)" "NEXT(n)" "ACTIVE(a!)" "C REVIEW(o)" "S REVIEW(e)" "HOLD(l@/!)" "WAITING(w@/!)" "SOMEDAY(s)" "PROJ(p)" "|" "DONE(d!)" "CANCELLED(c@/!)")
+    '((sequence "REPEAT(r)" "TODO(t)" "NEXT(n)" "ACTIVE(a!)" "C REVIEW(o)" "S REVIEW(e)" "CS REVIEW(v)" "HOLD(l@/!)" "WAITING(w@/!)" "SOMEDAY(s)" "PROJ(p)" "|" "DONE(d!)" "CANCELLED(c@/!)")
       (sequence "HABIT(h)" "|" "DONE(d!)")))
   (setq org-todo-keyword-faces
     '(("REPEAT" . "white")
@@ -348,6 +348,7 @@
       ("ACTIVE" . "yellow")
       ("C REVIEW" . "aquamarine")
       ("S REVIEW" . "pale green")
+      ("CS REVIEW" . "cornflower blue")
       ("HOLD" . "orange")
       ("WAITING" . "salmon")
       ("SOMEDAY" . "wheat")
