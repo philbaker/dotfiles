@@ -97,6 +97,11 @@
       (vim.api.nvim_buf_set_lines 0 -1 -1 false lines))))
 
 (util.set-uc
+  "Bro"
+  (fn []
+    (vim.cmd (.. ":e " notes-dir "/all/clo/src/scittle/browser.cljs"))))
+
+(util.set-uc
   "Jote"
   (fn []
     (vim.cmd (.. ":e " jotes-dir "/" (os.date "!%Y%m%d-daily.md")))))

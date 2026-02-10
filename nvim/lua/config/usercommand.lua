@@ -1,6 +1,6 @@
 -- [nfnl] fnl/config/usercommand.fnl
 local _local_1_ = require("nfnl.module")
-local autoload = _local_1_["autoload"]
+local autoload = _local_1_.autoload
 local nvim = autoload("nvim")
 local util = autoload("config.util")
 local function _2_(opts)
@@ -115,50 +115,54 @@ local function _22_()
 end
 util["set-uc"]("ChSt", _22_)
 local function _23_()
+  return vim.cmd((":e " .. notes_dir .. "/all/clo/src/scittle/browser.cljs"))
+end
+util["set-uc"]("Bro", _23_)
+local function _24_()
   return vim.cmd((":e " .. jotes_dir .. "/" .. os.date("!%Y%m%d-daily.md")))
 end
-util["set-uc"]("Jote", _23_)
-local function _24_()
+util["set-uc"]("Jote", _24_)
+local function _25_()
   return vim.fn.feedkeys((":e " .. os.date("!%Y%m%d-daily.md")))
 end
-util["set-uc"]("Kote", _24_)
-local function _25_(opts)
+util["set-uc"]("Kote", _25_)
+local function _26_(opts)
   return vim.cmd((":e " .. notes_dir .. "/none/" .. os.date("!%Y%m%d-") .. opts.args))
 end
-util["set-uc"]("Note", _25_, {nargs = "?"})
-local function _26_(opts)
+util["set-uc"]("Note", _26_, {nargs = "?"})
+local function _27_(opts)
   return vim.cmd((":e " .. notes_dir .. "/" .. clo_dir .. "/notebooks/" .. os.date("!%Y%m%d-") .. opts.args))
 end
-util["set-uc"]("Notee", _26_, {nargs = "?"})
-local function _27_(opts)
+util["set-uc"]("Notee", _27_, {nargs = "?"})
+local function _28_(opts)
   return vim.cmd((":e " .. notes_dir .. "/home/" .. os.date("!%Y%m%d-") .. opts.args))
 end
-util["set-uc"]("Noteh", _27_, {nargs = "?"})
-local function _28_(opts)
+util["set-uc"]("Noteh", _28_, {nargs = "?"})
+local function _29_(opts)
   return vim.cmd((":3T bb scripts/encrypt.clj " .. opts.args))
 end
-util["set-uc"]("EncryptNotes", _28_, {nargs = "?"})
-local function _29_(opts)
+util["set-uc"]("EncryptNotes", _29_, {nargs = "?"})
+local function _30_(opts)
   return vim.cmd((":3T bb scripts/decrypt.clj " .. opts.args))
 end
-util["set-uc"]("DecryptNotes", _29_, {nargs = "?"})
-local function _30_()
+util["set-uc"]("DecryptNotes", _30_, {nargs = "?"})
+local function _31_()
   util.cmdtc("<C-W>j")
   vim.cmd("resize 10")
   return util.cmdtc("<C-W>k")
 end
-util["set-uc"]("Resize10", _30_)
-local function _31_()
+util["set-uc"]("Resize10", _31_)
+local function _32_()
   return vim.cmd(":e ~/neotes/none/cycle.md")
 end
-util["set-uc"]("Pro", _31_)
-local function _32_()
+util["set-uc"]("Pro", _32_)
+local function _33_()
   vim.cmd("sp")
   vim.cmd("normal 'C")
   vim.cmd("resize 10")
   return util.cmdtc("<C-w>k")
 end
-util["set-uc"]("Rsp", _32_, {nargs = "?"})
+util["set-uc"]("Rsp", _33_, {nargs = "?"})
 local function timestamp()
   return os.date("%Y-%m-%d %H:%M:%S")
 end
@@ -168,22 +172,22 @@ end
 local function timestamp_filepath()
   return (timestamp() .. " " .. filepath())
 end
-local function _33_()
+local function _34_()
   return vim.fn.setreg("+", filepath())
 end
-util["set-uc"]("Ypath", _33_)
-local function _34_()
+util["set-uc"]("Ypath", _34_)
+local function _35_()
   return vim.fn.setreg("+", timestamp())
 end
-util["set-uc"]("Yts", _34_)
-local function _35_()
+util["set-uc"]("Yts", _35_)
+local function _36_()
   return vim.fn.setreg("+", timestamp_filepath())
 end
-util["set-uc"]("Ytspath", _35_)
-local function _36_()
+util["set-uc"]("Ytspath", _36_)
+local function _37_()
   vim.cmd(":FasterDisableLsp")
   vim.cmd(":FasterDisableTreesitter")
   return vim.cmd(":FasterDisableMatchparen")
 end
-util["set-uc"]("FasterFix", _36_)
+util["set-uc"]("FasterFix", _37_)
 return {}

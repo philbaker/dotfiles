@@ -152,6 +152,9 @@
    ; switch buffer
    (km "<leader>u" {:desc "Switch buffer"} "<C-^>")
 
+   ; browser
+   (km "<leader>b" {:desc "Browser buffer"} ":Bro<CR>")
+
    ; window management
    (km "<leader>w" {:group "Window / Smart Splits"})
 
