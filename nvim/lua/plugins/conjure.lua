@@ -1,6 +1,6 @@
 -- [nfnl] fnl/plugins/conjure.fnl
 local _local_1_ = require("nfnl.module")
-local autoload = _local_1_["autoload"]
+local autoload = _local_1_.autoload
 local nvim = autoload("nvim")
 local function _2_()
   nvim.g["conjure#mapping#doc_word"] = "K"
@@ -8,6 +8,7 @@ local function _2_()
   nvim.g["conjure#client#clojure#nrepl#connection#auto_repl#enabled"] = false
   nvim.g["conjure#hud#ignore_low_priority"] = "v:true"
   nvim.g["conjure#mapping#prefix"] = "<leader>c"
+  nvim.g["conjure#client#clojure#nrepl#connection#default_host"] = "127.0.0.1"
   return nil
 end
 return {{"Olical/conjure", branch = "main", init = _2_}}
