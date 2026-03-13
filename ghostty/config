@@ -1,9 +1,9 @@
-font-size = 18
+font-size = 16
 font-family = "Fira Code"
 font-thicken = true
 
-window-padding-x = 6
-window-padding-y = 6
+window-padding-x = 0
+window-padding-y = 0
 
 cursor-style = block
 
