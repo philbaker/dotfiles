@@ -265,7 +265,11 @@
     :action (activator "Github Desktop")}
    {:key :v
     :title "Figma"
-    :action (activator "Figma")}])
+    :action (activator "Figma")}
+   {:key :l
+    :title "Ghostty"
+    :action (activator "Ghostty")}
+   ])
 
 (local media-bindings
   [return
