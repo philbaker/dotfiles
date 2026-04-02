@@ -298,6 +298,11 @@
   [return
    {:key :c
     :title "Capture"
+    :action (fn []
+              (io.popen "/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -e '(org-capture nil \"t\")' &")
+              (hs.application.launchOrFocus "Emacs"))}
+   {:key :c
+    :title "Capture"
     :action (fn [] (emacs.capture))}
    {:key :z
     :title "Note"
